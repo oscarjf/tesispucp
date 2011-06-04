@@ -17,7 +17,8 @@ CREATE TABLE Area
 	Id_Area              int IDENTITY (1,1) ,
 	Descripcion          varchar(200)  NULL ,
 	Nombre               varchar(30)  NOT NULL ,
-	TipoArea             varchar(14)  NOT NULL 
+	TipoArea             varchar(14)  NOT NULL ,
+	Estado               varchar(8)  NULL 
 )
 go
 
@@ -116,7 +117,8 @@ CREATE TABLE Especialidad
 (
 	Id_Especialidad      int IDENTITY (1,1) ,
 	Descripcion          varchar(200)  NULL ,
-	Nombre               varchar(30)  NOT NULL 
+	Nombre               varchar(30)  NOT NULL ,
+	Estado               varchar(8)  NULL 
 )
 go
 

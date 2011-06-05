@@ -141,7 +141,7 @@
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(564, 390);
+            this.tbpBuscar.Size = new System.Drawing.Size(780, 390);
             this.tbpBuscar.TabIndex = 0;
             this.tbpBuscar.Text = "Buscar";
             this.tbpBuscar.UseVisualStyleBackColor = true;
@@ -386,6 +386,7 @@
             // txtCorreoElectronico
             // 
             this.txtCorreoElectronico.Location = new System.Drawing.Point(10, 114);
+            this.txtCorreoElectronico.MaxLength = 60;
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(195, 20);
             this.txtCorreoElectronico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -395,6 +396,7 @@
             // txtCelular
             // 
             this.txtCelular.Location = new System.Drawing.Point(10, 75);
+            this.txtCelular.MaxLength = 10;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(112, 20);
             this.txtCelular.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -404,6 +406,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(10, 35);
+            this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(112, 20);
             this.txtTelefono.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -456,7 +459,9 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(10, 83);
+            this.txtDireccion.MaxLength = 200;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(521, 20);
             this.txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -489,6 +494,7 @@
             this.cboProvinciaDomicilio.Name = "cboProvinciaDomicilio";
             this.cboProvinciaDomicilio.Size = new System.Drawing.Size(122, 21);
             this.cboProvinciaDomicilio.TabIndex = 21;
+            this.cboProvinciaDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboProvinciaDomicilio_SelectedIndexChanged);
             // 
             // cboDepartamentoDomicilio
             // 
@@ -498,6 +504,7 @@
             this.cboDepartamentoDomicilio.Name = "cboDepartamentoDomicilio";
             this.cboDepartamentoDomicilio.Size = new System.Drawing.Size(119, 21);
             this.cboDepartamentoDomicilio.TabIndex = 20;
+            this.cboDepartamentoDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboDepartamentoDomicilio_SelectedIndexChanged);
             // 
             // lblDistritoDomicilio
             // 
@@ -546,6 +553,7 @@
             // cboDistrito
             // 
             this.cboDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDistrito.Enabled = false;
             this.cboDistrito.FormattingEnabled = true;
             this.cboDistrito.Location = new System.Drawing.Point(406, 32);
             this.cboDistrito.Name = "cboDistrito";
@@ -555,20 +563,24 @@
             // cboProvincia
             // 
             this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProvincia.Enabled = false;
             this.cboProvincia.FormattingEnabled = true;
             this.cboProvincia.Location = new System.Drawing.Point(275, 32);
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(122, 21);
             this.cboProvincia.TabIndex = 17;
+            this.cboProvincia.SelectedIndexChanged += new System.EventHandler(this.cboProvincia_SelectedIndexChanged);
             // 
             // cboDepartamento
             // 
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDepartamento.Enabled = false;
             this.cboDepartamento.FormattingEnabled = true;
             this.cboDepartamento.Location = new System.Drawing.Point(147, 32);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(119, 21);
             this.cboDepartamento.TabIndex = 16;
+            this.cboDepartamento.SelectedIndexChanged += new System.EventHandler(this.cboDepartamento_SelectedIndexChanged);
             // 
             // lblDistrito
             // 
@@ -605,6 +617,7 @@
             this.cboPais.Name = "cboPais";
             this.cboPais.Size = new System.Drawing.Size(125, 21);
             this.cboPais.TabIndex = 15;
+            this.cboPais.SelectedIndexChanged += new System.EventHandler(this.cboPais_SelectedIndexChanged);
             // 
             // lblPais
             // 
@@ -677,7 +690,9 @@
             // 
             // txtCMP
             // 
+            this.txtCMP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCMP.Location = new System.Drawing.Point(275, 33);
+            this.txtCMP.MaxLength = 5;
             this.txtCMP.Name = "txtCMP";
             this.txtCMP.Size = new System.Drawing.Size(100, 20);
             this.txtCMP.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -697,9 +712,6 @@
             // 
             this.cboEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEspecialidad.FormattingEnabled = true;
-            this.cboEspecialidad.Items.AddRange(new object[] {
-            "MASCULINO",
-            "FEMENINO"});
             this.cboEspecialidad.Location = new System.Drawing.Point(144, 32);
             this.cboEspecialidad.Name = "cboEspecialidad";
             this.cboEspecialidad.Size = new System.Drawing.Size(125, 21);
@@ -718,9 +730,6 @@
             // 
             this.cboArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboArea.FormattingEnabled = true;
-            this.cboArea.Items.AddRange(new object[] {
-            "MASCULINO",
-            "FEMENINO"});
             this.cboArea.Location = new System.Drawing.Point(10, 32);
             this.cboArea.Name = "cboArea";
             this.cboArea.Size = new System.Drawing.Size(125, 21);
@@ -760,7 +769,9 @@
             // 
             // txtNumeroDocumento
             // 
+            this.txtNumeroDocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumeroDocumento.Location = new System.Drawing.Point(406, 75);
+            this.txtNumeroDocumento.MaxLength = 20;
             this.txtNumeroDocumento.Name = "txtNumeroDocumento";
             this.txtNumeroDocumento.Size = new System.Drawing.Size(125, 20);
             this.txtNumeroDocumento.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -769,7 +780,9 @@
             // 
             // txtNombres
             // 
+            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombres.Location = new System.Drawing.Point(272, 35);
+            this.txtNombres.MaxLength = 60;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(259, 20);
             this.txtNombres.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -778,7 +791,9 @@
             // 
             // txtMaterno
             // 
+            this.txtMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMaterno.Location = new System.Drawing.Point(141, 35);
+            this.txtMaterno.MaxLength = 30;
             this.txtMaterno.Name = "txtMaterno";
             this.txtMaterno.Size = new System.Drawing.Size(125, 20);
             this.txtMaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -787,7 +802,9 @@
             // 
             // txtPaterno
             // 
+            this.txtPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPaterno.Location = new System.Drawing.Point(10, 35);
+            this.txtPaterno.MaxLength = 30;
             this.txtPaterno.Name = "txtPaterno";
             this.txtPaterno.Size = new System.Drawing.Size(125, 20);
             this.txtPaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -829,6 +846,7 @@
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(125, 21);
             this.cboTipoDocumento.TabIndex = 6;
+            this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
             // 
             // lblTipoDocumento
             // 
@@ -844,6 +862,7 @@
             this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Items.AddRange(new object[] {
+            "SELECCIONAR",
             "MASCULINO",
             "FEMENINO"});
             this.cboSexo.Location = new System.Drawing.Point(10, 75);

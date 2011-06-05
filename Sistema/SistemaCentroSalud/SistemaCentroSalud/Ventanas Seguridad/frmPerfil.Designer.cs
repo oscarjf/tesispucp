@@ -29,6 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfil));
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Paciente");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Cita");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Consulta");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Doctor");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Enfermero");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Técnico");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Administrativo");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Historia Clínica Completa");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Historia Clínica");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Formulario HIS");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Doctor", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Áreas");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Especialidades Médicas");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Horario");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
+            treeNode36,
+            treeNode37,
+            treeNode38});
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Perfil");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Auditoría");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Respaldo");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
+            treeNode40,
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Reportes");
             this.tbcPerfil = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -42,6 +80,11 @@
             this.colArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
+            this.cboEstadoBuscar = new System.Windows.Forms.ComboBox();
+            this.lblEstadoBuscar = new System.Windows.Forms.Label();
+            this.cboAreaBuscar = new System.Windows.Forms.ComboBox();
+            this.lblAreaBuscar = new System.Windows.Forms.Label();
+            this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -50,19 +93,21 @@
             this.btnIzquierda = new System.Windows.Forms.Button();
             this.btnDerecha = new System.Windows.Forms.Button();
             this.btnTodoDerecha = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.cboArea = new System.Windows.Forms.ComboBox();
-            this.lblArea = new System.Windows.Forms.Label();
-            this.txtNombre = new SistemaCentroSalud.Controles.cuTextBox();
+            this.lbxAccesosPermitidos = new System.Windows.Forms.ListBox();
+            this.tvAccesos = new System.Windows.Forms.TreeView();
+            this.gbxInformacion = new System.Windows.Forms.GroupBox();
+            this.lblNombreDetalle = new System.Windows.Forms.Label();
+            this.cboAreaDetalle = new System.Windows.Forms.ComboBox();
+            this.lblAreaDetalle = new System.Windows.Forms.Label();
+            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbcPerfil.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
+            this.gbxCriterios.SuspendLayout();
             this.tbpDetalle.SuspendLayout();
             this.gbxPermisos.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbxInformacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcPerfil
@@ -72,8 +117,10 @@
             this.tbcPerfil.Location = new System.Drawing.Point(0, 0);
             this.tbcPerfil.Name = "tbcPerfil";
             this.tbcPerfil.SelectedIndex = 0;
-            this.tbcPerfil.Size = new System.Drawing.Size(459, 318);
+            this.tbcPerfil.Size = new System.Drawing.Size(569, 318);
             this.tbcPerfil.TabIndex = 0;
+            this.tbcPerfil.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcPerfil_Selecting);
+            this.tbcPerfil.SelectedIndexChanged += new System.EventHandler(this.tbcPerfil_SelectedIndexChanged);
             // 
             // tbpBuscar
             // 
@@ -88,7 +135,7 @@
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(451, 292);
+            this.tbpBuscar.Size = new System.Drawing.Size(561, 292);
             this.tbpBuscar.TabIndex = 0;
             this.tbpBuscar.Text = "Buscar";
             this.tbpBuscar.UseVisualStyleBackColor = true;
@@ -190,18 +237,21 @@
             // 
             // colNombre
             // 
+            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNombre.HeaderText = "Nombre";
             this.colNombre.Name = "colNombre";
             this.colNombre.ReadOnly = true;
             // 
             // colArea
             // 
+            this.colArea.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colArea.HeaderText = "Área";
             this.colArea.Name = "colArea";
             this.colArea.ReadOnly = true;
             // 
             // colEstado
             // 
+            this.colEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colEstado.HeaderText = "Estado";
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
@@ -209,6 +259,12 @@
             // 
             // gbxCriterios
             // 
+            this.gbxCriterios.Controls.Add(this.cboEstadoBuscar);
+            this.gbxCriterios.Controls.Add(this.lblEstadoBuscar);
+            this.gbxCriterios.Controls.Add(this.cboAreaBuscar);
+            this.gbxCriterios.Controls.Add(this.lblAreaBuscar);
+            this.gbxCriterios.Controls.Add(this.cuTextBox1);
+            this.gbxCriterios.Controls.Add(this.lblNombreBuscar);
             this.gbxCriterios.Location = new System.Drawing.Point(8, 6);
             this.gbxCriterios.Name = "gbxCriterios";
             this.gbxCriterios.Size = new System.Drawing.Size(435, 100);
@@ -216,16 +272,65 @@
             this.gbxCriterios.TabStop = false;
             this.gbxCriterios.Text = "Criterios de Búsqueda";
             // 
+            // cboEstadoBuscar
+            // 
+            this.cboEstadoBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoBuscar.FormattingEnabled = true;
+            this.cboEstadoBuscar.Items.AddRange(new object[] {
+            "TODOS",
+            "ACTIVO",
+            "INACTIVO"});
+            this.cboEstadoBuscar.Location = new System.Drawing.Point(295, 56);
+            this.cboEstadoBuscar.Name = "cboEstadoBuscar";
+            this.cboEstadoBuscar.Size = new System.Drawing.Size(111, 21);
+            this.cboEstadoBuscar.TabIndex = 5;
+            // 
+            // lblEstadoBuscar
+            // 
+            this.lblEstadoBuscar.AutoSize = true;
+            this.lblEstadoBuscar.Location = new System.Drawing.Point(246, 59);
+            this.lblEstadoBuscar.Name = "lblEstadoBuscar";
+            this.lblEstadoBuscar.Size = new System.Drawing.Size(43, 13);
+            this.lblEstadoBuscar.TabIndex = 4;
+            this.lblEstadoBuscar.Text = "Estado:";
+            // 
+            // cboAreaBuscar
+            // 
+            this.cboAreaBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAreaBuscar.FormattingEnabled = true;
+            this.cboAreaBuscar.Location = new System.Drawing.Point(59, 56);
+            this.cboAreaBuscar.Name = "cboAreaBuscar";
+            this.cboAreaBuscar.Size = new System.Drawing.Size(157, 21);
+            this.cboAreaBuscar.TabIndex = 3;
+            // 
+            // lblAreaBuscar
+            // 
+            this.lblAreaBuscar.AutoSize = true;
+            this.lblAreaBuscar.Location = new System.Drawing.Point(6, 59);
+            this.lblAreaBuscar.Name = "lblAreaBuscar";
+            this.lblAreaBuscar.Size = new System.Drawing.Size(32, 13);
+            this.lblAreaBuscar.TabIndex = 2;
+            this.lblAreaBuscar.Text = "Área:";
+            // 
+            // lblNombreBuscar
+            // 
+            this.lblNombreBuscar.AutoSize = true;
+            this.lblNombreBuscar.Location = new System.Drawing.Point(6, 26);
+            this.lblNombreBuscar.Name = "lblNombreBuscar";
+            this.lblNombreBuscar.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreBuscar.TabIndex = 0;
+            this.lblNombreBuscar.Text = "Nombre:";
+            // 
             // tbpDetalle
             // 
             this.tbpDetalle.Controls.Add(this.btnGuardar);
             this.tbpDetalle.Controls.Add(this.btnCancelar);
             this.tbpDetalle.Controls.Add(this.gbxPermisos);
-            this.tbpDetalle.Controls.Add(this.groupBox1);
+            this.tbpDetalle.Controls.Add(this.gbxInformacion);
             this.tbpDetalle.Location = new System.Drawing.Point(4, 22);
             this.tbpDetalle.Name = "tbpDetalle";
             this.tbpDetalle.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDetalle.Size = new System.Drawing.Size(451, 292);
+            this.tbpDetalle.Size = new System.Drawing.Size(561, 292);
             this.tbpDetalle.TabIndex = 1;
             this.tbpDetalle.Text = "Detalle";
             this.tbpDetalle.UseVisualStyleBackColor = true;
@@ -241,6 +346,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -261,8 +367,8 @@
             this.gbxPermisos.Controls.Add(this.btnIzquierda);
             this.gbxPermisos.Controls.Add(this.btnDerecha);
             this.gbxPermisos.Controls.Add(this.btnTodoDerecha);
-            this.gbxPermisos.Controls.Add(this.listBox1);
-            this.gbxPermisos.Controls.Add(this.treeView1);
+            this.gbxPermisos.Controls.Add(this.lbxAccesosPermitidos);
+            this.gbxPermisos.Controls.Add(this.tvAccesos);
             this.gbxPermisos.Location = new System.Drawing.Point(8, 81);
             this.gbxPermisos.Name = "gbxPermisos";
             this.gbxPermisos.Size = new System.Drawing.Size(545, 171);
@@ -278,6 +384,7 @@
             this.btnTodoIzquierda.TabIndex = 8;
             this.btnTodoIzquierda.Text = "<<";
             this.btnTodoIzquierda.UseVisualStyleBackColor = true;
+            this.btnTodoIzquierda.Click += new System.EventHandler(this.btnTodoIzquierda_Click);
             // 
             // btnIzquierda
             // 
@@ -287,6 +394,7 @@
             this.btnIzquierda.TabIndex = 7;
             this.btnIzquierda.Text = "<";
             this.btnIzquierda.UseVisualStyleBackColor = true;
+            this.btnIzquierda.Click += new System.EventHandler(this.btnIzquierda_Click);
             // 
             // btnDerecha
             // 
@@ -296,6 +404,7 @@
             this.btnDerecha.TabIndex = 6;
             this.btnDerecha.Text = ">";
             this.btnDerecha.UseVisualStyleBackColor = true;
+            this.btnDerecha.Click += new System.EventHandler(this.btnDerecha_Click);
             // 
             // btnTodoDerecha
             // 
@@ -305,76 +414,143 @@
             this.btnTodoDerecha.TabIndex = 5;
             this.btnTodoDerecha.Text = ">>";
             this.btnTodoDerecha.UseVisualStyleBackColor = true;
+            this.btnTodoDerecha.Click += new System.EventHandler(this.btnTodoDerecha_Click);
             // 
-            // listBox1
+            // lbxAccesosPermitidos
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(322, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(212, 134);
-            this.listBox1.TabIndex = 9;
+            this.lbxAccesosPermitidos.FormattingEnabled = true;
+            this.lbxAccesosPermitidos.Location = new System.Drawing.Point(322, 19);
+            this.lbxAccesosPermitidos.Name = "lbxAccesosPermitidos";
+            this.lbxAccesosPermitidos.Size = new System.Drawing.Size(212, 134);
+            this.lbxAccesosPermitidos.TabIndex = 9;
             // 
-            // treeView1
+            // tvAccesos
             // 
-            this.treeView1.Location = new System.Drawing.Point(9, 19);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(212, 134);
-            this.treeView1.TabIndex = 4;
+            this.tvAccesos.Location = new System.Drawing.Point(9, 19);
+            this.tvAccesos.Name = "tvAccesos";
+            treeNode23.Name = "nodPaciente";
+            treeNode23.Text = "Paciente";
+            treeNode24.Name = "nodCita";
+            treeNode24.Text = "Cita";
+            treeNode25.Name = "nodConsulta";
+            treeNode25.Text = "Consulta";
+            treeNode26.Name = "nodAdmision";
+            treeNode26.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode26.Text = "Admisión";
+            treeNode27.Name = "nodDoctor";
+            treeNode27.Text = "Doctor";
+            treeNode28.Name = "nodEnfermero";
+            treeNode28.Text = "Enfermero";
+            treeNode29.Name = "nodTecnico";
+            treeNode29.Text = "Técnico";
+            treeNode30.Name = "nodAdministrativo";
+            treeNode30.Text = "Administrativo";
+            treeNode31.Name = "nodPersonal";
+            treeNode31.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode31.Text = "Personal";
+            treeNode32.Name = "nodHistoriaClinicaCompleta";
+            treeNode32.Text = "Historia Clínica Completa";
+            treeNode33.Name = "nodHistoriaClinica";
+            treeNode33.Text = "Historia Clínica";
+            treeNode34.Name = "nodFormularioHIS";
+            treeNode34.Text = "Formulario HIS";
+            treeNode35.Name = "nodDoctor";
+            treeNode35.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode35.Text = "Doctor";
+            treeNode36.Name = "nodAreas";
+            treeNode36.Text = "Áreas";
+            treeNode37.Name = "nodEspecialidadesMedicas";
+            treeNode37.Text = "Especialidades Médicas";
+            treeNode38.Name = "nodHorario";
+            treeNode38.Text = "Horario";
+            treeNode39.Name = "nodMantenimiento";
+            treeNode39.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode39.Text = "Mantenimiento";
+            treeNode40.Name = "nodPerfil";
+            treeNode40.Text = "Perfil";
+            treeNode41.Name = "nodAuditoria";
+            treeNode41.Text = "Auditoría";
+            treeNode42.Name = "nodRespaldo";
+            treeNode42.Text = "Respaldo";
+            treeNode43.Name = "nodSeguridad";
+            treeNode43.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode43.Text = "Seguridad";
+            treeNode44.Name = "nodReportes";
+            treeNode44.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode44.Text = "Reportes";
+            this.tvAccesos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode26,
+            treeNode31,
+            treeNode35,
+            treeNode39,
+            treeNode43,
+            treeNode44});
+            this.tvAccesos.Size = new System.Drawing.Size(212, 134);
+            this.tvAccesos.TabIndex = 4;
             // 
-            // groupBox1
+            // gbxInformacion
             // 
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.lblNombre);
-            this.groupBox1.Controls.Add(this.cboArea);
-            this.groupBox1.Controls.Add(this.lblArea);
-            this.groupBox1.Location = new System.Drawing.Point(8, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(545, 69);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gbxInformacion.Controls.Add(this.txtNombreDetalle);
+            this.gbxInformacion.Controls.Add(this.lblNombreDetalle);
+            this.gbxInformacion.Controls.Add(this.cboAreaDetalle);
+            this.gbxInformacion.Controls.Add(this.lblAreaDetalle);
+            this.gbxInformacion.Location = new System.Drawing.Point(8, 6);
+            this.gbxInformacion.Name = "gbxInformacion";
+            this.gbxInformacion.Size = new System.Drawing.Size(545, 69);
+            this.gbxInformacion.TabIndex = 0;
+            this.gbxInformacion.TabStop = false;
+            this.gbxInformacion.Text = "Información";
             // 
-            // lblNombre
+            // lblNombreDetalle
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(231, 16);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombreDetalle.AutoSize = true;
+            this.lblNombreDetalle.Location = new System.Drawing.Point(6, 16);
+            this.lblNombreDetalle.Name = "lblNombreDetalle";
+            this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreDetalle.TabIndex = 2;
+            this.lblNombreDetalle.Text = "Nombre:";
             // 
-            // cboArea
+            // cboAreaDetalle
             // 
-            this.cboArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboArea.FormattingEnabled = true;
-            this.cboArea.Location = new System.Drawing.Point(9, 32);
-            this.cboArea.Name = "cboArea";
-            this.cboArea.Size = new System.Drawing.Size(150, 21);
-            this.cboArea.TabIndex = 1;
+            this.cboAreaDetalle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAreaDetalle.FormattingEnabled = true;
+            this.cboAreaDetalle.Location = new System.Drawing.Point(234, 32);
+            this.cboAreaDetalle.Name = "cboAreaDetalle";
+            this.cboAreaDetalle.Size = new System.Drawing.Size(176, 21);
+            this.cboAreaDetalle.TabIndex = 1;
             // 
-            // lblArea
+            // lblAreaDetalle
             // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(6, 16);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(32, 13);
-            this.lblArea.TabIndex = 0;
-            this.lblArea.Text = "Área:";
+            this.lblAreaDetalle.AutoSize = true;
+            this.lblAreaDetalle.Location = new System.Drawing.Point(231, 16);
+            this.lblAreaDetalle.Name = "lblAreaDetalle";
+            this.lblAreaDetalle.Size = new System.Drawing.Size(32, 13);
+            this.lblAreaDetalle.TabIndex = 0;
+            this.lblAreaDetalle.Text = "Área:";
             // 
-            // txtNombre
+            // cuTextBox1
             // 
-            this.txtNombre.Location = new System.Drawing.Point(234, 32);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(150, 20);
-            this.txtNombre.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombre.TabIndex = 2;
-            this.txtNombre.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
+            this.cuTextBox1.Name = "cuTextBox1";
+            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
+            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.cuTextBox1.TabIndex = 1;
+            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtNombreDetalle
+            // 
+            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
+            this.txtNombreDetalle.Name = "txtNombreDetalle";
+            this.txtNombreDetalle.Size = new System.Drawing.Size(196, 20);
+            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreDetalle.TabIndex = 2;
+            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // frmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 317);
+            this.ClientSize = new System.Drawing.Size(568, 317);
             this.Controls.Add(this.tbcPerfil);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -386,10 +562,12 @@
             this.tbcPerfil.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).EndInit();
+            this.gbxCriterios.ResumeLayout(false);
+            this.gbxCriterios.PerformLayout();
             this.tbpDetalle.ResumeLayout(false);
             this.gbxPermisos.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbxInformacion.ResumeLayout(false);
+            this.gbxInformacion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -400,23 +578,20 @@
         private System.Windows.Forms.TabPage tbpBuscar;
         private System.Windows.Forms.TabPage tbpDetalle;
         private System.Windows.Forms.GroupBox gbxPermisos;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxInformacion;
         private System.Windows.Forms.Button btnTodoIzquierda;
         private System.Windows.Forms.Button btnIzquierda;
         private System.Windows.Forms.Button btnDerecha;
         private System.Windows.Forms.Button btnTodoDerecha;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ComboBox cboArea;
-        private System.Windows.Forms.Label lblArea;
-        private SistemaCentroSalud.Controles.cuTextBox txtNombre;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.ListBox lbxAccesosPermitidos;
+        private System.Windows.Forms.TreeView tvAccesos;
+        private System.Windows.Forms.ComboBox cboAreaDetalle;
+        private System.Windows.Forms.Label lblAreaDetalle;
+        private SistemaCentroSalud.Controles.cuTextBox txtNombreDetalle;
+        private System.Windows.Forms.Label lblNombreDetalle;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvPerfiles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.GroupBox gbxCriterios;
         private System.Windows.Forms.Button btnActivar;
         private System.Windows.Forms.Button btnVer;
@@ -424,5 +599,14 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnInactivar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colArea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.ComboBox cboEstadoBuscar;
+        private System.Windows.Forms.Label lblEstadoBuscar;
+        private System.Windows.Forms.ComboBox cboAreaBuscar;
+        private System.Windows.Forms.Label lblAreaBuscar;
+        private SistemaCentroSalud.Controles.cuTextBox cuTextBox1;
+        private System.Windows.Forms.Label lblNombreBuscar;
     }
 }

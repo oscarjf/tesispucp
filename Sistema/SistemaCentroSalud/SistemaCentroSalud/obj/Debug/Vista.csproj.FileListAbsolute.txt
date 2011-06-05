@@ -46,3 +46,7 @@ C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCita.resources
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmFormularioHIS.resources
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmConsulta.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmArea.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.dll
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmEspecialidad.resources

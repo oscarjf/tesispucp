@@ -274,5 +274,19 @@ namespace SistemaCentroSalud
             ventanaFormularios.MdiParent = this;
             ventanaFormularios.Show();
         }
+
+        private void smnuArea_Click(object sender, EventArgs e)
+        {
+            frmArea ventanaArea = new frmArea();
+            ventanaArea.MdiParent = this;
+            ventanaArea.Show();
+        }
+
+        private void smnuEspecialidad_Click(object sender, EventArgs e)
+        {
+            frmEspecialidad ventanaEspecialidad = new frmEspecialidad();
+            ventanaEspecialidad.MdiParent = this;
+            ventanaEspecialidad.Show();
+        }
     }
 }

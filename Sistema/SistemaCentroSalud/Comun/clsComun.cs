@@ -12,6 +12,15 @@ namespace Comun
 {
     public class clsComun
     {
+        public const int INSERT = 0;
+        public const int UPDATE = 1;
+        public const int DELETE = 2;
+        public const int RECOVER = 3;
+        public const int SELECT = 4;
+        public const int SELECTALL = 5;
+        public const int SELECTCUSTOM = 6;
+        public const int VER = 7;
+
         public static void registrarErrorLog(string strError)
         {
             try

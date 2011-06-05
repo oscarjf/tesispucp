@@ -219,7 +219,7 @@
             this.smnuEnfermera.Name = "smnuEnfermera";
             this.smnuEnfermera.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.smnuEnfermera.Size = new System.Drawing.Size(194, 22);
-            this.smnuEnfermera.Text = "Enfermera";
+            this.smnuEnfermera.Text = "Enfermero";
             this.smnuEnfermera.Click += new System.EventHandler(this.smnuEnfermera_Click);
             // 
             // smnuTecnico
@@ -328,6 +328,7 @@
             this.smnuArea.Name = "smnuArea";
             this.smnuArea.Size = new System.Drawing.Size(197, 22);
             this.smnuArea.Text = "Áreas";
+            this.smnuArea.Click += new System.EventHandler(this.smnuArea_Click);
             // 
             // smnuEspecialidad
             // 
@@ -335,6 +336,7 @@
             this.smnuEspecialidad.Name = "smnuEspecialidad";
             this.smnuEspecialidad.Size = new System.Drawing.Size(197, 22);
             this.smnuEspecialidad.Text = "Especialidades Médicas";
+            this.smnuEspecialidad.Click += new System.EventHandler(this.smnuEspecialidad_Click);
             // 
             // toolStripSeparator9
             // 
@@ -361,7 +363,7 @@
             // 
             this.smnuCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("smnuCalculadora.Image")));
             this.smnuCalculadora.Name = "smnuCalculadora";
-            this.smnuCalculadora.Size = new System.Drawing.Size(152, 22);
+            this.smnuCalculadora.Size = new System.Drawing.Size(147, 22);
             this.smnuCalculadora.Text = "Calculadora";
             this.smnuCalculadora.Click += new System.EventHandler(this.smnuCalculadora_Click);
             // 
@@ -369,7 +371,7 @@
             // 
             this.smnuBlocDeNotas.Image = ((System.Drawing.Image)(resources.GetObject("smnuBlocDeNotas.Image")));
             this.smnuBlocDeNotas.Name = "smnuBlocDeNotas";
-            this.smnuBlocDeNotas.Size = new System.Drawing.Size(152, 22);
+            this.smnuBlocDeNotas.Size = new System.Drawing.Size(147, 22);
             this.smnuBlocDeNotas.Text = "Bloc de Notas";
             this.smnuBlocDeNotas.Click += new System.EventHandler(this.smnuBlocDeNotas_Click);
             // 
@@ -388,7 +390,7 @@
             // 
             this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(152, 22);
+            this.smnuPerfil.Size = new System.Drawing.Size(123, 22);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
@@ -396,19 +398,19 @@
             // 
             this.auditoríaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("auditoríaToolStripMenuItem.Image")));
             this.auditoríaToolStripMenuItem.Name = "auditoríaToolStripMenuItem";
-            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.auditoríaToolStripMenuItem.Text = "Auditoría";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(120, 6);
             // 
             // smnuRespaldo
             // 
             this.smnuRespaldo.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldo.Image")));
             this.smnuRespaldo.Name = "smnuRespaldo";
-            this.smnuRespaldo.Size = new System.Drawing.Size(152, 22);
+            this.smnuRespaldo.Size = new System.Drawing.Size(123, 22);
             this.smnuRespaldo.Text = "Respaldo";
             // 
             // mnuReportes

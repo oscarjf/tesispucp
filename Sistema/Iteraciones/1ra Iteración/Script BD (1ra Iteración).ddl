@@ -57,7 +57,7 @@ CREATE TABLE DetalleHorario
 	Dia                  varchar(10)  NULL ,
 	HoraInicio           datetime  NULL ,
 	HoraFin              datetime  NULL ,
-	Id_DetalleHorario    int  NOT NULL ,
+	Id_DetalleHorario    int IDENTITY (1,1) ,
 	Id_Horario           int  NULL 
 )
 go
@@ -143,7 +143,7 @@ go
 
 CREATE TABLE Horario
 (
-	Id_Horario           int  NOT NULL 
+	Id_Horario           int IDENTITY (1,1) 
 )
 go
 
@@ -180,6 +180,19 @@ go
 
 ALTER TABLE PacientesAtendidos
 	ADD CONSTRAINT XPKPacientesAtendidos PRIMARY KEY (Id_PacientesAtendidos ASC)
+go
+
+
+CREATE TABLE Pais
+(
+	Id_Pais              int IDENTITY (1,1) ,
+	Nombre               varchar(40)  NULL 
+)
+go
+
+
+ALTER TABLE Pais
+	ADD CONSTRAINT XPKPais PRIMARY KEY (Id_Pais ASC)
 go
 
 

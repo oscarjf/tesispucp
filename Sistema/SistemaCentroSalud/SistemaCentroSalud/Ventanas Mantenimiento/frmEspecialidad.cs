@@ -31,7 +31,7 @@ namespace SistemaCentroSalud
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
 
-            dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+            dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
             llenarGrilla(dtEspecialidad);
         }
@@ -87,7 +87,7 @@ namespace SistemaCentroSalud
             txtNombreDetalle.Text = dtEspecialidad.Rows[0][1].ToString();
             rtxtDescripcionDetalle.Text = dtEspecialidad.Rows[0][2].ToString();
 
-            if (numAccion == clsComun.VER)
+            if (numAccion == clsGestorBD.VER)
             {
                 txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
                 rtxtDescripcionDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.verdadero;
@@ -123,7 +123,7 @@ namespace SistemaCentroSalud
 
             txtNombreDetalle.Focus();
 
-            numAccion = clsComun.INSERT;
+            numAccion = clsGestorBD.INSERT;
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -132,11 +132,11 @@ namespace SistemaCentroSalud
             {
                 try
                 {
-                    numAccion = clsComun.VER;
+                    numAccion = clsGestorBD.VER;
 
                     numIdEspecialidad = Int32.Parse(dgvEspecialidades.Rows[dgvEspecialidades.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    DataTable dtEspecialidad = clsGestorBD.up_SelEspecialidad(numIdEspecialidad, "", "", clsComun.SELECT);
+                    DataTable dtEspecialidad = clsGestorBD.up_SelEspecialidad(numIdEspecialidad, "", "", clsGestorBD.SELECT);
 
                     mostrarDatos(numAccion, dtEspecialidad);
 
@@ -155,11 +155,11 @@ namespace SistemaCentroSalud
             {
                 try
                 {
-                    numAccion = clsComun.UPDATE;
+                    numAccion = clsGestorBD.UPDATE;
 
                     numIdEspecialidad = Int32.Parse(dgvEspecialidades.Rows[dgvEspecialidades.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    DataTable dtEspecialidad = clsGestorBD.up_SelEspecialidad(numIdEspecialidad, "", "", clsComun.SELECT);
+                    DataTable dtEspecialidad = clsGestorBD.up_SelEspecialidad(numIdEspecialidad, "", "", clsGestorBD.SELECT);
 
                     mostrarDatos(numAccion, dtEspecialidad);
 
@@ -179,13 +179,13 @@ namespace SistemaCentroSalud
                 try
                 {
                     numIdEspecialidad = Int32.Parse(dgvEspecialidades.Rows[dgvEspecialidades.CurrentRow.Index].Cells[0].Value.ToString());
-                    if (clsGestorBD.up_ManEspecialidad(numIdEspecialidad, "", "", clsComun.DELETE))
+                    if (clsGestorBD.up_ManEspecialidad(numIdEspecialidad, "", "", clsGestorBD.DELETE))
                     {
                         MessageBox.Show("La especialidad se inactivó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
                     }
@@ -208,13 +208,13 @@ namespace SistemaCentroSalud
                 try
                 {
                     numIdEspecialidad = Int32.Parse(dgvEspecialidades.Rows[dgvEspecialidades.CurrentRow.Index].Cells[0].Value.ToString());
-                    if (clsGestorBD.up_ManEspecialidad(numIdEspecialidad, "", "", clsComun.RECOVER))
+                    if (clsGestorBD.up_ManEspecialidad(numIdEspecialidad, "", "", clsGestorBD.RECOVER))
                     {
                         MessageBox.Show("La especialidad se activó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
                     }
@@ -241,7 +241,7 @@ namespace SistemaCentroSalud
             {
                 if (clsGestorBD.up_ManEspecialidad(numIdEspecialidad, txtNombreDetalle.Text, rtxtDescripcionDetalle.Text, numAccion))
                 {
-                    if (numAccion == clsComun.INSERT)
+                    if (numAccion == clsGestorBD.INSERT)
                     {
                         if (MessageBox.Show("La especialidad se registró exitosamente\n¿Desea seguir registrando especialidades?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
@@ -251,7 +251,7 @@ namespace SistemaCentroSalud
                         {
                             limpiarCampos();
 
-                            DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+                            DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
                             llenarGrilla(dtTemporal);
 
@@ -264,7 +264,7 @@ namespace SistemaCentroSalud
 
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
 
@@ -273,7 +273,7 @@ namespace SistemaCentroSalud
                 }
                 else
                 {
-                    if (numAccion == clsComun.INSERT)
+                    if (numAccion == clsGestorBD.INSERT)
                     {
                         MessageBox.Show("Ocurrió un error mientras se intentaba registrar la especialidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -289,7 +289,7 @@ namespace SistemaCentroSalud
         {
             limpiarCampos();
 
-            DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsComun.SELECTALL);
+            DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
 
             llenarGrilla(dtTemporal);
 
@@ -314,7 +314,7 @@ namespace SistemaCentroSalud
         {
             try
             {
-                dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, txtNombreBuscar.Text, cboEstadoBuscar.Text, clsComun.SELECTCUSTOM);
+                dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, txtNombreBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
                 llenarGrilla(dtEspecialidad);
             }
             catch
@@ -326,7 +326,7 @@ namespace SistemaCentroSalud
         {
             try
             {
-                dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, txtNombreBuscar.Text, cboEstadoBuscar.Text, clsComun.SELECTCUSTOM);
+                dtEspecialidad = clsGestorBD.up_SelEspecialidad(0, txtNombreBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
                 llenarGrilla(dtEspecialidad);
             }
             catch

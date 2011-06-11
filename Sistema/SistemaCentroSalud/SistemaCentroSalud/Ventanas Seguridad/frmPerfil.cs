@@ -27,7 +27,7 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
 
-            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("ACTIVO");
+            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("TODOS", "TODOS");
             llenarComboArea(lstAreas);
             cboAreaBuscar.SelectedIndex = 0;
             cboAreaDetalle.SelectedIndex = 0;

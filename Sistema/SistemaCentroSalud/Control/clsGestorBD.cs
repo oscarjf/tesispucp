@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using Comun;
 using System.Data.SqlClient;
 using System.IO;
+using Comun;
 
 namespace Control
 {
     public class clsGestorBD
     {
+        public const int INSERT = 0;
+        public const int UPDATE = 1;
+        public const int DELETE = 2;
+        public const int RECOVER = 3;
+        public const int SELECT = 4;
+        public const int SELECTALL = 5;
+        public const int SELECTCUSTOM = 6;
+        public const int VER = 7;
+
         private static string strRuta = AppDomain.CurrentDomain.BaseDirectory;
         private static TextReader tr = new StreamReader(strRuta + "\\Acceso.txt");
         private static string strServidor = tr.ReadLine();
@@ -405,12 +414,43 @@ namespace Control
         {
             DataTable dt = new DataTable();
 
-            return dt;
+            try
+            {
+                SqlConnection sqlConexion = Conectar();
+                SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
+                sqlConexion.Open();
+                SqlDataAdapter da = new SqlDataAdapter(sqlComando);
+                da.Fill(dt);
+
+                sqlConexion.Close();
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+                return null;
+            }
         }
 
-        public static void ejecutarSentencia(String strSentenciaSQL)
+        public static bool ejecutarSentencia(String strSentenciaSQL)
         {
+            try
+            {
+                SqlConnection sqlConexion = Conectar();
+                SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
+                sqlConexion.Open();
 
+                sqlComando.ExecuteNonQuery();
+                sqlConexion.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+                return false;
+            }
         }
     }
 }

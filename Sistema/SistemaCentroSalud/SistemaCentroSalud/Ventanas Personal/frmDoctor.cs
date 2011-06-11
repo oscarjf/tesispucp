@@ -32,12 +32,13 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void inicializarVentana()
         {
             cboSexo.SelectedIndex = 0;
+            cboEstadoCivil.SelectedIndex = 0;
 
             List<clsTipoDocumento> lstTipoDocumentos = clsGestorLogico.up_SelTipoDocumento();
             llenarComboTipoDocumento(lstTipoDocumentos);
             cboTipoDocumento.SelectedIndex = 0;
 
-            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("ACTIVO");
+            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("MÉDICA", "ACTIVO");
             llenarComboArea(lstAreas);
             cboArea.SelectedIndex = 0;
 
@@ -189,10 +190,32 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
-        private bool validarFecha(string strFecha)
+        private string generarNombreUsuario(string strNombre, string strApellidoPaterno, string strApellidoMaterno)
         {
-            return true;
-            //FALTÀ
+            int numNumeroOcurrencias;
+            string strNombreUsuario = strNombre[0] + strApellidoPaterno + strApellidoMaterno[0];
+
+            numNumeroOcurrencias = clsGestorLogico.numeroOcurrenciasUsuario(strNombreUsuario);
+
+            if (numNumeroOcurrencias != 0)
+            {
+                strNombreUsuario = strNombreUsuario + numNumeroOcurrencias;
+            }
+
+            return strNombreUsuario;
+        }
+
+
+        private bool validarFecha(DateTime dtFechaNacimiento)
+        {
+            if (DateTime.Today.AddYears(-18).CompareTo(dtFechaNacimiento) >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool validarNumeroDocumento(string strNumeroDocumento)
@@ -215,185 +238,194 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 {
                     if (txtNombres.Text.CompareTo("") != 0)
                     {
-                        if (cboSexo.Text.CompareTo("SELECCIONAR") != 0)
+                        if (cboEstadoCivil.Text.CompareTo("SELECCIONAR") != 0)
                         {
-                            if (validarFecha(dtpFechaNacimiento.Text))
+                            if (cboSexo.Text.CompareTo("SELECCIONAR") != 0)
                             {
-                                if (cboTipoDocumento.Text.CompareTo("SELECCIONAR") != 0)
+                                if (validarFecha(dtpFechaNacimiento.Value))
                                 {
-                                    if (txtNumeroDocumento.Text.CompareTo("") != 0)
+                                    if (cboTipoDocumento.Text.CompareTo("SELECCIONAR") != 0)
                                     {
-                                        if (validarNumeroDocumento(txtNumeroDocumento.Text))
+                                        if (txtNumeroDocumento.Text.CompareTo("") != 0)
                                         {
-                                            if (cboArea.Text.CompareTo("SELECCIONAR") != 0)
+                                            if (validarNumeroDocumento(txtNumeroDocumento.Text))
                                             {
-                                                if (cboEspecialidad.Text.CompareTo("SELECCIONAR") != 0)
+                                                if (cboArea.Text.CompareTo("SELECCIONAR") != 0)
                                                 {
-                                                    if (txtCMP.Text.CompareTo("") != 0)
+                                                    if (cboEspecialidad.Text.CompareTo("SELECCIONAR") != 0)
                                                     {
-                                                        if (txtCMP.Text.Length == 5)
+                                                        if (txtCMP.Text.CompareTo("") != 0)
                                                         {
-                                                            if (cboPerfil.Text.CompareTo("SELECCIONAR") != 0)
+                                                            if (txtCMP.Text.Length == 5)
                                                             {
-                                                                if (cboPais.Text.CompareTo("SELECCIONAR") != 0)
+                                                                if (cboPerfil.Text.CompareTo("SELECCIONAR") != 0)
                                                                 {
-                                                                    if (cboDepartamento.Text.CompareTo("SELECCIONAR") != 0)
+                                                                    if (cboPais.Text.CompareTo("SELECCIONAR") != 0)
                                                                     {
-                                                                        if (cboProvincia.Text.CompareTo("SELECCIONAR") != 0)
+                                                                        if (cboDepartamento.Text.CompareTo("SELECCIONAR") != 0)
                                                                         {
-                                                                            if (cboDistrito.Text.CompareTo("SELECCIONAR") != 0)
+                                                                            if (cboProvincia.Text.CompareTo("SELECCIONAR") != 0)
                                                                             {
-                                                                                if (cboDepartamentoDomicilio.Text.CompareTo("SELECCIONAR") != 0)
+                                                                                if (cboDistrito.Text.CompareTo("SELECCIONAR") != 0)
                                                                                 {
-                                                                                    if (cboProvinciaDomicilio.Text.CompareTo("SELECCIONAR") != 0)
+                                                                                    if (cboDepartamentoDomicilio.Text.CompareTo("SELECCIONAR") != 0)
                                                                                     {
-                                                                                        if (cboDistritoDomicilio.Text.CompareTo("SELECCIONAR") != 0)
+                                                                                        if (cboProvinciaDomicilio.Text.CompareTo("SELECCIONAR") != 0)
                                                                                         {
-                                                                                            if (txtDireccion.Text.CompareTo("") != 0)
+                                                                                            if (cboDistritoDomicilio.Text.CompareTo("SELECCIONAR") != 0)
                                                                                             {
-                                                                                                if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                                                                                if (txtDireccion.Text.CompareTo("") != 0)
                                                                                                 {
-                                                                                                    if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                                                                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                                                                                     {
-                                                                                                        return true;
+                                                                                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                                                                                        {
+                                                                                                            return true;
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            MessageBox.Show("Ingrese un correo electrónico válido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                                            txtCorreoElectronico.Focus();
+                                                                                                            return false;
+                                                                                                        }
                                                                                                     }
                                                                                                     else
                                                                                                     {
-                                                                                                        MessageBox.Show("Ingrese un correo electrónico válido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                                        MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                                                         txtCorreoElectronico.Focus();
                                                                                                         return false;
                                                                                                     }
                                                                                                 }
                                                                                                 else
                                                                                                 {
-                                                                                                    MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                                    txtCorreoElectronico.Focus();
+                                                                                                    MessageBox.Show("Debe ingresar la dirección del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                                    txtDireccion.Focus();
                                                                                                     return false;
                                                                                                 }
                                                                                             }
                                                                                             else
                                                                                             {
-                                                                                                MessageBox.Show("Debe ingresar la dirección del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                                txtDireccion.Focus();
+                                                                                                MessageBox.Show("Debe seleccionar el distrito de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                                cboDistritoDomicilio.Focus();
                                                                                                 return false;
                                                                                             }
                                                                                         }
                                                                                         else
                                                                                         {
-                                                                                            MessageBox.Show("Debe seleccionar el distrito de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                            cboDistritoDomicilio.Focus();
+                                                                                            MessageBox.Show("Debe seleccionar la provincia de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                            cboProvinciaDomicilio.Focus();
                                                                                             return false;
                                                                                         }
                                                                                     }
                                                                                     else
                                                                                     {
-                                                                                        MessageBox.Show("Debe seleccionar la provincia de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                        cboProvinciaDomicilio.Focus();
+                                                                                        MessageBox.Show("Debe seleccionar el departamento de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                        cboDepartamentoDomicilio.Focus();
                                                                                         return false;
                                                                                     }
                                                                                 }
                                                                                 else
                                                                                 {
-                                                                                    MessageBox.Show("Debe seleccionar el departamento de domicilio del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                    cboDepartamentoDomicilio.Focus();
+                                                                                    MessageBox.Show("Debe seleccionar el distrito de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                    cboDistrito.Focus();
                                                                                     return false;
                                                                                 }
                                                                             }
                                                                             else
                                                                             {
-                                                                                MessageBox.Show("Debe seleccionar el distrito de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                                cboDistrito.Focus();
+                                                                                MessageBox.Show("Debe seleccionar la provincia de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                                cboProvincia.Focus();
                                                                                 return false;
                                                                             }
                                                                         }
                                                                         else
                                                                         {
-                                                                            MessageBox.Show("Debe seleccionar la provincia de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                            cboProvincia.Focus();
+                                                                            MessageBox.Show("Debe seleccionar el departamento de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                            cboDepartamento.Focus();
                                                                             return false;
                                                                         }
                                                                     }
                                                                     else
                                                                     {
-                                                                        MessageBox.Show("Debe seleccionar el departamento de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                        cboDepartamento.Focus();
+                                                                        MessageBox.Show("Debe seleccionar el pais de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                        cboPais.Focus();
                                                                         return false;
                                                                     }
                                                                 }
                                                                 else
                                                                 {
-                                                                    MessageBox.Show("Debe seleccionar el pais de nacimiento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                    cboPais.Focus();
+                                                                    MessageBox.Show("Debe seleccionar el perfil del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                    cboPerfil.Focus();
                                                                     return false;
                                                                 }
                                                             }
                                                             else
                                                             {
-                                                                MessageBox.Show("Debe seleccionar el perfil del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                cboPerfil.Focus();
+                                                                MessageBox.Show("El CMP debe tener 5 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                txtCMP.Focus();
                                                                 return false;
                                                             }
                                                         }
                                                         else
                                                         {
-                                                            MessageBox.Show("El CMP debe tener 5 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                            MessageBox.Show("Debe ingresar el CMP del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                             txtCMP.Focus();
                                                             return false;
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        MessageBox.Show("Debe ingresar el CMP del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                        txtCMP.Focus();
+                                                        MessageBox.Show("Debe seleccionar la especialidad del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        cboEspecialidad.Focus();
                                                         return false;
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Debe seleccionar la especialidad del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                    cboEspecialidad.Focus();
+                                                    MessageBox.Show("Debe seleccionar el área del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    cboArea.Focus();
                                                     return false;
                                                 }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Debe seleccionar el área del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                cboArea.Focus();
+                                                MessageBox.Show("El número de documento debe tener " + txtNumeroDocumento.MaxLength + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                txtNumeroDocumento.Focus();
                                                 return false;
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("El número de documento debe tener " + txtNumeroDocumento.MaxLength + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            MessageBox.Show("Debe ingresar el número de documento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             txtNumeroDocumento.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe ingresar el número de documento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        txtNumeroDocumento.Focus();
+                                        MessageBox.Show("Debe seleccionar el tipo de documento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        cboTipoDocumento.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe seleccionar el tipo de documento del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    cboTipoDocumento.Focus();
+                                    MessageBox.Show("El doctor debe de ser mayor de edad\nVerifique la fecha de nacimiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    dtpFechaNacimiento.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("El doctor debe de ser mayor de edad\nVerifique la fecha de nacimiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                dtpFechaNacimiento.Focus();
+                                MessageBox.Show("Debe seleccionar el sexo del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                cboSexo.Focus();
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Debe seleccionar el sexo del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            cboSexo.Focus();
+                            MessageBox.Show("Debe seleccionar el estado civil del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboEstadoCivil.Focus();
                             return false;
                         }
                     }

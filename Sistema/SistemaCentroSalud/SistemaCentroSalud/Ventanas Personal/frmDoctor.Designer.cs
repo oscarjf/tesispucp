@@ -52,14 +52,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxContacto = new System.Windows.Forms.GroupBox();
-            this.txtCorreoElectronico = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtCelular = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtTelefono = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblCorreoElectronico = new System.Windows.Forms.Label();
             this.lblCelular = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.gbxDomicilio = new System.Windows.Forms.GroupBox();
-            this.txtDireccion = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.cboDistritoDomicilio = new System.Windows.Forms.ComboBox();
             this.cboProvinciaDomicilio = new System.Windows.Forms.ComboBox();
@@ -82,17 +78,12 @@
             this.lblFoto = new System.Windows.Forms.Label();
             this.pbxFoto = new System.Windows.Forms.PictureBox();
             this.gbxProfesional = new System.Windows.Forms.GroupBox();
-            this.txtCMP = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblCMP = new System.Windows.Forms.Label();
             this.cboEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.cboArea = new System.Windows.Forms.ComboBox();
             this.lblArea = new System.Windows.Forms.Label();
             this.gbxPersonal = new System.Windows.Forms.GroupBox();
-            this.txtNumeroDocumento = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtNombres = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtMaterno = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtPaterno = new SistemaCentroSalud.Controles.cuTextBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.lblNumeroDocumento = new System.Windows.Forms.Label();
@@ -103,6 +94,17 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblMaterno = new System.Windows.Forms.Label();
             this.lblPaterno = new System.Windows.Forms.Label();
+            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.lblEstadoCivil = new System.Windows.Forms.Label();
+            this.txtCorreoElectronico = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtCelular = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtTelefono = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtDireccion = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtCMP = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNumeroDocumento = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNombres = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtMaterno = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtPaterno = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbcDoctor.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctores)).BeginInit();
@@ -331,7 +333,7 @@
             this.cboPerfil.Location = new System.Drawing.Point(9, 32);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(125, 21);
-            this.cboPerfil.TabIndex = 13;
+            this.cboPerfil.TabIndex = 12;
             // 
             // lblPerfil
             // 
@@ -349,7 +351,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(687, 342);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 31;
+            this.btnGuardar.TabIndex = 27;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -362,7 +364,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(571, 342);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 32;
+            this.btnCancelar.TabIndex = 28;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -382,36 +384,6 @@
             this.gbxContacto.TabIndex = 27;
             this.gbxContacto.TabStop = false;
             this.gbxContacto.Text = "Contacto";
-            // 
-            // txtCorreoElectronico
-            // 
-            this.txtCorreoElectronico.Location = new System.Drawing.Point(10, 114);
-            this.txtCorreoElectronico.MaxLength = 60;
-            this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(195, 20);
-            this.txtCorreoElectronico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCorreoElectronico.TabIndex = 30;
-            this.txtCorreoElectronico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.Location = new System.Drawing.Point(10, 75);
-            this.txtCelular.MaxLength = 10;
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(112, 20);
-            this.txtCelular.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCelular.TabIndex = 29;
-            this.txtCelular.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(10, 35);
-            this.txtTelefono.MaxLength = 8;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(112, 20);
-            this.txtTelefono.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtTelefono.TabIndex = 28;
-            this.txtTelefono.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // lblCorreoElectronico
             // 
@@ -457,17 +429,6 @@
             this.gbxDomicilio.TabStop = false;
             this.gbxDomicilio.Text = "Domicilio";
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDireccion.Location = new System.Drawing.Point(10, 83);
-            this.txtDireccion.MaxLength = 200;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(521, 20);
-            this.txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtDireccion.TabIndex = 23;
-            this.txtDireccion.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
@@ -484,7 +445,7 @@
             this.cboDistritoDomicilio.Location = new System.Drawing.Point(269, 33);
             this.cboDistritoDomicilio.Name = "cboDistritoDomicilio";
             this.cboDistritoDomicilio.Size = new System.Drawing.Size(125, 21);
-            this.cboDistritoDomicilio.TabIndex = 22;
+            this.cboDistritoDomicilio.TabIndex = 19;
             // 
             // cboProvinciaDomicilio
             // 
@@ -493,7 +454,7 @@
             this.cboProvinciaDomicilio.Location = new System.Drawing.Point(138, 33);
             this.cboProvinciaDomicilio.Name = "cboProvinciaDomicilio";
             this.cboProvinciaDomicilio.Size = new System.Drawing.Size(122, 21);
-            this.cboProvinciaDomicilio.TabIndex = 21;
+            this.cboProvinciaDomicilio.TabIndex = 18;
             this.cboProvinciaDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboProvinciaDomicilio_SelectedIndexChanged);
             // 
             // cboDepartamentoDomicilio
@@ -503,7 +464,7 @@
             this.cboDepartamentoDomicilio.Location = new System.Drawing.Point(10, 33);
             this.cboDepartamentoDomicilio.Name = "cboDepartamentoDomicilio";
             this.cboDepartamentoDomicilio.Size = new System.Drawing.Size(119, 21);
-            this.cboDepartamentoDomicilio.TabIndex = 20;
+            this.cboDepartamentoDomicilio.TabIndex = 17;
             this.cboDepartamentoDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboDepartamentoDomicilio_SelectedIndexChanged);
             // 
             // lblDistritoDomicilio
@@ -558,7 +519,7 @@
             this.cboDistrito.Location = new System.Drawing.Point(406, 32);
             this.cboDistrito.Name = "cboDistrito";
             this.cboDistrito.Size = new System.Drawing.Size(125, 21);
-            this.cboDistrito.TabIndex = 18;
+            this.cboDistrito.TabIndex = 16;
             // 
             // cboProvincia
             // 
@@ -568,7 +529,7 @@
             this.cboProvincia.Location = new System.Drawing.Point(275, 32);
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(122, 21);
-            this.cboProvincia.TabIndex = 17;
+            this.cboProvincia.TabIndex = 15;
             this.cboProvincia.SelectedIndexChanged += new System.EventHandler(this.cboProvincia_SelectedIndexChanged);
             // 
             // cboDepartamento
@@ -579,7 +540,7 @@
             this.cboDepartamento.Location = new System.Drawing.Point(147, 32);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(119, 21);
-            this.cboDepartamento.TabIndex = 16;
+            this.cboDepartamento.TabIndex = 14;
             this.cboDepartamento.SelectedIndexChanged += new System.EventHandler(this.cboDepartamento_SelectedIndexChanged);
             // 
             // lblDistrito
@@ -616,7 +577,7 @@
             this.cboPais.Location = new System.Drawing.Point(10, 32);
             this.cboPais.Name = "cboPais";
             this.cboPais.Size = new System.Drawing.Size(125, 21);
-            this.cboPais.TabIndex = 15;
+            this.cboPais.TabIndex = 13;
             this.cboPais.SelectedIndexChanged += new System.EventHandler(this.cboPais_SelectedIndexChanged);
             // 
             // lblPais
@@ -633,7 +594,7 @@
             this.btnQuitarFoto.Location = new System.Drawing.Point(689, 140);
             this.btnQuitarFoto.Name = "btnQuitarFoto";
             this.btnQuitarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarFoto.TabIndex = 26;
+            this.btnQuitarFoto.TabIndex = 23;
             this.btnQuitarFoto.Text = "Quitar";
             this.btnQuitarFoto.UseVisualStyleBackColor = true;
             // 
@@ -642,7 +603,7 @@
             this.btnBuscarFoto.Location = new System.Drawing.Point(689, 65);
             this.btnBuscarFoto.Name = "btnBuscarFoto";
             this.btnBuscarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarFoto.TabIndex = 25;
+            this.btnBuscarFoto.TabIndex = 22;
             this.btnBuscarFoto.Text = "Buscar";
             this.btnBuscarFoto.UseVisualStyleBackColor = true;
             // 
@@ -651,7 +612,7 @@
             this.btnTomarFoto.Location = new System.Drawing.Point(689, 26);
             this.btnTomarFoto.Name = "btnTomarFoto";
             this.btnTomarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnTomarFoto.TabIndex = 24;
+            this.btnTomarFoto.TabIndex = 21;
             this.btnTomarFoto.Text = "Tomar";
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             // 
@@ -687,17 +648,6 @@
             this.gbxProfesional.TabIndex = 8;
             this.gbxProfesional.TabStop = false;
             this.gbxProfesional.Text = "Información Profesional";
-            // 
-            // txtCMP
-            // 
-            this.txtCMP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCMP.Location = new System.Drawing.Point(275, 33);
-            this.txtCMP.MaxLength = 5;
-            this.txtCMP.Name = "txtCMP";
-            this.txtCMP.Size = new System.Drawing.Size(100, 20);
-            this.txtCMP.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCMP.TabIndex = 11;
-            this.txtCMP.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // lblCMP
             // 
@@ -746,6 +696,8 @@
             // 
             // gbxPersonal
             // 
+            this.gbxPersonal.Controls.Add(this.cboEstadoCivil);
+            this.gbxPersonal.Controls.Add(this.lblEstadoCivil);
             this.gbxPersonal.Controls.Add(this.txtNumeroDocumento);
             this.gbxPersonal.Controls.Add(this.txtNombres);
             this.gbxPersonal.Controls.Add(this.txtMaterno);
@@ -767,50 +719,6 @@
             this.gbxPersonal.TabStop = false;
             this.gbxPersonal.Text = "Información Personal";
             // 
-            // txtNumeroDocumento
-            // 
-            this.txtNumeroDocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroDocumento.Location = new System.Drawing.Point(406, 75);
-            this.txtNumeroDocumento.MaxLength = 20;
-            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
-            this.txtNumeroDocumento.Size = new System.Drawing.Size(125, 20);
-            this.txtNumeroDocumento.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNumeroDocumento.TabIndex = 7;
-            this.txtNumeroDocumento.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombres.Location = new System.Drawing.Point(272, 35);
-            this.txtNombres.MaxLength = 60;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(259, 20);
-            this.txtNombres.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombres.TabIndex = 3;
-            this.txtNombres.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            // 
-            // txtMaterno
-            // 
-            this.txtMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterno.Location = new System.Drawing.Point(141, 35);
-            this.txtMaterno.MaxLength = 30;
-            this.txtMaterno.Name = "txtMaterno";
-            this.txtMaterno.Size = new System.Drawing.Size(125, 20);
-            this.txtMaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtMaterno.TabIndex = 2;
-            this.txtMaterno.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            // 
-            // txtPaterno
-            // 
-            this.txtPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPaterno.Location = new System.Drawing.Point(10, 35);
-            this.txtPaterno.MaxLength = 30;
-            this.txtPaterno.Name = "txtPaterno";
-            this.txtPaterno.Size = new System.Drawing.Size(125, 20);
-            this.txtPaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtPaterno.TabIndex = 1;
-            this.txtPaterno.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            // 
             // dtpFechaNacimiento
             // 
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -818,7 +726,7 @@
             this.dtpFechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(125, 20);
-            this.dtpFechaNacimiento.TabIndex = 5;
+            this.dtpFechaNacimiento.TabIndex = 6;
             // 
             // lblFechaNacimiento
             // 
@@ -845,7 +753,7 @@
             this.cboTipoDocumento.Location = new System.Drawing.Point(272, 74);
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(125, 21);
-            this.cboTipoDocumento.TabIndex = 6;
+            this.cboTipoDocumento.TabIndex = 7;
             this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
             // 
             // lblTipoDocumento
@@ -868,7 +776,7 @@
             this.cboSexo.Location = new System.Drawing.Point(10, 75);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(125, 21);
-            this.cboSexo.TabIndex = 4;
+            this.cboSexo.TabIndex = 5;
             // 
             // lblSexo
             // 
@@ -905,6 +813,126 @@
             this.lblPaterno.Size = new System.Drawing.Size(87, 13);
             this.lblPaterno.TabIndex = 0;
             this.lblPaterno.Text = "Apellido Paterno:";
+            // 
+            // cboEstadoCivil
+            // 
+            this.cboEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoCivil.FormattingEnabled = true;
+            this.cboEstadoCivil.Items.AddRange(new object[] {
+            "SELECCIONAR",
+            "SOLTERO",
+            "CASADO",
+            "VIUDO",
+            "DIVORCIADO"});
+            this.cboEstadoCivil.Location = new System.Drawing.Point(405, 34);
+            this.cboEstadoCivil.Name = "cboEstadoCivil";
+            this.cboEstadoCivil.Size = new System.Drawing.Size(125, 21);
+            this.cboEstadoCivil.TabIndex = 4;
+            // 
+            // lblEstadoCivil
+            // 
+            this.lblEstadoCivil.AutoSize = true;
+            this.lblEstadoCivil.Location = new System.Drawing.Point(405, 20);
+            this.lblEstadoCivil.Name = "lblEstadoCivil";
+            this.lblEstadoCivil.Size = new System.Drawing.Size(65, 13);
+            this.lblEstadoCivil.TabIndex = 20;
+            this.lblEstadoCivil.Text = "Estado Civil:";
+            // 
+            // txtCorreoElectronico
+            // 
+            this.txtCorreoElectronico.Location = new System.Drawing.Point(10, 114);
+            this.txtCorreoElectronico.MaxLength = 60;
+            this.txtCorreoElectronico.Name = "txtCorreoElectronico";
+            this.txtCorreoElectronico.Size = new System.Drawing.Size(195, 20);
+            this.txtCorreoElectronico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtCorreoElectronico.TabIndex = 26;
+            this.txtCorreoElectronico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtCelular
+            // 
+            this.txtCelular.Location = new System.Drawing.Point(10, 75);
+            this.txtCelular.MaxLength = 10;
+            this.txtCelular.Name = "txtCelular";
+            this.txtCelular.Size = new System.Drawing.Size(112, 20);
+            this.txtCelular.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtCelular.TabIndex = 25;
+            this.txtCelular.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(10, 35);
+            this.txtTelefono.MaxLength = 8;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(112, 20);
+            this.txtTelefono.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtTelefono.TabIndex = 24;
+            this.txtTelefono.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDireccion.Location = new System.Drawing.Point(10, 83);
+            this.txtDireccion.MaxLength = 200;
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(521, 20);
+            this.txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtDireccion.TabIndex = 20;
+            this.txtDireccion.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtCMP
+            // 
+            this.txtCMP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCMP.Location = new System.Drawing.Point(275, 33);
+            this.txtCMP.MaxLength = 5;
+            this.txtCMP.Name = "txtCMP";
+            this.txtCMP.Size = new System.Drawing.Size(100, 20);
+            this.txtCMP.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtCMP.TabIndex = 11;
+            this.txtCMP.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
+            // txtNumeroDocumento
+            // 
+            this.txtNumeroDocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(406, 75);
+            this.txtNumeroDocumento.MaxLength = 20;
+            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
+            this.txtNumeroDocumento.Size = new System.Drawing.Size(125, 20);
+            this.txtNumeroDocumento.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNumeroDocumento.TabIndex = 8;
+            this.txtNumeroDocumento.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombres.Location = new System.Drawing.Point(272, 35);
+            this.txtNombres.MaxLength = 60;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(127, 20);
+            this.txtNombres.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombres.TabIndex = 3;
+            this.txtNombres.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            // 
+            // txtMaterno
+            // 
+            this.txtMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterno.Location = new System.Drawing.Point(141, 35);
+            this.txtMaterno.MaxLength = 30;
+            this.txtMaterno.Name = "txtMaterno";
+            this.txtMaterno.Size = new System.Drawing.Size(125, 20);
+            this.txtMaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtMaterno.TabIndex = 2;
+            this.txtMaterno.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            // 
+            // txtPaterno
+            // 
+            this.txtPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPaterno.Location = new System.Drawing.Point(10, 35);
+            this.txtPaterno.MaxLength = 30;
+            this.txtPaterno.Name = "txtPaterno";
+            this.txtPaterno.Size = new System.Drawing.Size(125, 20);
+            this.txtPaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtPaterno.TabIndex = 1;
+            this.txtPaterno.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
             // 
             // frmDoctor
             // 
@@ -1017,5 +1045,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCMP;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEspecialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.ComboBox cboEstadoCivil;
+        private System.Windows.Forms.Label lblEstadoCivil;
     }
 }

@@ -29,7 +29,7 @@ namespace SistemaCentroSalud
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
 
-            dtAreas = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+            dtAreas = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
             llenarGrilla(dtAreas);
         }
@@ -99,7 +99,7 @@ namespace SistemaCentroSalud
             cboTipoDetalle.Text = dtArea.Rows[0][3].ToString();
             rtxtDescripcionDetalle.Text = dtArea.Rows[0][2].ToString();
 
-            if (numAccion == clsComun.VER)
+            if (numAccion == clsGestorBD.VER)
             {
                 txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
                 cboTipoDetalle.Enabled = false;
@@ -137,7 +137,7 @@ namespace SistemaCentroSalud
 
             txtNombreDetalle.Focus();
 
-            numAccion = clsComun.INSERT;
+            numAccion = clsGestorBD.INSERT;
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -146,11 +146,11 @@ namespace SistemaCentroSalud
             {
                 try
                 {
-                    numAccion = clsComun.VER;
+                    numAccion = clsGestorBD.VER;
 
                     numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    DataTable dtArea = clsGestorBD.up_SelArea(numIdArea, "", "", "", clsComun.SELECT);
+                    DataTable dtArea = clsGestorBD.up_SelArea(numIdArea, "", "", "", clsGestorBD.SELECT);
 
                     mostrarDatos(numAccion, dtArea);
 
@@ -169,11 +169,11 @@ namespace SistemaCentroSalud
             {
                 try
                 {
-                    numAccion = clsComun.UPDATE;
+                    numAccion = clsGestorBD.UPDATE;
 
                     numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    DataTable dtArea = clsGestorBD.up_SelArea(numIdArea, "", "", "", clsComun.SELECT);
+                    DataTable dtArea = clsGestorBD.up_SelArea(numIdArea, "", "", "", clsGestorBD.SELECT);
 
                     mostrarDatos(numAccion, dtArea);
 
@@ -193,13 +193,13 @@ namespace SistemaCentroSalud
                 try
                 {
                     numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
-                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsComun.DELETE))
+                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsGestorBD.DELETE))
                     {
                         MessageBox.Show("El área se inactivó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
                     }
@@ -222,13 +222,13 @@ namespace SistemaCentroSalud
                 try
                 {
                     numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
-                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsComun.RECOVER))
+                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsGestorBD.RECOVER))
                     {
                         MessageBox.Show("El área se activó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
                     }
@@ -255,7 +255,7 @@ namespace SistemaCentroSalud
             {
                 if (clsGestorBD.up_ManArea(numIdArea, txtNombreDetalle.Text, cboTipoDetalle.Text, rtxtDescripcionDetalle.Text, numAccion))
                 {
-                    if (numAccion == clsComun.INSERT)
+                    if (numAccion == clsGestorBD.INSERT)
                     {
                         if (MessageBox.Show("El área se registró exitosamente\n¿Desea seguir registrando áreas?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
@@ -265,7 +265,7 @@ namespace SistemaCentroSalud
                         {
                             limpiarCampos();
 
-                            DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+                            DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
                             llenarGrilla(dtTemporal);
 
@@ -278,7 +278,7 @@ namespace SistemaCentroSalud
 
                         limpiarCampos();
 
-                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
                         llenarGrilla(dtTemporal);
 
@@ -287,7 +287,7 @@ namespace SistemaCentroSalud
                 }
                 else
                 {
-                    if (numAccion == clsComun.INSERT)
+                    if (numAccion == clsGestorBD.INSERT)
                     {
                         MessageBox.Show("Ocurrió un error mientras se intentaba registrar el área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -303,7 +303,7 @@ namespace SistemaCentroSalud
         {
             limpiarCampos();
 
-            DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsComun.SELECTALL);
+            DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
 
             llenarGrilla(dtTemporal);
 
@@ -314,7 +314,7 @@ namespace SistemaCentroSalud
         {
             try
             {
-                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsComun.SELECTCUSTOM);
+                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
                 llenarGrilla(dtAreas);
             }
             catch
@@ -326,7 +326,7 @@ namespace SistemaCentroSalud
         {
             try
             {
-                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsComun.SELECTCUSTOM);
+                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
                 llenarGrilla(dtAreas);
             }
             catch
@@ -338,7 +338,7 @@ namespace SistemaCentroSalud
         {
             try
             {
-                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsComun.SELECTCUSTOM);
+                dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
                 llenarGrilla(dtAreas);
             }
             catch

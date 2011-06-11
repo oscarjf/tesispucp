@@ -181,6 +181,19 @@ ALTER TABLE LugarNacimiento
 go
 
 
+CREATE TABLE Pais
+(
+	Id_Pais              int IDENTITY (1,1) ,
+	Nombre               varchar(40)  NULL 
+)
+go
+
+
+ALTER TABLE Pais
+	ADD CONSTRAINT XPKPais PRIMARY KEY (Id_Pais ASC)
+go
+
+
 CREATE TABLE Perfil
 (
 	Id_Perfil            int IDENTITY (1,1) ,

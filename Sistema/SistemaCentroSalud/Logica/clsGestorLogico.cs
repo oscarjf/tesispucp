@@ -11,6 +11,19 @@ namespace Logica
 {
     public class clsGestorLogico
     {
+        public static int numeroOcurrenciasUsuario(string strNombreUsuario)
+        {
+            string strSentenciaSql;
+
+            strSentenciaSql = "SELECT COUNT(Usuario) AS NumeroOcurrencias ";
+            strSentenciaSql += "FROM Personal ";
+            strSentenciaSql += "WHERE Usuario = '" + strNombreUsuario + "'";
+
+            DataTable dt = clsGestorBD.consultarSentencia(strSentenciaSql);
+
+            return Int32.Parse(dt.Rows[0][0].ToString());
+        }
+
         public static List<clsTipoDocumento> up_SelTipoDocumento()
         {
             List<clsTipoDocumento> lstTipoDocumentos = new List<clsTipoDocumento>();
@@ -134,17 +147,17 @@ namespace Logica
             return lstDistritos;
         }
 
-        public static List<clsArea> up_SelArea(string strEstadoArea)
+        public static List<clsArea> up_SelArea(string strTipoArea, string strEstadoArea)
         {
             List<clsArea> lstAreas = new List<clsArea>();
-            DataTable dtAreas = clsGestorBD.up_SelArea(0, "", "MÉDICA", strEstadoArea, clsComun.SELECTCUSTOM);
+            DataTable dtAreas = clsGestorBD.up_SelArea(0, "", strTipoArea, strEstadoArea, clsGestorBD.SELECTCUSTOM);
 
             for (int i = 0; i < dtAreas.Rows.Count; i++)
             {
                 string strId = dtAreas.Rows[i][0].ToString();
                 string strNombre = dtAreas.Rows[i][1].ToString();
                 string strDescripcion = dtAreas.Rows[i][2].ToString();
-                string strTipoArea = dtAreas.Rows[i][3].ToString();
+                string strTipo = dtAreas.Rows[i][3].ToString();
                 string strEstado = dtAreas.Rows[i][4].ToString();
 
                 clsArea objArea = new clsArea();
@@ -152,7 +165,7 @@ namespace Logica
                 objArea.NumIdArea = Int32.Parse(strId);
                 objArea.StrNombre = strNombre;
                 objArea.StrDescripcion = strDescripcion;
-                objArea.StrTipoArea = strTipoArea;
+                objArea.StrTipoArea = strTipo;
                 objArea.StrEstado = strEstado;
 
                 lstAreas.Add(objArea);
@@ -164,7 +177,7 @@ namespace Logica
         public static List<clsEspecialidad> up_SelEspecialidad()
         {
             List<clsEspecialidad> lstEspecialidades = new List<clsEspecialidad>();
-            DataTable dtEspecialidades = clsGestorBD.up_SelEspecialidad(0, "", "ACTIVO", clsComun.SELECTCUSTOM);
+            DataTable dtEspecialidades = clsGestorBD.up_SelEspecialidad(0, "", "ACTIVO", clsGestorBD.SELECTCUSTOM);
 
             for (int i = 0; i < dtEspecialidades.Rows.Count; i++)
             {

@@ -17,8 +17,7 @@ CREATE TABLE Area
 	Id_Area              int IDENTITY (1,1) ,
 	Descripcion          varchar(200)  NULL ,
 	Nombre               varchar(30)  NOT NULL ,
-	TipoArea             varchar(14)  NOT NULL ,
-	Estado               varchar(8)  NULL 
+	TipoArea             varchar(14)  NOT NULL 
 )
 go
 
@@ -52,13 +51,27 @@ ALTER TABLE AreaMedica
 go
 
 
+CREATE TABLE Cie10
+(
+	Id_Cie10             int IDENTITY (1,1) ,
+	Codigo               varchar(7)  NULL ,
+	Descripcion          varchar(400)  NULL 
+)
+go
+
+
+ALTER TABLE Cie10
+	ADD CONSTRAINT XPKCie10 PRIMARY KEY (Id_Cie10 ASC)
+go
+
+
 CREATE TABLE DetalleHorario
 (
-	Dia                  varchar(10)  NULL ,
-	HoraInicio           datetime  NULL ,
-	HoraFin              datetime  NULL ,
-	Id_DetalleHorario    int IDENTITY (1,1) ,
-	Id_Horario           int  NULL 
+	Dia                  char(18)  NULL ,
+	HoraInicio           char(18)  NULL ,
+	HoraFin              char(18)  NULL ,
+	Id_DetalleHorario    char(18)  NOT NULL ,
+	Id_Horario           char(18)  NULL 
 )
 go
 
@@ -117,8 +130,7 @@ CREATE TABLE Especialidad
 (
 	Id_Especialidad      int IDENTITY (1,1) ,
 	Descripcion          varchar(200)  NULL ,
-	Nombre               varchar(30)  NOT NULL ,
-	Estado               varchar(8)  NULL 
+	Nombre               varchar(30)  NOT NULL 
 )
 go
 
@@ -143,7 +155,7 @@ go
 
 CREATE TABLE Horario
 (
-	Id_Horario           int IDENTITY (1,1) 
+	Id_Horario           char(18)  NOT NULL 
 )
 go
 
@@ -169,30 +181,17 @@ ALTER TABLE LugarNacimiento
 go
 
 
-CREATE TABLE PacientesAtendidos
+CREATE TABLE Perfil
 (
-	Id_PacientesAtendidos int IDENTITY (1,1) ,
-	Id_Doctor            int  NOT NULL ,
-	FechaRegistro        datetime  NOT NULL 
+	Id_Perfil            int IDENTITY (1,1) ,
+	Nombre               varchar(30)  NOT NULL ,
+	TipoPersonal         varchar(15)  NOT NULL 
 )
 go
 
 
-ALTER TABLE PacientesAtendidos
-	ADD CONSTRAINT XPKPacientesAtendidos PRIMARY KEY (Id_PacientesAtendidos ASC)
-go
-
-
-CREATE TABLE Pais
-(
-	Id_Pais              int IDENTITY (1,1) ,
-	Nombre               varchar(40)  NULL 
-)
-go
-
-
-ALTER TABLE Pais
-	ADD CONSTRAINT XPKPais PRIMARY KEY (Id_Pais ASC)
+ALTER TABLE Perfil
+	ADD CONSTRAINT XPKPerfil PRIMARY KEY (Id_Perfil ASC)
 go
 
 
@@ -212,8 +211,7 @@ CREATE TABLE Persona
 	Id_LugarNacimiento   int  NULL ,
 	Id_Domicilio         int  NULL ,
 	TipoPersona          varchar(8)  NULL ,
-	FechaRegistro        datetime  NULL ,
-	FechaNacimiento      datetime  NULL 
+	FechaRegistro        char(18)  NULL 
 )
 go
 
@@ -230,7 +228,8 @@ CREATE TABLE Personal
 	Contrasena           varchar(20)  NULL ,
 	Estado               varchar(8)  NULL ,
 	TipoPersonal         varchar(14)  NULL ,
-	Id_Horario           int  NULL 
+	Id_Horario           char(18)  NULL ,
+	Id_Perfil            int  NULL 
 )
 go
 
@@ -282,6 +281,32 @@ go
 
 ALTER TABLE Ubigeo
 	ADD CONSTRAINT XPKUbigeo PRIMARY KEY (Id_Ubigeo ASC)
+go
+
+
+CREATE TABLE Ventana
+(
+	Id_Ventana           int IDENTITY (1,1) ,
+	Nombre               varchar(50)  NULL 
+)
+go
+
+
+ALTER TABLE Ventana
+	ADD CONSTRAINT XPKVentana PRIMARY KEY (Id_Ventana ASC)
+go
+
+
+CREATE TABLE VentanasxPerfil
+(
+	Id_Ventana           int  NOT NULL ,
+	Id_Perfil            int  NOT NULL 
+)
+go
+
+
+ALTER TABLE VentanasxPerfil
+	ADD CONSTRAINT XPKVentanasxPerfil PRIMARY KEY (Id_Ventana ASC,Id_Perfil ASC)
 go
 
 
@@ -366,14 +391,6 @@ go
 
 
 
-ALTER TABLE PacientesAtendidos
-	ADD CONSTRAINT R_25 FOREIGN KEY (Id_Doctor) REFERENCES Doctor(Id_Doctor)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
-go
-
-
-
 ALTER TABLE Persona
 	ADD CONSTRAINT R_15 FOREIGN KEY (Id_TipoDocumento) REFERENCES TipoDocumento(Id_TipoDocumento)
 		ON DELETE NO ACTION
@@ -406,6 +423,12 @@ ALTER TABLE Personal
 		ON UPDATE NO ACTION
 go
 
+ALTER TABLE Personal
+	ADD CONSTRAINT R_67 FOREIGN KEY (Id_Perfil) REFERENCES Perfil(Id_Perfil)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
 
 
 ALTER TABLE Tecnico
@@ -416,6 +439,20 @@ go
 
 ALTER TABLE Tecnico
 	ADD CONSTRAINT R_37 FOREIGN KEY (Id_AreaMedica) REFERENCES AreaMedica(Id_AreaMedica)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+ALTER TABLE VentanasxPerfil
+	ADD CONSTRAINT R_65 FOREIGN KEY (Id_Ventana) REFERENCES Ventana(Id_Ventana)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE VentanasxPerfil
+	ADD CONSTRAINT R_66 FOREIGN KEY (Id_Perfil) REFERENCES Perfil(Id_Perfil)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

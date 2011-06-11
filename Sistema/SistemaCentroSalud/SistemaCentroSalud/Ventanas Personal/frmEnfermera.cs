@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Comun;
+using Modelo;
+using Logica;
 
 namespace SistemaCentroSalud.Ventanas_Personal
 {
@@ -21,6 +23,154 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
+            inicializarVentana();
+        }
+
+        private void inicializarVentana()
+        {
+            cboSexo.SelectedIndex = 0;
+
+            List<clsTipoDocumento> lstTipoDocumentos = clsGestorLogico.up_SelTipoDocumento();
+            llenarComboTipoDocumento(lstTipoDocumentos);
+            cboTipoDocumento.SelectedIndex = 0;
+
+            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("ACTIVO");
+            llenarComboArea(lstAreas);
+            cboArea.SelectedIndex = 0;
+
+            List<clsPais> lstPaises = clsGestorLogico.up_SelPais();
+            llenarComboPais(lstPaises);
+            cboPais.SelectedIndex = 0;
+
+            List<clsUbigeo> lstDepartamentos = clsGestorLogico.up_SelDepartamento();
+            llenarComboDepartamento(lstDepartamentos);
+            
+        }
+
+
+        private void llenarComboTipoDocumento(List<clsTipoDocumento> lstTipoDocumentos)
+        {
+            clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
+            objTipoDocumento.StrNombre = "SELECCIONAR";
+
+            cboTipoDocumento.Items.Add(objTipoDocumento);
+
+            for (int i = 0; i < lstTipoDocumentos.Count; i++)
+            {
+                cboTipoDocumento.Items.Add(lstTipoDocumentos[i]);
+            }
+        }
+
+        private void llenarComboArea(List<clsArea> lstAreas)
+        {
+            clsArea objArea = new clsArea();
+            objArea.StrNombre = "SELECCIONAR";
+
+            cboArea.Items.Add(objArea);
+
+            for (int i = 0; i < lstAreas.Count; i++)
+            {
+                cboArea.Items.Add(lstAreas[i]);
+            }
+        }
+
+        /// Perfil
+
+        private void llenarComboPais(List<clsPais> lstPaises)
+        {
+            clsPais objPais = new clsPais();
+            objPais.StrNombre = "SELECCIONAR";
+
+            cboPais.Items.Add(objPais);
+
+            for (int i = 0; i < lstPaises.Count; i++)
+            {
+                cboPais.Items.Add(lstPaises[i]);
+            }
+        }        
+
+        private void llenarComboDepartamento(List<clsUbigeo> lstDepartamentos)
+        {
+            clsUbigeo objDepartamento = new clsUbigeo();
+            objDepartamento.StrNombre = "SELECCIONAR";
+
+            cboDepartamento.Items.Add(objDepartamento);
+
+            for (int i = 0; i < lstDepartamentos.Count; i++)
+            {
+                cboDepartamento.Items.Add(lstDepartamentos[i]);
+            }
+
+            cboDepartamentoDomicilio.Items.Add(objDepartamento);
+
+            for (int i = 0; i < lstDepartamentos.Count; i++)
+            {
+                cboDepartamentoDomicilio.Items.Add(lstDepartamentos[i]);
+            }
+
+            cboDepartamentoDomicilio.SelectedIndex = 0;
+        }
+
+        private void llenarComboProvincia(List<clsUbigeo> lstProvincias)
+        {
+            cboProvincia.Items.Clear();
+            cboDistrito.Items.Clear();
+
+            clsUbigeo objProvincia = new clsUbigeo();
+            objProvincia.StrNombre = "SELECCIONAR";
+
+            cboProvincia.Items.Add(objProvincia);
+
+            for (int i = 0; i < lstProvincias.Count; i++)
+            {
+                cboProvincia.Items.Add(lstProvincias[i]);
+            }
+        }
+
+        private void llenarComboDistrito(List<clsUbigeo> lstDistritos)
+        {
+            cboDistrito.Items.Clear();
+
+            clsUbigeo objDistrito = new clsUbigeo();
+            objDistrito.StrNombre = "SELECCIONAR";
+
+            cboDistrito.Items.Add(objDistrito);
+
+            for (int i = 0; i < lstDistritos.Count; i++)
+            {
+                cboDistrito.Items.Add(lstDistritos[i]);
+            }
+        }        
+        
+        private void llenarComboProvinciaDomicilio(List<clsUbigeo> lstProvincias)
+        {
+            cboProvinciaDomicilio.Items.Clear();
+            cboDistritoDomicilio.Items.Clear();
+
+            clsUbigeo objProvincia = new clsUbigeo();
+            objProvincia.StrNombre = "SELECCIONAR";
+
+            cboProvinciaDomicilio.Items.Add(objProvincia);
+
+            for (int i = 0; i < lstProvincias.Count; i++)
+            {
+                cboProvinciaDomicilio.Items.Add(lstProvincias[i]);
+            }
+        }        
+
+        private void llenarComboDistritoDomicilio(List<clsUbigeo> lstDistritos)
+        {
+            cboDistritoDomicilio.Items.Clear();
+
+            clsUbigeo objDistrito = new clsUbigeo();
+            objDistrito.StrNombre = "SELECCIONAR";
+
+            cboDistritoDomicilio.Items.Add(objDistrito);
+
+            for (int i = 0; i < lstDistritos.Count; i++)
+            {
+                cboDistritoDomicilio.Items.Add(lstDistritos[i]);
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

@@ -227,7 +227,8 @@ CREATE TABLE Persona
 	Id_LugarNacimiento   int  NULL ,
 	Id_Domicilio         int  NULL ,
 	TipoPersona          varchar(8)  NULL ,
-	FechaRegistro        char(18)  NULL 
+	FechaRegistro        char(18)  NULL ,
+	FechaNacimiento      datetime  NULL 
 )
 go
 

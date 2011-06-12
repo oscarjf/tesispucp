@@ -44,7 +44,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
             List<clsUbigeo> lstDepartamentos = clsGestorLogico.up_SelDepartamento();
             llenarComboDepartamento(lstDepartamentos);
-            
+
+            cboSexo.SelectedIndex = 0;
+            cboEstadoCivil.SelectedIndex = 0;            
         }
 
 
@@ -468,7 +470,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            validarVentana();
         }
 
         private void tbcEnfermera_Selecting(object sender, TabControlCancelEventArgs e)

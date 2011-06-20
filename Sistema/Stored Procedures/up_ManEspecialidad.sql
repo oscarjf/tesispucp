@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[up_ManEspecialidad] (
+CREATE PROCEDURE up_ManEspecialidad (
 @idEspecialidad			INT,
 @nombre					VARCHAR(30),
 @descripcion			VARCHAR(200),

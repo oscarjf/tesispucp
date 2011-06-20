@@ -1,4 +1,4 @@
-CREATE PROCEDURE up_ManLugarNacimiento (
+ALTER PROCEDURE up_ManLugarNacimiento (
 @idLugarNacimiento		INT,
 @pais					VARCHAR(40),
 @departamento			VARCHAR(40),
@@ -17,8 +17,6 @@ BEGIN
 		VALUES (@pais, @departamento, @provincia, @distrito)
 		
 		SET @idGenerado = SCOPE_IDENTITY()
-		
-		RETURN @idGenerado
 	END
     
     IF @accion = 1
@@ -28,8 +26,6 @@ BEGIN
 		WHERE Id_LugarNacimiento = @idLugarNacimiento
 		
 		SET @idGenerado = 0
-		
-		RETURn @idGenerado	
 	END
     
   IF @@ERROR <> 0
@@ -38,4 +34,6 @@ BEGIN
 	RETURN
   END
   COMMIT TRANSACTION
+  
+  RETURN @idGenerado
 END

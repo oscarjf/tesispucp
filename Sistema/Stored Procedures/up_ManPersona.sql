@@ -1,4 +1,4 @@
-CREATE PROCEDURE up_ManPersona (
+ALTER PROCEDURE up_ManPersona (
 @idPersona					INT,
 @paterno					VARCHAR(30),
 @materno					VARCHAR(30),
@@ -8,14 +8,8 @@ CREATE PROCEDURE up_ManPersona (
 @idTipoDocumento			INT,
 @numeroDocumento			VARCHAR(20),
 @estadoCivil				VARCHAR(10),
-@paisNacimiento				VARCHAR(40),
-@departamentoNacimiento		VARCHAR(40),
-@provinciaNacimiento		VARCHAR(40),
-@distritoNacimiento			VARCHAR(40),
-@departamentoDomicilio		VARCHAR(40),
-@provinciaDomicilio			VARCHAR(40),
-@distritoDomicilio			VARCHAR(40),
-@direccionDomicilio			VARCHAR(200),
+@idLugarNacimiento			VARCHAR(40),
+@idDomicilio				VARCHAR(40),
 @telefono					VARCHAR(8),
 @celular					VARCHAR(10),
 @email						VARCHAR(60),
@@ -28,8 +22,7 @@ AS
 
 BEGIN
   BEGIN TRANSACTION
-	DECLARE @idLugarNacimiento INT, @idDomicilio INT
-    IF @accion = 0
+	IF @accion = 0
     BEGIN
 		INSERT INTO Persona (Paterno, Materno, Nombres, Sexo, FechaNacimiento,
 							Id_TipoDocumento, Numero_Documento, EstadoCivil, 
@@ -41,7 +34,6 @@ BEGIN
 		
 		SET @idGenerado = SCOPE_IDENTITY()
 		
-		RETURN @idGenerado
 	END
     
     IF @accion = 1
@@ -57,7 +49,6 @@ BEGIN
 		
 		SET @idGenerado = 0
 		
-		RETURN @idGenerado
     END
     
   IF @@ERROR <> 0
@@ -66,4 +57,6 @@ BEGIN
 	RETURN
   END
   COMMIT TRANSACTION
+  
+  RETURN @idGenerado
 END

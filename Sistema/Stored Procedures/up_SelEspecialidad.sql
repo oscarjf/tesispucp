@@ -1,4 +1,4 @@
-CREATE PROCEDURE up_SelEspecialidad(
+CREATE PROCEDURE up_SelEspecialidad (
 @idEspecialidad			INT,
 @nombre					VARCHAR(30),
 @estado					VARCHAR(8),

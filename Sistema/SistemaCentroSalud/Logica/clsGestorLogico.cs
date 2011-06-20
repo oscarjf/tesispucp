@@ -198,5 +198,31 @@ namespace Logica
 
             return lstEspecialidades;
         }
+
+        public static List<clsPerfil> up_SelPerfil()
+        {
+            List<clsPerfil> lstPerfiles = new List<clsPerfil>();
+            DataTable dtPerfiles = clsGestorBD.up_SelPerfil(0, "", "DOCTOR", "ACTIVO", clsGestorBD.SELECTCUSTOM);
+
+            for (int i = 0; i < dtPerfiles.Rows.Count; i++)
+            {
+                string strId = dtPerfiles.Rows[i][0].ToString();
+                string strNombre = dtPerfiles.Rows[i][1].ToString();
+                string strTipoPersonal = dtPerfiles.Rows[i][2].ToString();
+                string strEstado = dtPerfiles.Rows[i][3].ToString();
+
+                clsPerfil objPerfil = new clsPerfil();
+
+                objPerfil.NumIdPerfil = Int32.Parse(strId);
+                objPerfil.StrNombre = strNombre;
+                objPerfil.StrTipoPersonal = strTipoPersonal;
+                objPerfil.StrEstado = strEstado;
+
+                lstPerfiles.Add(objPerfil);
+            }
+
+            return lstPerfiles;
+        }
+
     }
 }

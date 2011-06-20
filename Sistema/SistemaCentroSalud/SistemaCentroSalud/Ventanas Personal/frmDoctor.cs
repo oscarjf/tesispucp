@@ -9,11 +9,21 @@ using System.Windows.Forms;
 using Comun;
 using Modelo;
 using Logica;
+using Control;
 
 namespace SistemaCentroSalud.Ventanas_Personal
 {
     public partial class frmDoctor : Form
     {
+        DataTable dtDoctores;
+        private int numIdDoctor = 0;
+        private int numAccion = 0;
+        private string strSexo; //M:Masculino, F:Femenino
+        private int numIdTipoDocumento = 0;
+        private int numIdPerfil = 0;
+        private int numIdArea = 0;
+        private int numIdEspecialidad = 0;
+
         public frmDoctor()
         {
             InitializeComponent();
@@ -52,6 +62,10 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
             List<clsUbigeo> lstDepartamentos = clsGestorLogico.up_SelDepartamento();
             llenarComboDepartamento(lstDepartamentos);
+
+            List<clsPerfil> lstPerfiles = clsGestorLogico.up_SelPerfil();
+            llenarComboPerfil(lstPerfiles);
+            cboPerfil.SelectedIndex = 0;
         }
 
         private void llenarComboPais(List<clsPais> lstPaises)
@@ -190,6 +204,19 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
+        private void llenarComboPerfil(List<clsPerfil> lstPerfiles)
+        {
+            clsPerfil objPerfil = new clsPerfil();
+            objPerfil.StrNombre = "SELECCIONAR";
+
+            cboPerfil.Items.Add(objPerfil);
+
+            for (int i = 0; i < lstPerfiles.Count; i++)
+            {
+                cboPerfil.Items.Add(lstPerfiles[i]);
+            }
+        }
+
         private string generarNombreUsuario(string strNombre, string strApellidoPaterno, string strApellidoMaterno)
         {
             int numNumeroOcurrencias;
@@ -202,7 +229,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 strNombreUsuario = strNombreUsuario + numNumeroOcurrencias;
             }
 
-            return strNombreUsuario;
+            return strNombreUsuario.ToLower();
         }
 
 
@@ -451,11 +478,80 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
+        private void limpiarCampos()
+        {
+            txtPaterno.Clear();
+            txtMaterno.Clear();
+            txtNombres.Clear();
+            cboEstadoCivil.SelectedIndex = 0;
+            cboSexo.SelectedIndex = 0;
+            dtpFechaNacimiento.Value = DateTime.Now;
+            cboTipoDocumento.SelectedIndex = 0;
+            txtNumeroDocumento.Clear();
+            cboArea.SelectedIndex = 0;
+            cboEspecialidad.SelectedIndex = 0;
+            txtCMP.Clear();
+            cboPerfil.SelectedIndex = 0;
+            cboPais.SelectedIndex = 0;
+            cboDepartamento.SelectedIndex = 0;
+            cboProvincia.SelectedIndex = 0;
+            cboDistrito.SelectedIndex = 0;
+            cboDepartamentoDomicilio.SelectedIndex = 0;
+            cboProvinciaDomicilio.SelectedIndex = 0;
+            cboDistritoDomicilio.SelectedIndex = 0;
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtCelular.Clear();
+            txtCorreoElectronico.Clear();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (validarVentana())
             {
+                if (clsGestorBD.up_ManDoctor(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text, strSexo, dtpFechaNacimiento.Value,numIdTipoDocumento, txtNumeroDocumento.Text, cboEstadoCivil.Text, cboPais.Text, cboDepartamento.Text, cboProvincia.Text, cboDistrito.Text,cboDepartamentoDomicilio.Text, cboProvinciaDomicilio.Text, cboDistritoDomicilio.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text,txtCorreoElectronico.Text, DateTime.Now, "PERSONAL", generarNombreUsuario(txtNombres.Text, txtPaterno.Text, txtMaterno.Text ), clsComun.generarContrasenaAleatoria(10), "DOCTOR", numIdPerfil, txtCMP.Text, "X", numIdArea, numIdEspecialidad, "ACTIVO", numAccion))
+                {
+                    if (numAccion == clsGestorBD.INSERT)
+                    {
+                        if (MessageBox.Show("El doctor se registró exitosamente\n¿Desea seguir registrando doctores?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            limpiarCampos();
+                        }
+                        else
+                        {
+                            //limpiarCampos();
 
+                            //DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
+
+                            //llenarGrilla(dtTemporal);
+
+                            clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El doctor se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //limpiarCampos();
+
+                        //DataTable dtTemporal = clsGestorBD.up_SelEspecialidad(0, "", "", clsGestorBD.SELECTALL);
+
+                        //llenarGrilla(dtTemporal);
+
+                        clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
+                    }
+                }
+                else
+                {
+                    if (numAccion == clsGestorBD.INSERT)
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba registrar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba actualizar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -475,6 +571,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
             clsComun.redimensionarTabControl(tbcDoctor, 784, 416);
             clsComun.redimensionarVentana(this, 791, 444);
+
+            numAccion = clsGestorBD.INSERT;
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -483,6 +581,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             {
                 clsComun.redimensionarTabControl(tbcDoctor, 784, 416);
                 clsComun.redimensionarVentana(this, 791, 444);
+
+                numAccion = clsGestorBD.VER;
             }
             else
             {
@@ -496,6 +596,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             {
                 clsComun.redimensionarTabControl(tbcDoctor, 784, 416);
                 clsComun.redimensionarVentana(this, 791, 444);
+
+                numAccion = clsGestorBD.UPDATE;
             }
             else
             {
@@ -532,6 +634,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                 if (cboTipoDocumento.SelectedIndex >= 0 && cboTipoDocumento.Text.CompareTo("SELECCIONAR") != 0)
                 {
+                    numIdTipoDocumento = ((clsTipoDocumento)(cboTipoDocumento.SelectedItem)).NumIdTipoDocumento;
                     txtNumeroDocumento.MaxLength = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumNumeroDigitos;
                     txtNumeroDocumento.Enabled = true;
                 }
@@ -679,6 +782,52 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
             catch
             {
+            }
+        }
+
+        private void btnActivar_Click(object sender, EventArgs e)
+        {
+            numAccion = clsGestorBD.RECOVER;
+        }
+
+        private void btnInactivar_Click(object sender, EventArgs e)
+        {
+            numAccion = clsGestorBD.DELETE;
+        }
+
+        private void cboSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSexo.SelectedIndex == 0)
+            {
+                strSexo = "M";
+            }
+            else
+            {
+                strSexo = "F";
+            }
+        }
+
+        private void cboPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboPerfil.SelectedIndex > 0)
+            {
+                numIdPerfil = ((clsPerfil)cboPerfil.SelectedItem).NumIdPerfil;
+            }
+        }
+
+        private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboArea.SelectedIndex > 0)
+            {
+                numIdArea = ((clsArea)cboArea.SelectedItem).NumIdArea;
+            }
+        }
+
+        private void cboEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboEspecialidad.SelectedIndex > 0)
+            {
+                numIdEspecialidad = ((clsEspecialidad)cboEspecialidad.SelectedItem).NumIdEspecialidad;
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Data;
 using Control;
 using Comun;
 
+
 namespace Logica
 {
     public class clsGestorLogico

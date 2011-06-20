@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsArea.cs" />
+    <Compile Include="clsPerfil.cs" />
+    <Compile Include="clsProvincia.cs" />
     <Compile Include="clsUbigeo.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsEspecialidad.cs" />

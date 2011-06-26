@@ -29,12 +29,13 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void inicializarVentana()
         {
             cboSexo.SelectedIndex = 0;
+            cboEstadoCivil.SelectedIndex = 0;            
 
             List<clsTipoDocumento> lstTipoDocumentos = clsGestorLogico.up_SelTipoDocumento();
             llenarComboTipoDocumento(lstTipoDocumentos);
             cboTipoDocumento.SelectedIndex = 0;
 
-            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("Administrativa","ACTIVO");
+            List<clsArea> lstAreas = clsGestorLogico.up_SelArea("Medica","ACTIVO");
             llenarComboArea(lstAreas);
             cboArea.SelectedIndex = 0;
 
@@ -45,10 +46,23 @@ namespace SistemaCentroSalud.Ventanas_Personal
             List<clsUbigeo> lstDepartamentos = clsGestorLogico.up_SelDepartamento();
             llenarComboDepartamento(lstDepartamentos);
 
-            cboSexo.SelectedIndex = 0;
-            cboEstadoCivil.SelectedIndex = 0;            
+            List<clsPerfil> lstPerfiles = clsGestorLogico.up_SelPerfilEnfermera();
+            llenarComboPerfil(lstPerfiles);
+            cboPerfil.SelectedIndex = 0;
         }
 
+        private void llenarComboPerfil(List<clsPerfil> lstPerfiles)
+        {
+            clsPerfil objPerfil = new clsPerfil();
+            objPerfil.StrNombre = "SELECCIONAR";
+
+            cboPerfil.Items.Add(objPerfil);
+
+            for (int i = 0; i < lstPerfiles.Count; i++)
+            {
+                cboPerfil.Items.Add(lstPerfiles[i]);
+            }
+        }
 
         private void llenarComboTipoDocumento(List<clsTipoDocumento> lstTipoDocumentos)
         {

@@ -82,6 +82,8 @@
             this.cboArea = new System.Windows.Forms.ComboBox();
             this.lblArea = new System.Windows.Forms.Label();
             this.gbxPersonal = new System.Windows.Forms.GroupBox();
+            this.lblEstadoCivil = new System.Windows.Forms.Label();
+            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.lblNumeroDocumento = new System.Windows.Forms.Label();
@@ -92,8 +94,6 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblMaterno = new System.Windows.Forms.Label();
             this.lblPaterno = new System.Windows.Forms.Label();
-            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
-            this.lblEstadoCivil = new System.Windows.Forms.Label();
             this.txtCorreoElectronico = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtCelular = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtTelefono = new SistemaCentroSalud.Controles.cuTextBox();
@@ -328,9 +328,6 @@
             // 
             this.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Items.AddRange(new object[] {
-            "MASCULINO",
-            "FEMENINO"});
             this.cboPerfil.Location = new System.Drawing.Point(7, 30);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(125, 21);
@@ -658,9 +655,6 @@
             // 
             this.cboArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboArea.FormattingEnabled = true;
-            this.cboArea.Items.AddRange(new object[] {
-            "MASCULINO",
-            "FEMENINO"});
             this.cboArea.Location = new System.Drawing.Point(10, 32);
             this.cboArea.Name = "cboArea";
             this.cboArea.Size = new System.Drawing.Size(125, 21);
@@ -699,6 +693,30 @@
             this.gbxPersonal.TabIndex = 0;
             this.gbxPersonal.TabStop = false;
             this.gbxPersonal.Text = "Información Personal";
+            // 
+            // lblEstadoCivil
+            // 
+            this.lblEstadoCivil.AutoSize = true;
+            this.lblEstadoCivil.Location = new System.Drawing.Point(406, 19);
+            this.lblEstadoCivil.Name = "lblEstadoCivil";
+            this.lblEstadoCivil.Size = new System.Drawing.Size(65, 13);
+            this.lblEstadoCivil.TabIndex = 20;
+            this.lblEstadoCivil.Text = "Estado Civil:";
+            // 
+            // cboEstadoCivil
+            // 
+            this.cboEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoCivil.FormattingEnabled = true;
+            this.cboEstadoCivil.Items.AddRange(new object[] {
+            "SELECCIONAR",
+            "SOLTERO",
+            "CASADO",
+            "VIUDO",
+            "DIVORCIADO"});
+            this.cboEstadoCivil.Location = new System.Drawing.Point(406, 34);
+            this.cboEstadoCivil.Name = "cboEstadoCivil";
+            this.cboEstadoCivil.Size = new System.Drawing.Size(125, 21);
+            this.cboEstadoCivil.TabIndex = 19;
             // 
             // dtpFechaNacimiento
             // 
@@ -751,6 +769,7 @@
             this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Items.AddRange(new object[] {
+            "SELECCIONAR",
             "MASCULINO",
             "FEMENINO"});
             this.cboSexo.Location = new System.Drawing.Point(10, 75);
@@ -793,30 +812,6 @@
             this.lblPaterno.Size = new System.Drawing.Size(87, 13);
             this.lblPaterno.TabIndex = 0;
             this.lblPaterno.Text = "Apellido Paterno:";
-            // 
-            // cboEstadoCivil
-            // 
-            this.cboEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstadoCivil.FormattingEnabled = true;
-            this.cboEstadoCivil.Items.AddRange(new object[] {
-            "SELECCIONAR",
-            "SOLTERO",
-            "CASADO",
-            "VIUDO",
-            "DIVORCIADO"});
-            this.cboEstadoCivil.Location = new System.Drawing.Point(406, 34);
-            this.cboEstadoCivil.Name = "cboEstadoCivil";
-            this.cboEstadoCivil.Size = new System.Drawing.Size(125, 21);
-            this.cboEstadoCivil.TabIndex = 19;
-            // 
-            // lblEstadoCivil
-            // 
-            this.lblEstadoCivil.AutoSize = true;
-            this.lblEstadoCivil.Location = new System.Drawing.Point(406, 19);
-            this.lblEstadoCivil.Name = "lblEstadoCivil";
-            this.lblEstadoCivil.Size = new System.Drawing.Size(65, 13);
-            this.lblEstadoCivil.TabIndex = 20;
-            this.lblEstadoCivil.Text = "Estado Civil:";
             // 
             // txtCorreoElectronico
             // 

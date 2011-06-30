@@ -618,6 +618,73 @@ namespace Control
             }
         #endregion
 
+            public static DataTable up_SelDoctor(int numId, string strNombre, string apPaterno, string apMaterno, string cmp, string nomespecialidad, string strEstado, int numAccion)
+            {
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
+
+                    SqlCommand sqlComando = new SqlCommand("up_SelDoctor", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@idDoctor";
+                    sqlParametro.Value = numId;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@nombres";
+                    sqlParametro.Value = strNombre;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@ap_paterno";
+                    sqlParametro.Value = apPaterno;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@ap_materno";
+                    sqlParametro.Value = apMaterno;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@cmp";
+                    sqlParametro.Value = cmp;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@nomespecialidad";
+                    sqlParametro.Value = nomespecialidad;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@estado";
+                    sqlParametro.Value = strEstado;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@accion";
+                    sqlParametro.Value = numAccion;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    SqlDataAdapter sqlAdaptador = new SqlDataAdapter(sqlComando);
+                    DataTable dtTabla = new DataTable();
+                    sqlAdaptador.Fill(dtTabla);
+
+                    sqlConexion.Close();
+
+                    return dtTabla;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return null;
+                }
+            }
+
         public static DataTable consultarSentencia(String strSentenciaSQL)
         {
             DataTable dt = new DataTable();

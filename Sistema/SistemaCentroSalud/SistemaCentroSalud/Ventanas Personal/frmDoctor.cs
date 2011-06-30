@@ -37,6 +37,50 @@ namespace SistemaCentroSalud.Ventanas_Personal
             tbpDetalle.Enabled = false;
 
             inicializarVentana();
+
+            dtDoctores = clsGestorBD.up_SelDoctor(0, "", "", "", "", "", "", clsGestorBD.SELECTALL);
+
+            llenarGrilla(dtDoctores);
+        }
+
+        private void llenarGrilla(DataTable dtTabla)
+        {
+            dgvDoctores.DataMember = null;
+
+            for (int i = 0; i < dtTabla.Rows.Count; i++)
+            {
+                string strIdDoctor = dtTabla.Rows[i][0].ToString();
+                string strPaterno = dtTabla.Rows[i][1].ToString();
+                string strMaterno = dtTabla.Rows[i][2].ToString();
+                string strNombres = dtTabla.Rows[i][3].ToString();
+                string strCMP = dtTabla.Rows[i][4].ToString();
+                string strEspecialidad = dtTabla.Rows[i][5].ToString();
+                string strEstadoDoctor = dtTabla.Rows[i][6].ToString();
+
+                string[] strFila = { strIdDoctor, strPaterno, strMaterno, strNombres, strCMP, strEspecialidad, strEstadoDoctor };
+
+                dgvDoctores.Rows.Add(strFila);
+
+                if (strEstadoDoctor.CompareTo("INACTIVO") == 0)
+                {
+                    //dgvDoctores.Rows[i].Cells[0].Style.ForeColor = Color.White;
+                    //dgvDoctores.Rows[i].Cells[0].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[1].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[1].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[3].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[4].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[4].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[5].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[6].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                    dgvDoctores.Rows[i].Cells[7].Style.ForeColor = Color.White;
+                    dgvDoctores.Rows[i].Cells[7].Style.BackColor = Color.Red;
+                }
+            }
         }
 
         private void inicializarVentana()

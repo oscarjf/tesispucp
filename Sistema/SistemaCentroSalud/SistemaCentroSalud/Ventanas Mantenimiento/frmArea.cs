@@ -12,7 +12,7 @@ namespace SistemaCentroSalud
         //List<clsArea> lstAreas = new List<clsArea>();
         DataTable dtAreas;
         private int numIdArea = 0;
-        private int numAccion = 0;
+        private int numAccion = 0;        
 
         public frmArea()
         {
@@ -186,35 +186,6 @@ namespace SistemaCentroSalud
             }
         }
 
-        private void btnInactivar_Click(object sender, EventArgs e)
-        {
-            if (dgvAreas.RowCount > 0)
-            {
-                try
-                {
-                    numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
-                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsGestorBD.DELETE))
-                    {
-                        MessageBox.Show("El área se inactivó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        limpiarCampos();
-
-                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
-
-                        llenarGrilla(dtTemporal);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrió un error mientras se intentaba inactivar el área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    clsComun.registrarErrorLog(ex.ToString());
-                }
-            }
-        }
-
         private void btnActivar_Click(object sender, EventArgs e)
         {
             if (dgvAreas.RowCount > 0)
@@ -244,6 +215,35 @@ namespace SistemaCentroSalud
             }
         }
 
+        private void btnInactivar_Click(object sender, EventArgs e)
+        {
+            if (dgvAreas.RowCount > 0)
+            {
+                try
+                {
+                    numIdArea = Int32.Parse(dgvAreas.Rows[dgvAreas.CurrentRow.Index].Cells[0].Value.ToString());
+                    if (clsGestorBD.up_ManArea(numIdArea, "", "", "", clsGestorBD.DELETE))
+                    {
+                        MessageBox.Show("El área se inactivó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        limpiarCampos();
+
+                        DataTable dtTemporal = clsGestorBD.up_SelArea(0, "", "", "", clsGestorBD.SELECTALL);
+
+                        llenarGrilla(dtTemporal);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba inactivar el área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
+            }
+        }
+        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -315,7 +315,7 @@ namespace SistemaCentroSalud
             try
             {
                 dtAreas = clsGestorBD.up_SelArea(0, txtNombreBuscar.Text, cboTipoBuscar.Text, cboEstadoBuscar.Text, clsGestorBD.SELECTCUSTOM);
-                llenarGrilla(dtAreas);
+                llenarGrilla(dtAreas);                
             }
             catch
             {

@@ -1009,7 +1009,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrió un error mientras se intentaba activar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ocurrió un error mientras se intentaba inactivar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -1038,7 +1038,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrió un error mientras se intentaba inactivar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ocurrió un error mientras se intentaba activar el doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)

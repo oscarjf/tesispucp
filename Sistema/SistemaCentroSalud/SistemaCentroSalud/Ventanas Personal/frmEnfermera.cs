@@ -34,6 +34,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             inicializarVentana();
+            dtEnfermeras = clsGestorBD.up_SelEnfermera(0, "", "", "", "", "", "", clsGestorBD.SELECTALL);
+            llenarGrilla(dtEnfermeras);
         }
 
         private void inicializarVentana()

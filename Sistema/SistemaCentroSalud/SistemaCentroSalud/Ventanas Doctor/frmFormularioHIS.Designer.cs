@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFormularioHIS));
             this.btnPrimero = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
-            this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnUltimo = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.gbxDatosFormulario = new System.Windows.Forms.GroupBox();
             this.gbxServicio = new System.Windows.Forms.GroupBox();
             this.rbtnServicioR = new System.Windows.Forms.RadioButton();
@@ -47,11 +47,8 @@
             this.rbtnDiagnosticoR = new System.Windows.Forms.RadioButton();
             this.rbtnDiagnosticoD = new System.Windows.Forms.RadioButton();
             this.rbtnDiagnosticoP = new System.Windows.Forms.RadioButton();
-            this.txtDiagnostico = new SistemaCentroSalud.Controles.cuTextBox();
             this.cboSexo = new System.Windows.Forms.ComboBox();
-            this.txtEdad = new SistemaCentroSalud.Controles.cuTextBox();
             this.cboDistritoProcedencia = new System.Windows.Forms.ComboBox();
-            this.txtNumeroHistoriaClinica = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblDiagnostico = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblEdad = new System.Windows.Forms.Label();
@@ -61,6 +58,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.ttpInformacion = new System.Windows.Forms.ToolTip(this.components);
+            this.txtDiagnostico = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtEdad = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNumeroHistoriaClinica = new SistemaCentroSalud.Controles.cuTextBox();
             this.gbxDatosFormulario.SuspendLayout();
             this.gbxServicio.SuspendLayout();
             this.gbxEstablecimiento.SuspendLayout();
@@ -77,6 +77,7 @@
             this.btnPrimero.Size = new System.Drawing.Size(37, 35);
             this.btnPrimero.TabIndex = 0;
             this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // btnAnterior
             // 
@@ -88,28 +89,31 @@
             this.btnAnterior.Size = new System.Drawing.Size(37, 35);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.UseVisualStyleBackColor = true;
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
-            this.btnSiguiente.Location = new System.Drawing.Point(380, 323);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(37, 35);
-            this.btnSiguiente.TabIndex = 2;
-            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnUltimo
             // 
             this.btnUltimo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
-            this.btnUltimo.Location = new System.Drawing.Point(337, 323);
+            this.btnUltimo.Location = new System.Drawing.Point(380, 323);
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(37, 35);
-            this.btnUltimo.TabIndex = 3;
+            this.btnUltimo.TabIndex = 2;
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
+            this.btnSiguiente.Location = new System.Drawing.Point(337, 323);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(37, 35);
+            this.btnSiguiente.TabIndex = 3;
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // gbxDatosFormulario
             // 
@@ -153,10 +157,10 @@
             this.rbtnServicioR.AutoSize = true;
             this.rbtnServicioR.Location = new System.Drawing.Point(17, 69);
             this.rbtnServicioR.Name = "rbtnServicioR";
-            this.rbtnServicioR.Size = new System.Drawing.Size(33, 17);
+            this.rbtnServicioR.Size = new System.Drawing.Size(90, 17);
             this.rbtnServicioR.TabIndex = 5;
             this.rbtnServicioR.TabStop = true;
-            this.rbtnServicioR.Text = "R";
+            this.rbtnServicioR.Text = "R (Reingreso)";
             this.rbtnServicioR.UseVisualStyleBackColor = true;
             // 
             // rbtnServicioC
@@ -164,10 +168,10 @@
             this.rbtnServicioC.AutoSize = true;
             this.rbtnServicioC.Location = new System.Drawing.Point(17, 46);
             this.rbtnServicioC.Name = "rbtnServicioC";
-            this.rbtnServicioC.Size = new System.Drawing.Size(32, 17);
+            this.rbtnServicioC.Size = new System.Drawing.Size(98, 17);
             this.rbtnServicioC.TabIndex = 4;
             this.rbtnServicioC.TabStop = true;
-            this.rbtnServicioC.Text = "C";
+            this.rbtnServicioC.Text = "C (Continuador)";
             this.rbtnServicioC.UseVisualStyleBackColor = true;
             // 
             // rbtnServicioN
@@ -175,10 +179,10 @@
             this.rbtnServicioN.AutoSize = true;
             this.rbtnServicioN.Location = new System.Drawing.Point(17, 23);
             this.rbtnServicioN.Name = "rbtnServicioN";
-            this.rbtnServicioN.Size = new System.Drawing.Size(33, 17);
+            this.rbtnServicioN.Size = new System.Drawing.Size(74, 17);
             this.rbtnServicioN.TabIndex = 3;
             this.rbtnServicioN.TabStop = true;
-            this.rbtnServicioN.Text = "N";
+            this.rbtnServicioN.Text = "N (Nuevo)";
             this.rbtnServicioN.UseVisualStyleBackColor = true;
             // 
             // gbxEstablecimiento
@@ -198,10 +202,10 @@
             this.rbtnEstablecimientoR.AutoSize = true;
             this.rbtnEstablecimientoR.Location = new System.Drawing.Point(17, 69);
             this.rbtnEstablecimientoR.Name = "rbtnEstablecimientoR";
-            this.rbtnEstablecimientoR.Size = new System.Drawing.Size(33, 17);
+            this.rbtnEstablecimientoR.Size = new System.Drawing.Size(90, 17);
             this.rbtnEstablecimientoR.TabIndex = 5;
             this.rbtnEstablecimientoR.TabStop = true;
-            this.rbtnEstablecimientoR.Text = "R";
+            this.rbtnEstablecimientoR.Text = "R (Reingreso)";
             this.rbtnEstablecimientoR.UseVisualStyleBackColor = true;
             // 
             // rbtnEstablecimientoC
@@ -209,10 +213,10 @@
             this.rbtnEstablecimientoC.AutoSize = true;
             this.rbtnEstablecimientoC.Location = new System.Drawing.Point(17, 46);
             this.rbtnEstablecimientoC.Name = "rbtnEstablecimientoC";
-            this.rbtnEstablecimientoC.Size = new System.Drawing.Size(32, 17);
+            this.rbtnEstablecimientoC.Size = new System.Drawing.Size(98, 17);
             this.rbtnEstablecimientoC.TabIndex = 4;
             this.rbtnEstablecimientoC.TabStop = true;
-            this.rbtnEstablecimientoC.Text = "C";
+            this.rbtnEstablecimientoC.Text = "C (Continuador)";
             this.rbtnEstablecimientoC.UseVisualStyleBackColor = true;
             // 
             // rbtnEstablecimientoN
@@ -220,10 +224,10 @@
             this.rbtnEstablecimientoN.AutoSize = true;
             this.rbtnEstablecimientoN.Location = new System.Drawing.Point(17, 23);
             this.rbtnEstablecimientoN.Name = "rbtnEstablecimientoN";
-            this.rbtnEstablecimientoN.Size = new System.Drawing.Size(33, 17);
+            this.rbtnEstablecimientoN.Size = new System.Drawing.Size(74, 17);
             this.rbtnEstablecimientoN.TabIndex = 3;
             this.rbtnEstablecimientoN.TabStop = true;
-            this.rbtnEstablecimientoN.Text = "N";
+            this.rbtnEstablecimientoN.Text = "N (Nuevo)";
             this.rbtnEstablecimientoN.UseVisualStyleBackColor = true;
             // 
             // gbxTipoDiagnostico
@@ -243,10 +247,10 @@
             this.rbtnDiagnosticoR.AutoSize = true;
             this.rbtnDiagnosticoR.Location = new System.Drawing.Point(17, 69);
             this.rbtnDiagnosticoR.Name = "rbtnDiagnosticoR";
-            this.rbtnDiagnosticoR.Size = new System.Drawing.Size(33, 17);
+            this.rbtnDiagnosticoR.Size = new System.Drawing.Size(85, 17);
             this.rbtnDiagnosticoR.TabIndex = 2;
             this.rbtnDiagnosticoR.TabStop = true;
-            this.rbtnDiagnosticoR.Text = "R";
+            this.rbtnDiagnosticoR.Text = "R (Repetido)";
             this.rbtnDiagnosticoR.UseVisualStyleBackColor = true;
             // 
             // rbtnDiagnosticoD
@@ -254,10 +258,10 @@
             this.rbtnDiagnosticoD.AutoSize = true;
             this.rbtnDiagnosticoD.Location = new System.Drawing.Point(17, 46);
             this.rbtnDiagnosticoD.Name = "rbtnDiagnosticoD";
-            this.rbtnDiagnosticoD.Size = new System.Drawing.Size(33, 17);
+            this.rbtnDiagnosticoD.Size = new System.Drawing.Size(86, 17);
             this.rbtnDiagnosticoD.TabIndex = 1;
             this.rbtnDiagnosticoD.TabStop = true;
-            this.rbtnDiagnosticoD.Text = "D";
+            this.rbtnDiagnosticoD.Text = "D (Definitivo)";
             this.rbtnDiagnosticoD.UseVisualStyleBackColor = true;
             // 
             // rbtnDiagnosticoP
@@ -265,41 +269,25 @@
             this.rbtnDiagnosticoP.AutoSize = true;
             this.rbtnDiagnosticoP.Location = new System.Drawing.Point(17, 23);
             this.rbtnDiagnosticoP.Name = "rbtnDiagnosticoP";
-            this.rbtnDiagnosticoP.Size = new System.Drawing.Size(32, 17);
+            this.rbtnDiagnosticoP.Size = new System.Drawing.Size(91, 17);
             this.rbtnDiagnosticoP.TabIndex = 0;
             this.rbtnDiagnosticoP.TabStop = true;
-            this.rbtnDiagnosticoP.Text = "P";
+            this.rbtnDiagnosticoP.Text = "P (Presuntivo)";
             this.rbtnDiagnosticoP.UseVisualStyleBackColor = true;
-            // 
-            // txtDiagnostico
-            // 
-            this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
-            this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
-            this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtDiagnostico.TabIndex = 9;
-            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // cboSexo
             // 
             this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Items.AddRange(new object[] {
+            "SELECCIONAR",
             "MASCULINO",
             "FEMENINO"});
             this.cboSexo.Location = new System.Drawing.Point(158, 102);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(118, 21);
             this.cboSexo.TabIndex = 8;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(158, 76);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(40, 20);
-            this.txtEdad.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtEdad.TabIndex = 7;
-            this.txtEdad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.cboSexo.SelectedIndexChanged += new System.EventHandler(this.cboSexo_SelectedIndexChanged);
             // 
             // cboDistritoProcedencia
             // 
@@ -309,15 +297,6 @@
             this.cboDistritoProcedencia.Name = "cboDistritoProcedencia";
             this.cboDistritoProcedencia.Size = new System.Drawing.Size(161, 21);
             this.cboDistritoProcedencia.TabIndex = 6;
-            // 
-            // txtNumeroHistoriaClinica
-            // 
-            this.txtNumeroHistoriaClinica.Location = new System.Drawing.Point(158, 22);
-            this.txtNumeroHistoriaClinica.Name = "txtNumeroHistoriaClinica";
-            this.txtNumeroHistoriaClinica.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroHistoriaClinica.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNumeroHistoriaClinica.TabIndex = 5;
-            this.txtNumeroHistoriaClinica.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // lblDiagnostico
             // 
@@ -376,6 +355,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -402,6 +382,35 @@
             this.btnImportar.Text = "Importar";
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // txtDiagnostico
+            // 
+            this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
+            this.txtDiagnostico.Name = "txtDiagnostico";
+            this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
+            this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtDiagnostico.TabIndex = 9;
+            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Location = new System.Drawing.Point(158, 76);
+            this.txtEdad.MaxLength = 2;
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(40, 20);
+            this.txtEdad.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtEdad.TabIndex = 7;
+            this.txtEdad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
+            // txtNumeroHistoriaClinica
+            // 
+            this.txtNumeroHistoriaClinica.Location = new System.Drawing.Point(158, 22);
+            this.txtNumeroHistoriaClinica.Name = "txtNumeroHistoriaClinica";
+            this.txtNumeroHistoriaClinica.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroHistoriaClinica.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNumeroHistoriaClinica.TabIndex = 5;
+            this.txtNumeroHistoriaClinica.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // frmFormularioHIS
             // 
@@ -412,8 +421,8 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gbxDatosFormulario);
-            this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnPrimero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -422,6 +431,7 @@
             this.Name = "frmFormularioHIS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario HIS";
+            this.Load += new System.EventHandler(this.frmFormularioHIS_Load);
             this.gbxDatosFormulario.ResumeLayout(false);
             this.gbxDatosFormulario.PerformLayout();
             this.gbxServicio.ResumeLayout(false);
@@ -438,8 +448,8 @@
 
         private System.Windows.Forms.Button btnPrimero;
         private System.Windows.Forms.Button btnAnterior;
-        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnUltimo;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.GroupBox gbxDatosFormulario;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;

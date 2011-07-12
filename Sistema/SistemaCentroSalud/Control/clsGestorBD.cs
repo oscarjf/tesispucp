@@ -1394,47 +1394,125 @@ namespace Control
                 }
             }
 
-        public static DataTable consultarSentencia(String strSentenciaSQL)
-        {
-            DataTable dt = new DataTable();
 
-            try
+            //HIS
+            public static bool up_ManHIS(DateTime dtFechaRegistro, int numHC, string strcodDistritoProcedencia, int numedad, string strSexo, int numIdCIE10, string strDiagnostico, string strEstablecimiento, string strServicio, int numAccion)
             {
-                SqlConnection sqlConexion = Conectar();
-                SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
-                sqlConexion.Open();
-                SqlDataAdapter da = new SqlDataAdapter(sqlComando);
-                da.Fill(dt);
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
 
-                sqlConexion.Close();
+                    SqlCommand sqlComando = new SqlCommand("up_ManHIS", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
 
-                return dt;
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@fechaRegistro";
+                    sqlParametro.Value = dtFechaRegistro;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@numeroHC";
+                    sqlParametro.Value = numHC;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@codDistritoProcedencia";
+                    sqlParametro.Value = strcodDistritoProcedencia;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@edad";
+                    sqlParametro.Value = numedad;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@sexo";
+                    sqlParametro.Value = strSexo;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@id_Cie10";
+                    sqlParametro.Value = numIdCIE10;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@tipoDiagnostico";
+                    sqlParametro.Value = strDiagnostico;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@establecimiento";
+                    sqlParametro.Value = strEstablecimiento;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@servicio";
+                    sqlParametro.Value = strServicio;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@accion";
+                    sqlParametro.Value = numAccion;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlComando.ExecuteNonQuery();
+
+                    sqlConexion.Close();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return false;
+                }
             }
-            catch (Exception ex)
+
+
+            public static DataTable consultarSentencia(String strSentenciaSQL)
             {
-                clsComun.registrarErrorLog(ex.ToString());
-                return null;
-            }
-        }
+                DataTable dt = new DataTable();
 
-        public static bool ejecutarSentencia(String strSentenciaSQL)
-        {
-            try
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
+                    sqlConexion.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(sqlComando);
+                    da.Fill(dt);
+
+                    sqlConexion.Close();
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return null;
+                }
+            }
+
+            public static bool ejecutarSentencia(String strSentenciaSQL)
             {
-                SqlConnection sqlConexion = Conectar();
-                SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
-                sqlConexion.Open();
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
+                    sqlConexion.Open();
 
-                sqlComando.ExecuteNonQuery();
-                sqlConexion.Close();
+                    sqlComando.ExecuteNonQuery();
+                    sqlConexion.Close();
 
-                return true;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return false;
+                }
             }
-            catch (Exception ex)
-            {
-                clsComun.registrarErrorLog(ex.ToString());
-                return false;
-            }
-        }
     }
 }

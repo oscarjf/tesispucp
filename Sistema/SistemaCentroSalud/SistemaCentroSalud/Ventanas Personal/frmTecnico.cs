@@ -596,6 +596,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtPaterno.Focus();
             clsComun.redimensionarTabControl(tbcTecnico, 784, 416);
             clsComun.redimensionarVentana(this, 791, 443);
+            numAccion = clsGestorBD.INSERT;
         }
 
         private void btnVer_Click(object sender, EventArgs e)

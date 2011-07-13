@@ -431,6 +431,140 @@ namespace Control
                 }
             }
 
+            //VENTANA
+            public static DataTable up_SelVentanas(int numIdPerfil, String strNomVentana, int numAccion)
+            {
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
+
+                    SqlCommand sqlComando = new SqlCommand("up_SelVentanas", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@idPerfil";
+                    sqlParametro.Value = numIdPerfil;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@NomVentana";
+                    sqlParametro.Value = strNomVentana;
+                    sqlComando.Parameters.Add(sqlParametro);
+                    
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@accion";
+                    sqlParametro.Value = numAccion;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    SqlDataAdapter sqlAdaptador = new SqlDataAdapter(sqlComando);
+                    DataTable dtTabla = new DataTable();
+                    sqlAdaptador.Fill(dtTabla);
+
+                    sqlConexion.Close();
+
+                    return dtTabla;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return null;
+                }
+            }
+
+            public static bool up_ManPerfil(int numIdPerfil, string strNombre, string strTipoPersonal, string strEstado, int numAccion)
+            {
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
+
+                    SqlCommand sqlComando = new SqlCommand("up_ManPerfil", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@idPerfil";
+                    sqlParametro.Value = numIdPerfil;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@nombre";
+                    sqlParametro.Value = strNombre;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@tipoPersonal";
+                    sqlParametro.Value = strTipoPersonal;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@estado";
+                    sqlParametro.Value = strEstado;
+                    sqlComando.Parameters.Add(sqlParametro);
+                                        
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@accion";
+                    sqlParametro.Value = numAccion;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlComando.ExecuteNonQuery();
+
+                    sqlConexion.Close();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return false;
+                }
+            }
+
+            public static bool up_ManPerfilxVentana(int numIdPerfil, int numIdVentana, int numAccion)
+            {
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
+
+                    SqlCommand sqlComando = new SqlCommand("up_ManPerfilxVentana", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@idPerfil";
+                    sqlParametro.Value = numIdPerfil;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@idVentana";
+                    sqlParametro.Value = numIdVentana;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@accion";
+                    sqlParametro.Value = numAccion;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlComando.ExecuteNonQuery();
+
+                    sqlConexion.Close();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return false;
+                }
+            }
+            
+
             //DOCTOR
             public static bool up_ManDoctor(int numId, string strPaterno, string strMaterno, string strNombres, string strSexo, DateTime dtFechaNacimiento, int numIdTipoDocumento, string strNumeroDocumento, string strEstadoCivil, string strPaisNacimiento, string strDepartamentoNacimiento, string strProvinciaNacimiento, string strDistritoNacimiento, string strDepartamentoDomicilio, string strProvinciaDomicilio, string strDistritoDomicilio, string strDireccion, string strTelefono, string strCelular, string strEmail, DateTime dtFechaRegistro, string strTipoPersona, string strUsuario, string strContrasena, string strTipoPersonal, int numIdPerfil, string strCMP, string strIndicadorHC, int numIdArea, int numIdEspecialidad, string strEstado, int numAccion)
             {

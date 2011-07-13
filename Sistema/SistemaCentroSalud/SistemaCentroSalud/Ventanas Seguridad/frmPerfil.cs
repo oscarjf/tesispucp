@@ -9,18 +9,24 @@ using System.Windows.Forms;
 using Comun;
 using Modelo;
 using Logica;
+using Control;
 
 namespace SistemaCentroSalud.Ventanas_Seguridad
 {
     public partial class frmPerfil : Form
     {
+        DataTable dtPerfil;
+        private int numIdPerfil = 0;
+        private int numAccion = 0;
+
         public frmPerfil()
         {
             InitializeComponent();
 
             clsComun.redimensionarVentana(this, 463, 345);
-            clsComun.redimensionarTabControl(tbcPerfil, 459, 318);
+            //clsComun.redimensionarTabControl(tbcPerfil, 459, 318);
         }
+
 
         private void frmPerfil_Load(object sender, EventArgs e)
         {
@@ -31,7 +37,44 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
             llenarComboArea(lstAreas);
             cboAreaBuscar.SelectedIndex = 0;
             cboAreaDetalle.SelectedIndex = 0;
+            cboEstadoBuscar.SelectedIndex = 0;
+
+            dtPerfil = clsGestorBD.up_SelPerfil(0, "", "", "", clsGestorBD.SELECTALL);
+
+            llenarGrilla(dtPerfil);
+
         }
+
+
+        private void llenarGrilla(DataTable dtTabla)
+        {
+            dgvPerfiles.DataMember = null;
+            //dgvDoctores.Rows.Clear();
+
+            for (int i = 0; i < dtTabla.Rows.Count; i++)
+            {
+                string strIdPerfil = dtTabla.Rows[i][0].ToString();
+                string strNombre = dtTabla.Rows[i][1].ToString();
+                string strTipoPersonal = dtTabla.Rows[i][2].ToString();
+                string strEstadoPerfil = dtTabla.Rows[i][3].ToString();
+
+                string[] strFila = { strIdPerfil, strNombre, "AREA MEDICA UNO", strEstadoPerfil };
+
+                dgvPerfiles.Rows.Add(strFila);
+
+                if (strEstadoPerfil.CompareTo("INACTIVO") == 0)
+                {
+                    dgvPerfiles.Rows[i].Cells[0].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[0].Style.BackColor = Color.Red;
+                    dgvPerfiles.Rows[i].Cells[1].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[1].Style.BackColor = Color.Red;
+                    dgvPerfiles.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                    dgvPerfiles.Rows[i].Cells[3].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                }
+            }
+        }        
 
         private void llenarComboArea(List<clsArea> lstAreas)
         {
@@ -83,29 +126,108 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             clsComun.tabSiguiente(tbcPerfil, tbpBuscar, tbpDetalle);
-            clsComun.redimensionarVentana(this, 574, 345);
-            clsComun.redimensionarTabControl(tbcPerfil, 569, 318);
-
-            cboAreaDetalle.Focus();
+            
+            txtNombreDetalle.Focus();
             clsComun.redimensionarTabControl(tbcPerfil, 570, 318);
             clsComun.redimensionarVentana(this, 575, 345);
+            numAccion = clsGestorBD.INSERT;
+        }
+
+        private void mostrarDatos(int numAccion, DataTable dtPerfil)
+        {
+            txtNombreDetalle.Text = dtPerfil.Rows[0][1].ToString();
+            cboAreaDetalle.Text = "AREA MEDICA UNO";
+            
+            if (numAccion == clsGestorBD.VER)
+            {
+                txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
+                cboAreaDetalle.Enabled = false;
+            }
+            else
+            {
+                txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+                cboAreaDetalle.Enabled = true;
+            }
+        }
+
+        private void mostrarAccesos(int numAccion, DataTable dtAccesos)
+        {
+            for (int i = 0; i < dtAccesos.Rows.Count; i++)
+            {
+                string strNombreAcceso = dtAccesos.Rows[i][0].ToString();
+                lbxAccesosPermitidos.Items.Add(strNombreAcceso);
+            }
+
+            if (numAccion == clsGestorBD.VER)
+            {
+                lbxAccesosPermitidos.Enabled = false;
+            }
+            else
+            {
+                lbxAccesosPermitidos.Enabled = true;
+            }
         }
 
         private void btnVer_Click(object sender, EventArgs e)
         {
             if (dgvPerfiles.SelectedRows.Count > 0)
             {
-                clsComun.redimensionarTabControl(tbcPerfil, 570, 318);
-                clsComun.redimensionarVentana(this, 575, 345);
+                try
+                {
+                    clsComun.redimensionarTabControl(tbcPerfil, 570, 318);
+                    clsComun.redimensionarVentana(this, 575, 345);
+
+                    numAccion = clsGestorBD.VER;
+
+                    numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
+
+                    DataTable dtPerfil = clsGestorBD.up_SelPerfil(numIdPerfil, "", "", "", clsGestorBD.SELECT);
+
+                    mostrarDatos(numAccion, dtPerfil);
+
+                    clsComun.tabSiguiente(tbcPerfil, tbpBuscar, tbpDetalle);
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
             }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un perfil", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dgvPerfiles.SelectedRows.Count > 0)
             {
-                clsComun.redimensionarTabControl(tbcPerfil, 570, 318);
-                clsComun.redimensionarVentana(this, 575, 345);
+                try
+                {
+                    clsComun.redimensionarTabControl(tbcPerfil, 570, 318);
+                    clsComun.redimensionarVentana(this, 575, 345);
+
+                    numAccion = clsGestorBD.UPDATE;
+
+                    numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
+
+                    DataTable dtPerfil = clsGestorBD.up_SelPerfil(numIdPerfil, "", "", "", clsGestorBD.SELECT);
+                    DataTable dtAccesos = clsGestorBD.up_SelVentanas(numIdPerfil,"",0);
+
+                    mostrarDatos(numAccion, dtPerfil);
+                    mostrarAccesos(numAccion, dtAccesos);
+
+                    clsComun.tabSiguiente(tbcPerfil, tbpBuscar, tbpDetalle);
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un perfil", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -116,8 +238,11 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            clsComun.tabAnterior(tbcPerfil, tbpBuscar, tbpDetalle);
+            limpiarCampos();
+            DataTable dtTemporal = clsGestorBD.up_SelPerfil(0, "", "", "", clsGestorBD.SELECTALL);
+            llenarGrilla(dtTemporal);
 
+            clsComun.tabAnterior(tbcPerfil, tbpBuscar, tbpDetalle);
             clsComun.redimensionarTabControl(tbcPerfil, 459, 318);
             clsComun.redimensionarVentana(this, 463, 345);
         }
@@ -324,10 +449,80 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
             lbxAccesosPermitidos.Items.Clear();
         }
 
+        private void limpiarCampos()
+        {
+            txtNombreDetalle.Clear();
+            cboAreaDetalle.SelectedIndex = 0;
+            lbxAccesosPermitidos.Items.Clear();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (validarVentana())
             {
+                if (clsGestorBD.up_ManPerfil(numIdPerfil, txtNombreDetalle.Text, "DOCTOR", "ACTIVO", numAccion))
+                {
+                    if (numAccion == clsGestorBD.INSERT)
+                    {
+                        for(int i=0;i<lbxAccesosPermitidos.Items.Count;i++)
+                        {
+                            DataTable dtId = clsGestorBD.up_SelVentanas(numIdPerfil, lbxAccesosPermitidos.Items[i].ToString(), 1);
+                            int numIdVentana=Int32.Parse(dtId.Rows[0][0].ToString());
+                            clsGestorBD.up_ManPerfilxVentana(numIdPerfil, numIdVentana, numAccion);
+                        }
+                        
+                        if (MessageBox.Show("El Perfil se registró exitosamente\n¿Desea seguir registrando perfiles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            limpiarCampos();
+                        }
+                        else
+                        {
+                            limpiarCampos();
+
+                            DataTable dtTemporal = clsGestorBD.up_SelPerfil(0, "", "", "", clsGestorBD.SELECTALL);
+
+                            llenarGrilla(dtTemporal);
+
+                            clsComun.tabAnterior(tbcPerfil, tbpBuscar, tbpDetalle);
+                            clsComun.redimensionarTabControl(tbcPerfil, 459, 318);
+                            clsComun.redimensionarVentana(this, 463, 345);
+                            
+                        }
+                    }
+                    else
+                    {
+
+                        for (int i = 0; i < lbxAccesosPermitidos.Items.Count; i++)
+                        {
+                            DataTable dtId = clsGestorBD.up_SelVentanas(numIdPerfil, lbxAccesosPermitidos.Items[i].ToString(), 1);
+                            int numIdVentana = Int32.Parse(dtId.Rows[0][0].ToString());
+                            clsGestorBD.up_ManPerfilxVentana(numIdPerfil, numIdVentana, numAccion);
+                        }
+                        
+                        MessageBox.Show("El Perfil se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        limpiarCampos();
+
+                        DataTable dtTemporal = clsGestorBD.up_SelPerfil(0, "", "", "", clsGestorBD.SELECTALL);
+
+                        llenarGrilla(dtTemporal);
+
+                        clsComun.tabAnterior(tbcPerfil, tbpBuscar, tbpDetalle);
+                        clsComun.redimensionarTabControl(tbcPerfil, 459, 318);
+                        clsComun.redimensionarVentana(this, 463, 345);
+                    }
+                }
+                else
+                {
+                    if (numAccion == clsGestorBD.INSERT)
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba registrar el Perfil", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba actualizar el Perfil", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

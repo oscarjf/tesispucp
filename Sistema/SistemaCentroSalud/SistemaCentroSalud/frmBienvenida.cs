@@ -13,10 +13,16 @@ namespace SistemaCentroSalud
 {
     public partial class frmBienvenida : Form
     {
-        DataTable dtusuario;
+        public DataTable dtusuario;
+        public int numIdUsuario;
+
         public frmBienvenida()
         {
             InitializeComponent();
+        }
+
+        public int obtenerId(){
+            return numIdUsuario;
         }
 
         private void frmBienvenida_Load(object sender, EventArgs e)
@@ -43,11 +49,20 @@ namespace SistemaCentroSalud
                 }
                 else
                 {
-                    frmPrincipal ventanaPrincipal = new frmPrincipal(this);
-                    ventanaPrincipal.idperfil = Int32.Parse(dtusuario.Rows[0][2].ToString());
-                    ventanaPrincipal.nombreusuario = dtusuario.Rows[0][3].ToString();
-                    this.Visible = false;
-                    ventanaPrincipal.Show();
+                    try
+                    {
+                        numIdUsuario = Int32.Parse(dtusuario.Rows[0][0].ToString());
+
+                        frmPrincipal ventanaPrincipal = new frmPrincipal(this);
+                        ventanaPrincipal.idperfil = Int32.Parse(dtusuario.Rows[0][3].ToString());
+                        ventanaPrincipal.nombreusuario = dtusuario.Rows[0][4].ToString();
+                        this.Visible = false;
+                        ventanaPrincipal.Show();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Usuario y/o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
         }

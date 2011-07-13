@@ -21,9 +21,10 @@ namespace SistemaCentroSalud.Ventanas_Doctor
         private clsEpisodio objEpisodio = new clsEpisodio();
         private int numIdPaciente = 0;
         private int numIdHC;
+        private int numIdUsuario;
         private bool blnTieneHC;
 
-        public frmHistorialClinica(bool blnHistoriaClinicaCompleta)
+        public frmHistorialClinica(bool blnHistoriaClinicaCompleta, int idUsuario)
         {
             InitializeComponent();
 
@@ -32,6 +33,7 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                 tbcHistoriaClinicaPartes.TabPages.Remove(tbpAnamnesis);
                 tbcHistoriaClinicaPartes.TabPages.Remove(tbpExamenFisico);
             }
+            this.numIdUsuario = idUsuario;
         }
 
         private void frmHistorialClinica_Load(object sender, EventArgs e)
@@ -191,7 +193,7 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                 //EPISODIO
                 strSentenciaSQL = "INSERT INTO Episodio";
                 strSentenciaSQL += "(Ectoscopia, Id_ExamenFisico, Id_EnfermedadActual, Id_Diagnostico, FechaRegistro, DoctorRegistro) ";
-                strSentenciaSQL += "VALUES ('" + objEpisodio.StrEctoscopia + "'," + numIdExamenFisico + "," + numIdEnfermedadActual + "," + numIdDiagnostico + ",GETDATE(), 2)";
+                strSentenciaSQL += "VALUES ('" + objEpisodio.StrEctoscopia + "'," + numIdExamenFisico + "," + numIdEnfermedadActual + "," + numIdDiagnostico + ",GETDATE()," + numIdUsuario + ")";
                 cmdComandoSQL = new SqlCommand(strSentenciaSQL, con);
 
                 cmdComandoSQL.Prepare();
@@ -245,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                     //HISTORIA CLINICA
                     strSentenciaSQL = "INSERT INTO HistoriaClinica";
                     strSentenciaSQL += "(Numero, Id_Paciente, Id_Antecedentes, FechaRegistro, UsuarioCreacion) ";
-                    strSentenciaSQL += "VALUES ('1234'," + numIdPaciente + "," + numIdAntecednetes + ",GETDATE(),2)";
+                    strSentenciaSQL += "VALUES ('1234'," + numIdPaciente + "," + numIdAntecednetes + ",GETDATE()," + numIdUsuario + ")";
                     cmdComandoSQL = new SqlCommand(strSentenciaSQL, con);
 
                     cmdComandoSQL.Prepare();

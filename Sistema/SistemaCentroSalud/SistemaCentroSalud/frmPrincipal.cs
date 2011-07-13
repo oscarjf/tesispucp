@@ -21,13 +21,14 @@ namespace SistemaCentroSalud
         frmBienvenida ventanaBienvenida;
         private int childFormNumber = 0;
         public int idperfil;
+        public int idUsuario;
         public String nombreusuario;
 
         public frmPrincipal(frmBienvenida ventanaBienvenida)
         {
             InitializeComponent();
             this.ventanaBienvenida = ventanaBienvenida;
-            
+            idUsuario = this.ventanaBienvenida.obtenerId();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -288,7 +289,7 @@ namespace SistemaCentroSalud
                 blnHistoriaClinicaCompleta = true;
             }
 
-            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(blnHistoriaClinicaCompleta);
+            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(blnHistoriaClinicaCompleta, idUsuario);
             ventanaHistoriaClinica.MdiParent = this;
             ventanaHistoriaClinica.WindowState = FormWindowState.Maximized;
             ventanaHistoriaClinica.Show();
@@ -323,7 +324,7 @@ namespace SistemaCentroSalud
                 blnHistoriaClinicaCompleta = true;
             }
 
-            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(blnHistoriaClinicaCompleta);
+            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(blnHistoriaClinicaCompleta, idUsuario);
             ventanaHistoriaClinica.MdiParent = this;
             ventanaHistoriaClinica.Show();
         }

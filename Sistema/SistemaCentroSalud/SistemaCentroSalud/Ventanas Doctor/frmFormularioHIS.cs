@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Modelo;
 using Logica;
 using Control;
+using System.Data.SqlClient;
 
 namespace SistemaCentroSalud
 {
@@ -28,6 +29,33 @@ namespace SistemaCentroSalud
             this.Dispose();
         }
 
+        private void cargarCIE10()
+        {
+
+            SqlConnection sqlConexion = clsGestorBD.Conectar();
+            
+            SqlCommand sqlComando = new SqlCommand("SELECT Descripcion + ' [' + Codigo + ']' FROM Cie10", sqlConexion);
+
+            sqlConexion.Open();
+
+
+            SqlDataReader sqlLector = sqlComando.ExecuteReader();
+
+
+            while (sqlLector.Read())
+            {
+
+                txtDiagnostico.AutoCompleteCustomSource.Add(sqlLector[0].ToString());
+
+            }
+
+            sqlLector.Close();
+
+            sqlConexion.Close();
+
+        }
+
+
         private void frmFormularioHIS_Load(object sender, EventArgs e)
         {
             cboSexo.SelectedIndex = 0; // para llenar el combobox de SEXO
@@ -36,6 +64,7 @@ namespace SistemaCentroSalud
             List<clsUbigeo> lstDistritos = clsGestorLogico.up_SelDistrito("15", "01"); 
             llenarComboDistritoDomicilio(lstDistritos);
             cboDistritoProcedencia.SelectedIndex = 0;
+            cargarCIE10();
         }
 
         private void llenarComboDistritoDomicilio(List<clsUbigeo> lstDistritos)
@@ -263,6 +292,9 @@ namespace SistemaCentroSalud
                 objHIS.CodDistritoProcedencia = cboDistritoProcedencia.Text;
                 objHIS.Edad = Int32.Parse(txtEdad.Text);
                 objHIS.Sexo = strSexo;
+
+
+
                 objHIS.Idcie10 = 1;
 
                 if (rbtnDiagnosticoP.Checked) objHIS.Tipodiagnostico = "P";

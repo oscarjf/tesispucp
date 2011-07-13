@@ -386,12 +386,14 @@
             // 
             // txtDiagnostico
             // 
+            this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
             this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtDiagnostico.TabIndex = 9;
-            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
             // 
             // txtEdad
             // 

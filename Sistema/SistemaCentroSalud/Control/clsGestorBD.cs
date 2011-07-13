@@ -430,6 +430,46 @@ namespace Control
                     return null;
                 }
             }
+            
+            // SEL PERSONAL
+            //PERFIL
+            public static DataTable up_SelPersonal(string strUsuario, string strContrasena)
+            {
+                try
+                {
+                    SqlConnection sqlConexion = Conectar();
+                    sqlConexion.Open();
+
+                    SqlCommand sqlComando = new SqlCommand("up_SelPersonal", sqlConexion);
+                    sqlComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter sqlParametro;
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@usuario";
+                    sqlParametro.Value = strUsuario;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    sqlParametro = new SqlParameter();
+                    sqlParametro.ParameterName = "@contrasena";
+                    sqlParametro.Value = strContrasena;
+                    sqlComando.Parameters.Add(sqlParametro);
+
+                    SqlDataAdapter sqlAdaptador = new SqlDataAdapter(sqlComando);
+                    DataTable dtTabla = new DataTable();
+                    sqlAdaptador.Fill(dtTabla);
+
+                    sqlConexion.Close();
+
+                    return dtTabla;
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                    return null;
+                }
+            }
+
 
             //VENTANA
             public static DataTable up_SelVentanas(int numIdPerfil, String strNomVentana, int numAccion)

@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Comun;
 using SistemaCentroSalud.Ventanas_Ayuda;
 using SistemaCentroSalud.Ventanas_Seguridad;
+using Control;
 
 namespace SistemaCentroSalud
 {
@@ -19,11 +20,68 @@ namespace SistemaCentroSalud
     {
         frmBienvenida ventanaBienvenida;
         private int childFormNumber = 0;
+        public int idperfil;
+        public String nombreusuario;
 
         public frmPrincipal(frmBienvenida ventanaBienvenida)
         {
             InitializeComponent();
             this.ventanaBienvenida = ventanaBienvenida;
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            if (nombreusuario.CompareTo("admin") != 0)
+            {
+                tslUsuario.Text = nombreusuario;
+
+                smnuPaciente.Enabled = false;
+                smnuCitas.Enabled = false;
+                smnuConsulta.Enabled = false;
+
+                smnuDoctor.Enabled = false;
+                smnuEnfermera.Enabled = false;
+                smnuTecnico.Enabled = false;
+                smnuAdministrativo.Enabled = false;
+
+                smnuHistoriaClinicaCompleta.Enabled = false;
+                smnuHistoriaClinica.Enabled = false;
+                smnuFormularioHIS.Enabled = false;
+
+                smnuArea.Enabled = false;
+                smnuEspecialidad.Enabled = false;
+                horarioToolStripMenuItem.Enabled = false;
+
+                smnuPerfil.Enabled = false;
+                auditoríaToolStripMenuItem.Enabled = false;
+                smnuRespaldo.Enabled = false;
+
+                DataTable usuario = clsGestorBD.up_SelVentanas(idperfil,"",0);
+
+                for (int i = 0; i < usuario.Rows.Count; i++)
+                {
+                    string strNombremenu = usuario.Rows[i][0].ToString();
+
+                    if (strNombremenu.CompareTo("Paciente") == 0) smnuPaciente.Enabled = true;
+                    if (strNombremenu.CompareTo("Cita") == 0) smnuCitas.Enabled = true;
+                    if (strNombremenu.CompareTo("Consulta") == 0) smnuConsulta.Enabled = true;
+                    if (strNombremenu.CompareTo("Doctor") == 0) smnuDoctor.Enabled = true;
+                    if (strNombremenu.CompareTo("Enfermero") == 0) smnuEnfermera.Enabled = true;
+                    if (strNombremenu.CompareTo("Técnico") == 0) smnuTecnico.Enabled = true;
+                    if (strNombremenu.CompareTo("Administrativo") == 0) smnuAdministrativo.Enabled = true;
+                    if (strNombremenu.CompareTo("Historia Clínica Completa") == 0) smnuHistoriaClinicaCompleta.Enabled = true;
+                    if (strNombremenu.CompareTo("Historia Clínica") == 0) smnuHistoriaClinica.Enabled = true;
+                    if (strNombremenu.CompareTo("Formulario HIS") == 0) smnuFormularioHIS.Enabled = true;
+                    if (strNombremenu.CompareTo("Áreas") == 0) smnuArea.Enabled = true;
+                    if (strNombremenu.CompareTo("Especialidades Médicas") == 0) smnuEspecialidad.Enabled = true;
+                    if (strNombremenu.CompareTo("Horario") == 0) horarioToolStripMenuItem.Enabled = true;
+                    if (strNombremenu.CompareTo("Perfil") == 0) smnuPerfil.Enabled = true;
+                    if (strNombremenu.CompareTo("Auditoría") == 0) auditoríaToolStripMenuItem.Enabled = true;
+                    if (strNombremenu.CompareTo("Respaldo") == 0) smnuRespaldo.Enabled = true;
+                       
+                }
+            }
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -287,6 +345,6 @@ namespace SistemaCentroSalud
             frmEspecialidad ventanaEspecialidad = new frmEspecialidad();
             ventanaEspecialidad.MdiParent = this;
             ventanaEspecialidad.Show();
-        }
+        }        
     }
 }

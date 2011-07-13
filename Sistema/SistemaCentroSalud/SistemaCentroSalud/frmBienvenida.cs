@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Comun;
+using Control;
 
 namespace SistemaCentroSalud
 {
     public partial class frmBienvenida : Form
     {
+        DataTable dtusuario;
         public frmBienvenida()
         {
             InitializeComponent();
@@ -28,11 +30,25 @@ namespace SistemaCentroSalud
             {
                 frmPrincipal ventanaPrincipal = new frmPrincipal(this);
                 this.Visible = false;
+                ventanaPrincipal.nombreusuario = "admin";
                 ventanaPrincipal.Show();
             }
             else
             {
-                MessageBox.Show("Usuario y/o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //MessageBox.Show("Usuario y/o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtusuario = clsGestorBD.up_SelPersonal(strUsuario,strContrasena);
+                if (dtusuario == null)
+                {
+                    MessageBox.Show("Usuario y/o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    frmPrincipal ventanaPrincipal = new frmPrincipal(this);
+                    ventanaPrincipal.idperfil = Int32.Parse(dtusuario.Rows[0][2].ToString());
+                    ventanaPrincipal.nombreusuario = dtusuario.Rows[0][3].ToString();
+                    this.Visible = false;
+                    ventanaPrincipal.Show();
+                }
             }
         }
 

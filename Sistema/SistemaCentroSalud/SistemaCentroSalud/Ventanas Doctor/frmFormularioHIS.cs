@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Modelo;
-using Logica;
-using Control;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using Control;
+using Logica;
+using Modelo;
 
 namespace SistemaCentroSalud
 {
@@ -21,7 +16,8 @@ namespace SistemaCentroSalud
 
         public frmFormularioHIS()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            cargarCIE10();
         }
         
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -31,29 +27,21 @@ namespace SistemaCentroSalud
 
         private void cargarCIE10()
         {
-
             SqlConnection sqlConexion = clsGestorBD.Conectar();
             
-            //SqlCommand sqlComando = new SqlCommand("SELECT Descripcion + ' [' + Codigo + ']' FROM Cie10", sqlConexion);
             SqlCommand sqlComando = new SqlCommand("SELECT Descripcion FROM Cie10", sqlConexion);
 
             sqlConexion.Open();
 
-
             SqlDataReader sqlLector = sqlComando.ExecuteReader();
-
 
             while (sqlLector.Read())
             {
-
                 txtDiagnostico.AutoCompleteCustomSource.Add(sqlLector[0].ToString());
-
             }
 
             sqlLector.Close();
-
             sqlConexion.Close();
-
         }
 
 
@@ -65,7 +53,6 @@ namespace SistemaCentroSalud
             List<clsUbigeo> lstDistritos = clsGestorLogico.up_SelDistrito("15", "01"); 
             llenarComboDistritoDomicilio(lstDistritos);
             cboDistritoProcedencia.SelectedIndex = 0;
-            cargarCIE10();
         }
 
         private void llenarComboDistritoDomicilio(List<clsUbigeo> lstDistritos)

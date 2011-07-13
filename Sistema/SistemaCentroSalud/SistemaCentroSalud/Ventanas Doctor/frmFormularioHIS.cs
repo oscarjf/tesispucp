@@ -34,7 +34,8 @@ namespace SistemaCentroSalud
 
             SqlConnection sqlConexion = clsGestorBD.Conectar();
             
-            SqlCommand sqlComando = new SqlCommand("SELECT Descripcion + ' [' + Codigo + ']' FROM Cie10", sqlConexion);
+            //SqlCommand sqlComando = new SqlCommand("SELECT Descripcion + ' [' + Codigo + ']' FROM Cie10", sqlConexion);
+            SqlCommand sqlComando = new SqlCommand("SELECT Descripcion FROM Cie10", sqlConexion);
 
             sqlConexion.Open();
 
@@ -96,8 +97,31 @@ namespace SistemaCentroSalud
             {
                 cboSexo.SelectedIndex = 2;
             }
+            ///////////////////////////////
+            //txtDiagnostico.Text = "diagnostico";
 
-            txtDiagnostico.Text = "diagnostico";
+            SqlConnection sqlConexion = clsGestorBD.Conectar();
+
+            SqlCommand sqlComando = new SqlCommand("SELECT Descripcion FROM Cie10 where Id_Cie10= '" + lstHIS[contador].Idcie10 + "'", sqlConexion);
+
+            sqlConexion.Open();
+
+            SqlDataReader sqlLector = sqlComando.ExecuteReader();
+
+            String descripcion = "";
+
+            while (sqlLector.Read())
+            {
+                descripcion = sqlLector[0].ToString();
+            }
+
+            sqlLector.Close();
+
+            sqlConexion.Close();
+
+            txtDiagnostico.Text = descripcion;
+
+            ///////////////////////////////
 
             if (lstHIS[contador].Tipodiagnostico.CompareTo("P") == 0)
             {
@@ -293,9 +317,28 @@ namespace SistemaCentroSalud
                 objHIS.Edad = Int32.Parse(txtEdad.Text);
                 objHIS.Sexo = strSexo;
 
+                SqlConnection sqlConexion = clsGestorBD.Conectar();
 
+                SqlCommand sqlComando = new SqlCommand("SELECT Id_Cie10 FROM Cie10 where Descripcion= '" + txtDiagnostico.Text + "'" , sqlConexion);
 
-                objHIS.Idcie10 = 1;
+                sqlConexion.Open();
+
+                SqlDataReader sqlLector = sqlComando.ExecuteReader();
+
+                String codigo="";
+
+                while (sqlLector.Read())
+                {
+                    codigo=sqlLector[0].ToString();
+                }
+
+                sqlLector.Close();
+
+                sqlConexion.Close();
+
+                //objHIS.Idcie10 = 1;
+
+                objHIS.Idcie10 = Int32.Parse(codigo);
 
                 if (rbtnDiagnosticoP.Checked) objHIS.Tipodiagnostico = "P";
                 if (rbtnDiagnosticoD.Checked) objHIS.Tipodiagnostico = "D";

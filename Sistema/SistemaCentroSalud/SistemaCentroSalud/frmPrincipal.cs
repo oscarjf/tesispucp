@@ -27,13 +27,15 @@ namespace SistemaCentroSalud
         {
             InitializeComponent();
             this.ventanaBienvenida = ventanaBienvenida;
+            
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            nomusuario.Text = nombreusuario;
             if (nombreusuario.CompareTo("admin") != 0)
             {
-                tslUsuario.Text = nombreusuario;
+                //sstInformacion.Text = nombreusuario;
 
                 smnuPaciente.Enabled = false;
                 smnuCitas.Enabled = false;

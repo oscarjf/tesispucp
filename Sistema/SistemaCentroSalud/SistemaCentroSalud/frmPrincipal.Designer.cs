@@ -91,6 +91,7 @@
             this.sstInformacion = new System.Windows.Forms.StatusStrip();
             this.tslUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.ttipIconos = new System.Windows.Forms.ToolTip(this.components);
+            this.nomusuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.tsIconos.SuspendLayout();
             this.sstInformacion.SuspendLayout();
@@ -599,7 +600,8 @@
             // sstInformacion
             // 
             this.sstInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslUsuario});
+            this.tslUsuario,
+            this.nomusuario});
             this.sstInformacion.Location = new System.Drawing.Point(0, 431);
             this.sstInformacion.Name = "sstInformacion";
             this.sstInformacion.Size = new System.Drawing.Size(802, 22);
@@ -611,6 +613,11 @@
             this.tslUsuario.Name = "tslUsuario";
             this.tslUsuario.Size = new System.Drawing.Size(53, 17);
             this.tslUsuario.Text = "Usuario: ";
+            // 
+            // nomusuario
+            // 
+            this.nomusuario.Name = "nomusuario";
+            this.nomusuario.Size = new System.Drawing.Size(0, 17);
             // 
             // frmPrincipal
             // 
@@ -703,6 +710,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem horarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel nomusuario;
     }
 }
 

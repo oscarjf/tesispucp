@@ -8,3 +8,8 @@ C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\Modelo.dll
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Modelo\bin\Debug\Modelo.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\Modelo.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Modelo\obj\Debug\Modelo.pdb

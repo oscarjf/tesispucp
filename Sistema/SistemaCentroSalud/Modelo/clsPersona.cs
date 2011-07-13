@@ -159,5 +159,12 @@ namespace Modelo
             get { return strEmail; }
             set { strEmail = value; }
         }
+        private DateTime dtFechaNacimiento;
+
+        public DateTime DtFechaNacimiento
+        {
+            get { return dtFechaNacimiento; }
+            set { dtFechaNacimiento = value; }
+        }
     }
 }

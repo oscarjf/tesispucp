@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsArea.cs" />
+    <Compile Include="clsEpisodio.cs" />
     <Compile Include="clsHIS.cs" />
+    <Compile Include="clsHistoriaClinica.cs" />
+    <Compile Include="clsPaciente.cs" />
     <Compile Include="clsPerfil.cs" />
     <Compile Include="clsProvincia.cs" />
     <Compile Include="clsUbigeo.cs" />

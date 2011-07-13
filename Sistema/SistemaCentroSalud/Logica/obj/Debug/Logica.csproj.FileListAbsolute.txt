@@ -9,3 +9,14 @@ C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\Logica.dll
 C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\Logica.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Logica.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Logica.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Comun.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Control.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Modelo.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Comun.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\bin\Debug\Control.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\Logica.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\Logica\obj\Debug\Logica.pdb

@@ -49,6 +49,7 @@
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsEspecialidad.cs" />
     <Compile Include="clsModoIngreso.cs" />
+    <Compile Include="clsOcupacion.cs" />
     <Compile Include="clsPabellon.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,10 @@
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.csproj.GenerateResource.Cache
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources

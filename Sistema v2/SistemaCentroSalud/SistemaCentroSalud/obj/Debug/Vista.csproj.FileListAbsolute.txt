@@ -1,0 +1,148 @@
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmDoctor.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.dll
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmEnfermera.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmTecnico.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCambiarContrasena.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Doctor.frmHistorialClinica.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.dll
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Ayuda.frmAcercaDe.resources
+C:\Users\Wilder\Documents\Visual Studio 2008\Projects\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmAdministrativo.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.dll
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.dll
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Ayuda.frmAcercaDe.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Doctor.frmHistorialClinica.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCambiarContrasena.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmAdministrativo.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmDoctor.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmEnfermera.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmTecnico.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Seguridad.frmPerfil.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.dll
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCita.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmFormularioHIS.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmConsulta.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmArea.resources
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.dll
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.pdb
+C:\Users\Wilder\Desktop\Google Code\Repositorio Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmEspecialidad.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.dll
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.pdb
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmArea.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmConsulta.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCita.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Ayuda.frmAcercaDe.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmFormularioHIS.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Doctor.frmHistorialClinica.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCambiarContrasena.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmEspecialidad.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmAdministrativo.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmDoctor.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmEnfermera.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmTecnico.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Seguridad.frmPerfil.resources
+C:\Users\Wilder\Desktop\Tesis\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCita.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmConsulta.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmArea.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Ayuda.frmAcercaDe.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmFormularioHIS.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Doctor.frmHistorialClinica.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCambiarContrasena.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmEspecialidad.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmAdministrativo.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmDoctor.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmEnfermera.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmTecnico.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Seguridad.frmPerfil.resources
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.dll
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.dll
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.dll
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.dll
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Logica.pdb
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.pdb
+C:\Users\Wilder\Repositorios\Tesis PUCP\Sistema\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCita.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPaciente.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmArea.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmBienvenida.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Ayuda.frmAcercaDe.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmFormularioHIS.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Doctor.frmHistorialClinica.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmCambiarContrasena.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmPrincipal.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Properties.Resources.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.frmEspecialidad.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmAdministrativo.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmDoctor.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmEnfermera.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Personal.frmTecnico.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Seguridad.frmPerfil.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.exe
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\SistemaCentroSalud.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Modelo.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Comun.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Control.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Acceso.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\bin\Debug\Acceso.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Mantenimiento.frmPabellon.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Mantenimiento.frmConsultorio.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Mantenimiento.frmModoIngreso.resources
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\SistemaCentroSalud\obj\Debug\SistemaCentroSalud.Ventanas_Mantenimiento.frmTipoDocumento.resources

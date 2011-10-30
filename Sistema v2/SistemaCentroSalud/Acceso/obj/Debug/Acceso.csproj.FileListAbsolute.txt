@@ -1,0 +1,7 @@
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\bin\Debug\Acceso.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\bin\Debug\Acceso.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\obj\Debug\Acceso.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\obj\Debug\Acceso.pdb
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\bin\Debug\Comun.dll
+C:\Users\Wilder\Documents\Tesis PUCP\SistemaCentroSalud\Acceso\bin\Debug\Comun.pdb

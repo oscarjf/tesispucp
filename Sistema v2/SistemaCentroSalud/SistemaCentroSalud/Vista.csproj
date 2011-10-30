@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B055267-7DEE-4004-BE99-98FDEC24CF2B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemaCentroSalud</RootNamespace>
+    <AssemblyName>SistemaCentroSalud</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controles\cuRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\cuRichTextBox.Designer.cs">
+      <DependentUpon>cuRichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\cuTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\cuTextBox.Designer.cs">
+      <DependentUpon>cuTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Admisión\frmCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Admisión\frmCita.designer.cs">
+      <DependentUpon>frmCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Admisión\frmPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Admisión\frmPaciente.designer.cs">
+      <DependentUpon>frmPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\frmTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\frmTipoDocumento.Designer.cs">
+      <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmConsultorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmConsultorio.Designer.cs">
+      <DependentUpon>frmConsultorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmEspecialidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmEspecialidad.Designer.cs">
+      <DependentUpon>frmEspecialidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmArea.Designer.cs">
+      <DependentUpon>frmArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBienvenida.Designer.cs">
+      <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmFormularioHIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmFormularioHIS.Designer.cs">
+      <DependentUpon>frmFormularioHIS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Ayuda\frmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Ayuda\frmAcercaDe.Designer.cs">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmHistorialClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmHistorialClinica.Designer.cs">
+      <DependentUpon>frmHistorialClinica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Inicio\frmCambiarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Inicio\frmCambiarContrasena.Designer.cs">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Ventanas Admisión\frmCita.resx">
+      <DependentUpon>frmCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Admisión\frmPaciente.resx">
+      <DependentUpon>frmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\frmTipoDocumento.resx">
+      <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmArea.resx">
+      <DependentUpon>frmArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBienvenida.resx">
+      <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Ayuda\frmAcercaDe.resx">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Doctor\frmFormularioHIS.resx">
+      <DependentUpon>frmFormularioHIS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Doctor\frmHistorialClinica.resx">
+      <DependentUpon>frmHistorialClinica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Inicio\frmCambiarContrasena.resx">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmConsultorio.resx">
+      <DependentUpon>frmConsultorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmEspecialidad.resx">
+      <DependentUpon>frmEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmModoIngreso.resx">
+      <DependentUpon>frmModoIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmPabellon.resx">
+      <DependentUpon>frmPabellon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Personal\frmAdministrativo.resx">
+      <DependentUpon>frmAdministrativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Personal\frmDoctor.resx">
+      <DependentUpon>frmDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Personal\frmEnfermera.resx">
+      <DependentUpon>frmEnfermera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Personal\frmTecnico.resx">
+      <DependentUpon>frmTecnico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Seguridad\frmPerfil.resx">
+      <DependentUpon>frmPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmModoIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmModoIngreso.Designer.cs">
+      <DependentUpon>frmModoIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmPabellon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmPabellon.Designer.cs">
+      <DependentUpon>frmPabellon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmAdministrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmAdministrativo.Designer.cs">
+      <DependentUpon>frmAdministrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmDoctor.Designer.cs">
+      <DependentUpon>frmDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmEnfermera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmEnfermera.Designer.cs">
+      <DependentUpon>frmEnfermera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Personal\frmTecnico.Designer.cs">
+      <DependentUpon>frmTecnico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Seguridad\frmPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Seguridad\frmPerfil.designer.cs">
+      <DependentUpon>frmPerfil.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Comun\Comun.csproj">
+      <Project>{4F97EC5E-83B4-4E74-9282-9EDAD97802A1}</Project>
+      <Name>Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Control\Control.csproj">
+      <Project>{D534FCEC-2B4E-49D0-8D1A-29B0F88C3D9C}</Project>
+      <Name>Control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{8EC5EFF5-38D2-4EC4-8B6B-96E658A3DF40}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

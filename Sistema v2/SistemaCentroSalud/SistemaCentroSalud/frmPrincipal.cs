@@ -82,6 +82,69 @@ namespace SistemaCentroSalud
             ventanaTipoDocumento.Show();
         }
 
+        private void smnuOcupacion_Click(object sender, EventArgs e)
+        {
+            frmOcupacion ventanaOcupacion = new frmOcupacion();
+            ventanaOcupacion.MdiParent = this;
+            ventanaOcupacion.Show();
+        }
+
+        private void smnuReligion_Click(object sender, EventArgs e)
+        {
+            frmReligion ventanaReligion = new frmReligion();
+            ventanaReligion.MdiParent = this;
+            ventanaReligion.Show();
+        }
+
+        private void smnuIdioma_Click(object sender, EventArgs e)
+        {
+            frmIdioma ventanaIdioma = new frmIdioma();
+            ventanaIdioma.MdiParent = this;
+            ventanaIdioma.Show();
+        }
+
+        private void smnuEtnia_Click(object sender, EventArgs e)
+        {
+            frmEtnia ventanaEtnia = new frmEtnia();
+            ventanaEtnia.MdiParent = this;
+            ventanaEtnia.Show();
+        }
+
+        private void smnuPais_Click(object sender, EventArgs e)
+        {
+            frmPais ventanaPais = new frmPais();
+            ventanaPais.MdiParent = this;
+            ventanaPais.Show();
+        }
+
+        private void smnuCPT_Click(object sender, EventArgs e)
+        {
+            frmCPT ventanaCPT = new frmCPT();
+            ventanaCPT.MdiParent = this;
+            ventanaCPT.Show();
+        }
+
+        private void smnuLaboratorio_Click(object sender, EventArgs e)
+        {
+            frmLaboratorio ventanaLaboratorio = new frmLaboratorio();
+            ventanaLaboratorio.MdiParent = this;
+            ventanaLaboratorio.Show();
+        }
+
+        private void smnuFinanciadorSalud_Click(object sender, EventArgs e)
+        {
+            frmFinanciadorSalud ventanaFinanciadorSalud = new frmFinanciadorSalud();
+            ventanaFinanciadorSalud.MdiParent = this;
+            ventanaFinanciadorSalud.Show();
+        }
+
+        private void smnuUnidadProductoraServicios_Click(object sender, EventArgs e)
+        {
+            frmUnidadProductoraServicios ventanaUnidadProductoraServicios = new frmUnidadProductoraServicios();
+            ventanaUnidadProductoraServicios.MdiParent = this;
+            ventanaUnidadProductoraServicios.Show();
+        }
+
         private void smnuCascada_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);

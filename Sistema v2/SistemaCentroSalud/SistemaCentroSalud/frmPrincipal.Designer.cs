@@ -387,30 +387,35 @@
             this.smnuOcupacion.Name = "smnuOcupacion";
             this.smnuOcupacion.Size = new System.Drawing.Size(180, 22);
             this.smnuOcupacion.Text = "Ocupación";
+            this.smnuOcupacion.Click += new System.EventHandler(this.smnuOcupacion_Click);
             // 
             // smnuReligion
             // 
             this.smnuReligion.Name = "smnuReligion";
             this.smnuReligion.Size = new System.Drawing.Size(180, 22);
             this.smnuReligion.Text = "Religión";
+            this.smnuReligion.Click += new System.EventHandler(this.smnuReligion_Click);
             // 
             // smnuIdioma
             // 
             this.smnuIdioma.Name = "smnuIdioma";
             this.smnuIdioma.Size = new System.Drawing.Size(180, 22);
             this.smnuIdioma.Text = "Idioma";
+            this.smnuIdioma.Click += new System.EventHandler(this.smnuIdioma_Click);
             // 
             // smnuEtnia
             // 
             this.smnuEtnia.Name = "smnuEtnia";
             this.smnuEtnia.Size = new System.Drawing.Size(180, 22);
             this.smnuEtnia.Text = "Etnia";
+            this.smnuEtnia.Click += new System.EventHandler(this.smnuEtnia_Click);
             // 
             // smnuPais
             // 
             this.smnuPais.Name = "smnuPais";
             this.smnuPais.Size = new System.Drawing.Size(180, 22);
             this.smnuPais.Text = "País";
+            this.smnuPais.Click += new System.EventHandler(this.smnuPais_Click);
             // 
             // smnuParametrosHIS
             // 
@@ -428,24 +433,28 @@
             this.smnuCPT.Name = "smnuCPT";
             this.smnuCPT.Size = new System.Drawing.Size(239, 22);
             this.smnuCPT.Text = "CPT";
+            this.smnuCPT.Click += new System.EventHandler(this.smnuCPT_Click);
             // 
             // smnuLaboratorio
             // 
             this.smnuLaboratorio.Name = "smnuLaboratorio";
             this.smnuLaboratorio.Size = new System.Drawing.Size(239, 22);
             this.smnuLaboratorio.Text = "Laboratorio";
+            this.smnuLaboratorio.Click += new System.EventHandler(this.smnuLaboratorio_Click);
             // 
             // smnuFinanciadorSalud
             // 
             this.smnuFinanciadorSalud.Name = "smnuFinanciadorSalud";
             this.smnuFinanciadorSalud.Size = new System.Drawing.Size(239, 22);
             this.smnuFinanciadorSalud.Text = "Financiador de Salud";
+            this.smnuFinanciadorSalud.Click += new System.EventHandler(this.smnuFinanciadorSalud_Click);
             // 
             // smnuUnidadProductoraServicios
             // 
             this.smnuUnidadProductoraServicios.Name = "smnuUnidadProductoraServicios";
             this.smnuUnidadProductoraServicios.Size = new System.Drawing.Size(239, 22);
             this.smnuUnidadProductoraServicios.Text = "Unidad Productora de Servicios";
+            this.smnuUnidadProductoraServicios.Click += new System.EventHandler(this.smnuUnidadProductoraServicios_Click);
             // 
             // mnuHerramientas
             // 

@@ -47,11 +47,20 @@
   <ItemGroup>
     <Compile Include="ctrArea.cs" />
     <Compile Include="ctrConsultorio.cs" />
+    <Compile Include="ctrCPT.cs" />
     <Compile Include="ctrEspecialidad.cs" />
+    <Compile Include="ctrEtnia.cs" />
+    <Compile Include="ctrFinanciadorSalud.cs" />
+    <Compile Include="ctrIdioma.cs" />
+    <Compile Include="ctrLaboratorio.cs" />
     <Compile Include="ctrModoIngreso.cs" />
+    <Compile Include="ctrOcupacion.cs" />
     <Compile Include="ctrPabellon.cs" />
+    <Compile Include="ctrPais.cs" />
+    <Compile Include="ctrReligion.cs" />
     <Compile Include="ctrTipoDocumento.cs" />
     <Compile Include="ctrUbigeo.cs" />
+    <Compile Include="ctrUnidadProductoraServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

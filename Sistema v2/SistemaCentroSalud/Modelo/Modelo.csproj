@@ -47,11 +47,19 @@
   <ItemGroup>
     <Compile Include="clsArea.cs" />
     <Compile Include="clsConsultorio.cs" />
+    <Compile Include="clsCPT.cs" />
     <Compile Include="clsEspecialidad.cs" />
+    <Compile Include="clsEtnia.cs" />
+    <Compile Include="clsFinanciadorSalud.cs" />
+    <Compile Include="clsIdioma.cs" />
+    <Compile Include="clsLaboratorio.cs" />
     <Compile Include="clsModoIngreso.cs" />
     <Compile Include="clsOcupacion.cs" />
     <Compile Include="clsPabellon.cs" />
+    <Compile Include="clsPais.cs" />
+    <Compile Include="clsReligion.cs" />
     <Compile Include="clsTipoDocumento.cs" />
+    <Compile Include="clsUnidadProductoraServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -154,6 +155,40 @@ namespace Comun
         {
             frmVentana.Width = numAncho;
             frmVentana.Height = numAlto;
+        }
+
+        public static byte[] ImageABytes(Image imgFoto)
+        {
+            string strTemporal = Path.GetTempFileName();
+            FileStream fs = new FileStream(strTemporal, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            imgFoto.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+            fs.Position = 0;
+            
+            int numTamano = Convert.ToInt32(fs.Length);
+            byte[] bytes = new byte[numTamano];
+            
+            fs.Read(bytes, 0, numTamano);
+            fs.Close();
+
+            return bytes;
+        }
+
+        public static Image BytesAImage(byte[] bytes)
+        {
+            if (bytes == null) return null;
+            
+            MemoryStream ms = new MemoryStream(bytes);
+            Bitmap bm = null;
+            try
+            {
+                bm = new Bitmap(ms);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
+            return bm;
         }
     }
 }

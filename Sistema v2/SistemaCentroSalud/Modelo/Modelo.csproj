@@ -48,6 +48,7 @@
     <Compile Include="clsArea.cs" />
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsCPT.cs" />
+    <Compile Include="clsDoctor.cs" />
     <Compile Include="clsEspecialidad.cs" />
     <Compile Include="clsEtnia.cs" />
     <Compile Include="clsFinanciadorSalud.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="clsPais.cs" />
     <Compile Include="clsReligion.cs" />
     <Compile Include="clsTipoDocumento.cs" />
+    <Compile Include="clsUbigeo.cs" />
     <Compile Include="clsUnidadProductoraServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

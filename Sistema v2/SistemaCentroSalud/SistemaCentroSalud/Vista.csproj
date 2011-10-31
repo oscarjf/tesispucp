@@ -89,10 +89,64 @@
     <Compile Include="Ventanas Admisión\frmPaciente.designer.cs">
       <DependentUpon>frmPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas Mantenimiento\frmTipoDocumento.cs">
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmCPT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas Mantenimiento\frmTipoDocumento.Designer.cs">
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmCPT.Designer.cs">
+      <DependentUpon>frmCPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmFinanciadorSalud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmFinanciadorSalud.Designer.cs">
+      <DependentUpon>frmFinanciadorSalud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmLaboratorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmLaboratorio.Designer.cs">
+      <DependentUpon>frmLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmUnidadProductoraServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmUnidadProductoraServicios.Designer.cs">
+      <DependentUpon>frmUnidadProductoraServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmEtnia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmEtnia.designer.cs">
+      <DependentUpon>frmEtnia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmIdioma.designer.cs">
+      <DependentUpon>frmIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmOcupacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmOcupacion.designer.cs">
+      <DependentUpon>frmOcupacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmPais.designer.cs">
+      <DependentUpon>frmPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmReligion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmReligion.designer.cs">
+      <DependentUpon>frmReligion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Mantenimiento\Parámetros Paciente\frmTipoDocumento.Designer.cs">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmConsultorio.cs">
@@ -157,7 +211,34 @@
     <EmbeddedResource Include="Ventanas Admisión\frmPaciente.resx">
       <DependentUpon>frmPaciente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas Mantenimiento\frmTipoDocumento.resx">
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmCPT.resx">
+      <DependentUpon>frmCPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmFinanciadorSalud.resx">
+      <DependentUpon>frmFinanciadorSalud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmLaboratorio.resx">
+      <DependentUpon>frmLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Formulario HIS\frmUnidadProductoraServicios.resx">
+      <DependentUpon>frmUnidadProductoraServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmEtnia.resx">
+      <DependentUpon>frmEtnia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmIdioma.resx">
+      <DependentUpon>frmIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmOcupacion.resx">
+      <DependentUpon>frmOcupacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmPais.resx">
+      <DependentUpon>frmPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmReligion.resx">
+      <DependentUpon>frmReligion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Paciente\frmTipoDocumento.resx">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Mantenimiento\Parámetros Centro de Salud\frmArea.resx">

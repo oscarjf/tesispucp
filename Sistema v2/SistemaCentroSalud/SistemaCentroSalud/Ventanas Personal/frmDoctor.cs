@@ -81,17 +81,67 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void cargarComboPais()
         {
-            throw new NotImplementedException();
+            clsPais objPais = new clsPais();
+
+            DataTable dt = ctrPais.seleccionarPaises(objPais);
+
+            objPais.Nombre = "SELECCIONAR";
+
+            cboPais.Items.Add(objPais);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                objPais = new clsPais();
+
+                objPais.IdPais = Int32.Parse(dt.Rows[i]["IdPais"].ToString());
+                objPais.Nombre = dt.Rows[i]["Nombre"].ToString();
+
+                cboPais.Items.Add(objPais);
+            }
         }
 
         private void cargarCombosDepartamento()
         {
-            throw new NotImplementedException();
+            clsUbigeo objUbigeo = new clsUbigeo();
+
+            DataTable dt = ctrUbigeo.seleccionarDepartamentos();
+
+            objUbigeo.Descripcion = "SELECCIONAR";
+
+            cboDepartamento.Items.Add(objUbigeo);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                objUbigeo = new clsUbigeo();
+
+                objUbigeo.IdUbigeo = Int32.Parse(dt.Rows[i]["IdUbigeo"].ToString());
+                objUbigeo.CodDepartamento = dt.Rows[i]["CodDepartamento"].ToString();
+                objUbigeo.Descripcion = dt.Rows[i]["Descripcion"].ToString();
+
+                cboDepartamento.Items.Add(objUbigeo);
+            }
         }
 
         private void cargarComboArea()
         {
-            throw new NotImplementedException();
+            clsArea objArea = new clsArea();
+            objArea.TipoArea = "MÉDICA";
+
+            DataTable dt = ctrArea.seleccionarAreasCriterios(objArea);
+
+            objArea.Nombre = "SELECCIONAR";
+
+            cboArea.Items.Add(objArea);
+            
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                objArea = new clsArea();
+
+                objArea.IdArea = Int32.Parse(dt.Rows[i]["IdArea"].ToString());
+                objArea.Nombre = dt.Rows[i]["Nombre"].ToString();
+
+                cboArea.Items.Add(objArea);
+            }
         }
     }
 }

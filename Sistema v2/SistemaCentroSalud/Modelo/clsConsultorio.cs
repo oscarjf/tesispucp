@@ -39,6 +39,11 @@ namespace Modelo
             set { strEstado = value; }
         }
 
+        public override string ToString()
+        {
+            return Numero;
+        }
+
         public clsConsultorio()
         {
             IdConsultorio = 0;

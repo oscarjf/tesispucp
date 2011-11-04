@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Modelo
 {
     public class clsReligion
@@ -14,26 +10,39 @@ namespace Modelo
             get { return numIdReligion; }
             set { numIdReligion = value; }
         }
-        private String strNombre;
+        private string strNombre;
 
-        public String Nombre
+        public string Nombre
         {
             get { return strNombre; }
             set { strNombre = value; }
         }
-        private String strDescripcion;
+        private string strDescripcion;
 
-        public String Descripcion
+        public string Descripcion
         {
             get { return strDescripcion; }
             set { strDescripcion = value; }
         }
-        private String strEstado;
+        private string strEstado;
 
-        public String Estado
+        public string Estado
         {
             get { return strEstado; }
             set { strEstado = value; }
+        }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
+        public clsReligion()
+        {
+            IdReligion = 0;
+            Nombre = "";
+            Descripcion = "";
+            Estado = "ACTIVO";
         }
     }
 }

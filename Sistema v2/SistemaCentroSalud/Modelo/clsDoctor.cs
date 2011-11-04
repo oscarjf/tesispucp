@@ -211,6 +211,11 @@ namespace Modelo
             set { strListaIdEspecialidades = value; }
         }
 
+        public override string ToString()
+        {
+            return Paterno + " " + Materno + " " + Nombres;
+        }
+
         public clsDoctor()
         {
             IdDoctor = 0;

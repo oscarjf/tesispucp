@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Modelo
 {
     public class clsLaboratorio
@@ -14,26 +10,39 @@ namespace Modelo
             get { return numIdLaboratorio; }
             set { numIdLaboratorio = value; }
         }
-        private String strCodigo;
+        private string strCodigo;
 
-        public String Codigo
+        public string Codigo
         {
             get { return strCodigo; }
             set { strCodigo = value; }
         }
-        private String strDescripcion;
+        private string strDescripcion;
 
-        public String Descripcion
+        public string Descripcion
         {
             get { return strDescripcion; }
             set { strDescripcion = value; }
         }
-        private String strEstado;
+        private string strEstado;
 
-        public String Estado
+        public string Estado
         {
             get { return strEstado; }
             set { strEstado = value; }
+        }
+
+        public override string ToString()
+        {
+            return Codigo + " - " + Descripcion;
+        }
+
+        public clsLaboratorio()
+        {
+            IdLaboratorio = 0;
+            Codigo = "";
+            Descripcion = "";
+            Estado = "ACTIVO";
         }
     }
 }

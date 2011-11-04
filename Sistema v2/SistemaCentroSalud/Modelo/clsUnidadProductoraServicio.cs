@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Modelo
 {
     public class clsUnidadProductoraServicio
@@ -34,6 +30,19 @@ namespace Modelo
         {
             get { return strEstado; }
             set { strEstado = value; }
+        }
+
+        public override string ToString()
+        {
+            return Codigo + " - " + Descripcion;
+        }
+
+        public clsUnidadProductoraServicio()
+        {
+            IdUnidadProductoraServicio = 0;
+            Codigo = "";
+            Descripcion = "";
+            Estado = "ACTIVO";
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Modelo
 {
     public class clsPais
@@ -27,6 +23,18 @@ namespace Modelo
         {
             get { return strEstado; }
             set { strEstado = value; }
+        }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
+        public clsPais()
+        {
+            IdPais = 0;
+            Nombre = "";
+            Estado = "ACTIVO";
         }
     }
 }

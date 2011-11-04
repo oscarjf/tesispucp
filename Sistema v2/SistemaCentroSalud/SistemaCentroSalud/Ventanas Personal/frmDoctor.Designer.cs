@@ -87,7 +87,6 @@
             this.cboPerfil = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEspecialidades = new System.Windows.Forms.Label();
-            this.clbxEspecialidades = new System.Windows.Forms.CheckedListBox();
             this.lblCMP = new System.Windows.Forms.Label();
             this.cboArea = new System.Windows.Forms.ComboBox();
             this.lblArea = new System.Windows.Forms.Label();
@@ -104,6 +103,14 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblMaterno = new System.Windows.Forms.Label();
             this.lblPaterno = new System.Windows.Forms.Label();
+            this.gbxAcceso = new System.Windows.Forms.GroupBox();
+            this.lblEspecialidadesDoctor = new System.Windows.Forms.Label();
+            this.lbxEspecialidades = new System.Windows.Forms.ListBox();
+            this.lbxEspecialidadesDoctor = new System.Windows.Forms.ListBox();
+            this.btnTodoDerecha = new System.Windows.Forms.Button();
+            this.btnDerecha = new System.Windows.Forms.Button();
+            this.btnIzquierda = new System.Windows.Forms.Button();
+            this.btnTodoIzquierda = new System.Windows.Forms.Button();
             this.txtMaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtCMPBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNombresBuscar = new SistemaCentroSalud.Controles.cuTextBox();
@@ -128,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.gbxProfesional.SuspendLayout();
             this.gbxPersonal.SuspendLayout();
+            this.gbxAcceso.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcDoctor
@@ -398,6 +406,7 @@
             // 
             // tbpDetalle
             // 
+            this.tbpDetalle.Controls.Add(this.gbxAcceso);
             this.tbpDetalle.Controls.Add(this.btnGuardar);
             this.tbpDetalle.Controls.Add(this.btnCancelar);
             this.tbpDetalle.Controls.Add(this.gbxContacto);
@@ -422,10 +431,10 @@
             // 
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(695, 426);
+            this.btnGuardar.Location = new System.Drawing.Point(695, 432);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 31;
+            this.btnGuardar.TabIndex = 37;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -434,10 +443,10 @@
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(567, 426);
+            this.btnCancelar.Location = new System.Drawing.Point(567, 432);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 32;
+            this.btnCancelar.TabIndex = 38;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -450,10 +459,10 @@
             this.gbxContacto.Controls.Add(this.lblCelular);
             this.gbxContacto.Controls.Add(this.txtTelefono);
             this.gbxContacto.Controls.Add(this.lblTelefono);
-            this.gbxContacto.Location = new System.Drawing.Point(557, 197);
+            this.gbxContacto.Location = new System.Drawing.Point(557, 273);
             this.gbxContacto.Name = "gbxContacto";
             this.gbxContacto.Size = new System.Drawing.Size(213, 147);
-            this.gbxContacto.TabIndex = 27;
+            this.gbxContacto.TabIndex = 33;
             this.gbxContacto.TabStop = false;
             this.gbxContacto.Text = "Contacto";
             // 
@@ -661,7 +670,7 @@
             this.btnQuitarFoto.Location = new System.Drawing.Point(695, 150);
             this.btnQuitarFoto.Name = "btnQuitarFoto";
             this.btnQuitarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarFoto.TabIndex = 26;
+            this.btnQuitarFoto.TabIndex = 30;
             this.btnQuitarFoto.Text = "Quitar";
             this.btnQuitarFoto.UseVisualStyleBackColor = true;
             // 
@@ -670,7 +679,7 @@
             this.btnBuscarFoto.Location = new System.Drawing.Point(695, 65);
             this.btnBuscarFoto.Name = "btnBuscarFoto";
             this.btnBuscarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarFoto.TabIndex = 25;
+            this.btnBuscarFoto.TabIndex = 29;
             this.btnBuscarFoto.Text = "Buscar";
             this.btnBuscarFoto.UseVisualStyleBackColor = true;
             // 
@@ -679,7 +688,7 @@
             this.btnTomarFoto.Location = new System.Drawing.Point(695, 26);
             this.btnTomarFoto.Name = "btnTomarFoto";
             this.btnTomarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnTomarFoto.TabIndex = 24;
+            this.btnTomarFoto.TabIndex = 28;
             this.btnTomarFoto.Text = "Tomar";
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             // 
@@ -704,10 +713,14 @@
             // 
             // gbxProfesional
             // 
-            this.gbxProfesional.Controls.Add(this.cboPerfil);
-            this.gbxProfesional.Controls.Add(this.label1);
+            this.gbxProfesional.Controls.Add(this.btnTodoIzquierda);
+            this.gbxProfesional.Controls.Add(this.btnIzquierda);
+            this.gbxProfesional.Controls.Add(this.btnDerecha);
+            this.gbxProfesional.Controls.Add(this.btnTodoDerecha);
+            this.gbxProfesional.Controls.Add(this.lbxEspecialidadesDoctor);
+            this.gbxProfesional.Controls.Add(this.lbxEspecialidades);
+            this.gbxProfesional.Controls.Add(this.lblEspecialidadesDoctor);
             this.gbxProfesional.Controls.Add(this.lblEspecialidades);
-            this.gbxProfesional.Controls.Add(this.clbxEspecialidades);
             this.gbxProfesional.Controls.Add(this.txtCMP);
             this.gbxProfesional.Controls.Add(this.lblCMP);
             this.gbxProfesional.Controls.Add(this.cboArea);
@@ -723,15 +736,15 @@
             // 
             this.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(147, 83);
+            this.cboPerfil.Location = new System.Drawing.Point(10, 33);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(153, 21);
-            this.cboPerfil.TabIndex = 22;
+            this.cboPerfil.TabIndex = 32;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 66);
+            this.label1.Location = new System.Drawing.Point(7, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 36;
@@ -740,19 +753,11 @@
             // lblEspecialidades
             // 
             this.lblEspecialidades.AutoSize = true;
-            this.lblEspecialidades.Location = new System.Drawing.Point(316, 16);
+            this.lblEspecialidades.Location = new System.Drawing.Point(144, 16);
             this.lblEspecialidades.Name = "lblEspecialidades";
             this.lblEspecialidades.Size = new System.Drawing.Size(81, 13);
             this.lblEspecialidades.TabIndex = 35;
             this.lblEspecialidades.Text = "Especialidades:";
-            // 
-            // clbxEspecialidades
-            // 
-            this.clbxEspecialidades.FormattingEnabled = true;
-            this.clbxEspecialidades.Location = new System.Drawing.Point(318, 33);
-            this.clbxEspecialidades.Name = "clbxEspecialidades";
-            this.clbxEspecialidades.Size = new System.Drawing.Size(213, 94);
-            this.clbxEspecialidades.TabIndex = 23;
             // 
             // lblCMP
             // 
@@ -767,15 +772,15 @@
             // 
             this.cboArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboArea.FormattingEnabled = true;
-            this.cboArea.Location = new System.Drawing.Point(147, 33);
+            this.cboArea.Location = new System.Drawing.Point(12, 80);
             this.cboArea.Name = "cboArea";
-            this.cboArea.Size = new System.Drawing.Size(153, 21);
+            this.cboArea.Size = new System.Drawing.Size(123, 21);
             this.cboArea.TabIndex = 21;
             // 
             // lblArea
             // 
             this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(144, 16);
+            this.lblArea.Location = new System.Drawing.Point(9, 63);
             this.lblArea.Name = "lblArea";
             this.lblArea.Size = new System.Drawing.Size(32, 13);
             this.lblArea.TabIndex = 0;
@@ -924,6 +929,78 @@
             this.lblPaterno.TabIndex = 0;
             this.lblPaterno.Text = "Apellido Paterno:";
             // 
+            // gbxAcceso
+            // 
+            this.gbxAcceso.Controls.Add(this.cboPerfil);
+            this.gbxAcceso.Controls.Add(this.label1);
+            this.gbxAcceso.Location = new System.Drawing.Point(557, 197);
+            this.gbxAcceso.Name = "gbxAcceso";
+            this.gbxAcceso.Size = new System.Drawing.Size(213, 71);
+            this.gbxAcceso.TabIndex = 31;
+            this.gbxAcceso.TabStop = false;
+            this.gbxAcceso.Text = "Acceso";
+            // 
+            // lblEspecialidadesDoctor
+            // 
+            this.lblEspecialidadesDoctor.AutoSize = true;
+            this.lblEspecialidadesDoctor.Location = new System.Drawing.Point(353, 16);
+            this.lblEspecialidadesDoctor.Name = "lblEspecialidadesDoctor";
+            this.lblEspecialidadesDoctor.Size = new System.Drawing.Size(116, 13);
+            this.lblEspecialidadesDoctor.TabIndex = 37;
+            this.lblEspecialidadesDoctor.Text = "Especialidades Doctor:";
+            // 
+            // lbxEspecialidades
+            // 
+            this.lbxEspecialidades.FormattingEnabled = true;
+            this.lbxEspecialidades.Location = new System.Drawing.Point(147, 32);
+            this.lbxEspecialidades.Name = "lbxEspecialidades";
+            this.lbxEspecialidades.Size = new System.Drawing.Size(172, 95);
+            this.lbxEspecialidades.TabIndex = 22;
+            // 
+            // lbxEspecialidadesDoctor
+            // 
+            this.lbxEspecialidadesDoctor.FormattingEnabled = true;
+            this.lbxEspecialidadesDoctor.Location = new System.Drawing.Point(361, 33);
+            this.lbxEspecialidadesDoctor.Name = "lbxEspecialidadesDoctor";
+            this.lbxEspecialidadesDoctor.Size = new System.Drawing.Size(172, 95);
+            this.lbxEspecialidadesDoctor.TabIndex = 27;
+            // 
+            // btnTodoDerecha
+            // 
+            this.btnTodoDerecha.Location = new System.Drawing.Point(324, 32);
+            this.btnTodoDerecha.Name = "btnTodoDerecha";
+            this.btnTodoDerecha.Size = new System.Drawing.Size(32, 20);
+            this.btnTodoDerecha.TabIndex = 23;
+            this.btnTodoDerecha.Text = ">>";
+            this.btnTodoDerecha.UseVisualStyleBackColor = true;
+            // 
+            // btnDerecha
+            // 
+            this.btnDerecha.Location = new System.Drawing.Point(324, 57);
+            this.btnDerecha.Name = "btnDerecha";
+            this.btnDerecha.Size = new System.Drawing.Size(32, 20);
+            this.btnDerecha.TabIndex = 24;
+            this.btnDerecha.Text = ">";
+            this.btnDerecha.UseVisualStyleBackColor = true;
+            // 
+            // btnIzquierda
+            // 
+            this.btnIzquierda.Location = new System.Drawing.Point(324, 83);
+            this.btnIzquierda.Name = "btnIzquierda";
+            this.btnIzquierda.Size = new System.Drawing.Size(32, 20);
+            this.btnIzquierda.TabIndex = 25;
+            this.btnIzquierda.Text = "<";
+            this.btnIzquierda.UseVisualStyleBackColor = true;
+            // 
+            // btnTodoIzquierda
+            // 
+            this.btnTodoIzquierda.Location = new System.Drawing.Point(324, 107);
+            this.btnTodoIzquierda.Name = "btnTodoIzquierda";
+            this.btnTodoIzquierda.Size = new System.Drawing.Size(32, 20);
+            this.btnTodoIzquierda.TabIndex = 26;
+            this.btnTodoIzquierda.Text = "<<";
+            this.btnTodoIzquierda.UseVisualStyleBackColor = true;
+            // 
             // txtMaternoBuscar
             // 
             this.txtMaternoBuscar.Location = new System.Drawing.Point(160, 41);
@@ -968,7 +1045,7 @@
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(195, 20);
             this.txtCorreoElectronico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCorreoElectronico.TabIndex = 30;
+            this.txtCorreoElectronico.TabIndex = 36;
             this.txtCorreoElectronico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // txtCelular
@@ -977,7 +1054,7 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(112, 20);
             this.txtCelular.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCelular.TabIndex = 29;
+            this.txtCelular.TabIndex = 35;
             this.txtCelular.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // txtTelefono
@@ -986,7 +1063,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(112, 20);
             this.txtTelefono.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtTelefono.TabIndex = 28;
+            this.txtTelefono.TabIndex = 34;
             this.txtTelefono.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // txtDireccion
@@ -1079,6 +1156,8 @@
             this.gbxProfesional.PerformLayout();
             this.gbxPersonal.ResumeLayout(false);
             this.gbxPersonal.PerformLayout();
+            this.gbxAcceso.ResumeLayout(false);
+            this.gbxAcceso.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1170,8 +1249,15 @@
         private System.Windows.Forms.ComboBox cboEspecialidadBuscar;
         private System.Windows.Forms.Label lblEstadoBuscar;
         private System.Windows.Forms.Label lblEspecialidades;
-        private System.Windows.Forms.CheckedListBox clbxEspecialidades;
         private System.Windows.Forms.ComboBox cboPerfil;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbxAcceso;
+        private System.Windows.Forms.ListBox lbxEspecialidadesDoctor;
+        private System.Windows.Forms.ListBox lbxEspecialidades;
+        private System.Windows.Forms.Label lblEspecialidadesDoctor;
+        private System.Windows.Forms.Button btnTodoIzquierda;
+        private System.Windows.Forms.Button btnIzquierda;
+        private System.Windows.Forms.Button btnDerecha;
+        private System.Windows.Forms.Button btnTodoDerecha;
     }
 }

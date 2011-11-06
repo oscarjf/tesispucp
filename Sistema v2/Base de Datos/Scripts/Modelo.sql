@@ -524,7 +524,7 @@ CREATE TABLE Empleado
 	Estado               varchar(8)  NOT NULL ,
 	IdEmpleado           bigint  NOT NULL ,
 	IdArea               int  NULL ,
-	Foto                 binary  NULL 
+	Foto                 varchar(2000)  NULL 
 )
 go
 
@@ -900,8 +900,7 @@ CREATE TABLE Perfil
 	IdPerfil             int IDENTITY ( 1,1 ) ,
 	Nombre               varchar(50)  NOT NULL ,
 	TipoPersonal         varchar(14)  NOT NULL ,
-	Estado               varchar(8)  NOT NULL ,
-	IdArea               int  NULL 
+	Estado               varchar(8)  NOT NULL 
 )
 go
 
@@ -1411,15 +1410,6 @@ go
 
 ALTER TABLE Paciente
 	ADD CONSTRAINT R_37 FOREIGN KEY (IdReligion) REFERENCES Religion(IdReligion)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
-go
-
-
-
-
-ALTER TABLE Perfil
-	ADD CONSTRAINT R_70 FOREIGN KEY (IdArea) REFERENCES Area(IdArea)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

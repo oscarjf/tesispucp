@@ -48,6 +48,7 @@
     <Compile Include="ctrArea.cs" />
     <Compile Include="ctrConsultorio.cs" />
     <Compile Include="ctrCPT.cs" />
+    <Compile Include="ctrDoctor.cs" />
     <Compile Include="ctrEspecialidad.cs" />
     <Compile Include="ctrEtnia.cs" />
     <Compile Include="ctrFinanciadorSalud.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="ctrOcupacion.cs" />
     <Compile Include="ctrPabellon.cs" />
     <Compile Include="ctrPais.cs" />
+    <Compile Include="ctrPerfil.cs" />
     <Compile Include="ctrReligion.cs" />
     <Compile Include="ctrTipoDocumento.cs" />
     <Compile Include="ctrUbigeo.cs" />

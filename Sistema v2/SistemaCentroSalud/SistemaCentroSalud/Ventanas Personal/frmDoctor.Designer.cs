@@ -55,6 +55,9 @@
             this.lblPaternoBuscar = new System.Windows.Forms.Label();
             this.cboEstadoBuscar = new System.Windows.Forms.ComboBox();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
+            this.gbxAcceso = new System.Windows.Forms.GroupBox();
+            this.cboPerfil = new System.Windows.Forms.ComboBox();
+            this.lblPerfil = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxContacto = new System.Windows.Forms.GroupBox();
@@ -84,8 +87,13 @@
             this.lblFoto = new System.Windows.Forms.Label();
             this.pbxFoto = new System.Windows.Forms.PictureBox();
             this.gbxProfesional = new System.Windows.Forms.GroupBox();
-            this.cboPerfil = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnTodoIzquierda = new System.Windows.Forms.Button();
+            this.btnIzquierda = new System.Windows.Forms.Button();
+            this.btnDerecha = new System.Windows.Forms.Button();
+            this.btnTodoDerecha = new System.Windows.Forms.Button();
+            this.lbxEspecialidadesDoctor = new System.Windows.Forms.ListBox();
+            this.lbxEspecialidades = new System.Windows.Forms.ListBox();
+            this.lblEspecialidadesDoctor = new System.Windows.Forms.Label();
             this.lblEspecialidades = new System.Windows.Forms.Label();
             this.lblCMP = new System.Windows.Forms.Label();
             this.cboArea = new System.Windows.Forms.ComboBox();
@@ -103,14 +111,6 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblMaterno = new System.Windows.Forms.Label();
             this.lblPaterno = new System.Windows.Forms.Label();
-            this.gbxAcceso = new System.Windows.Forms.GroupBox();
-            this.lblEspecialidadesDoctor = new System.Windows.Forms.Label();
-            this.lbxEspecialidades = new System.Windows.Forms.ListBox();
-            this.lbxEspecialidadesDoctor = new System.Windows.Forms.ListBox();
-            this.btnTodoDerecha = new System.Windows.Forms.Button();
-            this.btnDerecha = new System.Windows.Forms.Button();
-            this.btnIzquierda = new System.Windows.Forms.Button();
-            this.btnTodoIzquierda = new System.Windows.Forms.Button();
             this.txtMaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtCMPBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNombresBuscar = new SistemaCentroSalud.Controles.cuTextBox();
@@ -129,13 +129,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctores)).BeginInit();
             this.gbxCriterios.SuspendLayout();
             this.tbpDetalle.SuspendLayout();
+            this.gbxAcceso.SuspendLayout();
             this.gbxContacto.SuspendLayout();
             this.gbxDomicilio.SuspendLayout();
             this.gbxLugarNacimiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.gbxProfesional.SuspendLayout();
             this.gbxPersonal.SuspendLayout();
-            this.gbxAcceso.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcDoctor
@@ -145,7 +145,7 @@
             this.tbcDoctor.Location = new System.Drawing.Point(1, 0);
             this.tbcDoctor.Name = "tbcDoctor";
             this.tbcDoctor.SelectedIndex = 0;
-            this.tbcDoctor.Size = new System.Drawing.Size(788, 492);
+            this.tbcDoctor.Size = new System.Drawing.Size(569, 417);
             this.tbcDoctor.TabIndex = 0;
             // 
             // tbpBuscar
@@ -161,7 +161,7 @@
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(780, 466);
+            this.tbpBuscar.Size = new System.Drawing.Size(561, 391);
             this.tbpBuscar.TabIndex = 0;
             this.tbpBuscar.Text = "Buscar";
             this.tbpBuscar.UseVisualStyleBackColor = true;
@@ -238,6 +238,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgvDoctores
             // 
@@ -422,10 +423,39 @@
             this.tbpDetalle.Location = new System.Drawing.Point(4, 22);
             this.tbpDetalle.Name = "tbpDetalle";
             this.tbpDetalle.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDetalle.Size = new System.Drawing.Size(780, 466);
+            this.tbpDetalle.Size = new System.Drawing.Size(561, 391);
             this.tbpDetalle.TabIndex = 1;
             this.tbpDetalle.Text = "Detalle";
             this.tbpDetalle.UseVisualStyleBackColor = true;
+            // 
+            // gbxAcceso
+            // 
+            this.gbxAcceso.Controls.Add(this.cboPerfil);
+            this.gbxAcceso.Controls.Add(this.lblPerfil);
+            this.gbxAcceso.Location = new System.Drawing.Point(557, 197);
+            this.gbxAcceso.Name = "gbxAcceso";
+            this.gbxAcceso.Size = new System.Drawing.Size(213, 71);
+            this.gbxAcceso.TabIndex = 31;
+            this.gbxAcceso.TabStop = false;
+            this.gbxAcceso.Text = "Acceso";
+            // 
+            // cboPerfil
+            // 
+            this.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPerfil.FormattingEnabled = true;
+            this.cboPerfil.Location = new System.Drawing.Point(10, 33);
+            this.cboPerfil.Name = "cboPerfil";
+            this.cboPerfil.Size = new System.Drawing.Size(153, 21);
+            this.cboPerfil.TabIndex = 32;
+            // 
+            // lblPerfil
+            // 
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.Location = new System.Drawing.Point(7, 16);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(33, 13);
+            this.lblPerfil.TabIndex = 36;
+            this.lblPerfil.Text = "Perfil:";
             // 
             // btnGuardar
             // 
@@ -450,6 +480,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // gbxContacto
             // 
@@ -522,6 +553,7 @@
             // cboDistritoDomicilio
             // 
             this.cboDistritoDomicilio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDistritoDomicilio.Enabled = false;
             this.cboDistritoDomicilio.FormattingEnabled = true;
             this.cboDistritoDomicilio.Location = new System.Drawing.Point(275, 33);
             this.cboDistritoDomicilio.Name = "cboDistritoDomicilio";
@@ -531,11 +563,13 @@
             // cboProvinciaDomicilio
             // 
             this.cboProvinciaDomicilio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProvinciaDomicilio.Enabled = false;
             this.cboProvinciaDomicilio.FormattingEnabled = true;
             this.cboProvinciaDomicilio.Location = new System.Drawing.Point(147, 33);
             this.cboProvinciaDomicilio.Name = "cboProvinciaDomicilio";
             this.cboProvinciaDomicilio.Size = new System.Drawing.Size(119, 21);
             this.cboProvinciaDomicilio.TabIndex = 16;
+            this.cboProvinciaDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboProvinciaDomicilio_SelectedIndexChanged);
             // 
             // cboDepartamentoDomicilio
             // 
@@ -545,6 +579,7 @@
             this.cboDepartamentoDomicilio.Name = "cboDepartamentoDomicilio";
             this.cboDepartamentoDomicilio.Size = new System.Drawing.Size(125, 21);
             this.cboDepartamentoDomicilio.TabIndex = 15;
+            this.cboDepartamentoDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboDepartamentoDomicilio_SelectedIndexChanged);
             // 
             // lblDistritoDomicilio
             // 
@@ -609,6 +644,7 @@
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(122, 21);
             this.cboProvincia.TabIndex = 12;
+            this.cboProvincia.SelectedIndexChanged += new System.EventHandler(this.cboProvincia_SelectedIndexChanged);
             // 
             // cboDepartamento
             // 
@@ -619,6 +655,7 @@
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(119, 21);
             this.cboDepartamento.TabIndex = 11;
+            this.cboDepartamento.SelectedIndexChanged += new System.EventHandler(this.cboDepartamento_SelectedIndexChanged);
             // 
             // lblDistrito
             // 
@@ -655,6 +692,7 @@
             this.cboPais.Name = "cboPais";
             this.cboPais.Size = new System.Drawing.Size(125, 21);
             this.cboPais.TabIndex = 10;
+            this.cboPais.SelectedIndexChanged += new System.EventHandler(this.cboPais_SelectedIndexChanged);
             // 
             // lblPais
             // 
@@ -732,23 +770,66 @@
             this.gbxProfesional.TabStop = false;
             this.gbxProfesional.Text = "Información Profesional";
             // 
-            // cboPerfil
+            // btnTodoIzquierda
             // 
-            this.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(10, 33);
-            this.cboPerfil.Name = "cboPerfil";
-            this.cboPerfil.Size = new System.Drawing.Size(153, 21);
-            this.cboPerfil.TabIndex = 32;
+            this.btnTodoIzquierda.Location = new System.Drawing.Point(324, 107);
+            this.btnTodoIzquierda.Name = "btnTodoIzquierda";
+            this.btnTodoIzquierda.Size = new System.Drawing.Size(32, 20);
+            this.btnTodoIzquierda.TabIndex = 26;
+            this.btnTodoIzquierda.Text = "<<";
+            this.btnTodoIzquierda.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnIzquierda
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Perfil:";
+            this.btnIzquierda.Location = new System.Drawing.Point(324, 83);
+            this.btnIzquierda.Name = "btnIzquierda";
+            this.btnIzquierda.Size = new System.Drawing.Size(32, 20);
+            this.btnIzquierda.TabIndex = 25;
+            this.btnIzquierda.Text = "<";
+            this.btnIzquierda.UseVisualStyleBackColor = true;
+            // 
+            // btnDerecha
+            // 
+            this.btnDerecha.Location = new System.Drawing.Point(324, 57);
+            this.btnDerecha.Name = "btnDerecha";
+            this.btnDerecha.Size = new System.Drawing.Size(32, 20);
+            this.btnDerecha.TabIndex = 24;
+            this.btnDerecha.Text = ">";
+            this.btnDerecha.UseVisualStyleBackColor = true;
+            // 
+            // btnTodoDerecha
+            // 
+            this.btnTodoDerecha.Location = new System.Drawing.Point(324, 32);
+            this.btnTodoDerecha.Name = "btnTodoDerecha";
+            this.btnTodoDerecha.Size = new System.Drawing.Size(32, 20);
+            this.btnTodoDerecha.TabIndex = 23;
+            this.btnTodoDerecha.Text = ">>";
+            this.btnTodoDerecha.UseVisualStyleBackColor = true;
+            // 
+            // lbxEspecialidadesDoctor
+            // 
+            this.lbxEspecialidadesDoctor.FormattingEnabled = true;
+            this.lbxEspecialidadesDoctor.Location = new System.Drawing.Point(361, 33);
+            this.lbxEspecialidadesDoctor.Name = "lbxEspecialidadesDoctor";
+            this.lbxEspecialidadesDoctor.Size = new System.Drawing.Size(172, 95);
+            this.lbxEspecialidadesDoctor.TabIndex = 27;
+            // 
+            // lbxEspecialidades
+            // 
+            this.lbxEspecialidades.FormattingEnabled = true;
+            this.lbxEspecialidades.Location = new System.Drawing.Point(147, 32);
+            this.lbxEspecialidades.Name = "lbxEspecialidades";
+            this.lbxEspecialidades.Size = new System.Drawing.Size(172, 95);
+            this.lbxEspecialidades.TabIndex = 22;
+            // 
+            // lblEspecialidadesDoctor
+            // 
+            this.lblEspecialidadesDoctor.AutoSize = true;
+            this.lblEspecialidadesDoctor.Location = new System.Drawing.Point(353, 16);
+            this.lblEspecialidadesDoctor.Name = "lblEspecialidadesDoctor";
+            this.lblEspecialidadesDoctor.Size = new System.Drawing.Size(116, 13);
+            this.lblEspecialidadesDoctor.TabIndex = 37;
+            this.lblEspecialidadesDoctor.Text = "Especialidades Doctor:";
             // 
             // lblEspecialidades
             // 
@@ -776,6 +857,7 @@
             this.cboArea.Name = "cboArea";
             this.cboArea.Size = new System.Drawing.Size(123, 21);
             this.cboArea.TabIndex = 21;
+            this.cboArea.SelectedIndexChanged += new System.EventHandler(this.cboArea_SelectedIndexChanged);
             // 
             // lblArea
             // 
@@ -870,6 +952,7 @@
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(125, 21);
             this.cboTipoDocumento.TabIndex = 7;
+            this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
             // 
             // lblTipoDocumento
             // 
@@ -928,78 +1011,6 @@
             this.lblPaterno.Size = new System.Drawing.Size(87, 13);
             this.lblPaterno.TabIndex = 0;
             this.lblPaterno.Text = "Apellido Paterno:";
-            // 
-            // gbxAcceso
-            // 
-            this.gbxAcceso.Controls.Add(this.cboPerfil);
-            this.gbxAcceso.Controls.Add(this.label1);
-            this.gbxAcceso.Location = new System.Drawing.Point(557, 197);
-            this.gbxAcceso.Name = "gbxAcceso";
-            this.gbxAcceso.Size = new System.Drawing.Size(213, 71);
-            this.gbxAcceso.TabIndex = 31;
-            this.gbxAcceso.TabStop = false;
-            this.gbxAcceso.Text = "Acceso";
-            // 
-            // lblEspecialidadesDoctor
-            // 
-            this.lblEspecialidadesDoctor.AutoSize = true;
-            this.lblEspecialidadesDoctor.Location = new System.Drawing.Point(353, 16);
-            this.lblEspecialidadesDoctor.Name = "lblEspecialidadesDoctor";
-            this.lblEspecialidadesDoctor.Size = new System.Drawing.Size(116, 13);
-            this.lblEspecialidadesDoctor.TabIndex = 37;
-            this.lblEspecialidadesDoctor.Text = "Especialidades Doctor:";
-            // 
-            // lbxEspecialidades
-            // 
-            this.lbxEspecialidades.FormattingEnabled = true;
-            this.lbxEspecialidades.Location = new System.Drawing.Point(147, 32);
-            this.lbxEspecialidades.Name = "lbxEspecialidades";
-            this.lbxEspecialidades.Size = new System.Drawing.Size(172, 95);
-            this.lbxEspecialidades.TabIndex = 22;
-            // 
-            // lbxEspecialidadesDoctor
-            // 
-            this.lbxEspecialidadesDoctor.FormattingEnabled = true;
-            this.lbxEspecialidadesDoctor.Location = new System.Drawing.Point(361, 33);
-            this.lbxEspecialidadesDoctor.Name = "lbxEspecialidadesDoctor";
-            this.lbxEspecialidadesDoctor.Size = new System.Drawing.Size(172, 95);
-            this.lbxEspecialidadesDoctor.TabIndex = 27;
-            // 
-            // btnTodoDerecha
-            // 
-            this.btnTodoDerecha.Location = new System.Drawing.Point(324, 32);
-            this.btnTodoDerecha.Name = "btnTodoDerecha";
-            this.btnTodoDerecha.Size = new System.Drawing.Size(32, 20);
-            this.btnTodoDerecha.TabIndex = 23;
-            this.btnTodoDerecha.Text = ">>";
-            this.btnTodoDerecha.UseVisualStyleBackColor = true;
-            // 
-            // btnDerecha
-            // 
-            this.btnDerecha.Location = new System.Drawing.Point(324, 57);
-            this.btnDerecha.Name = "btnDerecha";
-            this.btnDerecha.Size = new System.Drawing.Size(32, 20);
-            this.btnDerecha.TabIndex = 24;
-            this.btnDerecha.Text = ">";
-            this.btnDerecha.UseVisualStyleBackColor = true;
-            // 
-            // btnIzquierda
-            // 
-            this.btnIzquierda.Location = new System.Drawing.Point(324, 83);
-            this.btnIzquierda.Name = "btnIzquierda";
-            this.btnIzquierda.Size = new System.Drawing.Size(32, 20);
-            this.btnIzquierda.TabIndex = 25;
-            this.btnIzquierda.Text = "<";
-            this.btnIzquierda.UseVisualStyleBackColor = true;
-            // 
-            // btnTodoIzquierda
-            // 
-            this.btnTodoIzquierda.Location = new System.Drawing.Point(324, 107);
-            this.btnTodoIzquierda.Name = "btnTodoIzquierda";
-            this.btnTodoIzquierda.Size = new System.Drawing.Size(32, 20);
-            this.btnTodoIzquierda.TabIndex = 26;
-            this.btnTodoIzquierda.Text = "<<";
-            this.btnTodoIzquierda.UseVisualStyleBackColor = true;
             // 
             // txtMaternoBuscar
             // 
@@ -1088,6 +1099,7 @@
             // 
             // txtNumeroDocumento
             // 
+            this.txtNumeroDocumento.Enabled = false;
             this.txtNumeroDocumento.Location = new System.Drawing.Point(406, 74);
             this.txtNumeroDocumento.Name = "txtNumeroDocumento";
             this.txtNumeroDocumento.Size = new System.Drawing.Size(125, 20);
@@ -1129,7 +1141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 491);
+            this.ClientSize = new System.Drawing.Size(567, 415);
             this.Controls.Add(this.tbcDoctor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1145,6 +1157,8 @@
             this.gbxCriterios.PerformLayout();
             this.tbpDetalle.ResumeLayout(false);
             this.tbpDetalle.PerformLayout();
+            this.gbxAcceso.ResumeLayout(false);
+            this.gbxAcceso.PerformLayout();
             this.gbxContacto.ResumeLayout(false);
             this.gbxContacto.PerformLayout();
             this.gbxDomicilio.ResumeLayout(false);
@@ -1156,8 +1170,6 @@
             this.gbxProfesional.PerformLayout();
             this.gbxPersonal.ResumeLayout(false);
             this.gbxPersonal.PerformLayout();
-            this.gbxAcceso.ResumeLayout(false);
-            this.gbxAcceso.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1250,7 +1262,7 @@
         private System.Windows.Forms.Label lblEstadoBuscar;
         private System.Windows.Forms.Label lblEspecialidades;
         private System.Windows.Forms.ComboBox cboPerfil;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.GroupBox gbxAcceso;
         private System.Windows.Forms.ListBox lbxEspecialidadesDoctor;
         private System.Windows.Forms.ListBox lbxEspecialidades;

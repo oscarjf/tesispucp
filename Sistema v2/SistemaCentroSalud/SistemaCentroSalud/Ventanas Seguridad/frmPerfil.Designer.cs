@@ -76,12 +76,15 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvPerfiles = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.cboEstadoBuscar = new System.Windows.Forms.ComboBox();
             this.lblEstadoBuscar = new System.Windows.Forms.Label();
             this.cboAreaBuscar = new System.Windows.Forms.ComboBox();
             this.lblAreaBuscar = new System.Windows.Forms.Label();
-            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -94,14 +97,11 @@
             this.lbxAccesosPermitidos = new System.Windows.Forms.ListBox();
             this.tvAccesos = new System.Windows.Forms.TreeView();
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
-            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreDetalle = new System.Windows.Forms.Label();
-            this.cboAreaDetalle = new System.Windows.Forms.ComboBox();
-            this.lblAreaDetalle = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboTipoPersonalDetalle = new System.Windows.Forms.ComboBox();
+            this.lblTipoPersonal = new System.Windows.Forms.Label();
+            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbcPerfil.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
@@ -231,6 +231,33 @@
             this.dgvPerfiles.Size = new System.Drawing.Size(435, 144);
             this.dgvPerfiles.TabIndex = 1;
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // colNombre
+            // 
+            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            // 
+            // colArea
+            // 
+            this.colArea.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colArea.HeaderText = "Área";
+            this.colArea.Name = "colArea";
+            this.colArea.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            this.colEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            // 
             // gbxCriterios
             // 
             this.gbxCriterios.Controls.Add(this.cboEstadoBuscar);
@@ -285,15 +312,6 @@
             this.lblAreaBuscar.Size = new System.Drawing.Size(32, 13);
             this.lblAreaBuscar.TabIndex = 2;
             this.lblAreaBuscar.Text = "Área:";
-            // 
-            // cuTextBox1
-            // 
-            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
-            this.cuTextBox1.Name = "cuTextBox1";
-            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.cuTextBox1.TabIndex = 1;
-            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // lblNombreBuscar
             // 
@@ -467,25 +485,16 @@
             // 
             // gbxInformacion
             // 
+            this.gbxInformacion.Controls.Add(this.cboTipoPersonalDetalle);
+            this.gbxInformacion.Controls.Add(this.lblTipoPersonal);
             this.gbxInformacion.Controls.Add(this.txtNombreDetalle);
             this.gbxInformacion.Controls.Add(this.lblNombreDetalle);
-            this.gbxInformacion.Controls.Add(this.cboAreaDetalle);
-            this.gbxInformacion.Controls.Add(this.lblAreaDetalle);
             this.gbxInformacion.Location = new System.Drawing.Point(8, 6);
             this.gbxInformacion.Name = "gbxInformacion";
             this.gbxInformacion.Size = new System.Drawing.Size(545, 69);
             this.gbxInformacion.TabIndex = 0;
             this.gbxInformacion.TabStop = false;
             this.gbxInformacion.Text = "Información";
-            // 
-            // txtNombreDetalle
-            // 
-            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
-            this.txtNombreDetalle.Name = "txtNombreDetalle";
-            this.txtNombreDetalle.Size = new System.Drawing.Size(196, 20);
-            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombreDetalle.TabIndex = 2;
-            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // lblNombreDetalle
             // 
@@ -496,50 +505,48 @@
             this.lblNombreDetalle.TabIndex = 2;
             this.lblNombreDetalle.Text = "Nombre:";
             // 
-            // cboAreaDetalle
+            // cboTipoPersonalDetalle
             // 
-            this.cboAreaDetalle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAreaDetalle.FormattingEnabled = true;
-            this.cboAreaDetalle.Location = new System.Drawing.Point(234, 32);
-            this.cboAreaDetalle.Name = "cboAreaDetalle";
-            this.cboAreaDetalle.Size = new System.Drawing.Size(176, 21);
-            this.cboAreaDetalle.TabIndex = 1;
+            this.cboTipoPersonalDetalle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoPersonalDetalle.Enabled = false;
+            this.cboTipoPersonalDetalle.FormattingEnabled = true;
+            this.cboTipoPersonalDetalle.Items.AddRange(new object[] {
+            "SELECCIONAR",
+            "ADMINISTRATIVO",
+            "DOCTOR",
+            "ENFERMERO",
+            "TÉCNICO"});
+            this.cboTipoPersonalDetalle.Location = new System.Drawing.Point(322, 32);
+            this.cboTipoPersonalDetalle.Name = "cboTipoPersonalDetalle";
+            this.cboTipoPersonalDetalle.Size = new System.Drawing.Size(160, 21);
+            this.cboTipoPersonalDetalle.TabIndex = 4;
             // 
-            // lblAreaDetalle
+            // lblTipoPersonal
             // 
-            this.lblAreaDetalle.AutoSize = true;
-            this.lblAreaDetalle.Location = new System.Drawing.Point(231, 16);
-            this.lblAreaDetalle.Name = "lblAreaDetalle";
-            this.lblAreaDetalle.Size = new System.Drawing.Size(32, 13);
-            this.lblAreaDetalle.TabIndex = 0;
-            this.lblAreaDetalle.Text = "Área:";
+            this.lblTipoPersonal.AutoSize = true;
+            this.lblTipoPersonal.Location = new System.Drawing.Point(319, 16);
+            this.lblTipoPersonal.Name = "lblTipoPersonal";
+            this.lblTipoPersonal.Size = new System.Drawing.Size(75, 13);
+            this.lblTipoPersonal.TabIndex = 3;
+            this.lblTipoPersonal.Text = "Tipo Personal:";
             // 
-            // Id
+            // cuTextBox1
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
+            this.cuTextBox1.Name = "cuTextBox1";
+            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
+            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.cuTextBox1.TabIndex = 1;
+            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
-            // colNombre
+            // txtNombreDetalle
             // 
-            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            // 
-            // colArea
-            // 
-            this.colArea.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colArea.HeaderText = "Área";
-            this.colArea.Name = "colArea";
-            this.colArea.ReadOnly = true;
-            // 
-            // colEstado
-            // 
-            this.colEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.ReadOnly = true;
+            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
+            this.txtNombreDetalle.Name = "txtNombreDetalle";
+            this.txtNombreDetalle.Size = new System.Drawing.Size(212, 20);
+            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreDetalle.TabIndex = 2;
+            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // frmPerfil
             // 
@@ -579,8 +586,6 @@
         private System.Windows.Forms.Button btnTodoDerecha;
         private System.Windows.Forms.ListBox lbxAccesosPermitidos;
         private System.Windows.Forms.TreeView tvAccesos;
-        private System.Windows.Forms.ComboBox cboAreaDetalle;
-        private System.Windows.Forms.Label lblAreaDetalle;
         private SistemaCentroSalud.Controles.cuTextBox txtNombreDetalle;
         private System.Windows.Forms.Label lblNombreDetalle;
         private System.Windows.Forms.Button btnGuardar;
@@ -603,5 +608,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.ComboBox cboTipoPersonalDetalle;
+        private System.Windows.Forms.Label lblTipoPersonal;
     }
 }

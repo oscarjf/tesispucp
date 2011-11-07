@@ -1,4 +1,4 @@
-(local)
+CentroSalud.mssql.somee.com
 CentroSalud
-usuario
-contrasena
+wchicana
+tesispucp

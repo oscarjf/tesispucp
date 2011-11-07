@@ -154,12 +154,12 @@ namespace Modelo
             get { return strTipoPersona; }
             set { strTipoPersona = value; }
         }
-        private Byte[] byFoto;
+        private string strFoto;
 
-        public Byte[] Foto
+        public string Foto
         {
-            get { return byFoto; }
-            set { byFoto = value; }
+            get { return strFoto; }
+            set { strFoto = value; }
         }
         private string strUsuario;
 
@@ -188,6 +188,13 @@ namespace Modelo
         {
             get { return numIdArea; }
             set { numIdArea = value; }
+        }
+        private int numIdPerfil;
+
+        public int IdPerfil
+        {
+            get { return numIdPerfil; }
+            set { numIdPerfil = value; }
         }
         private string strCMP;
 
@@ -238,12 +245,13 @@ namespace Modelo
             Telefono = "";
             Celular = "";
             CorreoElectronico = "";
-            TipoPersona = "";
-            //Foto
+            TipoPersona = "EMPLEADO";
+            Foto = "";
             Usuario = "";
             Contrasena = "";
-            TipoEmpleado = "";
+            TipoEmpleado = "DOCTOR";
             IdArea = 0;
+            IdPerfil = 0;
             CMP = "";
             IndicadorHC = "";
             ListaIdEspecialidades = "";

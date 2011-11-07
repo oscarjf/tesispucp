@@ -58,6 +58,7 @@
     <Compile Include="clsOcupacion.cs" />
     <Compile Include="clsPabellon.cs" />
     <Compile Include="clsPais.cs" />
+    <Compile Include="clsPerfil.cs" />
     <Compile Include="clsReligion.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="clsUbigeo.cs" />

@@ -39,6 +39,11 @@ namespace Modelo
             set { strDescripcion = value; }
         }
 
+        public override string ToString()
+        {
+            return Descripcion;
+        }
+
         public clsUbigeo()
         {
             IdUbigeo = 0;

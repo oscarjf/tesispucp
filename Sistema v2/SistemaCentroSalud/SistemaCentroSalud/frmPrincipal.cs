@@ -10,6 +10,7 @@ using SistemaCentroSalud.Ventanas_Personal;
 using SistemaCentroSalud.Ventanas_Ayuda;
 using SistemaCentroSalud.Ventanas_Doctor;
 using SistemaCentroSalud.Ventanas_Mantenimiento;
+using SistemaCentroSalud.Ventanas_Seguridad;
 
 namespace SistemaCentroSalud
 {
@@ -143,6 +144,13 @@ namespace SistemaCentroSalud
             frmUnidadProductoraServicios ventanaUnidadProductoraServicios = new frmUnidadProductoraServicios();
             ventanaUnidadProductoraServicios.MdiParent = this;
             ventanaUnidadProductoraServicios.Show();
+        }
+
+        private void smnuPerfil_Click(object sender, EventArgs e)
+        {
+            frmPerfil ventanaPerfil = new frmPerfil();
+            ventanaPerfil.MdiParent = this;
+            ventanaPerfil.Show();
         }
 
         private void smnuCascada_Click(object sender, EventArgs e)

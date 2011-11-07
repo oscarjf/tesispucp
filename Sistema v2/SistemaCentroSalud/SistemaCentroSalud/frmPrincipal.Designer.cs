@@ -501,32 +501,33 @@
             // 
             this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(125, 22);
+            this.smnuPerfil.Size = new System.Drawing.Size(152, 22);
             this.smnuPerfil.Text = "Perfil";
+            this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
             // auditoríaToolStripMenuItem
             // 
             this.auditoríaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("auditoríaToolStripMenuItem.Image")));
             this.auditoríaToolStripMenuItem.Name = "auditoríaToolStripMenuItem";
-            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.auditoríaToolStripMenuItem.Text = "Auditoría";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(122, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldar.Image")));
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(125, 22);
+            this.smnuRespaldar.Size = new System.Drawing.Size(152, 22);
             this.smnuRespaldar.Text = "Respaldar";
             // 
             // smnuRestaurar
             // 
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(125, 22);
+            this.smnuRestaurar.Size = new System.Drawing.Size(152, 22);
             this.smnuRestaurar.Text = "Restaurar";
             // 
             // mnuVentanas

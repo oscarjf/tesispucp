@@ -563,44 +563,16 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objDoctor.Paterno = txtPaterno.Text;
                 objDoctor.Materno = txtMaterno.Text;
                 objDoctor.Nombres = txtNombres.Text;
-                if (cboSexo.Text.CompareTo("SELECCIONAR") == 0)
-                {
-                    objDoctor.Sexo = "";
-                }
-                else
-                {
-                    objDoctor.Sexo = cboSexo.Text;
-                }
-                if (cboEstadoCivil.Text.CompareTo("SELECCIONAR") == 0)
-                {
-                    objDoctor.EstadoCivil = "";
-                }
-                else
-                {
-                    objDoctor.EstadoCivil = cboEstadoCivil.Text;
-                }
+                objDoctor.Sexo = clsComun.textoCombo(cboSexo.Text);
+                objDoctor.EstadoCivil = clsComun.textoCombo(cboEstadoCivil.Text);
                 objDoctor.FechaNacimiento = dtpFechaNacimiento.Value.Date;
                 objDoctor.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
                 objDoctor.NumeroDocumento = txtNumeroDocumento.Text;
-                if (cboPais.Text.CompareTo("SELECCIONAR") == 0)
-                {
-                    objDoctor.Pais = "";
-                }
-                else
-                {
-                    objDoctor.Pais = cboPais.Text;
-                }
+                objDoctor.Pais = clsComun.textoCombo(cboPais.Text);
                 objDoctor.DepartamentoNacimiento = cboDepartamento.Text;
                 objDoctor.ProvinciaNacimiento = cboProvincia.Text;
                 objDoctor.DistritoNacimiento = cboDistrito.Text;
-                if (cboDepartamentoDomicilio.Text.CompareTo("SELECCIONAR") == 0)
-                {
-                    objDoctor.DepartamentoDomicilio = "";
-                }
-                else
-                {
-                    objDoctor.DepartamentoDomicilio = cboDepartamentoDomicilio.Text;
-                }
+                objDoctor.DepartamentoDomicilio = clsComun.textoCombo(cboDepartamentoDomicilio.Text);
                 objDoctor.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
                 objDoctor.DistritoDomicilio = cboDistritoDomicilio.Text;
                 objDoctor.Direccion = txtDireccion.Text;

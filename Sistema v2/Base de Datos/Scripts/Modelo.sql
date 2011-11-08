@@ -4,11 +4,6 @@ go
 
 
 
-DROP TABLE Perfil
-go
-
-
-
 DROP TABLE Ventana
 go
 
@@ -140,6 +135,11 @@ go
 
 
 DROP TABLE Empleado
+go
+
+
+
+DROP TABLE Perfil
 go
 
 
@@ -524,7 +524,8 @@ CREATE TABLE Empleado
 	Estado               varchar(8)  NOT NULL ,
 	IdEmpleado           bigint  NOT NULL ,
 	IdArea               int  NULL ,
-	Foto                 varchar(2000)  NULL 
+	Foto                 varchar(2000)  NULL ,
+	IdPerfil             int  NULL 
 )
 go
 
@@ -1239,6 +1240,15 @@ go
 
 ALTER TABLE Empleado
 	ADD CONSTRAINT R_29 FOREIGN KEY (IdArea) REFERENCES Area(IdArea)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE Empleado
+	ADD CONSTRAINT R_72 FOREIGN KEY (IdPerfil) REFERENCES Perfil(IdPerfil)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

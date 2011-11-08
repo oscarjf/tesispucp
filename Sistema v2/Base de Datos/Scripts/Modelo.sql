@@ -915,7 +915,7 @@ go
 
 CREATE TABLE Persona
 ( 
-	IdPersona            bigint  NOT NULL ,
+	IdPersona            bigint IDENTITY ( 1,1 ) ,
 	Paterno              varchar(30)  NULL ,
 	Materno              varchar(30)  NULL ,
 	Nombres              varchar(30)  NULL ,

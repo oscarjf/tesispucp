@@ -468,6 +468,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -778,6 +779,7 @@
             this.btnTodoIzquierda.TabIndex = 26;
             this.btnTodoIzquierda.Text = "<<";
             this.btnTodoIzquierda.UseVisualStyleBackColor = true;
+            this.btnTodoIzquierda.Click += new System.EventHandler(this.btnTodoIzquierda_Click);
             // 
             // btnIzquierda
             // 
@@ -787,6 +789,7 @@
             this.btnIzquierda.TabIndex = 25;
             this.btnIzquierda.Text = "<";
             this.btnIzquierda.UseVisualStyleBackColor = true;
+            this.btnIzquierda.Click += new System.EventHandler(this.btnIzquierda_Click);
             // 
             // btnDerecha
             // 
@@ -796,6 +799,7 @@
             this.btnDerecha.TabIndex = 24;
             this.btnDerecha.Text = ">";
             this.btnDerecha.UseVisualStyleBackColor = true;
+            this.btnDerecha.Click += new System.EventHandler(this.btnDerecha_Click);
             // 
             // btnTodoDerecha
             // 
@@ -805,6 +809,7 @@
             this.btnTodoDerecha.TabIndex = 23;
             this.btnTodoDerecha.Text = ">>";
             this.btnTodoDerecha.UseVisualStyleBackColor = true;
+            this.btnTodoDerecha.Click += new System.EventHandler(this.btnTodoDerecha_Click);
             // 
             // lbxEspecialidadesDoctor
             // 

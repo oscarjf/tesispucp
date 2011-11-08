@@ -283,7 +283,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             {
                 objEspecialidad = new clsEspecialidad();
 
-                objEspecialidad.IdArea = Int32.Parse(dt.Rows[i]["IdEspecialidad"].ToString());
+                objEspecialidad.IdEspecialidad = Int32.Parse(dt.Rows[i]["IdEspecialidad"].ToString());
                 objEspecialidad.Nombre = dt.Rows[i]["Nombre"].ToString();
 
                 lbxEspecialidades.Items.Add(objEspecialidad);
@@ -350,6 +350,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtDireccion.Clear();
             txtCMP.Clear();
             cboArea.SelectedIndex = 0;
+            lbxEspecialidades.Items.Clear();
+            lbxEspecialidadesDoctor.Items.Clear();
             cboPerfil.SelectedIndex = 0;
             //lbxEspecialidades.Items.Clear();
             lbxEspecialidades.Items.Clear();
@@ -463,40 +465,49 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     {
                         if (txtCMP.Text.Length == 5)
                         {
-                            if (lbxEspecialidadesDoctor.Items.Count != 0)
+                            if (cboArea.SelectedIndex != 0)
                             {
-                                if (cboPerfil.SelectedIndex != 0)
+                                if (lbxEspecialidadesDoctor.Items.Count != 0)
                                 {
-                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                    if (cboPerfil.SelectedIndex != 0)
                                     {
-                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                        if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                         {
-                                            return true;
+                                            if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                txtCorreoElectronico.Focus();
+                                                return false;
+                                            }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             txtCorreoElectronico.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        txtCorreoElectronico.Focus();
+                                        MessageBox.Show("Debe seleccionar el perfil de acceso del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        cboPerfil.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe seleccionar el perfil de acceso del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    cboPerfil.Focus();
+                                    MessageBox.Show("Debe seleccionar al menos una especialidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    cboArea.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe seleccionar al menos una especialidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 cboArea.Focus();
                                 return false;
                             }
@@ -552,16 +563,44 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objDoctor.Paterno = txtPaterno.Text;
                 objDoctor.Materno = txtMaterno.Text;
                 objDoctor.Nombres = txtNombres.Text;
-                objDoctor.Sexo = cboSexo.Text;
-                objDoctor.EstadoCivil = cboEstadoCivil.Text;
+                if (cboSexo.Text.CompareTo("SELECCIONAR") == 0)
+                {
+                    objDoctor.Sexo = "";
+                }
+                else
+                {
+                    objDoctor.Sexo = cboSexo.Text;
+                }
+                if (cboEstadoCivil.Text.CompareTo("SELECCIONAR") == 0)
+                {
+                    objDoctor.EstadoCivil = "";
+                }
+                else
+                {
+                    objDoctor.EstadoCivil = cboEstadoCivil.Text;
+                }
                 objDoctor.FechaNacimiento = dtpFechaNacimiento.Value.Date;
                 objDoctor.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
                 objDoctor.NumeroDocumento = txtNumeroDocumento.Text;
-                objDoctor.Pais = cboPais.Text;
+                if (cboPais.Text.CompareTo("SELECCIONAR") == 0)
+                {
+                    objDoctor.Pais = "";
+                }
+                else
+                {
+                    objDoctor.Pais = cboPais.Text;
+                }
                 objDoctor.DepartamentoNacimiento = cboDepartamento.Text;
                 objDoctor.ProvinciaNacimiento = cboProvincia.Text;
                 objDoctor.DistritoNacimiento = cboDistrito.Text;
-                objDoctor.DepartamentoDomicilio = cboDepartamentoDomicilio.Text;
+                if (cboDepartamentoDomicilio.Text.CompareTo("SELECCIONAR") == 0)
+                {
+                    objDoctor.DepartamentoDomicilio = "";
+                }
+                else
+                {
+                    objDoctor.DepartamentoDomicilio = cboDepartamentoDomicilio.Text;
+                }
                 objDoctor.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
                 objDoctor.DistritoDomicilio = cboDistritoDomicilio.Text;
                 objDoctor.Direccion = txtDireccion.Text;
@@ -758,6 +797,65 @@ namespace SistemaCentroSalud.Ventanas_Personal
             {
                 lbxEspecialidades.Items.Clear();
             }
+        }
+
+        private void btnTodoDerecha_Click(object sender, EventArgs e)
+        {
+            bool blnEncontrado = false;
+
+            foreach (clsEspecialidad objEspecialidad in lbxEspecialidades.Items)
+            {
+                foreach (clsEspecialidad objEspecialidadDoctor in lbxEspecialidadesDoctor.Items)
+                {
+                    if (objEspecialidad.IdEspecialidad == objEspecialidadDoctor.IdEspecialidad)
+                    {
+                        blnEncontrado = true;
+                        break;
+                    }
+                }
+
+                if (!blnEncontrado)
+                {
+                    lbxEspecialidadesDoctor.Items.Add(objEspecialidad);
+                    blnEncontrado = false;
+                }
+            }
+        }
+
+        private void btnDerecha_Click(object sender, EventArgs e)
+        {
+            if (lbxEspecialidades.SelectedItems.Count > 0)
+            {
+                bool blnEncontrado = false;
+
+                foreach (clsEspecialidad objEspecialidadDoctor in lbxEspecialidadesDoctor.Items)
+                {
+                    if (((clsEspecialidad)lbxEspecialidades.SelectedItem).IdEspecialidad == objEspecialidadDoctor.IdEspecialidad)
+                    {
+                        blnEncontrado = true;
+                        break;
+                    }
+                }
+
+                if (!blnEncontrado)
+                {
+                    lbxEspecialidadesDoctor.Items.Add(lbxEspecialidades.SelectedItem);
+                    blnEncontrado = false;
+                }
+            }
+        }
+
+        private void btnIzquierda_Click(object sender, EventArgs e)
+        {
+            if (lbxEspecialidadesDoctor.SelectedItems.Count > 0)
+            {
+                lbxEspecialidadesDoctor.Items.Remove(lbxEspecialidadesDoctor.SelectedItem);
+            }
+        }
+
+        private void btnTodoIzquierda_Click(object sender, EventArgs e)
+        {
+            lbxEspecialidadesDoctor.Items.Clear();
         }
     }
 }

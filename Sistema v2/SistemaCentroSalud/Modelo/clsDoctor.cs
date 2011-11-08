@@ -217,6 +217,13 @@ namespace Modelo
             get { return strListaIdEspecialidades; }
             set { strListaIdEspecialidades = value; }
         }
+        private string strEstado;
+
+        public string Estado
+        {
+            get { return strEstado; }
+            set { strEstado = value; }
+        }
 
         public override string ToString()
         {
@@ -255,6 +262,7 @@ namespace Modelo
             CMP = "";
             IndicadorHC = "";
             ListaIdEspecialidades = "";
+            Estado = "ACTIVO";
         }
     }
 }

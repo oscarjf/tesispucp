@@ -191,11 +191,23 @@ namespace Comun
             return bm;
         }
 
-        public static string textoCombo(string strCadena)
+        public static string seleccionarToVacio(string strCadena)
         {
             if (strCadena.CompareTo("SELECCIONAR") == 0)
             {
                 return "";
+            }
+            else
+            {
+                return strCadena;
+            }
+        }
+
+        public static string vacioToSeleccionar(string strCadena)
+        {
+            if (strCadena.CompareTo("") == 0)
+            {
+                return "SELECCIONAR";
             }
             else
             {

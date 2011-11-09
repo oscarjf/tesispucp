@@ -26,9 +26,6 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void frmDoctor_Load(object sender, EventArgs e)
         {
-            //GRID: 788, 492		569, 417 
-            //FORM: 794, 519		573, 443
-            
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
 
@@ -563,16 +560,16 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objDoctor.Paterno = txtPaterno.Text;
                 objDoctor.Materno = txtMaterno.Text;
                 objDoctor.Nombres = txtNombres.Text;
-                objDoctor.Sexo = clsComun.textoCombo(cboSexo.Text);
-                objDoctor.EstadoCivil = clsComun.textoCombo(cboEstadoCivil.Text);
+                objDoctor.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                objDoctor.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
                 objDoctor.FechaNacimiento = dtpFechaNacimiento.Value.Date;
                 objDoctor.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
                 objDoctor.NumeroDocumento = txtNumeroDocumento.Text;
-                objDoctor.Pais = clsComun.textoCombo(cboPais.Text);
+                objDoctor.Pais = clsComun.seleccionarToVacio(cboPais.Text);
                 objDoctor.DepartamentoNacimiento = cboDepartamento.Text;
                 objDoctor.ProvinciaNacimiento = cboProvincia.Text;
                 objDoctor.DistritoNacimiento = cboDistrito.Text;
-                objDoctor.DepartamentoDomicilio = clsComun.textoCombo(cboDepartamentoDomicilio.Text);
+                objDoctor.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
                 objDoctor.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
                 objDoctor.DistritoDomicilio = cboDistritoDomicilio.Text;
                 objDoctor.Direccion = txtDireccion.Text;

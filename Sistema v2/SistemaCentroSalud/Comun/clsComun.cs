@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -58,75 +59,58 @@ namespace Comun
             }
         }
 
-        //public static bool enviarCorreo(string strDestinatario, clsPersonal objPersonal)
-        //{
-        //    try
-        //    {
-        //        MailMessage correo = new MailMessage();
-
-        //        string asunto = "Contraseña Biblioteca Virtual";
-        //        string cuerpo = "";
-
-        //        correo.From = new MailAddress("sistema.centro.salud@gmail.com", "Sistema Centro de Salud", System.Text.Encoding.UTF8);
-        //        correo.To.Add(strDestinatario);
-        //        correo.Subject = asunto;
-        //        correo.SubjectEncoding = System.Text.Encoding.UTF8;
-
-        //        cuerpo += "Estimado(a):\n";
-        //        cuerpo += objPersonal.StrApellidoPaterno + " " + objPersonal.StrApellidoMaterno + ", " + objPersonal.StrNombres + "\n\n";
-
-        //        cuerpo += "Sus datos de acceso al Sistema son:\n";
-        //        cuerpo += "=====================================\n";
-        //        cuerpo += "Usuario: " + objPersonal.StrUsuario + "\n";
-        //        cuerpo += "Contraseña: " + objPersonal.StrContrasena + "\n\n";
-        //        cuerpo += "*Recuerde que puede cambiar su contraseña\n";
-        //        cuerpo += "\n";
-
-
-        //        correo.Body = cuerpo;
-        //        correo.BodyEncoding = System.Text.Encoding.UTF8;
-        //        correo.IsBodyHtml = false;
-        //        correo.Priority = MailPriority.High;
-
-        //        SmtpClient smtp = new SmtpClient();
-        //        smtp.Host = "smtp.gmail.com";
-        //        smtp.Port = 587;
-        //        smtp.EnableSsl = true;
-        //        smtp.Credentials = new System.Net.NetworkCredential("sistema.centro.salud@gmail.com", "tesispucp");
-        //        try
-        //        {
-        //            smtp.Send(correo);
-        //        }
-        //        catch (System.Net.Mail.SmtpException ex)
-        //        {
-        //            registrarErrorLog(ex.ToString());
-        //            return false;
-        //        }
-
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        registrarErrorLog(ex.ToString());
-        //        return false;
-        //    }
-        //}
-
-        public static string generarContrasenaAleatoria(int numLongitudContrasena)
+        public static bool enviarCorreo(string strDestinatario, string strPaterno, string strMaterno, string strNombres, string strUsuario, string strContrasena)
         {
-            string strCaracteresPermitidos = "abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!@$?";
-            Byte[] bytAleatorio = new Byte[numLongitudContrasena];
-            char[] chrCaracteres = new char[numLongitudContrasena];
-            int numContadorCaracteresPermitidos = strCaracteresPermitidos.Length;
-
-            for (int i = 0; i < numLongitudContrasena; i++)
+            try
             {
-                Random randomObj = new Random();
-                randomObj.NextBytes(bytAleatorio);
-                chrCaracteres[i] = strCaracteresPermitidos[(int)bytAleatorio[i] % numContadorCaracteresPermitidos];
-            }
+                MailMessage correo = new MailMessage();
 
-            return new string(chrCaracteres);
+                string asunto = "Contraseña Biblioteca Virtual";
+                string cuerpo = "";
+
+                correo.From = new MailAddress("sistema.centro.salud@gmail.com", "Sistema Centro de Salud", System.Text.Encoding.UTF8);
+                correo.To.Add(strDestinatario);
+                correo.Subject = asunto;
+                correo.SubjectEncoding = System.Text.Encoding.UTF8;
+
+                cuerpo += "Estimado(a):\n";
+                cuerpo += strPaterno + " " + strMaterno + ", " + strNombres + "\n\n";
+
+                cuerpo += "Sus datos de acceso al Sistema son:\n";
+                cuerpo += "=====================================\n";
+                cuerpo += "Usuario: " + strUsuario + "\n";
+                cuerpo += "Contraseña: " + strContrasena + "\n\n";
+                cuerpo += "*Recuerde que puede cambiar su contraseña\n";
+                cuerpo += "\n";
+
+
+                correo.Body = cuerpo;
+                correo.BodyEncoding = System.Text.Encoding.UTF8;
+                correo.IsBodyHtml = false;
+                correo.Priority = MailPriority.High;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential("sistema.centro.salud@gmail.com", "tesispucp");
+                try
+                {
+                    smtp.Send(correo);
+                }
+                catch (System.Net.Mail.SmtpException ex)
+                {
+                    registrarErrorLog(ex.ToString());
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                registrarErrorLog(ex.ToString());
+                return false;
+            }
         }
 
         public static void tabSiguiente(TabControl tbc, TabPage tbpBuscar, TabPage tbpDetalle)

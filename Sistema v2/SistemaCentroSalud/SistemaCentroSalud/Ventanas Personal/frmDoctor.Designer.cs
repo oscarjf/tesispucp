@@ -32,19 +32,12 @@
             this.tbcDoctor = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnActivar = new System.Windows.Forms.Button();
-            this.btnInactivar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvDoctores = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.lblEstadoBuscar = new System.Windows.Forms.Label();
             this.lblEspecialidadBuscar = new System.Windows.Forms.Label();
@@ -111,6 +104,14 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblMaterno = new System.Windows.Forms.Label();
             this.lblPaterno = new System.Windows.Forms.Label();
+            this.lblAreaBuscar = new System.Windows.Forms.Label();
+            this.cboAreaBuscar = new System.Windows.Forms.ComboBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtCMPBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNombresBuscar = new SistemaCentroSalud.Controles.cuTextBox();
@@ -145,13 +146,15 @@
             this.tbcDoctor.Location = new System.Drawing.Point(1, 0);
             this.tbcDoctor.Name = "tbcDoctor";
             this.tbcDoctor.SelectedIndex = 0;
-            this.tbcDoctor.Size = new System.Drawing.Size(569, 417);
+            this.tbcDoctor.Size = new System.Drawing.Size(579, 417);
             this.tbcDoctor.TabIndex = 0;
+            this.tbcDoctor.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcDoctor_Selecting);
+            this.tbcDoctor.SelectedIndexChanged += new System.EventHandler(this.tbcDoctor_SelectedIndexChanged);
             // 
             // tbpBuscar
             // 
             this.tbpBuscar.Controls.Add(this.btnActivar);
-            this.tbpBuscar.Controls.Add(this.btnInactivar);
+            this.tbpBuscar.Controls.Add(this.btnEliminar);
             this.tbpBuscar.Controls.Add(this.btnSalir);
             this.tbpBuscar.Controls.Add(this.btnVer);
             this.tbpBuscar.Controls.Add(this.btnModificar);
@@ -161,7 +164,7 @@
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(561, 391);
+            this.tbpBuscar.Size = new System.Drawing.Size(571, 391);
             this.tbpBuscar.TabIndex = 0;
             this.tbpBuscar.Text = "Buscar";
             this.tbpBuscar.UseVisualStyleBackColor = true;
@@ -178,30 +181,33 @@
             this.btnActivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActivar.UseVisualStyleBackColor = true;
             this.btnActivar.Visible = false;
+            this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
             // 
-            // btnInactivar
+            // btnEliminar
             // 
-            this.btnInactivar.Image = ((System.Drawing.Image)(resources.GetObject("btnInactivar.Image")));
-            this.btnInactivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInactivar.Location = new System.Drawing.Point(279, 361);
-            this.btnInactivar.Name = "btnInactivar";
-            this.btnInactivar.Size = new System.Drawing.Size(75, 23);
-            this.btnInactivar.TabIndex = 10;
-            this.btnInactivar.Text = "Inactivar";
-            this.btnInactivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInactivar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(279, 361);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(477, 361);
+            this.btnSalir.Location = new System.Drawing.Point(485, 362);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnVer
             // 
@@ -214,6 +220,7 @@
             this.btnVer.Text = "Ver";
             this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // btnModificar
             // 
@@ -226,6 +233,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -253,63 +261,20 @@
             this.colMaterno,
             this.colNombres,
             this.colCMP,
-            this.colEspecialidad,
             this.colEstado});
             this.dgvDoctores.Location = new System.Drawing.Point(8, 144);
             this.dgvDoctores.MultiSelect = false;
             this.dgvDoctores.Name = "dgvDoctores";
             this.dgvDoctores.ReadOnly = true;
             this.dgvDoctores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDoctores.Size = new System.Drawing.Size(544, 211);
+            this.dgvDoctores.Size = new System.Drawing.Size(557, 211);
             this.dgvDoctores.TabIndex = 6;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // colPaterno
-            // 
-            this.colPaterno.HeaderText = "Ap. Paterno";
-            this.colPaterno.Name = "colPaterno";
-            this.colPaterno.ReadOnly = true;
-            // 
-            // colMaterno
-            // 
-            this.colMaterno.HeaderText = "Ap. Materno";
-            this.colMaterno.Name = "colMaterno";
-            this.colMaterno.ReadOnly = true;
-            // 
-            // colNombres
-            // 
-            this.colNombres.HeaderText = "Nombres";
-            this.colNombres.Name = "colNombres";
-            this.colNombres.ReadOnly = true;
-            // 
-            // colCMP
-            // 
-            this.colCMP.HeaderText = "CMP";
-            this.colCMP.Name = "colCMP";
-            this.colCMP.ReadOnly = true;
-            this.colCMP.Width = 50;
-            // 
-            // colEspecialidad
-            // 
-            this.colEspecialidad.HeaderText = "Especialidad";
-            this.colEspecialidad.Name = "colEspecialidad";
-            this.colEspecialidad.ReadOnly = true;
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.ReadOnly = true;
-            this.colEstado.Width = 50;
+            this.dgvDoctores.SelectionChanged += new System.EventHandler(this.dgvDoctores_SelectionChanged);
             // 
             // gbxCriterios
             // 
+            this.gbxCriterios.Controls.Add(this.lblAreaBuscar);
+            this.gbxCriterios.Controls.Add(this.cboAreaBuscar);
             this.gbxCriterios.Controls.Add(this.lblEstadoBuscar);
             this.gbxCriterios.Controls.Add(this.lblEspecialidadBuscar);
             this.gbxCriterios.Controls.Add(this.cboEspecialidadBuscar);
@@ -324,7 +289,7 @@
             this.gbxCriterios.Controls.Add(this.txtPaternoBuscar);
             this.gbxCriterios.Location = new System.Drawing.Point(8, 9);
             this.gbxCriterios.Name = "gbxCriterios";
-            this.gbxCriterios.Size = new System.Drawing.Size(544, 128);
+            this.gbxCriterios.Size = new System.Drawing.Size(557, 128);
             this.gbxCriterios.TabIndex = 0;
             this.gbxCriterios.TabStop = false;
             this.gbxCriterios.Text = "Criterios de Búsqueda";
@@ -332,7 +297,7 @@
             // lblEstadoBuscar
             // 
             this.lblEstadoBuscar.AutoSize = true;
-            this.lblEstadoBuscar.Location = new System.Drawing.Point(303, 76);
+            this.lblEstadoBuscar.Location = new System.Drawing.Point(412, 76);
             this.lblEstadoBuscar.Name = "lblEstadoBuscar";
             this.lblEstadoBuscar.Size = new System.Drawing.Size(43, 13);
             this.lblEstadoBuscar.TabIndex = 45;
@@ -341,7 +306,7 @@
             // lblEspecialidadBuscar
             // 
             this.lblEspecialidadBuscar.AutoSize = true;
-            this.lblEspecialidadBuscar.Location = new System.Drawing.Point(157, 76);
+            this.lblEspecialidadBuscar.Location = new System.Drawing.Point(278, 76);
             this.lblEspecialidadBuscar.Name = "lblEspecialidadBuscar";
             this.lblEspecialidadBuscar.Size = new System.Drawing.Size(70, 13);
             this.lblEspecialidadBuscar.TabIndex = 44;
@@ -350,11 +315,13 @@
             // cboEspecialidadBuscar
             // 
             this.cboEspecialidadBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEspecialidadBuscar.Enabled = false;
             this.cboEspecialidadBuscar.FormattingEnabled = true;
-            this.cboEspecialidadBuscar.Location = new System.Drawing.Point(160, 92);
+            this.cboEspecialidadBuscar.Location = new System.Drawing.Point(281, 92);
             this.cboEspecialidadBuscar.Name = "cboEspecialidadBuscar";
             this.cboEspecialidadBuscar.Size = new System.Drawing.Size(125, 21);
-            this.cboEspecialidadBuscar.TabIndex = 4;
+            this.cboEspecialidadBuscar.TabIndex = 5;
+            this.cboEspecialidadBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEspecialidadBuscar_SelectedIndexChanged);
             // 
             // lblCMPBuscar
             // 
@@ -368,7 +335,7 @@
             // lblNombresBuscar
             // 
             this.lblNombresBuscar.AutoSize = true;
-            this.lblNombresBuscar.Location = new System.Drawing.Point(303, 25);
+            this.lblNombresBuscar.Location = new System.Drawing.Point(278, 25);
             this.lblNombresBuscar.Name = "lblNombresBuscar";
             this.lblNombresBuscar.Size = new System.Drawing.Size(52, 13);
             this.lblNombresBuscar.TabIndex = 41;
@@ -377,7 +344,7 @@
             // lblMaternoBuscar
             // 
             this.lblMaternoBuscar.AutoSize = true;
-            this.lblMaternoBuscar.Location = new System.Drawing.Point(157, 25);
+            this.lblMaternoBuscar.Location = new System.Drawing.Point(144, 25);
             this.lblMaternoBuscar.Name = "lblMaternoBuscar";
             this.lblMaternoBuscar.Size = new System.Drawing.Size(65, 13);
             this.lblMaternoBuscar.TabIndex = 40;
@@ -400,10 +367,11 @@
             "TODOS",
             "ACTIVO",
             "INACTIVO"});
-            this.cboEstadoBuscar.Location = new System.Drawing.Point(306, 92);
+            this.cboEstadoBuscar.Location = new System.Drawing.Point(415, 92);
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(125, 21);
-            this.cboEstadoBuscar.TabIndex = 5;
+            this.cboEstadoBuscar.TabIndex = 6;
+            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEstadoBuscar_SelectedIndexChanged);
             // 
             // tbpDetalle
             // 
@@ -423,7 +391,7 @@
             this.tbpDetalle.Location = new System.Drawing.Point(4, 22);
             this.tbpDetalle.Name = "tbpDetalle";
             this.tbpDetalle.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDetalle.Size = new System.Drawing.Size(561, 391);
+            this.tbpDetalle.Size = new System.Drawing.Size(571, 391);
             this.tbpDetalle.TabIndex = 1;
             this.tbpDetalle.Text = "Detalle";
             this.tbpDetalle.UseVisualStyleBackColor = true;
@@ -1017,17 +985,87 @@
             this.lblPaterno.TabIndex = 0;
             this.lblPaterno.Text = "Apellido Paterno:";
             // 
+            // lblAreaBuscar
+            // 
+            this.lblAreaBuscar.AutoSize = true;
+            this.lblAreaBuscar.Location = new System.Drawing.Point(144, 76);
+            this.lblAreaBuscar.Name = "lblAreaBuscar";
+            this.lblAreaBuscar.Size = new System.Drawing.Size(32, 13);
+            this.lblAreaBuscar.TabIndex = 47;
+            this.lblAreaBuscar.Text = "Área:";
+            // 
+            // cboAreaBuscar
+            // 
+            this.cboAreaBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAreaBuscar.FormattingEnabled = true;
+            this.cboAreaBuscar.Location = new System.Drawing.Point(147, 92);
+            this.cboAreaBuscar.Name = "cboAreaBuscar";
+            this.cboAreaBuscar.Size = new System.Drawing.Size(125, 21);
+            this.cboAreaBuscar.TabIndex = 4;
+            this.cboAreaBuscar.SelectedIndexChanged += new System.EventHandler(this.cboAreaBuscar_SelectedIndexChanged);
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // colPaterno
+            // 
+            this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPaterno.FillWeight = 115F;
+            this.colPaterno.HeaderText = "Ap. Paterno";
+            this.colPaterno.Name = "colPaterno";
+            this.colPaterno.ReadOnly = true;
+            // 
+            // colMaterno
+            // 
+            this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaterno.FillWeight = 115F;
+            this.colMaterno.HeaderText = "Ap. Materno";
+            this.colMaterno.Name = "colMaterno";
+            this.colMaterno.ReadOnly = true;
+            // 
+            // colNombres
+            // 
+            this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombres.FillWeight = 150F;
+            this.colNombres.HeaderText = "Nombres";
+            this.colNombres.Name = "colNombres";
+            this.colNombres.ReadOnly = true;
+            // 
+            // colCMP
+            // 
+            this.colCMP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCMP.FillWeight = 60F;
+            this.colCMP.HeaderText = "CMP";
+            this.colCMP.Name = "colCMP";
+            this.colCMP.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            this.colEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colEstado.FillWeight = 60F;
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            // 
             // txtMaternoBuscar
             // 
-            this.txtMaternoBuscar.Location = new System.Drawing.Point(160, 41);
+            this.txtMaternoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaternoBuscar.Location = new System.Drawing.Point(147, 41);
             this.txtMaternoBuscar.Name = "txtMaternoBuscar";
             this.txtMaternoBuscar.Size = new System.Drawing.Size(124, 20);
             this.txtMaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtMaternoBuscar.TabIndex = 1;
             this.txtMaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtMaternoBuscar.TextChanged += new System.EventHandler(this.txtMaternoBuscar_TextChanged);
             // 
             // txtCMPBuscar
             // 
+            this.txtCMPBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCMPBuscar.Location = new System.Drawing.Point(10, 92);
             this.txtCMPBuscar.MaxLength = 5;
             this.txtCMPBuscar.Name = "txtCMPBuscar";
@@ -1035,25 +1073,30 @@
             this.txtCMPBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtCMPBuscar.TabIndex = 3;
             this.txtCMPBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            this.txtCMPBuscar.TextChanged += new System.EventHandler(this.txtCMPBuscar_TextChanged);
             // 
             // txtNombresBuscar
             // 
-            this.txtNombresBuscar.Location = new System.Drawing.Point(306, 41);
+            this.txtNombresBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombresBuscar.Location = new System.Drawing.Point(281, 41);
             this.txtNombresBuscar.MaxLength = 5;
             this.txtNombresBuscar.Name = "txtNombresBuscar";
-            this.txtNombresBuscar.Size = new System.Drawing.Size(220, 20);
+            this.txtNombresBuscar.Size = new System.Drawing.Size(259, 20);
             this.txtNombresBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombresBuscar.TabIndex = 2;
             this.txtNombresBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtNombresBuscar.TextChanged += new System.EventHandler(this.txtNombresBuscar_TextChanged);
             // 
             // txtPaternoBuscar
             // 
+            this.txtPaternoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPaternoBuscar.Location = new System.Drawing.Point(10, 41);
             this.txtPaternoBuscar.Name = "txtPaternoBuscar";
             this.txtPaternoBuscar.Size = new System.Drawing.Size(125, 20);
             this.txtPaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPaternoBuscar.TabIndex = 0;
             this.txtPaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtPaternoBuscar.TextChanged += new System.EventHandler(this.txtPaternoBuscar_TextChanged);
             // 
             // txtCorreoElectronico
             // 
@@ -1146,7 +1189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 415);
+            this.ClientSize = new System.Drawing.Size(577, 415);
             this.Controls.Add(this.tbcDoctor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1233,7 +1276,7 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnInactivar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActivar;
         private System.Windows.Forms.ComboBox cboEstadoCivil;
         private System.Windows.Forms.Label lblEstadoCivil;
@@ -1246,13 +1289,6 @@
         private SistemaCentroSalud.Controles.cuTextBox txtDireccion;
         private SistemaCentroSalud.Controles.cuTextBox txtNumeroDocumento;
         private SistemaCentroSalud.Controles.cuTextBox txtCMP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCMP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEspecialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private SistemaCentroSalud.Controles.cuTextBox txtMaternoBuscar;
         private System.Windows.Forms.ComboBox cboEstadoBuscar;
         private SistemaCentroSalud.Controles.cuTextBox txtCMPBuscar;
@@ -1276,5 +1312,13 @@
         private System.Windows.Forms.Button btnIzquierda;
         private System.Windows.Forms.Button btnDerecha;
         private System.Windows.Forms.Button btnTodoDerecha;
+        private System.Windows.Forms.Label lblAreaBuscar;
+        private System.Windows.Forms.ComboBox cboAreaBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCMP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
     }
 }

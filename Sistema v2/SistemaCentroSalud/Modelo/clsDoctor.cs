@@ -56,6 +56,13 @@ namespace Modelo
             get { return numIdTipoDocumento; }
             set { numIdTipoDocumento = value; }
         }
+        private string strTipoDocumento;
+
+        public string _TipoDocumento
+        {
+            get { return strTipoDocumento; }
+            set { strTipoDocumento = value; }
+        }
         private string strNumeroDocumento;
 
         public string NumeroDocumento
@@ -77,6 +84,13 @@ namespace Modelo
             get { return strPais; }
             set { strPais = value; }
         }
+        private int numIdLugarNacimiento;
+
+        public int _IdLugarNacimiento
+        {
+            get { return numIdLugarNacimiento; }
+            set { numIdLugarNacimiento = value; }
+        }
         private string strDepartamentoNacimiento;
 
         public string DepartamentoNacimiento
@@ -97,6 +111,13 @@ namespace Modelo
         {
             get { return strDistritoNacimiento; }
             set { strDistritoNacimiento = value; }
+        }
+        private int numIdDomicilio;
+
+        public int _IdDomicilio
+        {
+            get { return numIdDomicilio; }
+            set { numIdDomicilio = value; }
         }
         private string strDepartamentoDomicilio;
 
@@ -189,12 +210,26 @@ namespace Modelo
             get { return numIdArea; }
             set { numIdArea = value; }
         }
+        private string strArea;
+
+        public string _Area
+        {
+            get { return strArea; }
+            set { strArea = value; }
+        }
         private int numIdPerfil;
 
         public int IdPerfil
         {
             get { return numIdPerfil; }
             set { numIdPerfil = value; }
+        }
+        private string strPerfil;
+
+        public string _Perfil
+        {
+            get { return strPerfil; }
+            set { strPerfil = value; }
         }
         private string strCMP;
 
@@ -210,12 +245,26 @@ namespace Modelo
             get { return strIndicadorHC; }
             set { strIndicadorHC = value; }
         }
+        private int numIdHorario;
+
+        public int _IdHorario
+        {
+            get { return numIdHorario; }
+            set { numIdHorario = value; }
+        }
         private string strListaIdEspecialidades;
 
         public string ListaIdEspecialidades
         {
             get { return strListaIdEspecialidades; }
             set { strListaIdEspecialidades = value; }
+        }
+        private List<clsEspecialidad> lstEspecialidades;
+
+        public List<clsEspecialidad> _Especialidades
+        {
+            get { return lstEspecialidades; }
+            set { lstEspecialidades = value; }
         }
         private string strEstado;
 

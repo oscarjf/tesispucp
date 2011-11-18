@@ -18,13 +18,13 @@ namespace Acceso
 
         public static SqlConnection conectar()
         {
-            //SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=" + strCatalogo + ";Integrated Security=SSPI");
-            SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=" + strCatalogo + "; user id = " + strUsuario + "; password = " + strContrasena + "; Trusted_Connection = FALSE");
+            SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=" + strCatalogo + ";Integrated Security=SSPI");
+            //SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=" + strCatalogo + "; user id = " + strUsuario + "; password = " + strContrasena + "; Trusted_Connection = FALSE");
 
             return sqlConexion;
         }
 
-        public static int ejecutarStoredProcedure(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
+        public static int ejecutarStoredProcedureInt(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
         {
             SqlConnection sqlConexion = conectar();
 
@@ -62,7 +62,7 @@ namespace Acceso
             }
         }
 
-        public static DataTable ejecutarStoredProcedure2(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
+        public static DataTable ejecutarStoredProcedureDataTable(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
         {
             SqlConnection sqlConexion = conectar();
 
@@ -87,6 +87,44 @@ namespace Acceso
                 return dtTabla;
             }
             catch(Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                if (sqlConexion != null)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
+
+        public static DataSet ejecutarStoredProcedureDataSet(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
+        {
+            SqlConnection sqlConexion = conectar();
+
+            try
+            {
+                sqlConexion.Open();
+
+                SqlCommand sqlComando = new SqlCommand(strNombreStoredProcedure, sqlConexion);
+                sqlComando.CommandType = CommandType.StoredProcedure;
+
+                for (int i = 0; i < lstParametrosSQL.Count; i++)
+                {
+                    sqlComando.Parameters.Add(lstParametrosSQL[i]);
+                }
+
+                SqlDataAdapter sqlAdaptador = new SqlDataAdapter(sqlComando);
+                DataSet dsTabla = new DataSet();
+                sqlAdaptador.Fill(dsTabla);
+
+                sqlConexion.Close();
+
+                return dsTabla;
+            }
+            catch (Exception ex)
             {
                 clsComun.registrarErrorLog(ex.ToString());
                 return null;

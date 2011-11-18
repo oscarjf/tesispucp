@@ -49,6 +49,7 @@
     <Compile Include="ctrConsultorio.cs" />
     <Compile Include="ctrCPT.cs" />
     <Compile Include="ctrDoctor.cs" />
+    <Compile Include="ctrEmpleado.cs" />
     <Compile Include="ctrEspecialidad.cs" />
     <Compile Include="ctrEtnia.cs" />
     <Compile Include="ctrFinanciadorSalud.cs" />

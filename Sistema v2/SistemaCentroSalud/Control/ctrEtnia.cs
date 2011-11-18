@@ -33,7 +33,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManEtnia", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManEtnia", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -66,7 +66,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManEtnia", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManEtnia", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -99,7 +99,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManEtnia", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManEtnia", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -132,7 +132,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManEtnia", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManEtnia", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -165,7 +165,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManEtnia", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
 
             objEtnia.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objEtnia.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
@@ -194,7 +194,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManEtnia", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
         }
 
         public static DataTable seleccionarEtniaesCriterios(clsEtnia objEtnia)
@@ -218,7 +218,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManEtnia", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsEtnia objEtnia)

@@ -33,7 +33,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManReligion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManReligion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -66,7 +66,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManReligion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManReligion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -99,7 +99,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManReligion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManReligion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -132,7 +132,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManReligion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManReligion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -165,7 +165,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManReligion", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManReligion", lstParametrosSQL);
 
             objReligion.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objReligion.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
@@ -194,7 +194,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManReligion", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManReligion", lstParametrosSQL);
         }
 
         public static DataTable seleccionarReligionesCriterios(clsReligion objReligion)
@@ -218,7 +218,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManReligion", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManReligion", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsReligion objReligion)

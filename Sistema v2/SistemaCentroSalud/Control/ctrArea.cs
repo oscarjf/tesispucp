@@ -30,7 +30,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManArea", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManArea", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -63,7 +63,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManArea", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManArea", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -96,7 +96,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManArea", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManArea", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -129,7 +129,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManArea", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManArea", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -162,7 +162,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManArea", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManArea", lstParametrosSQL);
 
             objArea.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objArea.TipoArea = dtResultado.Rows[0]["TipoArea"].ToString();
@@ -192,7 +192,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManArea", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManArea", lstParametrosSQL);
         }
 
         public static DataTable seleccionarAreasCriterios(clsArea objArea)
@@ -216,7 +216,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManArea", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManArea", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsArea objArea)

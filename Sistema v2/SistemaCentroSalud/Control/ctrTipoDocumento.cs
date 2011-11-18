@@ -30,7 +30,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManTipoDocumento", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManTipoDocumento", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -63,7 +63,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManTipoDocumento", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManTipoDocumento", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -96,7 +96,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManTipoDocumento", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManTipoDocumento", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -129,7 +129,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManTipoDocumento", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManTipoDocumento", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -162,7 +162,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManTipoDocumento", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManTipoDocumento", lstParametrosSQL);
 
             objTipoDocumento.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objTipoDocumento.NumeroDigitos = dtResultado.Rows[0]["NumeroDigitos"].ToString();
@@ -192,7 +192,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManTipoDocumento", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManTipoDocumento", lstParametrosSQL);
         }
 
         public static DataTable seleccionarTiposDocumentosCriterios(clsTipoDocumento objTipoDocumento)
@@ -216,7 +216,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManTipoDocumento", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManTipoDocumento", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsTipoDocumento objTipoDocumento)

@@ -33,7 +33,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManCPT", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManCPT", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -66,7 +66,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManCPT", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManCPT", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -99,7 +99,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManCPT", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManCPT", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -132,7 +132,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManCPT", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManCPT", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -165,7 +165,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManCPT", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManCPT", lstParametrosSQL);
 
             objCPT.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
 
@@ -193,7 +193,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManCPT", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManCPT", lstParametrosSQL);
         }
 
         public static DataTable seleccionarCPTesCriterios(clsCPT objCPT)
@@ -217,7 +217,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManCPT", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManCPT", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsCPT objCPT)

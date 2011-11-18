@@ -11,7 +11,7 @@ namespace Control
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             
-            return clsGestorBD.ejecutarStoredProcedure2("up_SelDepartamento", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_SelDepartamento", lstParametrosSQL);
         }
 
         public static DataTable seleccionarProvincias(string strCodDepartamento)
@@ -26,7 +26,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_SelProvincia", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_SelProvincia", lstParametrosSQL);
         }
 
         public static DataTable seleccionarDistritos(string strCodDepartamento, string strCodProvincia)
@@ -48,7 +48,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_SelDistrito", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_SelDistrito", lstParametrosSQL);
         }
     }
 }

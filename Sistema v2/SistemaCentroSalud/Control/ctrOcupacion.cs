@@ -30,7 +30,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManOcupacion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManOcupacion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -63,7 +63,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManOcupacion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManOcupacion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -96,7 +96,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManOcupacion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManOcupacion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -129,7 +129,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManOcupacion", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManOcupacion", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -162,7 +162,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManOcupacion", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManOcupacion", lstParametrosSQL);
 
             objOcupacion.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objOcupacion.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
@@ -191,7 +191,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManOcupacion", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManOcupacion", lstParametrosSQL);
         }
 
         public static DataTable seleccionarOcupacionesCriterios(clsOcupacion objOcupacion)
@@ -215,7 +215,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManOcupacion", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManOcupacion", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsOcupacion objOcupacion)

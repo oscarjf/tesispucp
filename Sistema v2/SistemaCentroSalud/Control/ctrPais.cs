@@ -33,7 +33,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPais", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPais", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -66,7 +66,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPais", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPais", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -99,7 +99,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPais", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPais", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -132,7 +132,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPais", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPais", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -165,7 +165,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManPais", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPais", lstParametrosSQL);
 
             objPais.Nombre = dtResultado.Rows[0]["Nombre"].ToString();            
 
@@ -193,7 +193,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManPais", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPais", lstParametrosSQL);
         }
 
         public static DataTable seleccionarPaisesCriterios(clsPais objPais)
@@ -217,7 +217,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManPais", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPais", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsPais objPais)

@@ -30,7 +30,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPabellon", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPabellon", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -63,7 +63,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPabellon", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPabellon", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -96,7 +96,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPabellon", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPabellon", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -129,7 +129,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedure("up_ManPabellon", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ManPabellon", lstParametrosSQL);
 
             if (numResultado != 0)
             {
@@ -162,7 +162,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedure2("up_ManPabellon", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPabellon", lstParametrosSQL);
 
             objPabellon.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objPabellon.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
@@ -191,7 +191,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManPabellon", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPabellon", lstParametrosSQL);
         }
 
         public static DataTable seleccionarPabellonesCriterios(clsPabellon objPabellon)
@@ -215,7 +215,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            return clsGestorBD.ejecutarStoredProcedure2("up_ManPabellon", lstParametrosSQL);
+            return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPabellon", lstParametrosSQL);
         }
 
         private static List<SqlParameter> crearLista(clsPabellon objPabellon)

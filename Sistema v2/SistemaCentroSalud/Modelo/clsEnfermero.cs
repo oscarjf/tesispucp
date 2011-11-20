@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Modelo
 {
-    public class clsDoctor
+    public class clsEnfermero
     {
-        private int numIdDoctor;
+        private int numIdEnfermero;
 
-        public int IdDoctor
+        public int IdEnfermero
         {
-            get { return numIdDoctor; }
-            set { numIdDoctor = value; }
+            get { return numIdEnfermero; }
+            set { numIdEnfermero = value; }
         }
         private string strPaterno;
 
@@ -229,40 +228,12 @@ namespace Modelo
             get { return strPerfil; }
             set { strPerfil = value; }
         }
-        private string strCMP;
+        private string strNumeroLicencia;
 
-        public string CMP
+        public string NumeroLicencia
         {
-            get { return strCMP; }
-            set { strCMP = value; }
-        }
-        private string strIndicadorHC;
-
-        public string IndicadorHC
-        {
-            get { return strIndicadorHC; }
-            set { strIndicadorHC = value; }
-        }
-        private int numIdHorario;
-
-        public int _IdHorario
-        {
-            get { return numIdHorario; }
-            set { numIdHorario = value; }
-        }
-        private string strListaIdEspecialidades;
-
-        public string ListaIdEspecialidades
-        {
-            get { return strListaIdEspecialidades; }
-            set { strListaIdEspecialidades = value; }
-        }
-        private List<clsEspecialidad> lstEspecialidades;
-
-        public List<clsEspecialidad> _Especialidades
-        {
-            get { return lstEspecialidades; }
-            set { lstEspecialidades = value; }
+            get { return strNumeroLicencia; }
+            set { strNumeroLicencia = value; }
         }
         private string strEstado;
 
@@ -277,9 +248,9 @@ namespace Modelo
             return Paterno + " " + Materno + " " + Nombres;
         }
 
-        public clsDoctor()
+        public clsEnfermero()
         {
-            IdDoctor = 0;
+            IdEnfermero = 0;
             Paterno = "";
             Materno = "";
             Nombres = "";
@@ -303,12 +274,10 @@ namespace Modelo
             Foto = "";
             Usuario = "";
             Contrasena = "";
-            TipoEmpleado = "DOCTOR";
+            TipoEmpleado = "ENFERMERO";
             IdArea = 0;
             IdPerfil = 0;
-            CMP = "";
-            IndicadorHC = "";
-            ListaIdEspecialidades = "";
+            NumeroLicencia = "";
             Estado = "ACTIVO";
         }
     }

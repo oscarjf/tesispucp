@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Modelo
 {
-    public class clsDoctor
+    public class clsTecnico
     {
-        private int numIdDoctor;
+        private int numIdTecnico;
 
-        public int IdDoctor
+        public int IdTecnico
         {
-            get { return numIdDoctor; }
-            set { numIdDoctor = value; }
+            get { return numIdTecnico; }
+            set { numIdTecnico = value; }
         }
         private string strPaterno;
 
@@ -229,41 +228,6 @@ namespace Modelo
             get { return strPerfil; }
             set { strPerfil = value; }
         }
-        private string strCMP;
-
-        public string CMP
-        {
-            get { return strCMP; }
-            set { strCMP = value; }
-        }
-        private string strIndicadorHC;
-
-        public string IndicadorHC
-        {
-            get { return strIndicadorHC; }
-            set { strIndicadorHC = value; }
-        }
-        private int numIdHorario;
-
-        public int _IdHorario
-        {
-            get { return numIdHorario; }
-            set { numIdHorario = value; }
-        }
-        private string strListaIdEspecialidades;
-
-        public string ListaIdEspecialidades
-        {
-            get { return strListaIdEspecialidades; }
-            set { strListaIdEspecialidades = value; }
-        }
-        private List<clsEspecialidad> lstEspecialidades;
-
-        public List<clsEspecialidad> _Especialidades
-        {
-            get { return lstEspecialidades; }
-            set { lstEspecialidades = value; }
-        }
         private string strEstado;
 
         public string Estado
@@ -277,9 +241,9 @@ namespace Modelo
             return Paterno + " " + Materno + " " + Nombres;
         }
 
-        public clsDoctor()
+        public clsTecnico()
         {
-            IdDoctor = 0;
+            IdTecnico = 0;
             Paterno = "";
             Materno = "";
             Nombres = "";
@@ -303,12 +267,9 @@ namespace Modelo
             Foto = "";
             Usuario = "";
             Contrasena = "";
-            TipoEmpleado = "DOCTOR";
+            TipoEmpleado = "TÉCNICO";
             IdArea = 0;
             IdPerfil = 0;
-            CMP = "";
-            IndicadorHC = "";
-            ListaIdEspecialidades = "";
             Estado = "ACTIVO";
         }
     }

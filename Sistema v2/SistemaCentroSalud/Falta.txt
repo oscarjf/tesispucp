@@ -1,0 +1,2 @@
+- Metodo NullToEmpty
+- Metodo NullToZero

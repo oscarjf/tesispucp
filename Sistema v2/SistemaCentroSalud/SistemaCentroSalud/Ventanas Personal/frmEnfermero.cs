@@ -8,19 +8,19 @@ using Modelo;
 
 namespace SistemaCentroSalud.Ventanas_Personal
 {
-    public partial class frmAdministrativo : Form
+    public partial class frmEnfermero : Form
     {
-        private DataTable dtAdministrativos;
+        private DataTable dtEnfermeros;
         private int numAccion;
-        private int numIdAdministrativo;
+        private int numIdEnfermero;
         private string strRutaFoto = "";
 
-        public frmAdministrativo()
+        public frmEnfermero()
         {
             InitializeComponent();
         }
 
-        private void frmAdministrativo_Load(object sender, EventArgs e)
+        private void frmEnfermero_Load(object sender, EventArgs e)
         {
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
@@ -34,11 +34,11 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            clsAdministrativo objA = new clsAdministrativo();
+            clsEnfermero objE = new clsEnfermero();
 
-            dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objA);
+            dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objE);
 
-            //cargarGrilla();
+            cargarGrilla();
         }
 
         private void cargarComboTipoDocumento()
@@ -235,7 +235,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void cargarComboPerfil()
         {
             clsPerfil objPerfil = new clsPerfil();
-            objPerfil.TipoPersonal = "ADMINISTRATIVO";
+            objPerfil.TipoPersonal = "ENFERMERO";
 
             DataTable dt = ctrPerfil.seleccionarPerfilesCriterios(objPerfil);
 
@@ -256,30 +256,33 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void cargarGrilla()
         {
-            dgvAdministrativos.DataMember = null;
+            dgvEnfermeros.DataMember = null;
 
-            for (int i = 0; i < dtAdministrativos.Rows.Count; i++)
+            for (int i = 0; i < dtEnfermeros.Rows.Count; i++)
             {
-                dgvAdministrativos.Rows.Add(new String[] { dtAdministrativos.Rows[i]["IdPersona"].ToString(), 
-                                                 dtAdministrativos.Rows[i]["Paterno"].ToString(),
-                                                 dtAdministrativos.Rows[i]["Materno"].ToString(),
-                                                 dtAdministrativos.Rows[i]["Nombres"].ToString(),
-                                                 dtAdministrativos.Rows[i]["Estado"].ToString() });
+                dgvEnfermeros.Rows.Add(new String[] { dtEnfermeros.Rows[i]["IdPersona"].ToString(), 
+                                                 dtEnfermeros.Rows[i]["Paterno"].ToString(),
+                                                 dtEnfermeros.Rows[i]["Materno"].ToString(),
+                                                 dtEnfermeros.Rows[i]["Nombres"].ToString(),
+                                                 dtEnfermeros.Rows[i]["NumeroLicencia"].ToString(),
+                                                 dtEnfermeros.Rows[i]["Estado"].ToString() });
 
-                if (dtAdministrativos.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
+                if (dtEnfermeros.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
                 {
-                    dgvAdministrativos.Rows[i].Cells[1].Style.ForeColor = Color.White;
-                    dgvAdministrativos.Rows[i].Cells[1].Style.BackColor = Color.Red;
-                    dgvAdministrativos.Rows[i].Cells[2].Style.ForeColor = Color.White;
-                    dgvAdministrativos.Rows[i].Cells[2].Style.BackColor = Color.Red;
-                    dgvAdministrativos.Rows[i].Cells[3].Style.ForeColor = Color.White;
-                    dgvAdministrativos.Rows[i].Cells[3].Style.BackColor = Color.Red;
-                    dgvAdministrativos.Rows[i].Cells[4].Style.ForeColor = Color.White;
-                    dgvAdministrativos.Rows[i].Cells[4].Style.BackColor = Color.Red;
+                    dgvEnfermeros.Rows[i].Cells[1].Style.ForeColor = Color.White;
+                    dgvEnfermeros.Rows[i].Cells[1].Style.BackColor = Color.Red;
+                    dgvEnfermeros.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                    dgvEnfermeros.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                    dgvEnfermeros.Rows[i].Cells[3].Style.ForeColor = Color.White;
+                    dgvEnfermeros.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    dgvEnfermeros.Rows[i].Cells[4].Style.ForeColor = Color.White;
+                    dgvEnfermeros.Rows[i].Cells[4].Style.BackColor = Color.Red;
+                    dgvEnfermeros.Rows[i].Cells[5].Style.ForeColor = Color.White;
+                    dgvEnfermeros.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
             }
 
-            dgvAdministrativos.ClearSelection();
+            dgvEnfermeros.ClearSelection();
         }
 
         private void limpiarFormulario()
@@ -287,6 +290,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtPaternoBuscar.Clear();
             txtMaternoBuscar.Clear();
             txtNombresBuscar.Clear();
+            txtNumeroLicenciaBuscar.Clear();
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
             txtPaterno.Clear();
@@ -305,6 +309,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             //cboProvinciaDomicilio.SelectedIndex = 0;
             //cboDistritoDomicilio.SelectedIndex = 0;
             txtDireccion.Clear();
+            txtNumeroLicencia.Clear();
             cboArea.SelectedIndex = 0;
             cboPerfil.SelectedIndex = 0;
             //lbxEspecialidades.Items.Clear();
@@ -314,31 +319,32 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtCorreoElectronico.Clear();
         }
 
-        private void mostrarInformacion(clsAdministrativo objAdministrativo, int numAccion)
+        private void mostrarInformacion(clsEnfermero objEnfermero, int numAccion)
         {
             if (numAccion != clsComun.INSERTAR)
             {
-                txtPaterno.Text = objAdministrativo.Paterno;
-                txtMaterno.Text = objAdministrativo.Materno;
-                txtNombres.Text = objAdministrativo.Nombres;
-                cboSexo.Text = objAdministrativo.Sexo;
-                cboEstadoCivil.Text = objAdministrativo.EstadoCivil;
-                dtpFechaNacimiento.Value = objAdministrativo.FechaNacimiento;
-                cboTipoDocumento.Text = objAdministrativo._TipoDocumento;
-                txtNumeroDocumento.Text = objAdministrativo.NumeroDocumento;
-                cboPais.Text = objAdministrativo.Pais;
-                cboDepartamento.Text = objAdministrativo.DepartamentoNacimiento;
-                cboProvincia.Text = objAdministrativo.ProvinciaNacimiento;
-                cboDistrito.Text = objAdministrativo.DistritoNacimiento;
-                cboDepartamentoDomicilio.Text = objAdministrativo.DepartamentoDomicilio;
-                cboProvinciaDomicilio.Text = objAdministrativo.ProvinciaDomicilio;
-                cboDistritoDomicilio.Text = objAdministrativo.DistritoDomicilio;
-                txtDireccion.Text = objAdministrativo.Direccion;
-                cboArea.Text = objAdministrativo._Area;
-                cboPerfil.Text = objAdministrativo._Perfil;
-                txtTelefono.Text = objAdministrativo.Telefono;
-                txtCelular.Text = objAdministrativo.Celular;
-                txtCorreoElectronico.Text = objAdministrativo.CorreoElectronico;
+                txtPaterno.Text = objEnfermero.Paterno;
+                txtMaterno.Text = objEnfermero.Materno;
+                txtNombres.Text = objEnfermero.Nombres;
+                cboSexo.Text = objEnfermero.Sexo;
+                cboEstadoCivil.Text = objEnfermero.EstadoCivil;
+                dtpFechaNacimiento.Value = objEnfermero.FechaNacimiento;
+                cboTipoDocumento.Text = objEnfermero._TipoDocumento;
+                txtNumeroDocumento.Text = objEnfermero.NumeroDocumento;
+                cboPais.Text = objEnfermero.Pais;
+                cboDepartamento.Text = objEnfermero.DepartamentoNacimiento;
+                cboProvincia.Text = objEnfermero.ProvinciaNacimiento;
+                cboDistrito.Text = objEnfermero.DistritoNacimiento;
+                cboDepartamentoDomicilio.Text = objEnfermero.DepartamentoDomicilio;
+                cboProvinciaDomicilio.Text = objEnfermero.ProvinciaDomicilio;
+                cboDistritoDomicilio.Text = objEnfermero.DistritoDomicilio;
+                txtDireccion.Text = objEnfermero.Direccion;
+                txtNumeroLicencia.Text = objEnfermero.NumeroLicencia;
+                cboArea.Text = objEnfermero._Area;
+                cboPerfil.Text = objEnfermero._Perfil;
+                txtTelefono.Text = objEnfermero.Telefono;
+                txtCelular.Text = objEnfermero.Celular;
+                txtCorreoElectronico.Text = objEnfermero.CorreoElectronico;
             }
 
             if (numAccion == clsComun.VER)
@@ -359,6 +365,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 cboProvinciaDomicilio.Enabled = false;
                 cboDistritoDomicilio.Enabled = false;
                 txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
+                txtNumeroLicencia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
                 cboArea.Enabled = false;
                 btnTomarFoto.Visible = false;
                 btnBuscarFoto.Visible = false;
@@ -389,6 +396,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 //cboProvinciaDomicilio.Enabled = true;
                 //cboDistritoDomicilio.Enabled = true;
                 txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+                txtNumeroLicencia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
                 cboArea.Enabled = true;
                 btnTomarFoto.Visible = true;
                 btnBuscarFoto.Visible = true;
@@ -402,9 +410,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 btnGuardar.Text = "Guardar";
             }
 
-            clsComun.redimensionarTabControl(tbcAdministrativo, 786, 426);
-            clsComun.redimensionarVentana(this, 790, 452);
-            clsComun.tabSiguiente(tbcAdministrativo, tbpBuscar, tbpDetalle);
+            clsComun.redimensionarTabControl(tbcEnfermero, 788, 492);
+            clsComun.redimensionarVentana(this, 794, 519);
+            clsComun.tabSiguiente(tbcEnfermero, tbpBuscar, tbpDetalle);
         }
 
         private bool validarFormulario()
@@ -417,41 +425,68 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     {
                         if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
                         {
-                            if (cboArea.SelectedIndex != 0)
+                            if (txtNumeroLicencia.Text.CompareTo("") != 0)
                             {
-                                if (cboPerfil.SelectedIndex != 0)
+                                if (txtNumeroLicencia.Text.Length == 7)
                                 {
-                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                    if (ctrEnfermero.validarNumeroLicencia(numIdEnfermero, txtNumeroLicencia.Text))
                                     {
-                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                        if (cboArea.SelectedIndex != 0)
                                         {
-                                            return true;
+                                            if (cboPerfil.SelectedIndex != 0)
+                                            {
+                                                if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                                {
+                                                    if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                                    {
+                                                        return true;
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        txtCorreoElectronico.Focus();
+                                                        return false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Debe ingresar el correo electrónico del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    txtCorreoElectronico.Focus();
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Debe seleccionar el perfil de acceso del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                cboPerfil.Focus();
+                                                return false;
+                                            }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                            txtCorreoElectronico.Focus();
+                                            MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            cboArea.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe ingresar el correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        txtCorreoElectronico.Focus();
+                                        MessageBox.Show("El número de licencia ingresado ya existe. Verifique el código del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        txtNumeroLicencia.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe seleccionar el perfil de acceso del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    cboPerfil.Focus();
+                                    MessageBox.Show("El número de licencia debe tener 7 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    txtNumeroLicencia.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                cboArea.Focus();
+                                MessageBox.Show("Debe ingresar el número de licencia del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                txtNumeroLicencia.Focus();
                                 return false;
                             }
                         }
@@ -471,14 +506,14 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar el nombre del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe ingresar el nombre del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtNombres.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("Debe ingresar el apellido paterno del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe ingresar el apellido paterno del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtPaterno.Focus();
                 return false;
             }
@@ -488,7 +523,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             numAccion = clsComun.INSERTAR;
 
-            numIdAdministrativo = 0;
+            numIdEnfermero = 0;
 
             limpiarFormulario();
 
@@ -501,38 +536,39 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (validarFormulario())
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.IdAdministrativo = numIdAdministrativo;
-                objAdministrativo.Paterno = txtPaterno.Text;
-                objAdministrativo.Materno = txtMaterno.Text;
-                objAdministrativo.Nombres = txtNombres.Text;
-                objAdministrativo.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
-                objAdministrativo.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
-                objAdministrativo.FechaNacimiento = dtpFechaNacimiento.Value.Date;
-                objAdministrativo.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
-                objAdministrativo.NumeroDocumento = txtNumeroDocumento.Text;
-                objAdministrativo.Pais = clsComun.seleccionarToVacio(cboPais.Text);
-                objAdministrativo.DepartamentoNacimiento = cboDepartamento.Text;
-                objAdministrativo.ProvinciaNacimiento = cboProvincia.Text;
-                objAdministrativo.DistritoNacimiento = cboDistrito.Text;
-                objAdministrativo.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
-                objAdministrativo.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
-                objAdministrativo.DistritoDomicilio = cboDistritoDomicilio.Text;
-                objAdministrativo.Direccion = txtDireccion.Text;
-                objAdministrativo.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
-                objAdministrativo.Foto = strRutaFoto;
-                objAdministrativo.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
-                objAdministrativo.Telefono = txtTelefono.Text;
-                objAdministrativo.Celular = txtCelular.Text;
-                objAdministrativo.CorreoElectronico = txtCorreoElectronico.Text;
-                objAdministrativo.Usuario = "";
-                objAdministrativo.Contrasena = "";
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.IdEnfermero = numIdEnfermero;
+                objEnfermero.Paterno = txtPaterno.Text;
+                objEnfermero.Materno = txtMaterno.Text;
+                objEnfermero.Nombres = txtNombres.Text;
+                objEnfermero.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                objEnfermero.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
+                objEnfermero.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                objEnfermero.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
+                objEnfermero.NumeroDocumento = txtNumeroDocumento.Text;
+                objEnfermero.Pais = clsComun.seleccionarToVacio(cboPais.Text);
+                objEnfermero.DepartamentoNacimiento = cboDepartamento.Text;
+                objEnfermero.ProvinciaNacimiento = cboProvincia.Text;
+                objEnfermero.DistritoNacimiento = cboDistrito.Text;
+                objEnfermero.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
+                objEnfermero.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
+                objEnfermero.DistritoDomicilio = cboDistritoDomicilio.Text;
+                objEnfermero.Direccion = txtDireccion.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicencia.Text;
+                objEnfermero.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
+                objEnfermero.Foto = strRutaFoto;
+                objEnfermero.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
+                objEnfermero.Telefono = txtTelefono.Text;
+                objEnfermero.Celular = txtCelular.Text;
+                objEnfermero.CorreoElectronico = txtCorreoElectronico.Text;
+                objEnfermero.Usuario = "";
+                objEnfermero.Contrasena = "";
 
                 if (numAccion == clsComun.INSERTAR)
                 {
-                    if (ctrAdministrativo.registrarAdministrativo(objAdministrativo))
+                    if (ctrEnfermero.registrarEnfermero(objEnfermero))
                     {
-                        if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -540,19 +576,19 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         }
                         else
                         {
-                            clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
+                            clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
 
                             txtPaternoBuscar.Focus();
 
-                            dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objAdministrativo);
+                            dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objEnfermero);
                             cargarGrilla();
                         }
                     }
                     else
                     {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
                         {
                             btnGuardar_Click(sender, e);
                         }
@@ -560,24 +596,24 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 }
                 else if (numAccion == clsComun.MODIFICAR)
                 {
-                    if (ctrAdministrativo.modificarAdministrativo(objAdministrativo))
+                    if (ctrEnfermero.modificarEnfermero(objEnfermero))
                     {
-                        MessageBox.Show("El empleado administrativo se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El enfermero se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
-                        clsComun.redimensionarVentana(this, 585, 445);
-                        clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
+                        clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+                        clsComun.redimensionarVentana(this, 583, 443);
+                        clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
 
                         limpiarFormulario();
 
                         txtPaternoBuscar.Focus();
 
-                        dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objAdministrativo);
+                        dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objEnfermero);
                         cargarGrilla();
                     }
                     else
                     {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
                         {
                             btnGuardar_Click(sender, e);
                         }
@@ -585,9 +621,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 }
                 else
                 {
-                    clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
-                    clsComun.redimensionarVentana(this, 585, 445);
-                    clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
+                    clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+                    clsComun.redimensionarVentana(this, 583, 443);
+                    clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
 
                     limpiarFormulario();
 
@@ -598,9 +634,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
-            clsComun.redimensionarVentana(this, 585, 445);
-            clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
+            clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+            clsComun.redimensionarVentana(this, 583, 443);
+            clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
 
             limpiarFormulario();
 
@@ -609,88 +645,90 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            if (dgvAdministrativos.SelectedRows.Count > 0)
+            if (dgvEnfermeros.SelectedRows.Count > 0)
             {
                 numAccion = clsComun.VER;
 
-                numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
+                numIdEnfermero = Int32.Parse(dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[0].Value.ToString());
 
                 limpiarFormulario();
 
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.IdAdministrativo = numIdAdministrativo;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.IdEnfermero = numIdEnfermero;
 
-                objAdministrativo = ctrAdministrativo.seleccionarAdministrativo(objAdministrativo);
+                objEnfermero = ctrEnfermero.seleccionarEnfermero(objEnfermero);
 
-                mostrarInformacion(objAdministrativo, numAccion);
+                mostrarInformacion(objEnfermero, numAccion);
 
                 txtPaterno.Focus();
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvAdministrativos.SelectedRows.Count > 0)
+            if (dgvEnfermeros.SelectedRows.Count > 0)
             {
                 numAccion = clsComun.MODIFICAR;
 
-                numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
+                numIdEnfermero = Int32.Parse(dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[0].Value.ToString());
 
                 limpiarFormulario();
 
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.IdAdministrativo = numIdAdministrativo;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.IdEnfermero = numIdEnfermero;
 
-                objAdministrativo = ctrAdministrativo.seleccionarAdministrativo(objAdministrativo);
+                objEnfermero = ctrEnfermero.seleccionarEnfermero(objEnfermero);
 
-                mostrarInformacion(objAdministrativo, numAccion);
+                mostrarInformacion(objEnfermero, numAccion);
 
                 txtPaterno.Focus();
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvAdministrativos.SelectedRows.Count > 0)
+            if (dgvEnfermeros.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
-                    numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
+                    numIdEnfermero = Int32.Parse(dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    clsAdministrativo objAdministrativo = new clsAdministrativo();
-                    objAdministrativo.IdAdministrativo = numIdAdministrativo;
+                    clsEnfermero objEnfermero = new clsEnfermero();
+                    objEnfermero.IdEnfermero = numIdEnfermero;
 
-                    if (ctrAdministrativo.eliminarAdministrativo(objAdministrativo))
+                    if (ctrEnfermero.eliminarEnfermero(objEnfermero))
                     {
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Value = "INACTIVO";
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Value = "INACTIVO";
 
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.BackColor = Color.Red;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[4].Style.ForeColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[4].Style.BackColor = Color.Red;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Style.ForeColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Style.BackColor = Color.Red;
 
                         btnActivar.Visible = true;
                         btnEliminar.Visible = false;
 
-                        MessageBox.Show("El empleado administrativo se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El enfermero se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
                         {
                             btnEliminar_Click(sender, e);
                         }
@@ -699,44 +737,46 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnActivar_Click(object sender, EventArgs e)
         {
-            if (dgvAdministrativos.SelectedRows.Count > 0)
+            if (dgvEnfermeros.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
-                    numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
+                    numIdEnfermero = Int32.Parse(dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    clsAdministrativo objAdministrativo = new clsAdministrativo();
-                    objAdministrativo.IdAdministrativo = numIdAdministrativo;
+                    clsEnfermero objEnfermero = new clsEnfermero();
+                    objEnfermero.IdEnfermero = numIdEnfermero;
 
-                    if (ctrAdministrativo.recuperarAdministrativo(objAdministrativo))
+                    if (ctrEnfermero.recuperarEnfermero(objEnfermero))
                     {
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Value = "ACTIVO";
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Value = "ACTIVO";
 
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.ForeColor = Color.Black;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.BackColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.ForeColor = Color.Black;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.BackColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.ForeColor = Color.Black;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.BackColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.ForeColor = Color.Black;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.BackColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[1].Style.ForeColor = Color.Black;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[1].Style.BackColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[2].Style.ForeColor = Color.Black;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[2].Style.BackColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[3].Style.ForeColor = Color.Black;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[3].Style.BackColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[4].Style.ForeColor = Color.Black;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[4].Style.BackColor = Color.White;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Style.ForeColor = Color.Black;
+                        dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Style.BackColor = Color.White;
 
                         btnActivar.Visible = false;
                         btnEliminar.Visible = true;
 
-                        MessageBox.Show("El empleado administrativo se activó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El enfermero se activó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba activar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (MessageBox.Show("Ocurrió un error mientras se intentaba activar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
                         {
                             btnEliminar_Click(sender, e);
                         }
@@ -745,7 +785,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -754,15 +794,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
             this.Dispose();
         }
 
-        private void tbcAdministrativo_SelectedIndexChanged(object sender, EventArgs e)
+        private void tbcEnfermero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tbcAdministrativo.SelectedIndex == 1)
+            if (tbcEnfermero.SelectedIndex == 1)
             {
                 tbpBuscar.Enabled = false;
             }
         }
 
-        private void tbcAdministrativo_Selecting(object sender, TabControlCancelEventArgs e)
+        private void tbcEnfermero_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (e.TabPage.Enabled == false)
             {
@@ -863,14 +903,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             try
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
 
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
                 cargarGrilla();
             }
             catch
@@ -882,14 +923,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             try
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
 
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
                 cargarGrilla();
             }
             catch
@@ -901,14 +943,35 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             try
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
 
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
+                cargarGrilla();
+            }
+            catch
+            {
+            }
+        }
+
+        private void txtNumeroLicenciaBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
+
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
                 cargarGrilla();
             }
             catch
@@ -920,14 +983,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             try
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
 
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
                 cargarGrilla();
             }
             catch
@@ -939,14 +1003,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             try
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.Paterno = txtPaternoBuscar.Text;
+                objEnfermero.Materno = txtMaternoBuscar.Text;
+                objEnfermero.Nombres = txtNombresBuscar.Text;
+                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
+                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
+                objEnfermero.Estado = cboEstadoBuscar.Text;
 
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
                 cargarGrilla();
             }
             catch
@@ -954,9 +1019,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
-        private void dgvAdministrativos_SelectionChanged(object sender, EventArgs e)
+        private void dgvEnfermeros_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Value.ToString().CompareTo("ACTIVO") == 0)
+            if (dgvEnfermeros.Rows[dgvEnfermeros.CurrentRow.Index].Cells[5].Value.ToString().CompareTo("ACTIVO") == 0)
             {
                 btnEliminar.Visible = true;
                 btnActivar.Visible = false;

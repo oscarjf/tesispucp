@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Modelo;
-using Control;
 using Comun;
+using Control;
+using Modelo;
 
 namespace SistemaCentroSalud.Ventanas_Personal
 {
@@ -17,7 +13,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private DataTable dtDoctores;
         private int numAccion;
         private int numIdDoctor;
-        private string strRutaFoto = "Properties.Resources.FotoPredeterminado";
+        private string strRutaFoto = "";
 
         public frmDoctor()
         {
@@ -262,8 +258,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void cargarComboPerfil()
         {
             clsPerfil objPerfil = new clsPerfil();
+            objPerfil.TipoPersonal = "DOCTOR";
 
-            DataTable dt = ctrPerfil.seleccionarPerfiles(objPerfil);
+            DataTable dt = ctrPerfil.seleccionarPerfilesCriterios(objPerfil);
 
             objPerfil.Nombre = "SELECCIONAR";
 
@@ -792,7 +789,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -831,7 +828,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else
                     {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar al doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
                         {
                             btnEliminar_Click(sender, e);
                         }

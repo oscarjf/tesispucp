@@ -285,8 +285,8 @@
     <EmbeddedResource Include="Ventanas Personal\frmDoctor.resx">
       <DependentUpon>frmDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas Personal\frmEnfermera.resx">
-      <DependentUpon>frmEnfermera.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas Personal\frmEnfermero.resx">
+      <DependentUpon>frmEnfermero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Personal\frmTecnico.resx">
       <DependentUpon>frmTecnico.cs</DependentUpon>
@@ -332,11 +332,11 @@
     <Compile Include="Ventanas Personal\frmDoctor.Designer.cs">
       <DependentUpon>frmDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas Personal\frmEnfermera.cs">
+    <Compile Include="Ventanas Personal\frmEnfermero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas Personal\frmEnfermera.Designer.cs">
-      <DependentUpon>frmEnfermera.cs</DependentUpon>
+    <Compile Include="Ventanas Personal\frmEnfermero.Designer.cs">
+      <DependentUpon>frmEnfermero.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas Personal\frmTecnico.cs">
       <SubType>Form</SubType>

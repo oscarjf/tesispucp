@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
-using SistemaCentroSalud.Ventanas_Personal;
+using Comun;
 using SistemaCentroSalud.Ventanas_Ayuda;
 using SistemaCentroSalud.Ventanas_Doctor;
 using SistemaCentroSalud.Ventanas_Mantenimiento;
+using SistemaCentroSalud.Ventanas_Personal;
 using SistemaCentroSalud.Ventanas_Seguridad;
 
 namespace SistemaCentroSalud
@@ -26,6 +22,27 @@ namespace SistemaCentroSalud
             frmDoctor ventanaDoctor = new frmDoctor();
             ventanaDoctor.MdiParent = this;
             ventanaDoctor.Show();
+        }
+
+        private void smnuEnfermero_Click(object sender, EventArgs e)
+        {
+            frmEnfermero ventanaEnfermero = new frmEnfermero();
+            ventanaEnfermero.MdiParent = this;
+            ventanaEnfermero.Show();
+        }
+
+        private void smnuAdministrativo_Click(object sender, EventArgs e)
+        {
+            frmAdministrativo ventanaAdministrativo = new frmAdministrativo();
+            ventanaAdministrativo.MdiParent = this;
+            ventanaAdministrativo.Show();
+        }
+
+        private void smnuTecnico_Click(object sender, EventArgs e)
+        {
+            frmTecnico ventanaTecnico = new frmTecnico();
+            ventanaTecnico.MdiParent = this;
+            ventanaTecnico.Show();
         }
 
         private void smnuHistoriaClinica_Click(object sender, EventArgs e)
@@ -144,6 +161,36 @@ namespace SistemaCentroSalud
             frmUnidadProductoraServicios ventanaUnidadProductoraServicios = new frmUnidadProductoraServicios();
             ventanaUnidadProductoraServicios.MdiParent = this;
             ventanaUnidadProductoraServicios.Show();
+        }
+
+        private void smnuCalculadora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process prsCalculadora = new Process();
+                prsCalculadora.StartInfo.FileName = "calc.exe";
+                prsCalculadora.StartInfo.Arguments = "";
+                prsCalculadora.Start();
+            }
+            catch (Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+            }
+        }
+
+        private void smnuBlocDeNotas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process prsCalculadora = new Process();
+                prsCalculadora.StartInfo.FileName = "notepad.exe";
+                prsCalculadora.StartInfo.Arguments = "";
+                prsCalculadora.Start();
+            }
+            catch (Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+            }
         }
 
         private void smnuPerfil_Click(object sender, EventArgs e)

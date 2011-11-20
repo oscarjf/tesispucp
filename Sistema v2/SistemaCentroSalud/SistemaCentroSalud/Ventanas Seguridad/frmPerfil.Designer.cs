@@ -85,6 +85,7 @@
             this.lblEstadoBuscar = new System.Windows.Forms.Label();
             this.cboAreaBuscar = new System.Windows.Forms.ComboBox();
             this.lblAreaBuscar = new System.Windows.Forms.Label();
+            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -97,11 +98,10 @@
             this.lbxAccesosPermitidos = new System.Windows.Forms.ListBox();
             this.tvAccesos = new System.Windows.Forms.TreeView();
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
-            this.lblNombreDetalle = new System.Windows.Forms.Label();
-            this.cboTipoPersonalDetalle = new System.Windows.Forms.ComboBox();
-            this.lblTipoPersonal = new System.Windows.Forms.Label();
-            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
+            this.cboTipoEmpleadoDetalle = new System.Windows.Forms.ComboBox();
+            this.lblTipoEmpleado = new System.Windows.Forms.Label();
             this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
+            this.lblNombreDetalle = new System.Windows.Forms.Label();
             this.tbcPerfil.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
@@ -313,6 +313,15 @@
             this.lblAreaBuscar.TabIndex = 2;
             this.lblAreaBuscar.Text = "Área:";
             // 
+            // cuTextBox1
+            // 
+            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
+            this.cuTextBox1.Name = "cuTextBox1";
+            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
+            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.cuTextBox1.TabIndex = 1;
+            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
             // lblNombreBuscar
             // 
             this.lblNombreBuscar.AutoSize = true;
@@ -485,8 +494,8 @@
             // 
             // gbxInformacion
             // 
-            this.gbxInformacion.Controls.Add(this.cboTipoPersonalDetalle);
-            this.gbxInformacion.Controls.Add(this.lblTipoPersonal);
+            this.gbxInformacion.Controls.Add(this.cboTipoEmpleadoDetalle);
+            this.gbxInformacion.Controls.Add(this.lblTipoEmpleado);
             this.gbxInformacion.Controls.Add(this.txtNombreDetalle);
             this.gbxInformacion.Controls.Add(this.lblNombreDetalle);
             this.gbxInformacion.Location = new System.Drawing.Point(8, 6);
@@ -496,48 +505,36 @@
             this.gbxInformacion.TabStop = false;
             this.gbxInformacion.Text = "Información";
             // 
-            // lblNombreDetalle
+            // cboTipoEmpleadoDetalle
             // 
-            this.lblNombreDetalle.AutoSize = true;
-            this.lblNombreDetalle.Location = new System.Drawing.Point(6, 16);
-            this.lblNombreDetalle.Name = "lblNombreDetalle";
-            this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreDetalle.TabIndex = 2;
-            this.lblNombreDetalle.Text = "Nombre:";
-            // 
-            // cboTipoPersonalDetalle
-            // 
-            this.cboTipoPersonalDetalle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoPersonalDetalle.Enabled = false;
-            this.cboTipoPersonalDetalle.FormattingEnabled = true;
-            this.cboTipoPersonalDetalle.Items.AddRange(new object[] {
+            this.cboTipoEmpleadoDetalle.AutoCompleteCustomSource.AddRange(new string[] {
             "SELECCIONAR",
             "ADMINISTRATIVO",
             "DOCTOR",
             "ENFERMERO",
             "TÉCNICO"});
-            this.cboTipoPersonalDetalle.Location = new System.Drawing.Point(322, 32);
-            this.cboTipoPersonalDetalle.Name = "cboTipoPersonalDetalle";
-            this.cboTipoPersonalDetalle.Size = new System.Drawing.Size(160, 21);
-            this.cboTipoPersonalDetalle.TabIndex = 4;
+            this.cboTipoEmpleadoDetalle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoEmpleadoDetalle.Enabled = false;
+            this.cboTipoEmpleadoDetalle.FormattingEnabled = true;
+            this.cboTipoEmpleadoDetalle.Items.AddRange(new object[] {
+            "SELECCIONAR",
+            "ADMINISTRATIVO",
+            "DOCTOR",
+            "ENFERMERO",
+            "TÉCNICO"});
+            this.cboTipoEmpleadoDetalle.Location = new System.Drawing.Point(322, 32);
+            this.cboTipoEmpleadoDetalle.Name = "cboTipoEmpleadoDetalle";
+            this.cboTipoEmpleadoDetalle.Size = new System.Drawing.Size(160, 21);
+            this.cboTipoEmpleadoDetalle.TabIndex = 4;
             // 
-            // lblTipoPersonal
+            // lblTipoEmpleado
             // 
-            this.lblTipoPersonal.AutoSize = true;
-            this.lblTipoPersonal.Location = new System.Drawing.Point(319, 16);
-            this.lblTipoPersonal.Name = "lblTipoPersonal";
-            this.lblTipoPersonal.Size = new System.Drawing.Size(75, 13);
-            this.lblTipoPersonal.TabIndex = 3;
-            this.lblTipoPersonal.Text = "Tipo Personal:";
-            // 
-            // cuTextBox1
-            // 
-            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
-            this.cuTextBox1.Name = "cuTextBox1";
-            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.cuTextBox1.TabIndex = 1;
-            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.lblTipoEmpleado.AutoSize = true;
+            this.lblTipoEmpleado.Location = new System.Drawing.Point(319, 16);
+            this.lblTipoEmpleado.Name = "lblTipoEmpleado";
+            this.lblTipoEmpleado.Size = new System.Drawing.Size(81, 13);
+            this.lblTipoEmpleado.TabIndex = 3;
+            this.lblTipoEmpleado.Text = "Tipo Empleado:";
             // 
             // txtNombreDetalle
             // 
@@ -547,6 +544,15 @@
             this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreDetalle.TabIndex = 2;
             this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // lblNombreDetalle
+            // 
+            this.lblNombreDetalle.AutoSize = true;
+            this.lblNombreDetalle.Location = new System.Drawing.Point(6, 16);
+            this.lblNombreDetalle.Name = "lblNombreDetalle";
+            this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreDetalle.TabIndex = 2;
+            this.lblNombreDetalle.Text = "Nombre:";
             // 
             // frmPerfil
             // 
@@ -608,7 +614,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
-        private System.Windows.Forms.ComboBox cboTipoPersonalDetalle;
-        private System.Windows.Forms.Label lblTipoPersonal;
+        private System.Windows.Forms.ComboBox cboTipoEmpleadoDetalle;
+        private System.Windows.Forms.Label lblTipoEmpleado;
     }
 }

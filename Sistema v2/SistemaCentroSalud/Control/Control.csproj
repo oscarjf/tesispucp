@@ -45,11 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrAdministrativo.cs" />
     <Compile Include="ctrArea.cs" />
     <Compile Include="ctrConsultorio.cs" />
     <Compile Include="ctrCPT.cs" />
     <Compile Include="ctrDoctor.cs" />
     <Compile Include="ctrEmpleado.cs" />
+    <Compile Include="ctrEnfermero.cs" />
     <Compile Include="ctrEspecialidad.cs" />
     <Compile Include="ctrEtnia.cs" />
     <Compile Include="ctrFinanciadorSalud.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="ctrPais.cs" />
     <Compile Include="ctrPerfil.cs" />
     <Compile Include="ctrReligion.cs" />
+    <Compile Include="ctrTecnico.cs" />
     <Compile Include="ctrTipoDocumento.cs" />
     <Compile Include="ctrUbigeo.cs" />
     <Compile Include="ctrUnidadProductoraServicio.cs" />

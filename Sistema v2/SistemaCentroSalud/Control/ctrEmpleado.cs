@@ -7,41 +7,65 @@ namespace Control
 {
     public class ctrEmpleado
     {
-        public static bool validarCMP(int numIdDoctor, string strCMP)
+        public static bool validarIngreso(string strUsuario, string strContrasena)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
 
             sqlParametro = new SqlParameter();
-            sqlParametro.ParameterName = "@IdDoctor";
-            sqlParametro.Value = numIdDoctor;
+            sqlParametro.ParameterName = "@Usuario";
+            sqlParametro.Value = strUsuario;
             sqlParametro.Direction = ParameterDirection.Input;
 
             lstParametrosSQL.Add(sqlParametro);
 
             sqlParametro = new SqlParameter();
-            sqlParametro.ParameterName = "@CMP";
-            sqlParametro.Value = strCMP;
+            sqlParametro.ParameterName = "@Contrasena";
+            sqlParametro.Value = strContrasena;
             sqlParametro.Direction = ParameterDirection.Input;
 
             lstParametrosSQL.Add(sqlParametro);
 
             sqlParametro = new SqlParameter();
-            sqlParametro.ParameterName = "@Contador";
+            sqlParametro.ParameterName = "@Acceso";
             sqlParametro.Value = 0;
             sqlParametro.Direction = ParameterDirection.Output;
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarCMP", lstParametrosSQL);
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarAcceso", lstParametrosSQL);
 
-            if (numResultado == 0)
+            if (numResultado != 0)
             {
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        public static DataTable validarCorreoElectronico(string strCorreoElectronico)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@CorreoElectronico";
+            sqlParametro.Value = strCorreoElectronico;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ValidarCorreoElectronico", lstParametrosSQL);
+
+            if (dtResultado.Rows.Count != 0)
+            {
+                return dtResultado;
+            }
+            else
+            {
+                return null;
             }
         }
     }

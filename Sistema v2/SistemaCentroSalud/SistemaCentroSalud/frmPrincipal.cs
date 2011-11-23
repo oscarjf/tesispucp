@@ -12,9 +12,17 @@ namespace SistemaCentroSalud
 {
     public partial class frmPrincipal : Form
     {
+        private frmBienvenida ventanaBienvenida;
+
         public frmPrincipal(frmBienvenida ventanaBienvenida)
         {
             InitializeComponent();
+            this.ventanaBienvenida = ventanaBienvenida;
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void smnuDoctor_Click(object sender, EventArgs e)
@@ -231,6 +239,20 @@ namespace SistemaCentroSalud
         private void smnuBarraEstado_Click(object sender, EventArgs e)
         {
             sstInformacion.Visible = smnuBarraEstado.Checked;
+        }
+
+        private void smnuSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            this.ventanaBienvenida.Visible = true;
+            this.ventanaBienvenida.limpiarFormulario();
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+            this.ventanaBienvenida.limpiarFormulario();
+            this.ventanaBienvenida.Visible = true;
         }
     }
 }

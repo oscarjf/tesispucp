@@ -148,7 +148,6 @@
             // 
             // smnuContrasena
             // 
-            this.smnuContrasena.Image = ((System.Drawing.Image)(resources.GetObject("smnuContrasena.Image")));
             this.smnuContrasena.Name = "smnuContrasena";
             this.smnuContrasena.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
             this.smnuContrasena.Size = new System.Drawing.Size(175, 22);
@@ -161,11 +160,11 @@
             // 
             // smnuSalir
             // 
-            this.smnuSalir.Image = ((System.Drawing.Image)(resources.GetObject("smnuSalir.Image")));
             this.smnuSalir.Name = "smnuSalir";
             this.smnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.smnuSalir.Size = new System.Drawing.Size(175, 22);
             this.smnuSalir.Text = "&Salir";
+            this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
             // 
             // mnuAdmision
             // 
@@ -179,7 +178,6 @@
             // 
             // smnuPaciente
             // 
-            this.smnuPaciente.Image = ((System.Drawing.Image)(resources.GetObject("smnuPaciente.Image")));
             this.smnuPaciente.Name = "smnuPaciente";
             this.smnuPaciente.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.smnuPaciente.Size = new System.Drawing.Size(160, 22);
@@ -192,7 +190,6 @@
             // 
             // smnuCitas
             // 
-            this.smnuCitas.Image = ((System.Drawing.Image)(resources.GetObject("smnuCitas.Image")));
             this.smnuCitas.Name = "smnuCitas";
             this.smnuCitas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.smnuCitas.Size = new System.Drawing.Size(160, 22);
@@ -219,7 +216,6 @@
             // 
             // smnuHistoriaClinica
             // 
-            this.smnuHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("smnuHistoriaClinica.Image")));
             this.smnuHistoriaClinica.Name = "smnuHistoriaClinica";
             this.smnuHistoriaClinica.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.smnuHistoriaClinica.Size = new System.Drawing.Size(209, 22);
@@ -228,7 +224,6 @@
             // 
             // smnuFormularioHIS
             // 
-            this.smnuFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("smnuFormularioHIS.Image")));
             this.smnuFormularioHIS.Name = "smnuFormularioHIS";
             this.smnuFormularioHIS.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.smnuFormularioHIS.Size = new System.Drawing.Size(209, 22);
@@ -236,7 +231,6 @@
             // 
             // smnuHorario
             // 
-            this.smnuHorario.Image = ((System.Drawing.Image)(resources.GetObject("smnuHorario.Image")));
             this.smnuHorario.Name = "smnuHorario";
             this.smnuHorario.Size = new System.Drawing.Size(209, 22);
             this.smnuHorario.Text = "Horario";
@@ -255,7 +249,6 @@
             // 
             // smnuDoctor
             // 
-            this.smnuDoctor.Image = ((System.Drawing.Image)(resources.GetObject("smnuDoctor.Image")));
             this.smnuDoctor.Name = "smnuDoctor";
             this.smnuDoctor.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.smnuDoctor.Size = new System.Drawing.Size(194, 22);
@@ -264,7 +257,6 @@
             // 
             // smnuEnfermera
             // 
-            this.smnuEnfermera.Image = ((System.Drawing.Image)(resources.GetObject("smnuEnfermera.Image")));
             this.smnuEnfermera.Name = "smnuEnfermera";
             this.smnuEnfermera.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.smnuEnfermera.Size = new System.Drawing.Size(194, 22);
@@ -273,7 +265,6 @@
             // 
             // smnuTecnico
             // 
-            this.smnuTecnico.Image = ((System.Drawing.Image)(resources.GetObject("smnuTecnico.Image")));
             this.smnuTecnico.Name = "smnuTecnico";
             this.smnuTecnico.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.smnuTecnico.Size = new System.Drawing.Size(194, 22);
@@ -287,7 +278,6 @@
             // 
             // smnuAdministrativo
             // 
-            this.smnuAdministrativo.Image = ((System.Drawing.Image)(resources.GetObject("smnuAdministrativo.Image")));
             this.smnuAdministrativo.Name = "smnuAdministrativo";
             this.smnuAdministrativo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.smnuAdministrativo.Size = new System.Drawing.Size(194, 22);
@@ -320,7 +310,6 @@
             // 
             // smnuArea
             // 
-            this.smnuArea.Image = ((System.Drawing.Image)(resources.GetObject("smnuArea.Image")));
             this.smnuArea.Name = "smnuArea";
             this.smnuArea.Size = new System.Drawing.Size(181, 22);
             this.smnuArea.Text = "Área";
@@ -328,7 +317,6 @@
             // 
             // smnuEspecialidad
             // 
-            this.smnuEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("smnuEspecialidad.Image")));
             this.smnuEspecialidad.Name = "smnuEspecialidad";
             this.smnuEspecialidad.Size = new System.Drawing.Size(181, 22);
             this.smnuEspecialidad.Text = "Especialidad Médica";
@@ -470,7 +458,6 @@
             // 
             // smnuCalculadora
             // 
-            this.smnuCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("smnuCalculadora.Image")));
             this.smnuCalculadora.Name = "smnuCalculadora";
             this.smnuCalculadora.Size = new System.Drawing.Size(152, 22);
             this.smnuCalculadora.Text = "Calculadora";
@@ -478,7 +465,6 @@
             // 
             // smnuBlocDeNotas
             // 
-            this.smnuBlocDeNotas.Image = ((System.Drawing.Image)(resources.GetObject("smnuBlocDeNotas.Image")));
             this.smnuBlocDeNotas.Name = "smnuBlocDeNotas";
             this.smnuBlocDeNotas.Size = new System.Drawing.Size(152, 22);
             this.smnuBlocDeNotas.Text = "Bloc de Notas";
@@ -504,35 +490,32 @@
             // 
             // smnuPerfil
             // 
-            this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(125, 22);
+            this.smnuPerfil.Size = new System.Drawing.Size(152, 22);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
             // auditoríaToolStripMenuItem
             // 
-            this.auditoríaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("auditoríaToolStripMenuItem.Image")));
             this.auditoríaToolStripMenuItem.Name = "auditoríaToolStripMenuItem";
-            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.auditoríaToolStripMenuItem.Text = "Auditoría";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(122, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // smnuRespaldar
             // 
-            this.smnuRespaldar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldar.Image")));
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(125, 22);
+            this.smnuRespaldar.Size = new System.Drawing.Size(152, 22);
             this.smnuRespaldar.Text = "Respaldar";
             // 
             // smnuRestaurar
             // 
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(125, 22);
+            this.smnuRestaurar.Size = new System.Drawing.Size(152, 22);
             this.smnuRestaurar.Text = "Restaurar";
             // 
             // mnuVentanas
@@ -671,7 +654,6 @@
             // tsbContrasena
             // 
             this.tsbContrasena.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbContrasena.Image = ((System.Drawing.Image)(resources.GetObject("tsbContrasena.Image")));
             this.tsbContrasena.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbContrasena.Name = "tsbContrasena";
             this.tsbContrasena.Size = new System.Drawing.Size(23, 22);
@@ -685,7 +667,6 @@
             // tsbPaciente
             // 
             this.tsbPaciente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPaciente.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaciente.Image")));
             this.tsbPaciente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPaciente.Name = "tsbPaciente";
             this.tsbPaciente.Size = new System.Drawing.Size(23, 22);
@@ -694,7 +675,6 @@
             // tsbCitas
             // 
             this.tsbCitas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCitas.Image = ((System.Drawing.Image)(resources.GetObject("tsbCitas.Image")));
             this.tsbCitas.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCitas.Name = "tsbCitas";
             this.tsbCitas.Size = new System.Drawing.Size(23, 22);
@@ -708,7 +688,6 @@
             // tsbHistoriaClinica
             // 
             this.tsbHistoriaClinica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("tsbHistoriaClinica.Image")));
             this.tsbHistoriaClinica.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbHistoriaClinica.Name = "tsbHistoriaClinica";
             this.tsbHistoriaClinica.Size = new System.Drawing.Size(23, 22);
@@ -717,7 +696,6 @@
             // tsbFormularioHIS
             // 
             this.tsbFormularioHIS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("tsbFormularioHIS.Image")));
             this.tsbFormularioHIS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFormularioHIS.Name = "tsbFormularioHIS";
             this.tsbFormularioHIS.Size = new System.Drawing.Size(23, 22);
@@ -731,7 +709,6 @@
             // tsbSalir
             // 
             this.tsbSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
             this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Size = new System.Drawing.Size(23, 22);
@@ -774,6 +751,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión Centro de Salud";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.tsIconos.ResumeLayout(false);

@@ -70,6 +70,7 @@
             this.lnkContrasena.TabIndex = 4;
             this.lnkContrasena.TabStop = true;
             this.lnkContrasena.Text = "Olvidé mi contraseña";
+            this.lnkContrasena.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkContrasena_LinkClicked);
             // 
             // statusStrip1
             // 
@@ -119,6 +120,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(151, 20);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtContrasena
             // 
@@ -127,6 +129,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(151, 20);
             this.txtContrasena.TabIndex = 1;
+            this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasena_KeyPress);
             // 
             // frmBienvenida
             // 

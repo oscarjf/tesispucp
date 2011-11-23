@@ -65,7 +65,7 @@ namespace Comun
             {
                 MailMessage correo = new MailMessage();
 
-                string asunto = "Contraseña Biblioteca Virtual";
+                string asunto = "Contraseña Sistema Centro de Salud";
                 string cuerpo = "";
 
                 correo.From = new MailAddress("sistema.centro.salud@gmail.com", "Sistema Centro de Salud", System.Text.Encoding.UTF8);

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsComun.cs" />
+    <Compile Include="clsInputTextBox.cs" />
     <Compile Include="clsSeguridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

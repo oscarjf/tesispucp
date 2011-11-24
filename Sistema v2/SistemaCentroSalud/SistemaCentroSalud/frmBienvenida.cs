@@ -149,7 +149,7 @@ namespace SistemaCentroSalud
             string value = "info@ejemplo.com";
             if (clsInputTextBox.Show("Ingrese su correo electrónico", "Mensaje", ref value, validation) == DialogResult.OK)
             {
-                DataTable dtEmpleado = ctrEmpleado.validarCorreoElectronico(value);
+                DataTable dtEmpleado = ctrEmpleado.obtenerDatosCuenta(value);
                 if (dtEmpleado != null)
                 {
                     string strPaterno = dtEmpleado.Rows[0]["Paterno"].ToString(),

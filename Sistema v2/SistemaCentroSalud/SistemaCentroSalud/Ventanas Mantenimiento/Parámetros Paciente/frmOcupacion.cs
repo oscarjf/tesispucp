@@ -247,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvOcupaciones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este modo de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar esta ocupación?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -295,10 +295,10 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
                     numIdOcupacion = Int32.Parse(dgvOcupaciones.Rows[dgvOcupaciones.CurrentRow.Index].Cells[0].Value.ToString());
 
-                    clsOcupacion objModoIngreso = new clsOcupacion();
-                    objModoIngreso.IdOcupacion = numIdOcupacion;
+                    clsOcupacion objOcupacion = new clsOcupacion();
+                    objOcupacion.IdOcupacion = numIdOcupacion;
 
-                    if (ctrOcupacion.recuperarOcupacion(objModoIngreso))
+                    if (ctrOcupacion.recuperarOcupacion(objOcupacion))
                     {
                         dgvOcupaciones.Rows[dgvOcupaciones.CurrentRow.Index].Cells[2].Value = "ACTIVO";
 
@@ -393,7 +393,5 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 btnActivar.Visible = true;
             }
         }
-
-
     }
 }

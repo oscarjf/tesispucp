@@ -414,7 +414,5 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 btnActivar.Visible = true;
             }
         }
-
-
     }
 }

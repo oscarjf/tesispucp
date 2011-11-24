@@ -425,7 +425,16 @@ namespace SistemaCentroSalud.Ventanas_Personal
                                     {
                                         if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
                                         {
-                                            return true;
+                                            if (ctrEmpleado.validarCorreoElectronico(numIdAdministrativo, txtCorreoElectronico.Text))
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                txtCorreoElectronico.Focus();
+                                                return false;
+                                            }
                                         }
                                         else
                                         {

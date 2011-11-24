@@ -165,12 +165,13 @@ namespace Control
             DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
 
             objEtnia.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
+            objEtnia.Codigo = dtResultado.Rows[0]["Codigo"].ToString();
             objEtnia.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
 
             return objEtnia;
         }
 
-        public static DataTable seleccionarEtniaes(clsEtnia objEtnia)
+        public static DataTable seleccionarEtnias(clsEtnia objEtnia)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -194,7 +195,7 @@ namespace Control
             return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
         }
 
-        public static DataTable seleccionarEtniaesCriterios(clsEtnia objEtnia)
+        public static DataTable seleccionarEtniasCriterios(clsEtnia objEtnia)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -216,6 +217,44 @@ namespace Control
             lstParametrosSQL.Add(sqlParametro);
 
             return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManEtnia", lstParametrosSQL);
+        }
+
+        public static bool validarCodigo(int numIdEtnia, string strCodigo)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdEtnia";
+            sqlParametro.Value = numIdEtnia;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@CodigoEtnia";
+            sqlParametro.Value = strCodigo;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Contador";
+            sqlParametro.Value = 0;
+            sqlParametro.Direction = ParameterDirection.Output;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarCodigoEtnia", lstParametrosSQL);
+
+            if (numResultado == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static List<SqlParameter> crearLista(clsEtnia objEtnia)

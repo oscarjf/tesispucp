@@ -45,7 +45,45 @@ namespace Control
             }
         }
 
-        public static DataTable validarCorreoElectronico(string strCorreoElectronico)
+        public static bool validarCorreoElectronico(int numIdPersona, string strCorreoElectronico)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdPersona";
+            sqlParametro.Value = numIdPersona;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@CorreoElectronico";
+            sqlParametro.Value = strCorreoElectronico;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Contador";
+            sqlParametro.Value = 0;
+            sqlParametro.Direction = ParameterDirection.Output;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarCorreoElectronico", lstParametrosSQL);
+
+            if (numResultado == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static DataTable obtenerDatosCuenta(string strCorreoElectronico)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -57,7 +95,7 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ValidarCorreoElectronico", lstParametrosSQL);
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_SelDatosCuenta", lstParametrosSQL);
 
             if (dtResultado.Rows.Count != 0)
             {

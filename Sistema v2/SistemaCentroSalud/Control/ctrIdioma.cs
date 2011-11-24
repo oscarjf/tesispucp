@@ -170,7 +170,7 @@ namespace Control
             return objIdioma;
         }
 
-        public static DataTable seleccionarIdiomaes(clsIdioma objIdioma)
+        public static DataTable seleccionarIdiomas(clsIdioma objIdioma)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -194,7 +194,7 @@ namespace Control
             return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManIdioma", lstParametrosSQL);
         }
 
-        public static DataTable seleccionarIdiomaesCriterios(clsIdioma objIdioma)
+        public static DataTable seleccionarIdiomasCriterios(clsIdioma objIdioma)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;

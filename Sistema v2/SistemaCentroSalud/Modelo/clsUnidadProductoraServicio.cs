@@ -17,6 +17,13 @@ namespace Modelo
             get { return strCodigo; }
             set { strCodigo = value; }
         }
+        private string strNombre;
+
+        public string Nombre
+        {
+            get { return strNombre; }
+            set { strNombre = value; }
+        }
         private string strDescripcion;
 
         public string Descripcion
@@ -41,6 +48,7 @@ namespace Modelo
         {
             IdUnidadProductoraServicio = 0;
             Codigo = "";
+            Nombre = "";
             Descripcion = "";
             Estado = "ACTIVO";
         }

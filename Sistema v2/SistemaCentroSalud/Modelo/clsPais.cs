@@ -17,6 +17,13 @@ namespace Modelo
             get { return strNombre; }
             set { strNombre = value; }
         }
+        private string strDescripcion;
+
+        public string Descripcion
+        {
+            get { return strDescripcion; }
+            set { strDescripcion = value; }
+        }
         private string strEstado;
 
         public string Estado
@@ -34,6 +41,7 @@ namespace Modelo
         {
             IdPais = 0;
             Nombre = "";
+            Descripcion = "";
             Estado = "ACTIVO";
         }
     }

@@ -373,8 +373,9 @@ CREATE TABLE CPT
 ( 
 	IdCPT                int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(6)  NOT NULL ,
-	Descripcion          varchar(300)  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Descripcion          varchar(300)  NULL ,
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 
@@ -672,7 +673,8 @@ CREATE TABLE FinanciadorSalud
 	IdFinanciadorSalud   int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(2)  NOT NULL ,
 	Nombre               varchar(100)  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Descripcion          varchar(300)  NULL 
 )
 go
 
@@ -778,8 +780,9 @@ CREATE TABLE Laboratorio
 ( 
 	IdLaboratorio        int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(3)  NOT NULL ,
-	Descripcion          varchar(300)  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Descripcion          varchar(300)  NULL ,
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 
@@ -1013,8 +1016,9 @@ CREATE TABLE UnidadProductoraServicio
 ( 
 	IdUnidadProductoraServicio int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(7)  NOT NULL ,
-	Descripcion          varchar(300)  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Descripcion          varchar(300)  NULL ,
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 

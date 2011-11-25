@@ -243,16 +243,30 @@ namespace SistemaCentroSalud
 
         private void smnuSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            this.ventanaBienvenida.Visible = true;
-            this.ventanaBienvenida.limpiarFormulario();
+            if (this.ventanaBienvenida != null)
+            {
+                this.Dispose();
+                this.ventanaBienvenida.limpiarFormulario();
+                this.ventanaBienvenida.Visible = true;
+            }
+            else
+            {
+                this.Dispose();
+            }
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Dispose();
-            this.ventanaBienvenida.limpiarFormulario();
-            this.ventanaBienvenida.Visible = true;
+            if (this.ventanaBienvenida != null)
+            {
+                this.Dispose();
+                this.ventanaBienvenida.limpiarFormulario();
+                this.ventanaBienvenida.Visible = true;
+            }
+            else
+            {
+                this.Dispose();
+            }
         }
     }
 }

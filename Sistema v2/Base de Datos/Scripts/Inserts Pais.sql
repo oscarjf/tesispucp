@@ -1,4 +1,4 @@
-INSERT INTO Pais (Nombre, Estado) VALUES ('PERU','ACTIVO')
+INSERT INTO Pais (Nombre, Estado) VALUES ('PERÚ','ACTIVO')
 INSERT INTO Pais (Nombre, Estado) VALUES ('AFGANISTÁN','ACTIVO')
 INSERT INTO Pais (Nombre, Estado) VALUES ('ALBANIA','ACTIVO')
 INSERT INTO Pais (Nombre, Estado) VALUES ('ALEMANIA','ACTIVO')

@@ -887,6 +887,7 @@ CREATE TABLE Pais
 ( 
 	IdPais               int IDENTITY ( 1,1 ) ,
 	Nombre               varchar(40)  NOT NULL ,
+	Descripcion          varchar(300)  NULL ,
 	Estado               varchar(8)  NOT NULL 
 )
 go

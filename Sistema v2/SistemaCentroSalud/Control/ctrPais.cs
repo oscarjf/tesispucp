@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
 using Modelo;
+using System;
 
 namespace Control
 {
@@ -164,7 +165,8 @@ namespace Control
 
             DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPais", lstParametrosSQL);
 
-            objPais.Nombre = dtResultado.Rows[0]["Nombre"].ToString();            
+            objPais.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
+            objPais.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
 
             return objPais;
         }

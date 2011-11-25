@@ -164,12 +164,14 @@ namespace Control
 
             DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManFinanciadorSalud", lstParametrosSQL);
 
+            objFinanciadorSalud.Codigo = dtResultado.Rows[0]["Codigo"].ToString();
             objFinanciadorSalud.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
+            objFinanciadorSalud.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
             
             return objFinanciadorSalud;
         }
 
-        public static DataTable seleccionarFinanciadorSaludes(clsFinanciadorSalud objFinanciadorSalud)
+        public static DataTable seleccionarFinanciadoresSalud(clsFinanciadorSalud objFinanciadorSalud)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -193,7 +195,7 @@ namespace Control
             return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManFinanciadorSalud", lstParametrosSQL);
         }
 
-        public static DataTable seleccionarFinanciadorSaludesCriterios(clsFinanciadorSalud objFinanciadorSalud)
+        public static DataTable seleccionarFinanciadoresSaludCriterios(clsFinanciadorSalud objFinanciadorSalud)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -215,6 +217,44 @@ namespace Control
             lstParametrosSQL.Add(sqlParametro);
 
             return clsGestorBD.ejecutarStoredProcedureDataTable("up_ManFinanciadorSalud", lstParametrosSQL);
+        }
+
+        public static bool validarCodigo(int numIdFinanciadorSalud, string strCodigo)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdFinanciadorSalud";
+            sqlParametro.Value = numIdFinanciadorSalud;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@CodigoFinanciadorSalud";
+            sqlParametro.Value = strCodigo;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Contador";
+            sqlParametro.Value = 0;
+            sqlParametro.Direction = ParameterDirection.Output;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarCodigoFinanciadorSalud", lstParametrosSQL);
+
+            if (numResultado == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static List<SqlParameter> crearLista(clsFinanciadorSalud objFinanciadorSalud)

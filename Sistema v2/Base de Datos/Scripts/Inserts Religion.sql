@@ -1,0 +1,8 @@
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('CATÓLICA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('EVANGÉLICA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('TESTIGO DE JEHOVÁ','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('JUDAICA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('MORMONA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('ORTODOXA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('ADVENTISTA','','ACTIVO')
+INSERT INTO Religion (Nombre, Descripcion, Estado) VALUES ('NINGUNA','','ACTIVO')

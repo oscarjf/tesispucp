@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlClient;
-using Modelo;
 using System.Data;
-using Acceso;
+using System.Data.SqlClient;
 using System.Reflection;
+using Acceso;
+using Modelo;
+using Comun;
 
 namespace Control
 {
@@ -173,16 +172,15 @@ namespace Control
             objPaciente.Nombres = dtResultado.Rows[0]["Nombres"].ToString();
             objPaciente.FechaNacimiento = DateTime.Parse(dtResultado.Rows[0]["FechaNacimiento"].ToString());
             objPaciente.Sexo = dtResultado.Rows[0]["Sexo"].ToString();
-            objPaciente.IdTipoDocumento = Int32.Parse(dtResultado.Rows[0]["IdTipoDocumento"].ToString());
-            objPaciente._TipoDocumento = dtResultado.Rows[0]["TipoDocumento"].ToString();
+            objPaciente.IdTipoDocumento = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdTipoDocumento"].ToString()));
             objPaciente.NumeroDocumento = dtResultado.Rows[0]["NumeroDocumento"].ToString();
             objPaciente.EstadoCivil = dtResultado.Rows[0]["EstadoCivil"].ToString();
-            objPaciente._IdLugarNacimiento = Int32.Parse(dtResultado.Rows[0]["IdLugarNacimiento"].ToString());
+            objPaciente._IdLugarNacimiento = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdLugarNacimiento"].ToString()));
             objPaciente.Pais = dtResultado.Rows[0]["Pais"].ToString();
             objPaciente.DepartamentoNacimiento = dtResultado.Rows[0]["Departamento"].ToString();
             objPaciente.ProvinciaNacimiento = dtResultado.Rows[0]["Provincia"].ToString();
             objPaciente.DistritoNacimiento = dtResultado.Rows[0]["Distrito"].ToString();
-            objPaciente._IdDomicilio = Int32.Parse(dtResultado.Rows[0]["IdDomicilio"].ToString());
+            objPaciente._IdDomicilio = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdDomicilio"].ToString()));
             objPaciente.DepartamentoDomicilio = dtResultado.Rows[0]["DepartamentoDomicilio"].ToString();
             objPaciente.ProvinciaDomicilio = dtResultado.Rows[0]["ProvinciaDomicilio"].ToString();
             objPaciente.DistritoDomicilio = dtResultado.Rows[0]["DistritoDomicilio"].ToString();
@@ -190,16 +188,58 @@ namespace Control
             objPaciente.Telefono = dtResultado.Rows[0]["Telefono"].ToString();
             objPaciente.Celular = dtResultado.Rows[0]["Celular"].ToString();
             objPaciente.CorreoElectronico = dtResultado.Rows[0]["CorreoElectronico"].ToString();
-            objPaciente.IdEtnia = Int32.Parse(dtResultado.Rows[0]["IdEtnia"].ToString());
-            objPaciente._Etnia = dtResultado.Rows[0]["Etnia"].ToString();
-            objPaciente.IdIdioma = Int32.Parse(dtResultado.Rows[0]["IdIdioma"].ToString());
-            objPaciente._Idioma = dtResultado.Rows[0]["Idioma"].ToString();
-            objPaciente.IdOcupacion = Int32.Parse(dtResultado.Rows[0]["IdOcupacion"].ToString());
-            objPaciente._Ocupacion = dtResultado.Rows[0]["Ocupacion"].ToString();
-            objPaciente.IdReligion = Int32.Parse(dtResultado.Rows[0]["IdReligion"].ToString());
-            objPaciente._Religion = dtResultado.Rows[0]["Religion"].ToString();
+            objPaciente.IdEtnia = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdEtnia"].ToString()));
+            objPaciente.IdIdioma = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdIdioma"].ToString()));
+            objPaciente.IdOcupacion = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdOcupacion"].ToString()));
+            objPaciente.IdReligion = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdReligion"].ToString()));
             objPaciente.GrupoSanguineo = dtResultado.Rows[0]["GrupoSanguineo"].ToString();
             objPaciente.FactorSanguineo = dtResultado.Rows[0]["FactorSanguineo"].ToString();
+            objPaciente.NumeroHistoriaClinica = dtResultado.Rows[0]["NumeroHistoriaClinica"].ToString();
+
+            if (objPaciente.IdTipoDocumento != 0)
+            {
+                objPaciente._TipoDocumento = dtResultado.Rows[0]["TipoDocumento"].ToString();
+            }
+
+            if (objPaciente.IdEtnia != 0)
+            {
+                clsEtnia objEtnia = new clsEtnia();
+                objEtnia.IdEtnia = objPaciente.IdEtnia;
+
+                objEtnia = ctrEtnia.seleccionarEtnia(objEtnia);
+
+                objPaciente._Etnia = objEtnia.Nombre;
+            }
+
+            if (objPaciente.IdIdioma != 0)
+            {
+                clsIdioma objIdioma = new clsIdioma();
+                objIdioma.IdIdioma = objPaciente.IdIdioma;
+
+                objIdioma = ctrIdioma.seleccionarIdioma(objIdioma);
+
+                objPaciente._Idioma = objIdioma.Nombre;
+            }
+
+            if (objPaciente.IdOcupacion != 0)
+            {
+                clsOcupacion objOcupacion = new clsOcupacion();
+                objOcupacion.IdOcupacion = objPaciente.IdOcupacion;
+
+                objOcupacion = ctrOcupacion.seleccionarOcupacion(objOcupacion);
+
+                objPaciente._Ocupacion = objOcupacion.Nombre;
+            }
+
+            if (objPaciente.IdReligion != 0)
+            {
+                clsReligion objReligion = new clsReligion();
+                objReligion.IdReligion = objPaciente.IdReligion;
+
+                objReligion = ctrReligion.seleccionarReligion(objReligion);
+
+                objPaciente._Religion = objReligion.Nombre;
+            }
 
             return objPaciente;
         }

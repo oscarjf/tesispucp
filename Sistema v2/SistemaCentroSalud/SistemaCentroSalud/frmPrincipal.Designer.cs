@@ -182,6 +182,7 @@
             this.smnuPaciente.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.smnuPaciente.Size = new System.Drawing.Size(160, 22);
             this.smnuPaciente.Text = "Paciente";
+            this.smnuPaciente.Click += new System.EventHandler(this.smnuPaciente_Click);
             // 
             // toolStripSeparator6
             // 
@@ -459,14 +460,14 @@
             // smnuCalculadora
             // 
             this.smnuCalculadora.Name = "smnuCalculadora";
-            this.smnuCalculadora.Size = new System.Drawing.Size(152, 22);
+            this.smnuCalculadora.Size = new System.Drawing.Size(147, 22);
             this.smnuCalculadora.Text = "Calculadora";
             this.smnuCalculadora.Click += new System.EventHandler(this.smnuCalculadora_Click);
             // 
             // smnuBlocDeNotas
             // 
             this.smnuBlocDeNotas.Name = "smnuBlocDeNotas";
-            this.smnuBlocDeNotas.Size = new System.Drawing.Size(152, 22);
+            this.smnuBlocDeNotas.Size = new System.Drawing.Size(147, 22);
             this.smnuBlocDeNotas.Text = "Bloc de Notas";
             this.smnuBlocDeNotas.Click += new System.EventHandler(this.smnuBlocDeNotas_Click);
             // 
@@ -491,31 +492,31 @@
             // smnuPerfil
             // 
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(152, 22);
+            this.smnuPerfil.Size = new System.Drawing.Size(125, 22);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
             // auditoríaToolStripMenuItem
             // 
             this.auditoríaToolStripMenuItem.Name = "auditoríaToolStripMenuItem";
-            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.auditoríaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.auditoríaToolStripMenuItem.Text = "Auditoría";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(122, 6);
             // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(152, 22);
+            this.smnuRespaldar.Size = new System.Drawing.Size(125, 22);
             this.smnuRespaldar.Text = "Respaldar";
             // 
             // smnuRestaurar
             // 
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(152, 22);
+            this.smnuRestaurar.Size = new System.Drawing.Size(125, 22);
             this.smnuRestaurar.Text = "Restaurar";
             // 
             // mnuVentanas

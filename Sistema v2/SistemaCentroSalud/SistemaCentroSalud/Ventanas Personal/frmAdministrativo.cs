@@ -207,7 +207,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void cargarCombosArea()
         {
             clsArea objArea = new clsArea();
-            objArea.TipoArea = "MÉDICA";
+            objArea.TipoArea = "ADMINISTRATIVA";
 
             DataTable dt = ctrArea.seleccionarAreasCriterios(objArea);
 
@@ -796,7 +796,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void cboPais_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboPais.SelectedItem.ToString().ToUpper().CompareTo("PERU") == 0)
+            if (cboPais.SelectedItem.ToString().ToUpper().CompareTo("PERÚ") == 0)
             {
                 cboDepartamento.SelectedIndex = 0;
                 cboDepartamento.Enabled = true;

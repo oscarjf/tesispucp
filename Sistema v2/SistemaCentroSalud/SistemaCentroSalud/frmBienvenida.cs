@@ -76,8 +76,10 @@ namespace SistemaCentroSalud
         {
             if (validarFormulario())
             {
-                if (ctrEmpleado.validarIngreso(txtUsuario.Text, txtContrasena.Text))
+                int numId = ctrEmpleado.validarIngreso(txtUsuario.Text, txtContrasena.Text);
+                if (numId != 0)
                 {
+                    numIdEmpleado = numId;
                     frmPrincipal ventanaPrincipal = new frmPrincipal(this);
                     ventanaPrincipal.Show();
                     this.Visible = false;

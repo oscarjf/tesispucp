@@ -25,6 +25,13 @@ namespace SistemaCentroSalud
 
         }
 
+        private void smnuPaciente_Click(object sender, EventArgs e)
+        {
+            frmPaciente ventanaPaciente = new frmPaciente(this);
+            ventanaPaciente.MdiParent = this;
+            ventanaPaciente.Show();
+        }
+
         private void smnuDoctor_Click(object sender, EventArgs e)
         {
             frmDoctor ventanaDoctor = new frmDoctor();
@@ -253,6 +260,11 @@ namespace SistemaCentroSalud
             {
                 this.Dispose();
             }
+        }
+
+        public int obtenerIdEmpleado()
+        {
+            return ventanaBienvenida.getIdEmpleado();
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

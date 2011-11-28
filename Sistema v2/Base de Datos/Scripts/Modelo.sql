@@ -522,7 +522,7 @@ CREATE TABLE Empleado
 	IdEmpleado           bigint  NOT NULL ,
 	Foto                 varchar(2000)  NULL ,
 	Usuario              varchar(20)  NULL ,
-	Contrasena           varchar(20)  NULL ,
+	Contrasena           varchar(60)  NULL ,
 	TipoEmpleado         varchar(14)  NULL ,
 	IdArea               int  NULL ,
 	IdPerfil             int  NULL ,

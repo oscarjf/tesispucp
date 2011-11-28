@@ -7,7 +7,7 @@ namespace Control
 {
     public class ctrEmpleado
     {
-        public static bool validarIngreso(string strUsuario, string strContrasena)
+        public static int validarIngreso(string strUsuario, string strContrasena)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
             SqlParameter sqlParametro;
@@ -33,16 +33,9 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            int numResultado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarAcceso", lstParametrosSQL);
+            int numIdEmpleado = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarAcceso", lstParametrosSQL);
 
-            if (numResultado != 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return numIdEmpleado;
         }
 
         public static bool validarCorreoElectronico(int numIdPersona, string strCorreoElectronico)

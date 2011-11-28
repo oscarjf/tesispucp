@@ -271,6 +271,7 @@ namespace Modelo
             Sexo = "";
             FechaNacimiento = DateTime.Now;
             IdTipoDocumento = 0;
+            _TipoDocumento = "";
             NumeroDocumento = "";
             EstadoCivil = "";
             Pais = "";
@@ -286,9 +287,13 @@ namespace Modelo
             CorreoElectronico = "";
             TipoPersona = "PACIENTE";
             IdOcupacion = 0;
+            _Ocupacion = "";
             IdEtnia = 0;
+            _Etnia = "";
             IdIdioma = 0;
+            _Idioma = "";
             IdReligion = 0;
+            _Religion = "";
             GrupoSanguineo = "";
             FactorSanguineo = "";
             NumeroHistoriaClinica = "";

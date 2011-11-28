@@ -198,5 +198,17 @@ namespace Comun
                 return strCadena;
             }
         }
+
+        public static string vacioToCero(string strCadena)
+        {
+            if (strCadena.CompareTo("") == 0)
+            {
+                return "0";
+            }
+            else
+            {
+                return strCadena;
+            }
+        }
     }
 }

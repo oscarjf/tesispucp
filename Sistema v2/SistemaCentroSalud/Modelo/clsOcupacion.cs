@@ -32,6 +32,11 @@ namespace Modelo
             set { strEstado = value; }
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
         public clsOcupacion()
         {
             IdOcupacion = 0;

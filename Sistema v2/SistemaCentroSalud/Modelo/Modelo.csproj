@@ -59,6 +59,7 @@
     <Compile Include="clsModoIngreso.cs" />
     <Compile Include="clsOcupacion.cs" />
     <Compile Include="clsPabellon.cs" />
+    <Compile Include="clsPaciente.cs" />
     <Compile Include="clsPais.cs" />
     <Compile Include="clsPerfil.cs" />
     <Compile Include="clsReligion.cs" />

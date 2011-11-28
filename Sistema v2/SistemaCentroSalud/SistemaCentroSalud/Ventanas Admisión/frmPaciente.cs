@@ -299,32 +299,31 @@ namespace SistemaCentroSalud
 
         private void cargarGrilla()
         {
+            int numIndice = 0;
+
             dgvPacientes.DataMember = null;
 
             for (int i = 0; i < dtPacientes.Rows.Count; i++)
             {
-                dgvPacientes.Rows.Add(new String[] { dtPacientes.Rows[i]["IdPersona"].ToString(), 
-                                                 dtPacientes.Rows[i]["Paterno"].ToString(),
-                                                 dtPacientes.Rows[i]["Materno"].ToString(),
-                                                 dtPacientes.Rows[i]["Nombres"].ToString(),
-                                                 dtPacientes.Rows[i]["TipoDocumento"].ToString(),
-                                                 dtPacientes.Rows[i]["NumeroDocumento"].ToString(),
-                                                 dtPacientes.Rows[i]["NumeroHistoriaClinica"].ToString(), });
-
-                if (dtPacientes.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
+                if (numIndice != Int32.Parse(dtPacientes.Rows[i]["IdPersona"].ToString()))
                 {
-                    dgvPacientes.Rows[i].Cells[1].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[1].Style.BackColor = Color.Red;
-                    dgvPacientes.Rows[i].Cells[2].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[2].Style.BackColor = Color.Red;
-                    dgvPacientes.Rows[i].Cells[3].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[3].Style.BackColor = Color.Red;
-                    dgvPacientes.Rows[i].Cells[4].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[4].Style.BackColor = Color.Red;
-                    dgvPacientes.Rows[i].Cells[5].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[5].Style.BackColor = Color.Red;
-                    dgvPacientes.Rows[i].Cells[6].Style.ForeColor = Color.White;
-                    dgvPacientes.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                    numIndice = Int32.Parse(dtPacientes.Rows[i]["IdPersona"].ToString());
+
+                    string strIdTipoDocumento = dtPacientes.Rows[i]["IdTipoDocumento"].ToString();
+                    string strTipoDocumento = "";
+
+                    if (strIdTipoDocumento.CompareTo("") != 0)
+                    {
+                        strTipoDocumento = dtPacientes.Rows[i]["TipoDocumento"].ToString();
+                    }
+
+                    dgvPacientes.Rows.Add(new String[] { dtPacientes.Rows[i]["IdPersona"].ToString(), 
+                                                     dtPacientes.Rows[i]["Paterno"].ToString(),
+                                                     dtPacientes.Rows[i]["Materno"].ToString(),
+                                                     dtPacientes.Rows[i]["Nombres"].ToString(),
+                                                     strTipoDocumento,
+                                                     dtPacientes.Rows[i]["NumeroDocumento"].ToString(),
+                                                     dtPacientes.Rows[i]["NumeroHistoriaClinica"].ToString(), });
                 }
             }
 
@@ -670,22 +669,39 @@ namespace SistemaCentroSalud
 
         private void cboTipoDocumentoBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboTipoDocumentoBuscar.SelectedIndex != 0)
+            try
             {
-                txtNumeroDocumentoBuscar.Clear();
-                txtNumeroDocumentoBuscar.MaxLength = Int32.Parse(((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).NumeroDigitos);
-                txtNumeroDocumentoBuscar.Enabled = true;
+                if (cboTipoDocumentoBuscar.SelectedIndex > 0)
+                {
+                    txtNumeroDocumentoBuscar.Clear();
+                    txtNumeroDocumentoBuscar.MaxLength = Int32.Parse(((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).NumeroDigitos);
+                    txtNumeroDocumentoBuscar.Enabled = true;
+                }
+                else
+                {
+                    txtNumeroDocumentoBuscar.Clear();
+                    txtNumeroDocumentoBuscar.Enabled = false;
+                }
+
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
             }
-            else
+            catch
             {
-                txtNumeroDocumentoBuscar.Clear();
-                txtNumeroDocumentoBuscar.Enabled = false;
             }
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboTipoDocumento.SelectedIndex != 0)
+            if (cboTipoDocumento.SelectedIndex > 0)
             {
                 txtNumeroDocumento.Clear();
                 txtNumeroDocumento.MaxLength = Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos);
@@ -769,6 +785,106 @@ namespace SistemaCentroSalud
             {
                 cboDistritoDomicilio.SelectedIndex = -1;
                 cboDistritoDomicilio.Enabled = false;
+            }
+        }
+
+        private void txtPaternoBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
+            }
+            catch
+            {
+            }
+        }
+
+        private void txtMaternoBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
+            }
+            catch
+            {
+            }
+        }
+
+        private void txtNombresBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
+            }
+            catch
+            {
+            }
+        }
+
+        private void txtNumeroHistoriaClinicaBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
+            }
+            catch
+            {
+            }
+        }
+
+        private void txtNumeroDocumentoBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                clsPaciente objPaciente = new clsPaciente();
+                objPaciente.Paterno = txtPaternoBuscar.Text;
+                objPaciente.Materno = txtMaternoBuscar.Text;
+                objPaciente.Nombres = txtNombresBuscar.Text;
+                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinicaBuscar.Text;
+                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumentoBuscar.SelectedItem).IdTipoDocumento;
+                objPaciente.NumeroDocumento = txtNumeroDocumentoBuscar.Text;
+
+                dtPacientes = ctrPaciente.seleccionarPacientesCriterios(objPaciente);
+                cargarGrilla();
+            }
+            catch
+            {
             }
         }
     }

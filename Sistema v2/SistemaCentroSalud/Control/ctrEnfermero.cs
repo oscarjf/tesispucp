@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
 using Modelo;
+using Comun;
 
 namespace Control
 {
@@ -197,7 +198,9 @@ namespace Control
             objEnfermero._Perfil = dtResultado.Rows[0]["Perfil"].ToString();
             objEnfermero.Estado = dtResultado.Rows[0]["Estado"].ToString();
             objEnfermero.NumeroLicencia = dtResultado.Rows[0]["NumeroLicencia"].ToString();
-            
+            objEnfermero.Usuario = dtResultado.Rows[0]["Usuario"].ToString();
+            objEnfermero.Contrasena = dtResultado.Rows[0]["Contrasena"].ToString();
+
             return objEnfermero;
         }
 

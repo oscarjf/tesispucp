@@ -4,8 +4,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
-using Modelo;
 using Comun;
+using Modelo;
 
 namespace Control
 {

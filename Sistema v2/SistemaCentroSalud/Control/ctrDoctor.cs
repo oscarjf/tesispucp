@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
+using Comun;
 using Modelo;
 
 namespace Control
@@ -211,6 +212,8 @@ namespace Control
 
                 objDoctor._Especialidades.Add(objEspecialidad);
             }
+            objDoctor.Usuario = dtResultado.Rows[0]["Usuario"].ToString();
+            objDoctor.Contrasena = dtResultado.Rows[0]["Contrasena"].ToString();
 
             return objDoctor;
         }

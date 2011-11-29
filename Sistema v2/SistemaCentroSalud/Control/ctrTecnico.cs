@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
+using Comun;
 using Modelo;
 
 namespace Control
@@ -196,7 +197,9 @@ namespace Control
             objTecnico.IdPerfil = Int32.Parse(dtResultado.Rows[0]["IdPerfil"].ToString());
             objTecnico._Perfil = dtResultado.Rows[0]["Perfil"].ToString();
             objTecnico.Estado = dtResultado.Rows[0]["Estado"].ToString();
-            
+            objTecnico.Usuario = dtResultado.Rows[0]["Usuario"].ToString();
+            objTecnico.Contrasena = dtResultado.Rows[0]["Contrasena"].ToString();
+
             return objTecnico;
         }
 

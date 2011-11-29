@@ -7,6 +7,65 @@ namespace Control
 {
     public class ctrEmpleado
     {
+        public static string generarNombreUsuario(int numIdEmpleado, string strPaterno, string strMaterno, string strNombres)
+        {
+            int contador = -1;
+            string strParte1 = "", strParte2 = "", strParte3 = "", strNombreUsuario = "";
+
+            if (strNombres.CompareTo("") != 0)
+            {
+                strParte1 = strNombres.Substring(0, 1);
+            }
+
+            if (strPaterno.CompareTo("") != 0)
+            {
+                strParte2 = strPaterno;
+            }
+
+            if (strMaterno.CompareTo("") != 0)
+            {
+                strParte3 = strMaterno.Substring(0, 1);
+            }
+
+            strNombreUsuario = strParte1 + strParte2 + strParte3;
+
+            while (contador != 0)
+            {
+                List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+                SqlParameter sqlParametro;
+
+                sqlParametro = new SqlParameter();
+                sqlParametro.ParameterName = "@IdEmpleado";
+                sqlParametro.Value = numIdEmpleado;
+                sqlParametro.Direction = ParameterDirection.Input;
+
+                lstParametrosSQL.Add(sqlParametro);
+
+                sqlParametro = new SqlParameter();
+                sqlParametro.ParameterName = "@Usuario";
+                sqlParametro.Value = strNombreUsuario;
+                sqlParametro.Direction = ParameterDirection.Input;
+
+                lstParametrosSQL.Add(sqlParametro);
+
+                sqlParametro = new SqlParameter();
+                sqlParametro.ParameterName = "@Contador";
+                sqlParametro.Value = 0;
+                sqlParametro.Direction = ParameterDirection.Output;
+
+                lstParametrosSQL.Add(sqlParametro);
+
+                contador = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarNombreUsuario", lstParametrosSQL);
+
+                if (contador != 0)
+                {
+                    strNombreUsuario = strNombreUsuario + (contador + 1).ToString();
+                }
+            }
+
+            return strNombreUsuario.ToLower();
+        }
+
         public static int validarIngreso(string strUsuario, string strContrasena)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
@@ -97,6 +156,51 @@ namespace Control
             else
             {
                 return null;
+            }
+        }
+
+        public static bool validarCambioCuenta(int numIdEmpleado, string strNombreUsuario, string strContrasena)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdEmpleado";
+            sqlParametro.Value = numIdEmpleado;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Usuario";
+            sqlParametro.Value = strNombreUsuario;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Contrasena";
+            sqlParametro.Value = strContrasena;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@Exito";
+            sqlParametro.Value = 0;
+            sqlParametro.Direction = ParameterDirection.Output;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            int exito = clsGestorBD.ejecutarStoredProcedureInt("up_ValidarCambioCuenta", lstParametrosSQL);
+
+            if (exito != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

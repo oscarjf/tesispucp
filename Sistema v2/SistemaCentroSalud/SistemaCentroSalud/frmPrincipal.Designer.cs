@@ -152,6 +152,7 @@
             this.smnuContrasena.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
             this.smnuContrasena.Size = new System.Drawing.Size(175, 22);
             this.smnuContrasena.Text = "Contraseña";
+            this.smnuContrasena.Click += new System.EventHandler(this.smnuContrasena_Click);
             // 
             // toolStripSeparator5
             // 

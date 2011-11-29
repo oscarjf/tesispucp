@@ -80,6 +80,9 @@ namespace SistemaCentroSalud
                 if (numId != 0)
                 {
                     numIdEmpleado = numId;
+                    setUsuario(txtUsuario.Text);
+                    setContrasena(txtContrasena.Text);
+
                     frmPrincipal ventanaPrincipal = new frmPrincipal(this);
                     ventanaPrincipal.Show();
                     this.Visible = false;

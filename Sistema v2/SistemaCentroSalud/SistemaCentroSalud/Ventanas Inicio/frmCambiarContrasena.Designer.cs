@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambiarContrasena));
             this.lblIngresarContrasena = new System.Windows.Forms.Label();
             this.gbxAcceso = new System.Windows.Forms.GroupBox();
+            this.pbxIncorrecto = new System.Windows.Forms.PictureBox();
+            this.pbxCorrecto = new System.Windows.Forms.PictureBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.lblRepetirContrasena = new System.Windows.Forms.Label();
             this.lblNuevaContrasena = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.pbxIncorrecto = new System.Windows.Forms.PictureBox();
-            this.pbxCorrecto = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtRepetirContrasena = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNuevaContrasena = new SistemaCentroSalud.Controles.cuTextBox();
@@ -74,6 +74,37 @@
             this.gbxAcceso.TabStop = false;
             this.gbxAcceso.Text = "Acceso";
             // 
+            // pbxIncorrecto
+            // 
+            this.pbxIncorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pbxIncorrecto.Image")));
+            this.pbxIncorrecto.Location = new System.Drawing.Point(273, 31);
+            this.pbxIncorrecto.Name = "pbxIncorrecto";
+            this.pbxIncorrecto.Size = new System.Drawing.Size(16, 18);
+            this.pbxIncorrecto.TabIndex = 17;
+            this.pbxIncorrecto.TabStop = false;
+            this.pbxIncorrecto.Tag = "";
+            this.pbxIncorrecto.Visible = false;
+            // 
+            // pbxCorrecto
+            // 
+            this.pbxCorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pbxCorrecto.Image")));
+            this.pbxCorrecto.Location = new System.Drawing.Point(273, 29);
+            this.pbxCorrecto.Name = "pbxCorrecto";
+            this.pbxCorrecto.Size = new System.Drawing.Size(16, 18);
+            this.pbxCorrecto.TabIndex = 16;
+            this.pbxCorrecto.TabStop = false;
+            this.pbxCorrecto.Tag = "";
+            this.pbxCorrecto.Visible = false;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(30, 31);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(101, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Nombre de Usuario:";
+            // 
             // lblRepetirContrasena
             // 
             this.lblRepetirContrasena.AutoSize = true;
@@ -103,6 +134,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -115,37 +147,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(30, 31);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(101, 13);
-            this.lblUsuario.TabIndex = 4;
-            this.lblUsuario.Text = "Nombre de Usuario:";
-            // 
-            // pbxIncorrecto
-            // 
-            this.pbxIncorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pbxIncorrecto.Image")));
-            this.pbxIncorrecto.Location = new System.Drawing.Point(273, 31);
-            this.pbxIncorrecto.Name = "pbxIncorrecto";
-            this.pbxIncorrecto.Size = new System.Drawing.Size(16, 18);
-            this.pbxIncorrecto.TabIndex = 17;
-            this.pbxIncorrecto.TabStop = false;
-            this.pbxIncorrecto.Tag = "";
-            this.pbxIncorrecto.Visible = false;
-            // 
-            // pbxCorrecto
-            // 
-            this.pbxCorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pbxCorrecto.Image")));
-            this.pbxCorrecto.Location = new System.Drawing.Point(273, 29);
-            this.pbxCorrecto.Name = "pbxCorrecto";
-            this.pbxCorrecto.Size = new System.Drawing.Size(16, 18);
-            this.pbxCorrecto.TabIndex = 16;
-            this.pbxCorrecto.TabStop = false;
-            this.pbxCorrecto.Tag = "";
-            this.pbxCorrecto.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtUsuario
             // 
@@ -185,6 +187,7 @@
             this.txtIngresarContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtIngresarContrasena.TabIndex = 1;
             this.txtIngresarContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtIngresarContrasena.TextChanged += new System.EventHandler(this.txtIngresarContrasena_TextChanged);
             // 
             // frmCambiarContrasena
             // 

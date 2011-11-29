@@ -34,9 +34,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            clsTecnico objT = new clsTecnico();
+            //clsTecnico objT = new clsTecnico();
 
-            dtTecnicos = ctrTecnico.seleccionarTecnicos(objT);
+            //dtTecnicos = ctrTecnico.seleccionarTecnicos(objT);
 
             //cargarGrilla();
         }
@@ -411,77 +411,86 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (txtPaterno.Text.CompareTo("") != 0)
             {
-                if (txtNombres.Text.CompareTo("") != 0)
+                if (txtMaterno.Text.CompareTo("") != 0)
                 {
-                    if (cboTipoDocumento.SelectedIndex > 0)
+                    if (txtNombres.Text.CompareTo("") != 0)
                     {
-                        if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
+                        if (cboTipoDocumento.SelectedIndex > 0)
                         {
-                            if (cboArea.SelectedIndex != 0)
+                            if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
                             {
-                                if (cboPerfil.SelectedIndex != 0)
+                                if (cboArea.SelectedIndex != 0)
                                 {
-                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                    if (cboPerfil.SelectedIndex != 0)
                                     {
-                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                        if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                         {
-                                            if (ctrEmpleado.validarCorreoElectronico(numIdTecnico, txtCorreoElectronico.Text))
+                                            if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
                                             {
-                                                return true;
+                                                if (ctrEmpleado.validarCorreoElectronico(numIdTecnico, txtCorreoElectronico.Text))
+                                                {
+                                                    return true;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    txtCorreoElectronico.Focus();
+                                                    return false;
+                                                }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                 txtCorreoElectronico.Focus();
                                                 return false;
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            MessageBox.Show("Debe ingresar el correo electrónico del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             txtCorreoElectronico.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe ingresar el correo electrónico del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        txtCorreoElectronico.Focus();
+                                        MessageBox.Show("Debe seleccionar el perfil de acceso del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        cboPerfil.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe seleccionar el perfil de acceso del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    cboPerfil.Focus();
+                                    MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    cboArea.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                cboArea.Focus();
+                                MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                txtNumeroDocumento.Focus();
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtNumeroDocumento.Focus();
+                            MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboTipoDocumento.Focus();
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cboTipoDocumento.Focus();
+                        MessageBox.Show("Debe ingresar el nombre del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtNombres.Focus();
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar el nombre del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNombres.Focus();
+                    MessageBox.Show("Debe ingresar el apellido materno del técnico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMaterno.Focus();
                     return false;
                 }
             }
@@ -534,13 +543,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objTecnico.Telefono = txtTelefono.Text;
                 objTecnico.Celular = txtCelular.Text;
                 objTecnico.CorreoElectronico = txtCorreoElectronico.Text;
-                objTecnico.Usuario = "";
-                objTecnico.Contrasena = "";
+                objTecnico.Usuario = ctrEmpleado.generarNombreUsuario(numIdTecnico, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                objTecnico.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
 
                 if (numAccion == clsComun.INSERTAR)
                 {
                     if (ctrTecnico.registrarTecnico(objTecnico))
                     {
+                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objTecnico.Paterno, objTecnico.Materno, objTecnico.Nombres, objTecnico.Usuario, objTecnico.Contrasena);
+
                         if (MessageBox.Show("El técnico se registró exitosamente\n¿Desea seguir registrando técnicos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             limpiarFormulario();
@@ -549,6 +560,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         }
                         else
                         {
+                            clsComun.redimensionarTabControl(tbcTecnico, 582, 419);
+                            clsComun.redimensionarVentana(this, 585, 445);
                             clsComun.tabAnterior(tbcTecnico, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();

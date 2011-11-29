@@ -36,11 +36,11 @@ namespace SistemaCentroSalud.Ventanas_Personal
             //cboEspecialidadBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            clsDoctor objD = new clsDoctor();
+            //clsDoctor objD = new clsDoctor();
 
-            dtDoctores = ctrDoctor.seleccionarDoctores(objD);
+            //dtDoctores = ctrDoctor.seleccionarDoctores(objD);
 
-            cargarGrilla();
+            //cargarGrilla();
         }
 
         private void cargarComboEspecialidad()
@@ -503,113 +503,122 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (txtPaterno.Text.CompareTo("") != 0)
             {
-                if (txtNombres.Text.CompareTo("") != 0)
+                if (txtMaterno.Text.CompareTo("") != 0)
                 {
-                    if (cboTipoDocumento.SelectedIndex > 0)
+                    if (txtNombres.Text.CompareTo("") != 0)
                     {
-                        if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
+                        if (cboTipoDocumento.SelectedIndex > 0)
                         {
-                            if (txtCMP.Text.CompareTo("") != 0)
+                            if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
                             {
-                                if (txtCMP.Text.Length == 5)
+                                if (txtCMP.Text.CompareTo("") != 0)
                                 {
-                                    if (ctrDoctor.validarCMP(numIdDoctor, txtCMP.Text))
+                                    if (txtCMP.Text.Length == 5)
                                     {
-                                        if (cboArea.SelectedIndex != 0)
+                                        if (ctrDoctor.validarCMP(numIdDoctor, txtCMP.Text))
                                         {
-                                            if (lbxEspecialidadesDoctor.Items.Count != 0)
+                                            if (cboArea.SelectedIndex != 0)
                                             {
-                                                if (cboPerfil.SelectedIndex != 0)
+                                                if (lbxEspecialidadesDoctor.Items.Count != 0)
                                                 {
-                                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                                    if (cboPerfil.SelectedIndex != 0)
                                                     {
-                                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                                        if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                                         {
-                                                            if (ctrEmpleado.validarCorreoElectronico(numIdDoctor, txtCorreoElectronico.Text))
+                                                            if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
                                                             {
-                                                                return true;
+                                                                if (ctrEmpleado.validarCorreoElectronico(numIdDoctor, txtCorreoElectronico.Text))
+                                                                {
+                                                                    return true;
+                                                                }
+                                                                else
+                                                                {
+                                                                    MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                    txtCorreoElectronico.Focus();
+                                                                    return false;
+                                                                }
                                                             }
                                                             else
                                                             {
-                                                                MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                 txtCorreoElectronico.Focus();
                                                                 return false;
                                                             }
                                                         }
                                                         else
                                                         {
-                                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                            MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                             txtCorreoElectronico.Focus();
                                                             return false;
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        MessageBox.Show("Debe ingresar el correo electrónico del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                        txtCorreoElectronico.Focus();
+                                                        MessageBox.Show("Debe seleccionar el perfil de acceso del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        cboPerfil.Focus();
                                                         return false;
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Debe seleccionar el perfil de acceso del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                    cboPerfil.Focus();
+                                                    MessageBox.Show("Debe seleccionar al menos una especialidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    cboArea.Focus();
                                                     return false;
                                                 }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Debe seleccionar al menos una especialidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                 cboArea.Focus();
                                                 return false;
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                            cboArea.Focus();
+                                            MessageBox.Show("El código CMP ingresado ya existe. Verifique el código del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            txtCMP.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("El código CMP ingresado ya existe. Verifique el código del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        MessageBox.Show("El código CMP debe tener 5 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         txtCMP.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El código CMP debe tener 5 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBox.Show("Debe ingresar el código CMP del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     txtCMP.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe ingresar el código CMP del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                txtCMP.Focus();
+                                MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                txtNumeroDocumento.Focus();
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtNumeroDocumento.Focus();
+                            MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboTipoDocumento.Focus();
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cboTipoDocumento.Focus();
+                        MessageBox.Show("Debe ingresar el nombre del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtNombres.Focus();
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar el nombre del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNombres.Focus();
+                    MessageBox.Show("Debe ingresar el apellido materno del doctor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMaterno.Focus();
                     return false;
                 }
             }
@@ -670,13 +679,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objDoctor.Telefono = txtTelefono.Text;
                 objDoctor.Celular = txtCelular.Text;
                 objDoctor.CorreoElectronico = txtCorreoElectronico.Text;
-                objDoctor.Usuario = "";
-                objDoctor.Contrasena = "";
+                objDoctor.Usuario = ctrEmpleado.generarNombreUsuario(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                objDoctor.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
 
                 if (numAccion == clsComun.INSERTAR)
                 {
                     if (ctrDoctor.registrarDoctor(objDoctor))
                     {
+                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objDoctor.Paterno, objDoctor.Materno, objDoctor.Nombres, objDoctor.Usuario, objDoctor.Contrasena);
+
                         if (MessageBox.Show("El doctor se registró exitosamente\n¿Desea seguir registrando doctores?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             limpiarFormulario();
@@ -685,6 +696,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         }
                         else
                         {
+                            clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
+                            clsComun.redimensionarVentana(this, 583, 443);
                             clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();

@@ -34,11 +34,11 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            clsEnfermero objE = new clsEnfermero();
+            //clsEnfermero objE = new clsEnfermero();
 
-            dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objE);
+            //dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objE);
 
-            cargarGrilla();
+            //cargarGrilla();
         }
 
         private void cargarComboTipoDocumento()
@@ -419,104 +419,113 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (txtPaterno.Text.CompareTo("") != 0)
             {
-                if (txtNombres.Text.CompareTo("") != 0)
+                if (txtMaterno.Text.CompareTo("") != 0)
                 {
-                    if (cboTipoDocumento.SelectedIndex > 0)
+                    if (txtNombres.Text.CompareTo("") != 0)
                     {
-                        if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
+                        if (cboTipoDocumento.SelectedIndex > 0)
                         {
-                            if (txtNumeroLicencia.Text.CompareTo("") != 0)
+                            if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
                             {
-                                if (txtNumeroLicencia.Text.Length == 7)
+                                if (txtNumeroLicencia.Text.CompareTo("") != 0)
                                 {
-                                    if (ctrEnfermero.validarNumeroLicencia(numIdEnfermero, txtNumeroLicencia.Text))
+                                    if (txtNumeroLicencia.Text.Length == 7)
                                     {
-                                        if (cboArea.SelectedIndex != 0)
+                                        if (ctrEnfermero.validarNumeroLicencia(numIdEnfermero, txtNumeroLicencia.Text))
                                         {
-                                            if (cboPerfil.SelectedIndex != 0)
+                                            if (cboArea.SelectedIndex != 0)
                                             {
-                                                if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                                if (cboPerfil.SelectedIndex != 0)
                                                 {
-                                                    if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                                     {
-                                                        if (ctrEmpleado.validarCorreoElectronico(numIdEnfermero, txtCorreoElectronico.Text))
+                                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
                                                         {
-                                                            return true;
+                                                            if (ctrEmpleado.validarCorreoElectronico(numIdEnfermero, txtCorreoElectronico.Text))
+                                                            {
+                                                                return true;
+                                                            }
+                                                            else
+                                                            {
+                                                                MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                txtCorreoElectronico.Focus();
+                                                                return false;
+                                                            }
                                                         }
                                                         else
                                                         {
-                                                            MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                             txtCorreoElectronico.Focus();
                                                             return false;
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        MessageBox.Show("Debe ingresar el correo electrónico del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                         txtCorreoElectronico.Focus();
                                                         return false;
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Debe ingresar el correo electrónico del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                    txtCorreoElectronico.Focus();
+                                                    MessageBox.Show("Debe seleccionar el perfil de acceso del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    cboPerfil.Focus();
                                                     return false;
                                                 }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Debe seleccionar el perfil de acceso del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                cboPerfil.Focus();
+                                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                cboArea.Focus();
                                                 return false;
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                            cboArea.Focus();
+                                            MessageBox.Show("El número de licencia ingresado ya existe. Verifique el código del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            txtNumeroLicencia.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("El número de licencia ingresado ya existe. Verifique el código del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        MessageBox.Show("El número de licencia debe tener 7 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         txtNumeroLicencia.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El número de licencia debe tener 7 dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBox.Show("Debe ingresar el número de licencia del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     txtNumeroLicencia.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe ingresar el número de licencia del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                txtNumeroLicencia.Focus();
+                                MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                txtNumeroDocumento.Focus();
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtNumeroDocumento.Focus();
+                            MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboTipoDocumento.Focus();
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cboTipoDocumento.Focus();
+                        MessageBox.Show("Debe ingresar el nombre del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtNombres.Focus();
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar el nombre del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNombres.Focus();
+                    MessageBox.Show("Debe ingresar el apellido materno del enfermero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMaterno.Focus();
                     return false;
                 }
             }
@@ -570,13 +579,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objEnfermero.Telefono = txtTelefono.Text;
                 objEnfermero.Celular = txtCelular.Text;
                 objEnfermero.CorreoElectronico = txtCorreoElectronico.Text;
-                objEnfermero.Usuario = "";
-                objEnfermero.Contrasena = "";
-
+                objEnfermero.Usuario = ctrEmpleado.generarNombreUsuario(numIdEnfermero, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                objEnfermero.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+                
                 if (numAccion == clsComun.INSERTAR)
                 {
                     if (ctrEnfermero.registrarEnfermero(objEnfermero))
                     {
+                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objEnfermero.Paterno, objEnfermero.Materno, objEnfermero.Nombres, objEnfermero.Usuario, objEnfermero.Contrasena);
+
                         if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             limpiarFormulario();
@@ -585,6 +596,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         }
                         else
                         {
+                            clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+                            clsComun.redimensionarVentana(this, 583, 443);
                             clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();

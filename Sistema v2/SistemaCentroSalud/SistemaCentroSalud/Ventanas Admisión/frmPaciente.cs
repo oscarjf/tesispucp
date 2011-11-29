@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Modelo;
-using Control;
 using Comun;
+using Control;
+using Modelo;
 
 namespace SistemaCentroSalud
 {
@@ -41,9 +36,9 @@ namespace SistemaCentroSalud
 
             cboTipoDocumentoBuscar.SelectedIndex = 0;
 
-            clsPaciente objP = new clsPaciente();
+            //clsPaciente objP = new clsPaciente();
 
-            dtPacientes = ctrPaciente.seleccionarPacientes(objP);
+            //dtPacientes = ctrPaciente.seleccionarPacientes(objP);
 
             //cargarGrilla();
         }

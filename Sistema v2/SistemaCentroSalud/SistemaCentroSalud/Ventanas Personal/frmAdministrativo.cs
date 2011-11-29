@@ -34,9 +34,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            clsAdministrativo objA = new clsAdministrativo();
+            //clsAdministrativo objA = new clsAdministrativo();
 
-            dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objA);
+            //dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objA);
 
             //cargarGrilla();
         }
@@ -411,77 +411,86 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (txtPaterno.Text.CompareTo("") != 0)
             {
-                if (txtNombres.Text.CompareTo("") != 0)
+                if (txtMaterno.Text.CompareTo("") != 0)
                 {
-                    if (cboTipoDocumento.SelectedIndex > 0)
+                    if (txtNombres.Text.CompareTo("") != 0)
                     {
-                        if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
+                        if (cboTipoDocumento.SelectedIndex > 0)
                         {
-                            if (cboArea.SelectedIndex != 0)
+                            if (txtNumeroDocumento.Text.Length == 0 || txtNumeroDocumento.Text.Length == Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos))
                             {
-                                if (cboPerfil.SelectedIndex != 0)
+                                if (cboArea.SelectedIndex != 0)
                                 {
-                                    if (txtCorreoElectronico.Text.CompareTo("") != 0)
+                                    if (cboPerfil.SelectedIndex != 0)
                                     {
-                                        if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
+                                        if (txtCorreoElectronico.Text.CompareTo("") != 0)
                                         {
-                                            if (ctrEmpleado.validarCorreoElectronico(numIdAdministrativo, txtCorreoElectronico.Text))
+                                            if (clsComun.validarCorreoElectronico(txtCorreoElectronico.Text))
                                             {
-                                                return true;
+                                                if (ctrEmpleado.validarCorreoElectronico(numIdAdministrativo, txtCorreoElectronico.Text))
+                                                {
+                                                    return true;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    txtCorreoElectronico.Focus();
+                                                    return false;
+                                                }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("El correo electrónico ya ha sido registrado\nVerifique el correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                 txtCorreoElectronico.Focus();
                                                 return false;
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Formato de correo electrónico incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            MessageBox.Show("Debe ingresar el correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             txtCorreoElectronico.Focus();
                                             return false;
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe ingresar el correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        txtCorreoElectronico.Focus();
+                                        MessageBox.Show("Debe seleccionar el perfil de acceso del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        cboPerfil.Focus();
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe seleccionar el perfil de acceso del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    cboPerfil.Focus();
+                                    MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    cboArea.Focus();
                                     return false;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Debe seleccionar un área", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                cboArea.Focus();
+                                MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                txtNumeroDocumento.Focus();
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El documento debe tener " + Int32.Parse(((clsTipoDocumento)cboTipoDocumento.SelectedItem).NumeroDigitos) + " dígitos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtNumeroDocumento.Focus();
+                            MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboTipoDocumento.Focus();
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un tipo de documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cboTipoDocumento.Focus();
+                        MessageBox.Show("Debe ingresar el nombre del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtNombres.Focus();
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar el nombre del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNombres.Focus();
+                    MessageBox.Show("Debe ingresar el apellido materno del empleado administrativo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMaterno.Focus();
                     return false;
                 }
             }
@@ -534,13 +543,15 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objAdministrativo.Telefono = txtTelefono.Text;
                 objAdministrativo.Celular = txtCelular.Text;
                 objAdministrativo.CorreoElectronico = txtCorreoElectronico.Text;
-                objAdministrativo.Usuario = "";
-                objAdministrativo.Contrasena = "";
+                objAdministrativo.Usuario = ctrEmpleado.generarNombreUsuario(numIdAdministrativo, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                objAdministrativo.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
 
                 if (numAccion == clsComun.INSERTAR)
                 {
                     if (ctrAdministrativo.registrarAdministrativo(objAdministrativo))
                     {
+                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objAdministrativo.Paterno, objAdministrativo.Materno, objAdministrativo.Nombres, objAdministrativo.Usuario, objAdministrativo.Contrasena);
+
                         if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             limpiarFormulario();
@@ -549,6 +560,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         }
                         else
                         {
+                            clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
+                            clsComun.redimensionarVentana(this, 585, 445);
                             clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();

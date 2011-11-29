@@ -25,6 +25,12 @@ namespace SistemaCentroSalud
 
         }
 
+        private void smnuContrasena_Click(object sender, EventArgs e)
+        {
+            frmCambiarContrasena ventanaCambiarContrasena = new frmCambiarContrasena(this);
+            ventanaCambiarContrasena.ShowDialog();
+        }
+
         private void smnuPaciente_Click(object sender, EventArgs e)
         {
             frmPaciente ventanaPaciente = new frmPaciente(this);
@@ -265,6 +271,26 @@ namespace SistemaCentroSalud
         public int obtenerIdEmpleado()
         {
             return ventanaBienvenida.getIdEmpleado();
+        }
+
+        public string obtenerContrasenaEmpleado()
+        {
+            return ventanaBienvenida.getContrasena();
+        }
+
+        public void setearContrasenaEmpleado(string strContrasena)
+        {
+            ventanaBienvenida.setContrasena(strContrasena);
+        }
+
+        public string obtenerNombreUsuarioEmpleado()
+        {
+            return ventanaBienvenida.getUsuario();
+        }
+
+        public void setearNombreUsuarioEmpleado(string strContrasena)
+        {
+            ventanaBienvenida.setUsuario(strContrasena);
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

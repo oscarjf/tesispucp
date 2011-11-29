@@ -1,2 +1,4 @@
-- Metodo NullToEmpty
-- Metodo NullToZero
+Optimizar:
+
+- Un solo metodo para los txt y cbo Buscar
+

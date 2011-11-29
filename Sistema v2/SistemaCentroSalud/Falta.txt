@@ -1,3 +1,6 @@
+- Cargar foto
+- Tomar foto
+
 Optimizar:
 
 - Un solo metodo para los txt y cbo Buscar

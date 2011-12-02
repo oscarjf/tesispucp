@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Comun
 {
+    /// <summary>
+    /// Clase que contiene métodos comunes a varios proyectos
+    /// </summary>
     public class clsComun
     {
         public const int INSERTAR = 0;
@@ -18,6 +21,10 @@ namespace Comun
         public const int SELECCIONARCRITERIO = 6;
         public const int VER = 7;
 
+        /// <summary>
+        /// Registra en un archivo de texto los errores encontrados
+        /// </summary>
+        /// <param name="strError"> Descripción del error </param>
         public static void registrarErrorLog(string strError)
         {
             try
@@ -38,6 +45,11 @@ namespace Comun
             }
         }
 
+        /// <summary>
+        /// Valida el formato de un correo electrónico
+        /// </summary>
+        /// <param name="strEmail"> Correo electrónico a evaluar </param>
+        /// <returns>bool</returns>
         public static bool validarCorreoElectronico(string strEmail)
         {
             string strExpresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
@@ -59,6 +71,16 @@ namespace Comun
             }
         }
 
+        /// <summary>
+        /// Envía un correo eléctronico a un destinatario
+        /// </summary>
+        /// <param name="strDestinatario"> Correo electrónico del destinatario </param>
+        /// <param name="strPaterno"> Apellido paterno del destinatario </param>
+        /// <param name="strMaterno"> Apellido materno del destinatario </param>
+        /// <param name="strNombres"> Nombres del destinatario </param>
+        /// <param name="strUsuario"> Nombre de usuario  del destinatario </param>
+        /// <param name="strContrasena"> Contraseña  del destinatario </param>
+        /// <returns>bool</returns>
         public static bool enviarCorreo(string strDestinatario, string strPaterno, string strMaterno, string strNombres, string strUsuario, string strContrasena)
         {
             try
@@ -113,6 +135,12 @@ namespace Comun
             }
         }
 
+        /// <summary>
+        /// Cambia a la segunda pestaña de un 'TabControl'
+        /// </summary>
+        /// <param name="tbc"> TabControl </param>
+        /// <param name="tbpBuscar"> Primera pestaña del TabControl </param>
+        /// <param name="tbpDetalle"> Segunta pestaña del TabControl </param>
         public static void tabSiguiente(TabControl tbc, TabPage tbpBuscar, TabPage tbpDetalle)
         {
             tbpDetalle.Enabled = true;
@@ -121,6 +149,12 @@ namespace Comun
             tbc.SelectedTab = tbpDetalle;
         }
 
+        /// <summary>
+        /// Cambia a la primera pestaña de un 'TabControl'
+        /// </summary>
+        /// <param name="tbc"> TabControl </param>
+        /// <param name="tbpBuscar"> Primera pestaña del TabControl </param>
+        /// <param name="tbpDetalle"> Segunta pestaña del TabControl </param>
         public static void tabAnterior(TabControl tbc, TabPage tbpBuscar, TabPage tbpDetalle)
         {
             tbpBuscar.Enabled = true;
@@ -129,52 +163,35 @@ namespace Comun
             tbc.SelectedTab = tbpBuscar;
         }
 
+        /// <summary>
+        /// Cambia de tamaño a un 'TabControl'
+        /// </summary>
+        /// <param name="tbc"> TabControl </param>
+        /// <param name="numAncho"> Ancho del TabControl </param>
+        /// <param name="numAlto"> Alto del TabControl </param>
         public static void redimensionarTabControl(TabControl tbc, int numAncho, int numAlto)
         {
             tbc.Width = numAncho;
             tbc.Height = numAlto;
         }
 
+        /// <summary>
+        /// Cambia de tamaño a un 'Form'
+        /// </summary>
+        /// <param name="frmVentana"> Formulario </param>
+        /// <param name="numAncho"> Ancho del formulario </param>
+        /// <param name="numAlto"> Alto del formulario </param>
         public static void redimensionarVentana(Form frmVentana, int numAncho, int numAlto)
         {
             frmVentana.Width = numAncho;
             frmVentana.Height = numAlto;
         }
 
-        public static byte[] ImageABytes(Image imgFoto)
-        {
-            string strTemporal = Path.GetTempFileName();
-            FileStream fs = new FileStream(strTemporal, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            imgFoto.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
-            fs.Position = 0;
-            
-            int numTamano = Convert.ToInt32(fs.Length);
-            byte[] bytes = new byte[numTamano];
-            
-            fs.Read(bytes, 0, numTamano);
-            fs.Close();
-
-            return bytes;
-        }
-
-        public static Image BytesAImage(byte[] bytes)
-        {
-            if (bytes == null) return null;
-            
-            MemoryStream ms = new MemoryStream(bytes);
-            Bitmap bm = null;
-            try
-            {
-                bm = new Bitmap(ms);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
-
-            return bm;
-        }
-
+        /// <summary>
+        /// Convierte una cadena 'SELECCIONAR' a una cadena vacía
+        /// </summary>
+        /// <param name="strCadena"> Cadena a ser evaluada </param>
+        /// <returns>string</returns>
         public static string seleccionarToVacio(string strCadena)
         {
             if (strCadena.CompareTo("SELECCIONAR") == 0)
@@ -187,6 +204,11 @@ namespace Comun
             }
         }
 
+        /// <summary>
+        /// Convierte una cadena vacia a 'SELECCIONAR'
+        /// </summary>
+        /// <param name="strCadena"> Cadena a ser evaluada </param>
+        /// <returns>string</returns>
         public static string vacioToSeleccionar(string strCadena)
         {
             if (strCadena.CompareTo("") == 0)
@@ -199,6 +221,11 @@ namespace Comun
             }
         }
 
+        /// <summary>
+        /// Convierte una cadena vacia a '0'
+        /// </summary>
+        /// <param name="strCadena"> Cadena a ser evaluada </param>
+        /// <returns>string</returns>
         public static string vacioToCero(string strCadena)
         {
             if (strCadena.CompareTo("") == 0)

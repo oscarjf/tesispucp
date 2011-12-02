@@ -139,26 +139,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsUnidadProductoraServicio objUnidadProductoraServicio = new clsUnidadProductoraServicio();
-                objUnidadProductoraServicio.IdUnidadProductoraServicio = numIdUnidadProductoraServicio;
-                objUnidadProductoraServicio.Codigo = txtCodigoDetalle.Text;
-                objUnidadProductoraServicio.Nombre = txtNombreDetalle.Text;
-                objUnidadProductoraServicio.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcUnidadProductoraServicio, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrUnidadProductoraServicio.registrarUnidadProductoraServicio(objUnidadProductoraServicio))
-                    {
-                        if (MessageBox.Show("La unidad productora de servicio se registró exitosamente\n¿Desea seguir registrando unidades productoras de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsUnidadProductoraServicio objUnidadProductoraServicio = new clsUnidadProductoraServicio();
+                    objUnidadProductoraServicio.IdUnidadProductoraServicio = numIdUnidadProductoraServicio;
+                    objUnidadProductoraServicio.Codigo = txtCodigoDetalle.Text;
+                    objUnidadProductoraServicio.Nombre = txtNombreDetalle.Text;
+                    objUnidadProductoraServicio.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrUnidadProductoraServicio.registrarUnidadProductoraServicio(objUnidadProductoraServicio))
+                        {
+                            if (MessageBox.Show("La unidad productora de servicio se registró exitosamente\n¿Desea seguir registrando unidades productoras de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcUnidadProductoraServicio, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicio(objUnidadProductoraServicio);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la unidad productora de servicio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrUnidadProductoraServicio.modificarUnidadProductoraServicio(objUnidadProductoraServicio))
+                        {
+                            MessageBox.Show("La unidad productora de servicio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcUnidadProductoraServicio, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -168,45 +202,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicio(objUnidadProductoraServicio);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la unidad productora de servicio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la unidad productora de servicio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrUnidadProductoraServicio.modificarUnidadProductoraServicio(objUnidadProductoraServicio))
-                    {
-                        MessageBox.Show("La unidad productora de servicio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcUnidadProductoraServicio, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicio(objUnidadProductoraServicio);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la unidad productora de servicio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcUnidadProductoraServicio, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

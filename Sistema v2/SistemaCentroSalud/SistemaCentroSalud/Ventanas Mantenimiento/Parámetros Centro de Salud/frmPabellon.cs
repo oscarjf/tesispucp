@@ -113,25 +113,59 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsPabellon objPabellon = new clsPabellon();
-                objPabellon.IdPabellon = numIdPabellon;
-                objPabellon.Nombre = txtNombreDetalle.Text;
-                objPabellon.Descripcion = rtxtDescripcionDetalle.Text;
-                
-                if (numAccion == clsComun.INSERTAR)
-                {
-                    if (ctrPabellon.registrarPabellon(objPabellon))
-                    {
-                        if (MessageBox.Show("El pabellón se registró exitosamente\n¿Desea seguir registrando pabellones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                clsComun.tabAnterior(tbcPabellon, tbpBuscar, tbpDetalle);
 
-                            txtNombreDetalle.Focus();
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
+                {
+                    clsPabellon objPabellon = new clsPabellon();
+                    objPabellon.IdPabellon = numIdPabellon;
+                    objPabellon.Nombre = txtNombreDetalle.Text;
+                    objPabellon.Descripcion = rtxtDescripcionDetalle.Text;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrPabellon.registrarPabellon(objPabellon))
+                        {
+                            if (MessageBox.Show("El pabellón se registró exitosamente\n¿Desea seguir registrando pabellones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcPabellon, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtPabellones = ctrPabellon.seleccionarPabellones(objPabellon);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el pabellón", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrPabellon.modificarPabellon(objPabellon))
+                        {
+                            MessageBox.Show("El pabellón se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcPabellon, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -141,45 +175,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtPabellones = ctrPabellon.seleccionarPabellones(objPabellon);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el pabellón", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el pabellón", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrPabellon.modificarPabellon(objPabellon))
-                    {
-                        MessageBox.Show("El pabellón se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcPabellon, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtPabellones = ctrPabellon.seleccionarPabellones(objPabellon);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el pabellón", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcPabellon, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

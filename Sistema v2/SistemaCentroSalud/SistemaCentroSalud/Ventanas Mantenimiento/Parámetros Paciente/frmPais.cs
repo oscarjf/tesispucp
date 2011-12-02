@@ -113,25 +113,59 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsPais objPais = new clsPais();
-                objPais.IdPais = numIdPais;
-                objPais.Nombre = txtNombreDetalle.Text;
-                objPais.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcPais, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrPais.registrarPais(objPais))
-                    {
-                        if (MessageBox.Show("El país se registró exitosamente\n¿Desea seguir registrando países?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsPais objPais = new clsPais();
+                    objPais.IdPais = numIdPais;
+                    objPais.Nombre = txtNombreDetalle.Text;
+                    objPais.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrPais.registrarPais(objPais))
+                        {
+                            if (MessageBox.Show("El país se registró exitosamente\n¿Desea seguir registrando países?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcPais, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtPaises = ctrPais.seleccionarPaises(objPais);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el país", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrPais.modificarPais(objPais))
+                        {
+                            MessageBox.Show("El país se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcPais, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -141,45 +175,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtPaises = ctrPais.seleccionarPaises(objPais);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el país", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el país", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrPais.modificarPais(objPais))
-                    {
-                        MessageBox.Show("El país se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcPais, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtPaises = ctrPais.seleccionarPaises(objPais);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el país", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcPais, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

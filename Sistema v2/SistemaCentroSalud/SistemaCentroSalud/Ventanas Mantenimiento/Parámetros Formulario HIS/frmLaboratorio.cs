@@ -139,26 +139,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsLaboratorio objLaboratorio = new clsLaboratorio();
-                objLaboratorio.IdLaboratorio = numIdLaboratorio;
-                objLaboratorio.Codigo = txtCodigoDetalle.Text;
-                objLaboratorio.Nombre = txtNombreDetalle.Text;
-                objLaboratorio.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcLaboratorio, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrLaboratorio.registrarLaboratorio(objLaboratorio))
-                    {
-                        if (MessageBox.Show("El laboratorio se registró exitosamente\n¿Desea seguir registrando laboratorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsLaboratorio objLaboratorio = new clsLaboratorio();
+                    objLaboratorio.IdLaboratorio = numIdLaboratorio;
+                    objLaboratorio.Codigo = txtCodigoDetalle.Text;
+                    objLaboratorio.Nombre = txtNombreDetalle.Text;
+                    objLaboratorio.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrLaboratorio.registrarLaboratorio(objLaboratorio))
+                        {
+                            if (MessageBox.Show("El laboratorio se registró exitosamente\n¿Desea seguir registrando laboratorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcLaboratorio, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtLaboratorios = ctrLaboratorio.seleccionarLaboratorios(objLaboratorio);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el laboratorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrLaboratorio.modificarLaboratorio(objLaboratorio))
+                        {
+                            MessageBox.Show("El laboratorio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcLaboratorio, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -168,45 +202,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtLaboratorios = ctrLaboratorio.seleccionarLaboratorios(objLaboratorio);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el laboratorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el laboratorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrLaboratorio.modificarLaboratorio(objLaboratorio))
-                    {
-                        MessageBox.Show("El laboratorio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcLaboratorio, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtLaboratorios = ctrLaboratorio.seleccionarLaboratorios(objLaboratorio);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el laboratorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcLaboratorio, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

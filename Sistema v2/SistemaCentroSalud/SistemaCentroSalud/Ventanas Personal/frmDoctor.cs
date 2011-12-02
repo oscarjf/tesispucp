@@ -14,6 +14,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private int numAccion;
         private int numIdDoctor;
         private string strRutaFoto = "";
+        private bool blnCambioFoto = false;
 
         public frmDoctor()
         {
@@ -389,6 +390,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtTelefono.Clear();
             txtCelular.Clear();
             txtCorreoElectronico.Clear();
+            strRutaFoto = "";
+            blnCambioFoto = false;
         }
 
         private void mostrarInformacion(clsDoctor objDoctor, int numAccion)
@@ -421,6 +424,19 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 txtTelefono.Text = objDoctor.Telefono;
                 txtCelular.Text = objDoctor.Celular;
                 txtCorreoElectronico.Text = objDoctor.CorreoElectronico;
+
+                try
+                {
+                    if (objDoctor.Foto.CompareTo("") != 0)
+                    {
+                        pbxFoto.Image = Image.FromFile(objDoctor.Foto);
+                        strRutaFoto = objDoctor.Foto;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
             }
 
             if (numAccion == clsComun.VER)
@@ -630,6 +646,36 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
+        private void enviarCorreo(string strDestinatario, string strPaterno, string strMaterno, string strNombres, string strUsuario, string strContrasena)
+        {
+            if (!clsComun.enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaban enviar los datos de cuenta al correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                {
+                    enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena);
+                }
+            }
+        }
+
+        private void guardarFoto()
+        {
+            try
+            {
+                pbxFoto.Image.Save(strRutaFoto);
+            }
+            catch
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaba guardar la foto", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) != DialogResult.Cancel)
+                {
+                    guardarFoto();
+                }
+                else
+                {
+                    strRutaFoto = "";
+                }
+            }
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             numAccion = clsComun.INSERTAR;
@@ -645,57 +691,104 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsDoctor objDoctor = new clsDoctor();
-                objDoctor.IdDoctor = numIdDoctor;
-                objDoctor.Paterno = txtPaterno.Text;
-                objDoctor.Materno = txtMaterno.Text;
-                objDoctor.Nombres = txtNombres.Text;
-                objDoctor.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
-                objDoctor.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
-                objDoctor.FechaNacimiento = dtpFechaNacimiento.Value.Date;
-                objDoctor.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
-                objDoctor.NumeroDocumento = txtNumeroDocumento.Text;
-                objDoctor.Pais = clsComun.seleccionarToVacio(cboPais.Text);
-                objDoctor.DepartamentoNacimiento = cboDepartamento.Text;
-                objDoctor.ProvinciaNacimiento = cboProvincia.Text;
-                objDoctor.DistritoNacimiento = cboDistrito.Text;
-                objDoctor.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
-                objDoctor.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
-                objDoctor.DistritoDomicilio = cboDistritoDomicilio.Text;
-                objDoctor.Direccion = txtDireccion.Text;
-                objDoctor.CMP = txtCMP.Text;
-                objDoctor.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
-                string strListaIdEspecialidades = strListaIdEspecialidades = ((clsEspecialidad)lbxEspecialidadesDoctor.Items[0]).IdEspecialidad + "";
-                
-                for (int i = 1; i < lbxEspecialidadesDoctor.Items.Count; i++)
-                {
-                    strListaIdEspecialidades += "," + ((clsEspecialidad)lbxEspecialidadesDoctor.Items[i]).IdEspecialidad;
-                }
-                objDoctor.ListaIdEspecialidades = strListaIdEspecialidades;
-                objDoctor.Foto = strRutaFoto;
-                objDoctor.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
-                objDoctor.Telefono = txtTelefono.Text;
-                objDoctor.Celular = txtCelular.Text;
-                objDoctor.CorreoElectronico = txtCorreoElectronico.Text;
-                objDoctor.Usuario = ctrEmpleado.generarNombreUsuario(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                objDoctor.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+                clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
+                clsComun.redimensionarVentana(this, 583, 443);
+                clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtPaternoBuscar.Focus();
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (validarFormulario())
                 {
-                    if (ctrDoctor.registrarDoctor(objDoctor))
+                    clsDoctor objDoctor = new clsDoctor();
+                    objDoctor.IdDoctor = numIdDoctor;
+                    objDoctor.Paterno = txtPaterno.Text;
+                    objDoctor.Materno = txtMaterno.Text;
+                    objDoctor.Nombres = txtNombres.Text;
+                    objDoctor.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                    objDoctor.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
+                    objDoctor.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                    objDoctor.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
+                    objDoctor.NumeroDocumento = txtNumeroDocumento.Text;
+                    objDoctor.Pais = clsComun.seleccionarToVacio(cboPais.Text);
+                    objDoctor.DepartamentoNacimiento = cboDepartamento.Text;
+                    objDoctor.ProvinciaNacimiento = cboProvincia.Text;
+                    objDoctor.DistritoNacimiento = cboDistrito.Text;
+                    objDoctor.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
+                    objDoctor.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
+                    objDoctor.DistritoDomicilio = cboDistritoDomicilio.Text;
+                    objDoctor.Direccion = txtDireccion.Text;
+                    objDoctor.CMP = txtCMP.Text;
+                    objDoctor.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
+                    string strListaIdEspecialidades = strListaIdEspecialidades = ((clsEspecialidad)lbxEspecialidadesDoctor.Items[0]).IdEspecialidad + "";
+
+                    for (int i = 1; i < lbxEspecialidadesDoctor.Items.Count; i++)
                     {
-                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objDoctor.Paterno, objDoctor.Materno, objDoctor.Nombres, objDoctor.Usuario, objDoctor.Contrasena);
+                        strListaIdEspecialidades += "," + ((clsEspecialidad)lbxEspecialidadesDoctor.Items[i]).IdEspecialidad;
+                    }
+                    objDoctor.ListaIdEspecialidades = strListaIdEspecialidades;
+                    objDoctor.Foto = strRutaFoto;
+                    objDoctor.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
+                    objDoctor.Telefono = txtTelefono.Text;
+                    objDoctor.Celular = txtCelular.Text;
+                    objDoctor.CorreoElectronico = txtCorreoElectronico.Text;
+                    objDoctor.Usuario = ctrEmpleado.generarNombreUsuario(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                    objDoctor.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
 
-                        if (MessageBox.Show("El doctor se registró exitosamente\n¿Desea seguir registrando doctores?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (blnCambioFoto)
+                    {
+                        guardarFoto();
+                    }
+
+                    objDoctor.Foto = strRutaFoto;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrDoctor.registrarDoctor(objDoctor))
                         {
-                            limpiarFormulario();
+                            enviarCorreo(txtCorreoElectronico.Text, objDoctor.Paterno, objDoctor.Materno, objDoctor.Nombres, objDoctor.Usuario, objDoctor.Contrasena);
 
-                            txtPaterno.Focus();
+                            if (MessageBox.Show("El doctor se registró exitosamente\n¿Desea seguir registrando doctores?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtPaterno.Focus();
+                            }
+                            else
+                            {
+                                clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
+                                clsComun.redimensionarVentana(this, 583, 443);
+                                clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtPaternoBuscar.Focus();
+
+                                dtDoctores = ctrDoctor.seleccionarDoctores(objDoctor);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrDoctor.modificarDoctor(objDoctor))
+                        {
+                            MessageBox.Show("El doctor se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
                             clsComun.redimensionarVentana(this, 583, 443);
                             clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
@@ -707,50 +800,17 @@ namespace SistemaCentroSalud.Ventanas_Personal
                             dtDoctores = ctrDoctor.seleccionarDoctores(objDoctor);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
                 }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrDoctor.modificarDoctor(objDoctor))
-                    {
-                        MessageBox.Show("El doctor se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
-                        clsComun.redimensionarVentana(this, 583, 443);
-                        clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
-                        
-                        limpiarFormulario();
-
-                        txtPaternoBuscar.Focus();
-
-                        dtDoctores = ctrDoctor.seleccionarDoctores(objDoctor);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el doctor", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.redimensionarTabControl(tbcDoctor, 579, 417);
-                    clsComun.redimensionarVentana(this, 583, 443);
-                    clsComun.tabAnterior(tbcDoctor, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtPaternoBuscar.Focus();
-                }
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -914,6 +974,47 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnTomarFoto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdFoto = new OpenFileDialog();
+            ofdFoto.Title = "Seleccionar foto";
+            ofdFoto.Filter = "Archivos JPG (*.jpg)|*.jpg";
+            ofdFoto.FilterIndex = 2;
+            ofdFoto.RestoreDirectory = true;
+
+            DialogResult drFoto = ofdFoto.ShowDialog();
+
+            if (drFoto == DialogResult.OK)
+            {
+                Image imgFoto = Image.FromFile(ofdFoto.FileName);
+
+                if (imgFoto.Width <= 240 && imgFoto.Height <= 288)
+                {
+                    this.pbxFoto.Image = Image.FromFile(ofdFoto.FileName);
+
+                    //strRutaFoto = AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + DateTime.Now;
+
+                    //pbxFoto.Image.Save(strRutaFoto);
+                }
+                else
+                {
+                    MessageBox.Show("La imagen no debe sobrepasar los 240 x 288 pixeles", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnBuscarFoto_Click(sender, e);
+                }
+            }
+        }
+
+        private void btnQuitarFoto_Click(object sender, EventArgs e)
+        {
+            pbxFoto.Image = Properties.Resources.FotoPredeterminado;
+            strRutaFoto = "";
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)

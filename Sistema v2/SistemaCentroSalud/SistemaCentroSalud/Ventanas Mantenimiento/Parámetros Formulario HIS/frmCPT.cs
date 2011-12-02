@@ -139,26 +139,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsCPT objCPT = new clsCPT();
-                objCPT.IdCPT = numIdCPT;
-                objCPT.Codigo = txtCodigoDetalle.Text;
-                objCPT.Nombre = txtNombreDetalle.Text;
-                objCPT.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcCPT, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrCPT.registrarCPT(objCPT))
-                    {
-                        if (MessageBox.Show("El CPT se registró exitosamente\n¿Desea seguir registrando CPTs?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsCPT objCPT = new clsCPT();
+                    objCPT.IdCPT = numIdCPT;
+                    objCPT.Codigo = txtCodigoDetalle.Text;
+                    objCPT.Nombre = txtNombreDetalle.Text;
+                    objCPT.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrCPT.registrarCPT(objCPT))
+                        {
+                            if (MessageBox.Show("El CPT se registró exitosamente\n¿Desea seguir registrando CPTs?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcCPT, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtCPTs = ctrCPT.seleccionarCPTs(objCPT);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el CPT", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrCPT.modificarCPT(objCPT))
+                        {
+                            MessageBox.Show("El CPT se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcCPT, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -168,45 +202,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtCPTs = ctrCPT.seleccionarCPTs(objCPT);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el CPT", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el CPT", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrCPT.modificarCPT(objCPT))
-                    {
-                        MessageBox.Show("El CPT se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcCPT, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtCPTs = ctrCPT.seleccionarCPTs(objCPT);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el CPT", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcCPT, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

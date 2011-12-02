@@ -179,26 +179,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsConsultorio objConsultorio = new clsConsultorio();
-                objConsultorio.IdConsultorio = numIdConsultorio;
-                objConsultorio.Piso = txtPisoDetalle.Text;
-                objConsultorio.Numero = txtNumeroDetalle.Text;
-                objConsultorio.IdPabellon = ((clsPabellon)cboPabellonDetalle.SelectedItem).IdPabellon;
+                clsComun.tabAnterior(tbcConsultorio, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                cboPabellonBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrConsultorio.registrarConsultorio(objConsultorio))
-                    {
-                        if (MessageBox.Show("El consultorio se registró exitosamente\n¿Desea seguir registrando consultorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsConsultorio objConsultorio = new clsConsultorio();
+                    objConsultorio.IdConsultorio = numIdConsultorio;
+                    objConsultorio.Piso = txtPisoDetalle.Text;
+                    objConsultorio.Numero = txtNumeroDetalle.Text;
+                    objConsultorio.IdPabellon = ((clsPabellon)cboPabellonDetalle.SelectedItem).IdPabellon;
 
-                            cboPabellonDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrConsultorio.registrarConsultorio(objConsultorio))
+                        {
+                            if (MessageBox.Show("El consultorio se registró exitosamente\n¿Desea seguir registrando consultorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                cboPabellonDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcConsultorio, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                cboPabellonBuscar.Focus();
+
+                                dtConsultorios = ctrConsultorio.seleccionarConsultorios(objConsultorio);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el consultorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrConsultorio.modificarConsultorio(objConsultorio))
+                        {
+                            MessageBox.Show("El consultorio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcConsultorio, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -208,45 +242,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtConsultorios = ctrConsultorio.seleccionarConsultorios(objConsultorio);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el consultorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el consultorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrConsultorio.modificarConsultorio(objConsultorio))
-                    {
-                        MessageBox.Show("El consultorio se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcConsultorio, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        cboPabellonBuscar.Focus();
-
-                        dtConsultorios = ctrConsultorio.seleccionarConsultorios(objConsultorio);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el consultorio", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcConsultorio, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    cboPabellonBuscar.Focus();
                 }
             }
         }

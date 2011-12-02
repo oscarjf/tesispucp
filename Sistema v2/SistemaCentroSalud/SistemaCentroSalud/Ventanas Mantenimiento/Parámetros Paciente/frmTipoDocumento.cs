@@ -129,26 +129,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
-                objTipoDocumento.IdTipoDocumento = numIdTipoDocumento;
-                objTipoDocumento.Nombre = txtNombreDetalle.Text;
-                objTipoDocumento.Descripcion = rtxtDescripcionDetalle.Text;
-                objTipoDocumento.NumeroDigitos = txtNumeroDigitosDetalle.Text;
+                clsComun.tabAnterior(tbcTipoDocumento, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrTipoDocumento.registrarTipoDocumento(objTipoDocumento))
-                    {
-                        if (MessageBox.Show("El tipo de documento se registró exitosamente\n¿Desea seguir registrando tipos de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
+                    objTipoDocumento.IdTipoDocumento = numIdTipoDocumento;
+                    objTipoDocumento.Nombre = txtNombreDetalle.Text;
+                    objTipoDocumento.Descripcion = rtxtDescripcionDetalle.Text;
+                    objTipoDocumento.NumeroDigitos = txtNumeroDigitosDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrTipoDocumento.registrarTipoDocumento(objTipoDocumento))
+                        {
+                            if (MessageBox.Show("El tipo de documento se registró exitosamente\n¿Desea seguir registrando tipos de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcTipoDocumento, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtTiposDocumento = ctrTipoDocumento.seleccionarTiposDocumento(objTipoDocumento);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el tipo de documento", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrTipoDocumento.modificarTipoDocumento(objTipoDocumento))
+                        {
+                            MessageBox.Show("El tipo de documento se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcTipoDocumento, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -158,45 +192,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtTiposDocumento = ctrTipoDocumento.seleccionarTiposDocumento(objTipoDocumento);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el tipo de documento", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el tipo de documento", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrTipoDocumento.modificarTipoDocumento(objTipoDocumento))
-                    {
-                        MessageBox.Show("El tipo de documento se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcTipoDocumento, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtTiposDocumento = ctrTipoDocumento.seleccionarTiposDocumento(objTipoDocumento);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el tipo de documento", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcTipoDocumento, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

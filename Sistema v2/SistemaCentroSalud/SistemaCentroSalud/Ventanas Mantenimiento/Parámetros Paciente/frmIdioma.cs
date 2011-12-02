@@ -113,25 +113,59 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsIdioma objIdioma = new clsIdioma();
-                objIdioma.IdIdioma = numIdIdioma;
-                objIdioma.Nombre = txtNombreDetalle.Text;
-                objIdioma.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcIdioma, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrIdioma.registrarIdioma(objIdioma))
-                    {
-                        if (MessageBox.Show("El idioma se registró exitosamente\n¿Desea seguir registrando idiomas?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsIdioma objIdioma = new clsIdioma();
+                    objIdioma.IdIdioma = numIdIdioma;
+                    objIdioma.Nombre = txtNombreDetalle.Text;
+                    objIdioma.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrIdioma.registrarIdioma(objIdioma))
+                        {
+                            if (MessageBox.Show("El idioma se registró exitosamente\n¿Desea seguir registrando idiomas?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcIdioma, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtIdiomas = ctrIdioma.seleccionarIdiomas(objIdioma);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el idioma", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrIdioma.modificarIdioma(objIdioma))
+                        {
+                            MessageBox.Show("El idioma se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcIdioma, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -141,45 +175,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtIdiomas = ctrIdioma.seleccionarIdiomas(objIdioma);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el idioma", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el idioma", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrIdioma.modificarIdioma(objIdioma))
-                    {
-                        MessageBox.Show("El idioma se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcIdioma, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtIdiomas = ctrIdioma.seleccionarIdiomas(objIdioma);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el idioma", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcIdioma, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

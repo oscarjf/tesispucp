@@ -14,6 +14,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private int numAccion;
         private int numIdAdministrativo;
         private string strRutaFoto = "";
+        private bool blnCambioFoto = false;
 
         public frmAdministrativo()
         {
@@ -312,6 +313,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtTelefono.Clear();
             txtCelular.Clear();
             txtCorreoElectronico.Clear();
+            strRutaFoto = "";
+            blnCambioFoto = false;
         }
 
         private void mostrarInformacion(clsAdministrativo objAdministrativo, int numAccion)
@@ -339,6 +342,19 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 txtTelefono.Text = objAdministrativo.Telefono;
                 txtCelular.Text = objAdministrativo.Celular;
                 txtCorreoElectronico.Text = objAdministrativo.CorreoElectronico;
+
+                try
+                {
+                    if (objAdministrativo.Foto.CompareTo("") != 0)
+                    {
+                        pbxFoto.Image = Image.FromFile(objAdministrativo.Foto);
+                        strRutaFoto = objAdministrativo.Foto;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
             }
 
             if (numAccion == clsComun.VER)
@@ -502,6 +518,36 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
+        private void enviarCorreo(string strDestinatario, string strPaterno, string strMaterno, string strNombres, string strUsuario, string strContrasena)
+        {
+            if (!clsComun.enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaban enviar los datos de cuenta al correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                {
+                    enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena);
+                }
+            }
+        }
+
+        private void guardarFoto()
+        {
+            try
+            {
+                pbxFoto.Image.Save(strRutaFoto);
+            }
+            catch
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaba guardar la foto", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) != DialogResult.Cancel)
+                {
+                    guardarFoto();
+                }
+                else
+                {
+                    strRutaFoto = "";
+                }
+            }
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             numAccion = clsComun.INSERTAR;
@@ -517,49 +563,96 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.IdAdministrativo = numIdAdministrativo;
-                objAdministrativo.Paterno = txtPaterno.Text;
-                objAdministrativo.Materno = txtMaterno.Text;
-                objAdministrativo.Nombres = txtNombres.Text;
-                objAdministrativo.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
-                objAdministrativo.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
-                objAdministrativo.FechaNacimiento = dtpFechaNacimiento.Value.Date;
-                objAdministrativo.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
-                objAdministrativo.NumeroDocumento = txtNumeroDocumento.Text;
-                objAdministrativo.Pais = clsComun.seleccionarToVacio(cboPais.Text);
-                objAdministrativo.DepartamentoNacimiento = cboDepartamento.Text;
-                objAdministrativo.ProvinciaNacimiento = cboProvincia.Text;
-                objAdministrativo.DistritoNacimiento = cboDistrito.Text;
-                objAdministrativo.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
-                objAdministrativo.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
-                objAdministrativo.DistritoDomicilio = cboDistritoDomicilio.Text;
-                objAdministrativo.Direccion = txtDireccion.Text;
-                objAdministrativo.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
-                objAdministrativo.Foto = strRutaFoto;
-                objAdministrativo.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
-                objAdministrativo.Telefono = txtTelefono.Text;
-                objAdministrativo.Celular = txtCelular.Text;
-                objAdministrativo.CorreoElectronico = txtCorreoElectronico.Text;
-                objAdministrativo.Usuario = ctrEmpleado.generarNombreUsuario(numIdAdministrativo, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                objAdministrativo.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+                clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
+                clsComun.redimensionarVentana(this, 585, 445);
+                clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtPaternoBuscar.Focus();
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (validarFormulario())
                 {
-                    if (ctrAdministrativo.registrarAdministrativo(objAdministrativo))
+                    clsAdministrativo objAdministrativo = new clsAdministrativo();
+                    objAdministrativo.IdAdministrativo = numIdAdministrativo;
+                    objAdministrativo.Paterno = txtPaterno.Text;
+                    objAdministrativo.Materno = txtMaterno.Text;
+                    objAdministrativo.Nombres = txtNombres.Text;
+                    objAdministrativo.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                    objAdministrativo.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
+                    objAdministrativo.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                    objAdministrativo.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
+                    objAdministrativo.NumeroDocumento = txtNumeroDocumento.Text;
+                    objAdministrativo.Pais = clsComun.seleccionarToVacio(cboPais.Text);
+                    objAdministrativo.DepartamentoNacimiento = cboDepartamento.Text;
+                    objAdministrativo.ProvinciaNacimiento = cboProvincia.Text;
+                    objAdministrativo.DistritoNacimiento = cboDistrito.Text;
+                    objAdministrativo.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
+                    objAdministrativo.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
+                    objAdministrativo.DistritoDomicilio = cboDistritoDomicilio.Text;
+                    objAdministrativo.Direccion = txtDireccion.Text;
+                    objAdministrativo.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
+                    objAdministrativo.Foto = strRutaFoto;
+                    objAdministrativo.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
+                    objAdministrativo.Telefono = txtTelefono.Text;
+                    objAdministrativo.Celular = txtCelular.Text;
+                    objAdministrativo.CorreoElectronico = txtCorreoElectronico.Text;
+                    objAdministrativo.Usuario = ctrEmpleado.generarNombreUsuario(numIdAdministrativo, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                    objAdministrativo.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
+                    if (blnCambioFoto)
                     {
-                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objAdministrativo.Paterno, objAdministrativo.Materno, objAdministrativo.Nombres, objAdministrativo.Usuario, objAdministrativo.Contrasena);
+                        guardarFoto();
+                    }
 
-                        if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    objAdministrativo.Foto = strRutaFoto;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrAdministrativo.registrarAdministrativo(objAdministrativo))
                         {
-                            limpiarFormulario();
+                            enviarCorreo(txtCorreoElectronico.Text, objAdministrativo.Paterno, objAdministrativo.Materno, objAdministrativo.Nombres, objAdministrativo.Usuario, objAdministrativo.Contrasena);
 
-                            txtPaterno.Focus();
+                            if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtPaterno.Focus();
+                            }
+                            else
+                            {
+                                clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
+                                clsComun.redimensionarVentana(this, 585, 445);
+                                clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtPaternoBuscar.Focus();
+
+                                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objAdministrativo);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrAdministrativo.modificarAdministrativo(objAdministrativo))
+                        {
+                            MessageBox.Show("El empleado administrativo se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
                             clsComun.redimensionarVentana(this, 585, 445);
                             clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
@@ -571,50 +664,17 @@ namespace SistemaCentroSalud.Ventanas_Personal
                             dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objAdministrativo);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
                 }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrAdministrativo.modificarAdministrativo(objAdministrativo))
-                    {
-                        MessageBox.Show("El empleado administrativo se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
-                        clsComun.redimensionarVentana(this, 585, 445);
-                        clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtPaternoBuscar.Focus();
-
-                        dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objAdministrativo);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.redimensionarTabControl(tbcAdministrativo, 582, 419);
-                    clsComun.redimensionarVentana(this, 585, 445);
-                    clsComun.tabAnterior(tbcAdministrativo, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtPaternoBuscar.Focus();
-                }
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -779,6 +839,42 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscarFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdFoto = new OpenFileDialog();
+            ofdFoto.Title = "Seleccionar foto";
+            ofdFoto.Filter = "Archivos JPG (*.jpg)|*.jpg";
+            ofdFoto.FilterIndex = 2;
+            ofdFoto.RestoreDirectory = true;
+
+            DialogResult drFoto = ofdFoto.ShowDialog();
+
+            if (drFoto == DialogResult.OK)
+            {
+                Image imgFoto = Image.FromFile(ofdFoto.FileName);
+
+                if (imgFoto.Width <= 240 && imgFoto.Height <= 288)
+                {
+                    this.pbxFoto.Image = Image.FromFile(ofdFoto.FileName);
+
+                    strRutaFoto = AppDomain.CurrentDomain.BaseDirectory + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss") + ".jpg";
+                    
+                    blnCambioFoto = true;
+                }
+                else
+                {
+                    MessageBox.Show("La imagen no debe sobrepasar los 240 x 288 pixeles", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnBuscarFoto_Click(sender, e);
+                }
+            }
+        }
+
+        private void btnQuitarFoto_Click(object sender, EventArgs e)
+        {
+            pbxFoto.Image = Properties.Resources.FotoPredeterminado;
+            strRutaFoto = "";
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)

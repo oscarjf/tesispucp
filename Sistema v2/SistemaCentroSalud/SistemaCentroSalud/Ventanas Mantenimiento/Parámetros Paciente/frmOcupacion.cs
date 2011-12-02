@@ -113,25 +113,59 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsOcupacion objOcupacion = new clsOcupacion();
-                objOcupacion.IdOcupacion = numIdOcupacion;
-                objOcupacion.Nombre = txtNombreDetalle.Text;
-                objOcupacion.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcOcupacion, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrOcupacion.registrarOcupacion(objOcupacion))
-                    {
-                        if (MessageBox.Show("La ocupación se registró exitosamente\n¿Desea seguir registrando ocupaciones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsOcupacion objOcupacion = new clsOcupacion();
+                    objOcupacion.IdOcupacion = numIdOcupacion;
+                    objOcupacion.Nombre = txtNombreDetalle.Text;
+                    objOcupacion.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrOcupacion.registrarOcupacion(objOcupacion))
+                        {
+                            if (MessageBox.Show("La ocupación se registró exitosamente\n¿Desea seguir registrando ocupaciones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcOcupacion, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtOcupaciones = ctrOcupacion.seleccionarOcupaciones(objOcupacion);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la ocupación", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrOcupacion.modificarOcupacion(objOcupacion))
+                        {
+                            MessageBox.Show("La ocupación se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcOcupacion, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -141,45 +175,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtOcupaciones = ctrOcupacion.seleccionarOcupaciones(objOcupacion);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la ocupación", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la ocupacion", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrOcupacion.modificarOcupacion(objOcupacion))
-                    {
-                        MessageBox.Show("La ocupación se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcOcupacion, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtOcupaciones = ctrOcupacion.seleccionarOcupaciones(objOcupacion);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la ocupacion", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcOcupacion, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

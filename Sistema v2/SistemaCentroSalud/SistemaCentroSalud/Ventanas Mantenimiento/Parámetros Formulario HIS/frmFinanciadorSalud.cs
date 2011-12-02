@@ -139,26 +139,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsFinanciadorSalud objFinanciadorSalud = new clsFinanciadorSalud();
-                objFinanciadorSalud.IdFinanciadorSalud = numIdFinanciadorSalud;
-                objFinanciadorSalud.Codigo = txtCodigoDetalle.Text;
-                objFinanciadorSalud.Nombre = txtNombreDetalle.Text;
-                objFinanciadorSalud.Descripcion = rtxtDescripcionDetalle.Text;
+                clsComun.tabAnterior(tbcFinanciadorSalud, tbpBuscar, tbpDetalle);
 
-                if (numAccion == clsComun.INSERTAR)
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
                 {
-                    if (ctrFinanciadorSalud.registrarFinanciadorSalud(objFinanciadorSalud))
-                    {
-                        if (MessageBox.Show("El financiador de salud se registró exitosamente\n¿Desea seguir registrando financiadores de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                    clsFinanciadorSalud objFinanciadorSalud = new clsFinanciadorSalud();
+                    objFinanciadorSalud.IdFinanciadorSalud = numIdFinanciadorSalud;
+                    objFinanciadorSalud.Codigo = txtCodigoDetalle.Text;
+                    objFinanciadorSalud.Nombre = txtNombreDetalle.Text;
+                    objFinanciadorSalud.Descripcion = rtxtDescripcionDetalle.Text;
 
-                            txtNombreDetalle.Focus();
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrFinanciadorSalud.registrarFinanciadorSalud(objFinanciadorSalud))
+                        {
+                            if (MessageBox.Show("El financiador de salud se registró exitosamente\n¿Desea seguir registrando financiadores de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcFinanciadorSalud, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSalud(objFinanciadorSalud);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el financiador de salud", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrFinanciadorSalud.modificarFinanciadorSalud(objFinanciadorSalud))
+                        {
+                            MessageBox.Show("El financiador de salud se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcFinanciadorSalud, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -168,45 +202,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSalud(objFinanciadorSalud);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el financiador de salud", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el financiador de salud", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrFinanciadorSalud.modificarFinanciadorSalud(objFinanciadorSalud))
-                    {
-                        MessageBox.Show("El financiador de salud se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcFinanciadorSalud, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSalud(objFinanciadorSalud);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el financiador de salud", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcFinanciadorSalud, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

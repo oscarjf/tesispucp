@@ -14,6 +14,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private int numAccion;
         private int numIdEnfermero;
         private string strRutaFoto = "";
+        private bool blnCambioFoto = false;
 
         public frmEnfermero()
         {
@@ -317,6 +318,8 @@ namespace SistemaCentroSalud.Ventanas_Personal
             txtTelefono.Clear();
             txtCelular.Clear();
             txtCorreoElectronico.Clear();
+            strRutaFoto = "";
+            blnCambioFoto = false;
         }
 
         private void mostrarInformacion(clsEnfermero objEnfermero, int numAccion)
@@ -345,6 +348,19 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 txtTelefono.Text = objEnfermero.Telefono;
                 txtCelular.Text = objEnfermero.Celular;
                 txtCorreoElectronico.Text = objEnfermero.CorreoElectronico;
+
+                try
+                {
+                    if (objEnfermero.Foto.CompareTo("") != 0)
+                    {
+                        pbxFoto.Image = Image.FromFile(objEnfermero.Foto);
+                        strRutaFoto = objEnfermero.Foto;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    clsComun.registrarErrorLog(ex.ToString());
+                }
             }
 
             if (numAccion == clsComun.VER)
@@ -537,6 +553,36 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
+        private void enviarCorreo(string strDestinatario, string strPaterno, string strMaterno, string strNombres, string strUsuario, string strContrasena)
+        {
+            if (!clsComun.enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaban enviar los datos de cuenta al correo electrónico del empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                {
+                    enviarCorreo(strDestinatario, strPaterno, strMaterno, strNombres, strUsuario, strContrasena);
+                }
+            }
+        }
+
+        private void guardarFoto()
+        {
+            try
+            {
+                pbxFoto.Image.Save(strRutaFoto);
+            }
+            catch
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaba guardar la foto", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) != DialogResult.Cancel)
+                {
+                    guardarFoto();
+                }
+                else
+                {
+                    strRutaFoto = "";
+                }
+            }
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             numAccion = clsComun.INSERTAR;
@@ -552,50 +598,97 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.IdEnfermero = numIdEnfermero;
-                objEnfermero.Paterno = txtPaterno.Text;
-                objEnfermero.Materno = txtMaterno.Text;
-                objEnfermero.Nombres = txtNombres.Text;
-                objEnfermero.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
-                objEnfermero.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
-                objEnfermero.FechaNacimiento = dtpFechaNacimiento.Value.Date;
-                objEnfermero.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
-                objEnfermero.NumeroDocumento = txtNumeroDocumento.Text;
-                objEnfermero.Pais = clsComun.seleccionarToVacio(cboPais.Text);
-                objEnfermero.DepartamentoNacimiento = cboDepartamento.Text;
-                objEnfermero.ProvinciaNacimiento = cboProvincia.Text;
-                objEnfermero.DistritoNacimiento = cboDistrito.Text;
-                objEnfermero.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
-                objEnfermero.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
-                objEnfermero.DistritoDomicilio = cboDistritoDomicilio.Text;
-                objEnfermero.Direccion = txtDireccion.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicencia.Text;
-                objEnfermero.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
-                objEnfermero.Foto = strRutaFoto;
-                objEnfermero.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
-                objEnfermero.Telefono = txtTelefono.Text;
-                objEnfermero.Celular = txtCelular.Text;
-                objEnfermero.CorreoElectronico = txtCorreoElectronico.Text;
-                objEnfermero.Usuario = ctrEmpleado.generarNombreUsuario(numIdEnfermero, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                objEnfermero.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
-                
-                if (numAccion == clsComun.INSERTAR)
+                clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+                clsComun.redimensionarVentana(this, 583, 443);
+                clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
+
+                limpiarFormulario();
+
+                txtPaternoBuscar.Focus();
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (validarFormulario())
                 {
-                    if (ctrEnfermero.registrarEnfermero(objEnfermero))
+                    clsEnfermero objEnfermero = new clsEnfermero();
+                    objEnfermero.IdEnfermero = numIdEnfermero;
+                    objEnfermero.Paterno = txtPaterno.Text;
+                    objEnfermero.Materno = txtMaterno.Text;
+                    objEnfermero.Nombres = txtNombres.Text;
+                    objEnfermero.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                    objEnfermero.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
+                    objEnfermero.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                    objEnfermero.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
+                    objEnfermero.NumeroDocumento = txtNumeroDocumento.Text;
+                    objEnfermero.Pais = clsComun.seleccionarToVacio(cboPais.Text);
+                    objEnfermero.DepartamentoNacimiento = cboDepartamento.Text;
+                    objEnfermero.ProvinciaNacimiento = cboProvincia.Text;
+                    objEnfermero.DistritoNacimiento = cboDistrito.Text;
+                    objEnfermero.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
+                    objEnfermero.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
+                    objEnfermero.DistritoDomicilio = cboDistritoDomicilio.Text;
+                    objEnfermero.Direccion = txtDireccion.Text;
+                    objEnfermero.NumeroLicencia = txtNumeroLicencia.Text;
+                    objEnfermero.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
+                    objEnfermero.Foto = strRutaFoto;
+                    objEnfermero.IdPerfil = ((clsPerfil)cboPerfil.SelectedItem).IdPerfil;
+                    objEnfermero.Telefono = txtTelefono.Text;
+                    objEnfermero.Celular = txtCelular.Text;
+                    objEnfermero.CorreoElectronico = txtCorreoElectronico.Text;
+                    objEnfermero.Usuario = ctrEmpleado.generarNombreUsuario(numIdEnfermero, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                    objEnfermero.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
+                    if (blnCambioFoto)
                     {
-                        clsComun.enviarCorreo(txtCorreoElectronico.Text, objEnfermero.Paterno, objEnfermero.Materno, objEnfermero.Nombres, objEnfermero.Usuario, objEnfermero.Contrasena);
+                        guardarFoto();
+                    }
 
-                        if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    objEnfermero.Foto = strRutaFoto;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrEnfermero.registrarEnfermero(objEnfermero))
                         {
-                            limpiarFormulario();
+                            enviarCorreo(txtCorreoElectronico.Text, objEnfermero.Paterno, objEnfermero.Materno, objEnfermero.Nombres, objEnfermero.Usuario, objEnfermero.Contrasena);
 
-                            txtPaterno.Focus();
+                            if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtPaterno.Focus();
+                            }
+                            else
+                            {
+                                clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
+                                clsComun.redimensionarVentana(this, 583, 443);
+                                clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtPaternoBuscar.Focus();
+
+                                dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objEnfermero);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrEnfermero.modificarEnfermero(objEnfermero))
+                        {
+                            MessageBox.Show("El enfermero se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
                             clsComun.redimensionarVentana(this, 583, 443);
                             clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
@@ -607,50 +700,17 @@ namespace SistemaCentroSalud.Ventanas_Personal
                             dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objEnfermero);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
                 }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrEnfermero.modificarEnfermero(objEnfermero))
-                    {
-                        MessageBox.Show("El enfermero se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
-                        clsComun.redimensionarVentana(this, 583, 443);
-                        clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtPaternoBuscar.Focus();
-
-                        dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objEnfermero);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el enfermero", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.redimensionarTabControl(tbcEnfermero, 579, 417);
-                    clsComun.redimensionarVentana(this, 583, 443);
-                    clsComun.tabAnterior(tbcEnfermero, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtPaternoBuscar.Focus();
-                }
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -814,6 +874,47 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnTomarFoto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdFoto = new OpenFileDialog();
+            ofdFoto.Title = "Seleccionar foto";
+            ofdFoto.Filter = "Archivos JPG (*.jpg)|*.jpg";
+            ofdFoto.FilterIndex = 2;
+            ofdFoto.RestoreDirectory = true;
+
+            DialogResult drFoto = ofdFoto.ShowDialog();
+
+            if (drFoto == DialogResult.OK)
+            {
+                Image imgFoto = Image.FromFile(ofdFoto.FileName);
+
+                if (imgFoto.Width <= 240 && imgFoto.Height <= 288)
+                {
+                    this.pbxFoto.Image = Image.FromFile(ofdFoto.FileName);
+
+                    //strRutaFoto = AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + DateTime.Now;
+
+                    //pbxFoto.Image.Save(strRutaFoto);
+                }
+                else
+                {
+                    MessageBox.Show("La imagen no debe sobrepasar los 240 x 288 pixeles", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnBuscarFoto_Click(sender, e);
+                }
+            }
+        }
+
+        private void btnQuitarFoto_Click(object sender, EventArgs e)
+        {
+            pbxFoto.Image = Properties.Resources.FotoPredeterminado;
+            strRutaFoto = "";
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)

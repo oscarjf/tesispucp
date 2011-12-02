@@ -488,48 +488,84 @@ namespace SistemaCentroSalud
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsPaciente objPaciente = new clsPaciente();
-                objPaciente.IdPaciente = numIdPaciente;
-                objPaciente.Paterno = txtPaterno.Text;
-                objPaciente.Materno = txtMaterno.Text;
-                objPaciente.Nombres = txtNombres.Text;
-                objPaciente.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
-                objPaciente.FechaNacimiento = dtpFechaNacimiento.Value.Date;
-                objPaciente.IdReligion = ((clsReligion)cboReligion.SelectedItem).IdReligion;
-                objPaciente.IdEtnia = ((clsEtnia)cboEtnia.SelectedItem).IdEtnia;
-                objPaciente.IdOcupacion = ((clsOcupacion)cboOcupacion.SelectedItem).IdOcupacion;
-                objPaciente.IdIdioma = ((clsIdioma)cboIdioma.SelectedItem).IdIdioma;
-                objPaciente.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
-                objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
-                objPaciente.NumeroDocumento = txtNumeroDocumento.Text;
-                objPaciente.Pais = clsComun.seleccionarToVacio(cboPais.Text);
-                objPaciente.DepartamentoNacimiento = cboDepartamento.Text;
-                objPaciente.ProvinciaNacimiento = cboProvincia.Text;
-                objPaciente.DistritoNacimiento = cboDistrito.Text;
-                objPaciente.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
-                objPaciente.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
-                objPaciente.DistritoDomicilio = cboDistritoDomicilio.Text;
-                objPaciente.Direccion = txtDireccion.Text;
-                objPaciente.Telefono = txtTelefono.Text;
-                objPaciente.Celular = txtCelular.Text;
-                objPaciente.CorreoElectronico = txtCorreoElectronico.Text;
-                objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinica.Text;
-                objPaciente.IdEmpleado = ventanaPrincipal.obtenerIdEmpleado();
-                
-                if (numAccion == clsComun.INSERTAR)
-                {
-                    if (ctrPaciente.registrarPaciente(objPaciente))
-                    {
-                        if (MessageBox.Show("El paciente se registró exitosamente\n¿Desea seguir registrando pacientes?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                clsComun.tabAnterior(tbcPaciente, tbpBuscar, tbpDetalle);
 
-                            txtPaterno.Focus();
+                limpiarFormulario();
+
+                txtPaternoBuscar.Focus();
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (validarFormulario())
+                {
+                    clsPaciente objPaciente = new clsPaciente();
+                    objPaciente.IdPaciente = numIdPaciente;
+                    objPaciente.Paterno = txtPaterno.Text;
+                    objPaciente.Materno = txtMaterno.Text;
+                    objPaciente.Nombres = txtNombres.Text;
+                    objPaciente.Sexo = clsComun.seleccionarToVacio(cboSexo.Text);
+                    objPaciente.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                    objPaciente.IdReligion = ((clsReligion)cboReligion.SelectedItem).IdReligion;
+                    objPaciente.IdEtnia = ((clsEtnia)cboEtnia.SelectedItem).IdEtnia;
+                    objPaciente.IdOcupacion = ((clsOcupacion)cboOcupacion.SelectedItem).IdOcupacion;
+                    objPaciente.IdIdioma = ((clsIdioma)cboIdioma.SelectedItem).IdIdioma;
+                    objPaciente.EstadoCivil = clsComun.seleccionarToVacio(cboEstadoCivil.Text);
+                    objPaciente.IdTipoDocumento = ((clsTipoDocumento)cboTipoDocumento.SelectedItem).IdTipoDocumento;
+                    objPaciente.NumeroDocumento = txtNumeroDocumento.Text;
+                    objPaciente.Pais = clsComun.seleccionarToVacio(cboPais.Text);
+                    objPaciente.DepartamentoNacimiento = cboDepartamento.Text;
+                    objPaciente.ProvinciaNacimiento = cboProvincia.Text;
+                    objPaciente.DistritoNacimiento = cboDistrito.Text;
+                    objPaciente.DepartamentoDomicilio = clsComun.seleccionarToVacio(cboDepartamentoDomicilio.Text);
+                    objPaciente.ProvinciaDomicilio = cboProvinciaDomicilio.Text;
+                    objPaciente.DistritoDomicilio = cboDistritoDomicilio.Text;
+                    objPaciente.Direccion = txtDireccion.Text;
+                    objPaciente.Telefono = txtTelefono.Text;
+                    objPaciente.Celular = txtCelular.Text;
+                    objPaciente.CorreoElectronico = txtCorreoElectronico.Text;
+                    objPaciente.NumeroHistoriaClinica = txtNumeroHistoriaClinica.Text;
+                    objPaciente.IdEmpleado = ventanaPrincipal.obtenerIdEmpleado();
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrPaciente.registrarPaciente(objPaciente))
+                        {
+                            if (MessageBox.Show("El paciente se registró exitosamente\n¿Desea seguir registrando pacientes?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtPaterno.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcPaciente, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtPaternoBuscar.Focus();
+
+                                dtPacientes = ctrPaciente.seleccionarPacientes(objPaciente);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el paciente", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrPaciente.modificarPaciente(objPaciente))
+                        {
+                            MessageBox.Show("El paciente se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcPaciente, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -539,46 +575,17 @@ namespace SistemaCentroSalud
                             dtPacientes = ctrPaciente.seleccionarPacientes(objPaciente);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar el paciente", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el paciente", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
                 }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrPaciente.modificarPaciente(objPaciente))
-                    {
-                        MessageBox.Show("El paciente se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        clsComun.tabAnterior(tbcPaciente, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtPaternoBuscar.Focus();
-
-                        dtPacientes = ctrPaciente.seleccionarPacientes(objPaciente);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar el paciente", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcPaciente, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtPaternoBuscar.Focus();
-                }
+                Cursor.Current = Cursors.Default;
             }
         }
 

@@ -165,6 +165,8 @@ namespace SistemaCentroSalud
 
                     while (true)
                     {
+                        Cursor.Current = Cursors.WaitCursor;
+ 
                         if (clsComun.enviarCorreo(value, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
                         {
                             MessageBox.Show("Se enviaron sus datos a la dirección de correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -178,6 +180,8 @@ namespace SistemaCentroSalud
                             }                       
                         }
                     }
+
+                    Cursor.Current = Cursors.Default;
                 }
                 else
                 {

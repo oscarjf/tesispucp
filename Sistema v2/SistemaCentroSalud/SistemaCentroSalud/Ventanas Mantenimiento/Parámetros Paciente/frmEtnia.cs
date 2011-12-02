@@ -139,26 +139,60 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsEtnia objEtnia = new clsEtnia();
-                objEtnia.IdEtnia = numIdEtnia;
-                objEtnia.Codigo = txtCodigoDetalle.Text;
-                objEtnia.Nombre = txtNombreDetalle.Text;
-                objEtnia.Descripcion = rtxtDescripcionDetalle.Text;
-                
-                if (numAccion == clsComun.INSERTAR)
-                {
-                    if (ctrEtnia.registrarEtnia(objEtnia))
-                    {
-                        if (MessageBox.Show("La etnia se registró exitosamente\n¿Desea seguir registrando etnias?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                clsComun.tabAnterior(tbcEtnia, tbpBuscar, tbpDetalle);
 
-                            txtNombreDetalle.Focus();
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
+                {
+                    clsEtnia objEtnia = new clsEtnia();
+                    objEtnia.IdEtnia = numIdEtnia;
+                    objEtnia.Codigo = txtCodigoDetalle.Text;
+                    objEtnia.Nombre = txtNombreDetalle.Text;
+                    objEtnia.Descripcion = rtxtDescripcionDetalle.Text;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrEtnia.registrarEtnia(objEtnia))
+                        {
+                            if (MessageBox.Show("La etnia se registró exitosamente\n¿Desea seguir registrando etnias?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcEtnia, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtEtnias = ctrEtnia.seleccionarEtnias(objEtnia);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la etnia", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrEtnia.modificarEtnia(objEtnia))
+                        {
+                            MessageBox.Show("La etnia se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcEtnia, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -168,45 +202,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                             dtEtnias = ctrEtnia.seleccionarEtnias(objEtnia);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la etnia", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la etnia", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrEtnia.modificarEtnia(objEtnia))
-                    {
-                        MessageBox.Show("La etnia se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcEtnia, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtEtnias = ctrEtnia.seleccionarEtnias(objEtnia);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la etnia", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcEtnia, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

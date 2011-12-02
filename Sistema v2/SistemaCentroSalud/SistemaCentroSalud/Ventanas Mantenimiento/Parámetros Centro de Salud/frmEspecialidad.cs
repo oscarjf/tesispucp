@@ -167,26 +167,60 @@ namespace SistemaCentroSalud
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarFormulario())
+            if (numAccion == clsComun.VER)
             {
-                clsEspecialidad objEspecialidad= new clsEspecialidad();
-                objEspecialidad.IdEspecialidad = numIdEspecialidad;
-                objEspecialidad.Nombre = txtNombreDetalle.Text;
-                objEspecialidad.Descripcion = rtxtDescripcionDetalle.Text;
-                objEspecialidad.IdArea = ((clsArea)cboAreaDetalle.SelectedItem).IdArea;
-                
-                if (numAccion == clsComun.INSERTAR)
-                {
-                    if (ctrEspecialidad.registrarEspecialidad(objEspecialidad))
-                    {
-                        if (MessageBox.Show("La especialidad se registró exitosamente\n¿Desea seguir registrando especialidades?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            limpiarFormulario();
+                clsComun.tabAnterior(tbcEspecialidad, tbpBuscar, tbpDetalle);
 
-                            txtNombreDetalle.Focus();
+                limpiarFormulario();
+
+                txtNombreBuscar.Focus();
+            }
+            else
+            {
+                if (validarFormulario())
+                {
+                    clsEspecialidad objEspecialidad = new clsEspecialidad();
+                    objEspecialidad.IdEspecialidad = numIdEspecialidad;
+                    objEspecialidad.Nombre = txtNombreDetalle.Text;
+                    objEspecialidad.Descripcion = rtxtDescripcionDetalle.Text;
+                    objEspecialidad.IdArea = ((clsArea)cboAreaDetalle.SelectedItem).IdArea;
+
+                    if (numAccion == clsComun.INSERTAR)
+                    {
+                        if (ctrEspecialidad.registrarEspecialidad(objEspecialidad))
+                        {
+                            if (MessageBox.Show("La especialidad se registró exitosamente\n¿Desea seguir registrando especialidades?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                limpiarFormulario();
+
+                                txtNombreDetalle.Focus();
+                            }
+                            else
+                            {
+                                clsComun.tabAnterior(tbcEspecialidad, tbpBuscar, tbpDetalle);
+
+                                limpiarFormulario();
+
+                                txtNombreBuscar.Focus();
+
+                                dtEspecialidades = ctrEspecialidad.seleccionarEspecialidades(objEspecialidad);
+                                cargarGrilla();
+                            }
                         }
                         else
                         {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la especialidad", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
+                        }
+                    }
+                    else if (numAccion == clsComun.MODIFICAR)
+                    {
+                        if (ctrEspecialidad.modificarEspecialidad(objEspecialidad))
+                        {
+                            MessageBox.Show("La especialidad se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             clsComun.tabAnterior(tbcEspecialidad, tbpBuscar, tbpDetalle);
 
                             limpiarFormulario();
@@ -196,45 +230,14 @@ namespace SistemaCentroSalud
                             dtEspecialidades = ctrEspecialidad.seleccionarEspecialidades(objEspecialidad);
                             cargarGrilla();
                         }
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la especialidad", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        else
                         {
-                            btnGuardar_Click(sender, e);
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la especialidad", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnGuardar_Click(sender, e);
+                            }
                         }
                     }
-                }
-                else if (numAccion == clsComun.MODIFICAR)
-                {
-                    if (ctrEspecialidad.modificarEspecialidad(objEspecialidad))
-                    {
-                        MessageBox.Show("La especialidad se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        clsComun.tabAnterior(tbcEspecialidad, tbpBuscar, tbpDetalle);
-
-                        limpiarFormulario();
-
-                        txtNombreBuscar.Focus();
-
-                        dtEspecialidades = ctrEspecialidad.seleccionarEspecialidades(objEspecialidad);
-                        cargarGrilla();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba modificar la especialidad", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
-                        {
-                            btnGuardar_Click(sender, e);
-                        }
-                    }
-                }
-                else
-                {
-                    clsComun.tabAnterior(tbcEspecialidad, tbpBuscar, tbpDetalle);
-
-                    limpiarFormulario();
-
-                    txtNombreBuscar.Focus();
                 }
             }
         }

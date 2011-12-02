@@ -191,7 +191,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrConsultorio.registrarConsultorio(objConsultorio))
                     {
-                        if (MessageBox.Show("El consultorio se registró exitosamente\n¿Desea seguir registrando consultorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El consultorio se registró exitosamente\n¿Desea seguir registrando consultorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -315,7 +315,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvConsultorios.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este consultorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este consultorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -361,7 +361,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvConsultorios.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este consultorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este consultorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -424,61 +424,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void cboPabellonBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsConsultorio objConsultorio = new clsConsultorio();
-                objConsultorio.IdPabellon = ((clsPabellon)cboPabellonBuscar.SelectedItem).IdPabellon;
-                objConsultorio.Piso = txtPisoBuscar.Text;
-                objConsultorio.Numero = txtNumeroBuscar.Text;
-                objConsultorio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtConsultorios = ctrConsultorio.seleccionarConsultoriosCriterios(objConsultorio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtPisoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsConsultorio objConsultorio = new clsConsultorio();
-                objConsultorio.IdPabellon = ((clsPabellon)cboPabellonBuscar.SelectedItem).IdPabellon;
-                objConsultorio.Piso = txtPisoBuscar.Text;
-                objConsultorio.Numero = txtNumeroBuscar.Text;
-                objConsultorio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtConsultorios = ctrConsultorio.seleccionarConsultoriosCriterios(objConsultorio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtNumeroBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsConsultorio objConsultorio = new clsConsultorio();
-                objConsultorio.IdPabellon = ((clsPabellon)cboPabellonBuscar.SelectedItem).IdPabellon;
-                objConsultorio.Piso = txtPisoBuscar.Text;
-                objConsultorio.Numero = txtNumeroBuscar.Text;
-                objConsultorio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtConsultorios = ctrConsultorio.seleccionarConsultoriosCriterios(objConsultorio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

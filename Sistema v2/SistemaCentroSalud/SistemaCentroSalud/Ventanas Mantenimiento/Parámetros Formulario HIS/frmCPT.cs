@@ -151,7 +151,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrCPT.registrarCPT(objCPT))
                     {
-                        if (MessageBox.Show("El CPT se registró exitosamente\n¿Desea seguir registrando CPTs?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El CPT se registró exitosamente\n¿Desea seguir registrando CPTs?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -274,7 +274,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvCPTs.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este CPT?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este CPT?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -318,7 +318,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvCPTs.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este CPT?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este CPT?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -379,41 +379,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsCPT objCPT = new clsCPT();
-                objCPT.Nombre = txtNombreBuscar.Text;
-                objCPT.Codigo = txtCodigoBuscar.Text;
-                objCPT.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtCPTs = ctrCPT.seleccionarCPTsCriterios(objCPT);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtCodigoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsCPT objCPT = new clsCPT();
-                objCPT.Nombre = txtNombreBuscar.Text;
-                objCPT.Codigo = txtCodigoBuscar.Text;
-                objCPT.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtCPTs = ctrCPT.seleccionarCPTsCriterios(objCPT);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

@@ -151,7 +151,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrLaboratorio.registrarLaboratorio(objLaboratorio))
                     {
-                        if (MessageBox.Show("El laboratorio se registró exitosamente\n¿Desea seguir registrando laboratorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El laboratorio se registró exitosamente\n¿Desea seguir registrando laboratorios?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -274,7 +274,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvLaboratorios.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este laboratorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este laboratorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -318,7 +318,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvLaboratorios.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este laboratorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este laboratorio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -379,41 +379,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsLaboratorio objLaboratorio = new clsLaboratorio();
-                objLaboratorio.Nombre = txtNombreBuscar.Text;
-                objLaboratorio.Codigo = txtCodigoBuscar.Text;
-                objLaboratorio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtLaboratorios = ctrLaboratorio.seleccionarLaboratoriosCriterios(objLaboratorio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtCodigoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsLaboratorio objLaboratorio = new clsLaboratorio();
-                objLaboratorio.Nombre = txtNombreBuscar.Text;
-                objLaboratorio.Codigo = txtCodigoBuscar.Text;
-                objLaboratorio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtLaboratorios = ctrLaboratorio.seleccionarLaboratoriosCriterios(objLaboratorio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

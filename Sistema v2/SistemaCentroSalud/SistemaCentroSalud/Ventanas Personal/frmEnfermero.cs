@@ -588,7 +588,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     {
                         clsComun.enviarCorreo(txtCorreoElectronico.Text, objEnfermero.Paterno, objEnfermero.Materno, objEnfermero.Nombres, objEnfermero.Usuario, objEnfermero.Contrasena);
 
-                        if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El enfermero se registró exitosamente\n¿Desea seguir registrando enfermeros?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -719,7 +719,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvEnfermeros.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -767,7 +767,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvEnfermeros.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este enfermero?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -814,22 +814,6 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void tbcEnfermero_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tbcEnfermero.SelectedIndex == 1)
-            {
-                tbpBuscar.Enabled = false;
-            }
-        }
-
-        private void tbcEnfermero_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (e.TabPage.Enabled == false)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -921,107 +905,23 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
-        private void txtPaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcEnfermero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (tbcEnfermero.SelectedIndex == 1)
             {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.Paterno = txtPaternoBuscar.Text;
-                objEnfermero.Materno = txtMaternoBuscar.Text;
-                objEnfermero.Nombres = txtNombresBuscar.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
-                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objEnfermero.Estado = cboEstadoBuscar.Text;
-
-                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
-                cargarGrilla();
-            }
-            catch
-            {
+                tbpBuscar.Enabled = false;
             }
         }
 
-        private void txtMaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcEnfermero_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            try
+            if (e.TabPage.Enabled == false)
             {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.Paterno = txtPaternoBuscar.Text;
-                objEnfermero.Materno = txtMaternoBuscar.Text;
-                objEnfermero.Nombres = txtNombresBuscar.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
-                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objEnfermero.Estado = cboEstadoBuscar.Text;
-
-                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
-                cargarGrilla();
-            }
-            catch
-            {
+                e.Cancel = true;
             }
         }
 
-        private void txtNombresBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.Paterno = txtPaternoBuscar.Text;
-                objEnfermero.Materno = txtMaternoBuscar.Text;
-                objEnfermero.Nombres = txtNombresBuscar.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
-                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objEnfermero.Estado = cboEstadoBuscar.Text;
-
-                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtNumeroLicenciaBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.Paterno = txtPaternoBuscar.Text;
-                objEnfermero.Materno = txtMaternoBuscar.Text;
-                objEnfermero.Nombres = txtNombresBuscar.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
-                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objEnfermero.Estado = cboEstadoBuscar.Text;
-
-                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboAreaBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsEnfermero objEnfermero = new clsEnfermero();
-                objEnfermero.Paterno = txtPaternoBuscar.Text;
-                objEnfermero.Materno = txtMaternoBuscar.Text;
-                objEnfermero.Nombres = txtNombresBuscar.Text;
-                objEnfermero.NumeroLicencia = txtNumeroLicenciaBuscar.Text;
-                objEnfermero.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objEnfermero.Estado = cboEstadoBuscar.Text;
-
-                dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

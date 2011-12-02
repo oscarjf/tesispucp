@@ -180,7 +180,6 @@
             // 
             this.dgvUnidadesProductorasServicio.AllowUserToAddRows = false;
             this.dgvUnidadesProductorasServicio.AllowUserToDeleteRows = false;
-            this.dgvUnidadesProductorasServicio.AllowUserToResizeColumns = false;
             this.dgvUnidadesProductorasServicio.AllowUserToResizeRows = false;
             this.dgvUnidadesProductorasServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUnidadesProductorasServicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -191,6 +190,7 @@
             this.dgvUnidadesProductorasServicio.Location = new System.Drawing.Point(6, 99);
             this.dgvUnidadesProductorasServicio.MultiSelect = false;
             this.dgvUnidadesProductorasServicio.Name = "dgvUnidadesProductorasServicio";
+            this.dgvUnidadesProductorasServicio.RowHeadersVisible = false;
             this.dgvUnidadesProductorasServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUnidadesProductorasServicio.Size = new System.Drawing.Size(447, 101);
             this.dgvUnidadesProductorasServicio.TabIndex = 2;
@@ -252,7 +252,7 @@
             this.txtCodigoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtCodigoBuscar.TabIndex = 2;
             this.txtCodigoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            this.txtCodigoBuscar.TextChanged += new System.EventHandler(this.txtCodigoBuscar_TextChanged);
+            this.txtCodigoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblCodigoBuscar
             // 
@@ -275,7 +275,7 @@
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(121, 21);
             this.cboEstadoBuscar.TabIndex = 3;
-            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEstadoBuscar_SelectedIndexChanged);
+            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblEstado
             // 
@@ -296,7 +296,7 @@
             this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreBuscar.TabIndex = 1;
             this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.txtNombreBuscar_TextChanged);
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombreBuscar
             // 

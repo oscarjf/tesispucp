@@ -143,7 +143,7 @@ namespace SistemaCentroSalud
                 {
                     if (ctrArea.registrarArea(objArea))
                     {
-                        if (MessageBox.Show("El área se registró exitosamente\n¿Desea seguir registrando áreas?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El área se registró exitosamente\n¿Desea seguir registrando áreas?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -266,7 +266,7 @@ namespace SistemaCentroSalud
         {
             if (dgvAreas.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar esta área?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar esta área?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -310,7 +310,7 @@ namespace SistemaCentroSalud
         {
             if (dgvAreas.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar esta área?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar esta área?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -371,41 +371,7 @@ namespace SistemaCentroSalud
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsArea objArea = new clsArea();
-                objArea.Nombre = txtNombreBuscar.Text;
-                objArea.TipoArea = cboTipoBuscar.SelectedItem.ToString();
-                objArea.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtAreas = ctrArea.seleccionarAreasCriterios(objArea);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboTipoBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsArea objArea = new clsArea();
-                objArea.Nombre = txtNombreBuscar.Text;
-                objArea.TipoArea = cboTipoBuscar.SelectedItem.ToString();
-                objArea.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtAreas = ctrArea.seleccionarAreasCriterios(objArea);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

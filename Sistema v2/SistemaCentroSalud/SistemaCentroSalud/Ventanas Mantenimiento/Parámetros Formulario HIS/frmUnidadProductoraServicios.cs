@@ -151,7 +151,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrUnidadProductoraServicio.registrarUnidadProductoraServicio(objUnidadProductoraServicio))
                     {
-                        if (MessageBox.Show("La unidad productora de servicio se registró exitosamente\n¿Desea seguir registrando unidades productoras de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("La unidad productora de servicio se registró exitosamente\n¿Desea seguir registrando unidades productoras de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -274,7 +274,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvUnidadesProductorasServicio.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar esta unidad productora de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar esta unidad productora de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -318,7 +318,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvUnidadesProductorasServicio.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar esta unidad productora de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar esta unidad productora de servicio?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -379,41 +379,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsUnidadProductoraServicio objUnidadProductoraServicio = new clsUnidadProductoraServicio();
-                objUnidadProductoraServicio.Nombre = txtNombreBuscar.Text;
-                objUnidadProductoraServicio.Codigo = txtCodigoBuscar.Text;
-                objUnidadProductoraServicio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicioCriterios(objUnidadProductoraServicio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtCodigoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsUnidadProductoraServicio objUnidadProductoraServicio = new clsUnidadProductoraServicio();
-                objUnidadProductoraServicio.Nombre = txtNombreBuscar.Text;
-                objUnidadProductoraServicio.Codigo = txtCodigoBuscar.Text;
-                objUnidadProductoraServicio.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicioCriterios(objUnidadProductoraServicio);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

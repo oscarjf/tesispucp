@@ -522,7 +522,7 @@ namespace SistemaCentroSalud
                 {
                     if (ctrPaciente.registrarPaciente(objPaciente))
                     {
-                        if (MessageBox.Show("El paciente se registró exitosamente\n¿Desea seguir registrando pacientes?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El paciente se registró exitosamente\n¿Desea seguir registrando pacientes?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 

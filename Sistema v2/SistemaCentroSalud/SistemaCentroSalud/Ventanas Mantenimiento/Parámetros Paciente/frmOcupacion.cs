@@ -124,7 +124,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrOcupacion.registrarOcupacion(objOcupacion))
                     {
-                        if (MessageBox.Show("La ocupación se registró exitosamente\n¿Desea seguir registrando ocupaciones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("La ocupación se registró exitosamente\n¿Desea seguir registrando ocupaciones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -247,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvOcupaciones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar esta ocupación?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar esta ocupación?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -289,7 +289,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvOcupaciones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar esta ocupación?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar esta ocupación?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -348,23 +348,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsOcupacion objOcupacion = new clsOcupacion();
-                objOcupacion.Nombre = txtNombreBuscar.Text;
-                objOcupacion.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtOcupaciones = ctrOcupacion.seleccionarOcupacionesCriterios(objOcupacion);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

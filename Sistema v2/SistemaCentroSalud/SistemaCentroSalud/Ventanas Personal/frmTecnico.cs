@@ -552,7 +552,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     {
                         clsComun.enviarCorreo(txtCorreoElectronico.Text, objTecnico.Paterno, objTecnico.Materno, objTecnico.Nombres, objTecnico.Usuario, objTecnico.Contrasena);
 
-                        if (MessageBox.Show("El técnico se registró exitosamente\n¿Desea seguir registrando técnicos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El técnico se registró exitosamente\n¿Desea seguir registrando técnicos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -683,7 +683,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvTecnicos.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este técnico?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este técnico?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -729,7 +729,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvTecnicos.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este técnico?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este técnico?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -774,22 +774,6 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void tbcTecnico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tbcTecnico.SelectedIndex == 1)
-            {
-                tbpBuscar.Enabled = false;
-            }
-        }
-
-        private void tbcTecnico_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (e.TabPage.Enabled == false)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -881,83 +865,23 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
-        private void txtPaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcTecnico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (tbcTecnico.SelectedIndex == 1)
             {
-                clsTecnico objTecnico = new clsTecnico();
-                objTecnico.Paterno = txtPaternoBuscar.Text;
-                objTecnico.Materno = txtMaternoBuscar.Text;
-                objTecnico.Nombres = txtNombresBuscar.Text;
-                objTecnico.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objTecnico.Estado = cboEstadoBuscar.Text;
-
-                dtTecnicos = ctrTecnico.seleccionarTecnicosCriterios(objTecnico);
-                cargarGrilla();
-            }
-            catch
-            {
+                tbpBuscar.Enabled = false;
             }
         }
 
-        private void txtMaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcTecnico_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            try
+            if (e.TabPage.Enabled == false)
             {
-                clsTecnico objTecnico = new clsTecnico();
-                objTecnico.Paterno = txtPaternoBuscar.Text;
-                objTecnico.Materno = txtMaternoBuscar.Text;
-                objTecnico.Nombres = txtNombresBuscar.Text;
-                objTecnico.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objTecnico.Estado = cboEstadoBuscar.Text;
-
-                dtTecnicos = ctrTecnico.seleccionarTecnicosCriterios(objTecnico);
-                cargarGrilla();
-            }
-            catch
-            {
+                e.Cancel = true;
             }
         }
 
-        private void txtNombresBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsTecnico objTecnico = new clsTecnico();
-                objTecnico.Paterno = txtPaternoBuscar.Text;
-                objTecnico.Materno = txtMaternoBuscar.Text;
-                objTecnico.Nombres = txtNombresBuscar.Text;
-                objTecnico.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objTecnico.Estado = cboEstadoBuscar.Text;
-
-                dtTecnicos = ctrTecnico.seleccionarTecnicosCriterios(objTecnico);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboAreaBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsTecnico objTecnico = new clsTecnico();
-                objTecnico.Paterno = txtPaternoBuscar.Text;
-                objTecnico.Materno = txtMaternoBuscar.Text;
-                objTecnico.Nombres = txtNombresBuscar.Text;
-                objTecnico.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objTecnico.Estado = cboEstadoBuscar.Text;
-
-                dtTecnicos = ctrTecnico.seleccionarTecnicosCriterios(objTecnico);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

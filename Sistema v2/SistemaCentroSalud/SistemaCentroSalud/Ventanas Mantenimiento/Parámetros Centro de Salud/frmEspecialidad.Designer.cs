@@ -180,7 +180,6 @@
             // 
             this.dgvEspecialidades.AllowUserToAddRows = false;
             this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.AllowUserToResizeColumns = false;
             this.dgvEspecialidades.AllowUserToResizeRows = false;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -191,6 +190,7 @@
             this.dgvEspecialidades.Location = new System.Drawing.Point(6, 99);
             this.dgvEspecialidades.MultiSelect = false;
             this.dgvEspecialidades.Name = "dgvEspecialidades";
+            this.dgvEspecialidades.RowHeadersVisible = false;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(447, 101);
             this.dgvEspecialidades.TabIndex = 2;
@@ -248,7 +248,7 @@
             this.cboAreaBuscar.Name = "cboAreaBuscar";
             this.cboAreaBuscar.Size = new System.Drawing.Size(121, 21);
             this.cboAreaBuscar.TabIndex = 2;
-            this.cboAreaBuscar.SelectedIndexChanged += new System.EventHandler(this.cboAreaBuscar_SelectedIndexChanged);
+            this.cboAreaBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblAreaBuscar
             // 
@@ -271,7 +271,7 @@
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(121, 21);
             this.cboEstadoBuscar.TabIndex = 3;
-            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEstadoBuscar_SelectedIndexChanged);
+            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblEstado
             // 
@@ -292,7 +292,7 @@
             this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreBuscar.TabIndex = 1;
             this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.txtNombreBuscar_TextChanged);
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombreBuscar
             // 

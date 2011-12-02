@@ -252,7 +252,6 @@
             // 
             this.dgvDoctores.AllowUserToAddRows = false;
             this.dgvDoctores.AllowUserToDeleteRows = false;
-            this.dgvDoctores.AllowUserToResizeColumns = false;
             this.dgvDoctores.AllowUserToResizeRows = false;
             this.dgvDoctores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoctores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -266,6 +265,7 @@
             this.dgvDoctores.MultiSelect = false;
             this.dgvDoctores.Name = "dgvDoctores";
             this.dgvDoctores.ReadOnly = true;
+            this.dgvDoctores.RowHeadersVisible = false;
             this.dgvDoctores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoctores.Size = new System.Drawing.Size(557, 211);
             this.dgvDoctores.TabIndex = 6;
@@ -388,7 +388,7 @@
             this.cboEspecialidadBuscar.Name = "cboEspecialidadBuscar";
             this.cboEspecialidadBuscar.Size = new System.Drawing.Size(125, 21);
             this.cboEspecialidadBuscar.TabIndex = 5;
-            this.cboEspecialidadBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEspecialidadBuscar_SelectedIndexChanged);
+            this.cboEspecialidadBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblCMPBuscar
             // 
@@ -435,7 +435,7 @@
             this.txtMaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtMaternoBuscar.TabIndex = 1;
             this.txtMaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            this.txtMaternoBuscar.TextChanged += new System.EventHandler(this.txtMaternoBuscar_TextChanged);
+            this.txtMaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // cboEstadoBuscar
             // 
@@ -449,7 +449,7 @@
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(125, 21);
             this.cboEstadoBuscar.TabIndex = 6;
-            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.cboEstadoBuscar_SelectedIndexChanged);
+            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtCMPBuscar
             // 
@@ -461,7 +461,7 @@
             this.txtCMPBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtCMPBuscar.TabIndex = 3;
             this.txtCMPBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
-            this.txtCMPBuscar.TextChanged += new System.EventHandler(this.txtCMPBuscar_TextChanged);
+            this.txtCMPBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtNombresBuscar
             // 
@@ -473,7 +473,7 @@
             this.txtNombresBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombresBuscar.TabIndex = 2;
             this.txtNombresBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            this.txtNombresBuscar.TextChanged += new System.EventHandler(this.txtNombresBuscar_TextChanged);
+            this.txtNombresBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtPaternoBuscar
             // 
@@ -484,7 +484,7 @@
             this.txtPaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPaternoBuscar.TabIndex = 0;
             this.txtPaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            this.txtPaternoBuscar.TextChanged += new System.EventHandler(this.txtPaternoBuscar_TextChanged);
+            this.txtPaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // tbpDetalle
             // 

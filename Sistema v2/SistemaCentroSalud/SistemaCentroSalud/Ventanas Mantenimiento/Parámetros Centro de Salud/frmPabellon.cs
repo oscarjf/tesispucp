@@ -124,7 +124,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrPabellon.registrarPabellon(objPabellon))
                     {
-                        if (MessageBox.Show("El pabellón se registró exitosamente\n¿Desea seguir registrando pabellones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El pabellón se registró exitosamente\n¿Desea seguir registrando pabellones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -247,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvPabellones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este pabellón?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este pabellón?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -289,7 +289,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvPabellones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este pabellón?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este pabellón?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -348,23 +348,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsPabellon objPabellon = new clsPabellon();
-                objPabellon.Nombre = txtNombreBuscar.Text;
-                objPabellon.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtPabellones = ctrPabellon.seleccionarPabellonesCriterios(objPabellon);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

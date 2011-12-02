@@ -124,7 +124,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrReligion.registrarReligion(objReligion))
                     {
-                        if (MessageBox.Show("La religión se registró exitosamente\n¿Desea seguir registrando religiones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("La religión se registró exitosamente\n¿Desea seguir registrando religiones?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -247,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvReligiones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar esta religión?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar esta religión?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -289,7 +289,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvReligiones.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar esta religión?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar esta religión?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -348,23 +348,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsReligion objReligion = new clsReligion();
-                objReligion.Nombre = txtNombreBuscar.Text;
-                objReligion.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtReligiones = ctrReligion.seleccionarReligionesCriterios(objReligion);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

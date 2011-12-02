@@ -141,7 +141,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrTipoDocumento.registrarTipoDocumento(objTipoDocumento))
                     {
-                        if (MessageBox.Show("El tipo de documento se registró exitosamente\n¿Desea seguir registrando tipos de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El tipo de documento se registró exitosamente\n¿Desea seguir registrando tipos de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -264,7 +264,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvTiposDocumento.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este tipo de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este tipo de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -308,7 +308,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvTiposDocumento.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este tipo de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este tipo de documento?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -369,23 +369,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
-                objTipoDocumento.Nombre = txtNombreBuscar.Text;
-                objTipoDocumento.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtTiposDocumento = ctrTipoDocumento.seleccionarTiposDocumentosCriterios(objTipoDocumento);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

@@ -552,7 +552,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     {
                         clsComun.enviarCorreo(txtCorreoElectronico.Text, objAdministrativo.Paterno, objAdministrativo.Materno, objAdministrativo.Nombres, objAdministrativo.Usuario, objAdministrativo.Contrasena);
 
-                        if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El empleado administrativo se registró exitosamente\n¿Desea seguir registrando empleados administrativos?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -683,7 +683,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvAdministrativos.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -729,7 +729,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvAdministrativos.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -776,20 +776,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
             this.Dispose();
         }
 
-        private void tbcAdministrativo_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnTomarFoto_Click(object sender, EventArgs e)
         {
-            if (tbcAdministrativo.SelectedIndex == 1)
-            {
-                tbpBuscar.Enabled = false;
-            }
-        }
 
-        private void tbcAdministrativo_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (e.TabPage.Enabled == false)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -881,83 +870,23 @@ namespace SistemaCentroSalud.Ventanas_Personal
             }
         }
 
-        private void txtPaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcAdministrativo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (tbcAdministrativo.SelectedIndex == 1)
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
-
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
-                cargarGrilla();
-            }
-            catch
-            {
+                tbpBuscar.Enabled = false;
             }
         }
 
-        private void txtMaternoBuscar_TextChanged(object sender, EventArgs e)
+        private void tbcAdministrativo_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            try
+            if (e.TabPage.Enabled == false)
             {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
-
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
-                cargarGrilla();
-            }
-            catch
-            {
+                e.Cancel = true;
             }
         }
 
-        private void txtNombresBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
-
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboAreaBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsAdministrativo objAdministrativo = new clsAdministrativo();
-                objAdministrativo.Paterno = txtPaternoBuscar.Text;
-                objAdministrativo.Materno = txtMaternoBuscar.Text;
-                objAdministrativo.Nombres = txtNombresBuscar.Text;
-                objAdministrativo.IdArea = ((clsArea)cboAreaBuscar.SelectedItem).IdArea;
-                objAdministrativo.Estado = cboEstadoBuscar.Text;
-
-                dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

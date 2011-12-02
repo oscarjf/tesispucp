@@ -124,7 +124,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrModoIngreso.registrarModoIngreso(objModoIngreso))
                     {
-                        if (MessageBox.Show("El modo de ingreso se registró exitosamente\n¿Desea seguir registrando modos de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El modo de ingreso se registró exitosamente\n¿Desea seguir registrando modos de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -247,7 +247,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvModosIngreso.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este modo de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este modo de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -289,7 +289,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvModosIngreso.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este modo de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este modo de ingreso?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -348,23 +348,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsModoIngreso objModoIngreso = new clsModoIngreso();
-                objModoIngreso.Nombre = txtNombreBuscar.Text;
-                objModoIngreso.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtModosIngreso = ctrModoIngreso.seleccionarModosIngresoCriterios(objModoIngreso);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

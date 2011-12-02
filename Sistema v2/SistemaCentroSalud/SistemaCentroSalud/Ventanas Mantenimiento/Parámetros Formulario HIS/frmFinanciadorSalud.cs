@@ -151,7 +151,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
                 {
                     if (ctrFinanciadorSalud.registrarFinanciadorSalud(objFinanciadorSalud))
                     {
-                        if (MessageBox.Show("El financiador de salud se registró exitosamente\n¿Desea seguir registrando financiadores de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("El financiador de salud se registró exitosamente\n¿Desea seguir registrando financiadores de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             limpiarFormulario();
 
@@ -274,7 +274,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvFinanciadoresSalud.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este financiador de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea eliminar este financiador de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.ELIMINAR;
 
@@ -318,7 +318,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         {
             if (dgvFinanciadoresSalud.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea activar este financiador de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea activar este financiador de salud?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     numAccion = clsComun.RECUPERAR;
 
@@ -379,41 +379,7 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             }
         }
 
-        private void txtNombreBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsFinanciadorSalud objFinanciadorSalud = new clsFinanciadorSalud();
-                objFinanciadorSalud.Nombre = txtNombreBuscar.Text;
-                objFinanciadorSalud.Codigo = txtCodigoBuscar.Text;
-                objFinanciadorSalud.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSaludCriterios(objFinanciadorSalud);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtCodigoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                clsFinanciadorSalud objFinanciadorSalud = new clsFinanciadorSalud();
-                objFinanciadorSalud.Nombre = txtNombreBuscar.Text;
-                objFinanciadorSalud.Codigo = txtCodigoBuscar.Text;
-                objFinanciadorSalud.Estado = cboEstadoBuscar.SelectedItem.ToString();
-
-                dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSaludCriterios(objFinanciadorSalud);
-                cargarGrilla();
-            }
-            catch
-            {
-            }
-        }
-
-        private void cboEstadoBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        private void buscarCriterios(object sender, EventArgs e)
         {
             try
             {

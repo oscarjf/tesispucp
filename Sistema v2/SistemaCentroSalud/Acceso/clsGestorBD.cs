@@ -7,6 +7,9 @@ using Comun;
 
 namespace Acceso
 {
+    /// <summary>
+    /// Clase encargada de conectarse con la base de datos y ejecutar los stored procedures
+    /// </summary>
     public class clsGestorBD
     {
         private static string strRuta = AppDomain.CurrentDomain.BaseDirectory;
@@ -15,7 +18,10 @@ namespace Acceso
         private static string strCatalogo = tr.ReadLine();
         private static string strUsuario = tr.ReadLine();
         private static string strContrasena = tr.ReadLine();
-
+       
+        /// <summary>
+        /// Conecta con la base de datos
+        /// </summary>
         public static SqlConnection conectar()
         {
             SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=" + strCatalogo + ";Integrated Security=SSPI");
@@ -24,6 +30,12 @@ namespace Acceso
             return sqlConexion;
         }
 
+        /// <summary>
+        /// Ejecuta un stored procedure y devuelve un 'int'
+        /// </summary>
+        /// <param name="strNombreStoredProcedure"> Nombre del stored procedure </param>
+        /// <param name="lstParametrosSQL"> Lista de parámetros del stored procedure </param>
+        /// <returns>int</returns>
         public static int ejecutarStoredProcedureInt(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
         {
             SqlConnection sqlConexion = conectar();
@@ -62,6 +74,12 @@ namespace Acceso
             }
         }
 
+        /// <summary>
+        /// Ejecuta un stored procedure y devuelve un 'DataTable'
+        /// </summary>
+        /// <param name="strNombreStoredProcedure"> Nombre del stored procedure </param>
+        /// <param name="lstParametrosSQL"> Lista de parámetros del stored procedure </param>
+        /// <returns>DataTable</returns>
         public static DataTable ejecutarStoredProcedureDataTable(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
         {
             SqlConnection sqlConexion = conectar();
@@ -100,6 +118,12 @@ namespace Acceso
             }
         }
 
+        /// <summary>
+        /// Ejecuta un stored procedure y devuelve un 'DataSet'
+        /// </summary>
+        /// <param name="strNombreStoredProcedure"> Nombre del stored procedure </param>
+        /// <param name="lstParametrosSQL"> Lista de parámetros del stored procedure </param>
+        /// <returns>DataSet</returns>
         public static DataSet ejecutarStoredProcedureDataSet(string strNombreStoredProcedure, List<SqlParameter> lstParametrosSQL)
         {
             SqlConnection sqlConexion = conectar();

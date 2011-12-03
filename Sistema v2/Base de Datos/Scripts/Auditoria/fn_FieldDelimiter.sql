@@ -4,12 +4,16 @@ AS
 BEGIN
 
 DECLARE @FieldDelimiter varchar(4)
+   
+
    IF @FieldDataType IN ('varchar','char','text')
 	SELECT @FieldDelimiter = ''''''''''
    ELSE
 	SELECT @FieldDelimiter = ''''''
 
+
     RETURN(@FieldDelimiter)	
+
 END
 
 

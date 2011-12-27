@@ -78,6 +78,18 @@
     <Compile Include="Controles\cuTextBox.Designer.cs">
       <DependentUpon>cuTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas Auxiliares\frmBuscarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Auxiliares\frmBuscarPaciente.Designer.cs">
+      <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Doctor\frmHorario.Designer.cs">
+      <DependentUpon>frmHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas Admisión\frmCita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +218,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Ventanas Auxiliares\frmBuscarPaciente.resx">
+      <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Doctor\frmHorario.resx">
+      <DependentUpon>frmHorario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Admisión\frmCita.resx">
       <DependentUpon>frmCita.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +418,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FotoPredeterminado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoFoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

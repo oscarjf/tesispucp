@@ -432,6 +432,10 @@ namespace SistemaCentroSalud.Ventanas_Personal
                         pbxFoto.Image = Image.FromFile(objDoctor.Foto);
                         strRutaFoto = objDoctor.Foto;
                     }
+                    else
+                    {
+                        pbxFoto.Image = Properties.Resources.NoFoto;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -1013,8 +1017,16 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         private void btnQuitarFoto_Click(object sender, EventArgs e)
         {
-            pbxFoto.Image = Properties.Resources.FotoPredeterminado;
-            strRutaFoto = "";
+            if (numAccion != clsComun.INSERTAR)
+            {
+                pbxFoto.Image = Properties.Resources.NoFoto;
+                strRutaFoto = "";
+            }
+            else
+            {
+                pbxFoto.Image = Properties.Resources.FotoPredeterminado;
+                strRutaFoto = "";
+            }
         }
 
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)

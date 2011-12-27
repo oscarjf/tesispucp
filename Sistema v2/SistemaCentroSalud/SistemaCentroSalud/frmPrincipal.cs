@@ -38,6 +38,13 @@ namespace SistemaCentroSalud
             ventanaPaciente.Show();
         }
 
+        private void smnuCitas_Click(object sender, EventArgs e)
+        {
+            frmCita ventanaCita = new frmCita();
+            ventanaCita.MdiParent = this;
+            ventanaCita.Show();
+        }
+
         private void smnuDoctor_Click(object sender, EventArgs e)
         {
             frmDoctor ventanaDoctor = new frmDoctor();
@@ -71,7 +78,18 @@ namespace SistemaCentroSalud
             frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
             ventanaHistoriaClinica.MdiParent = this;
             ventanaHistoriaClinica.Show();
-        }   
+        }
+
+        private void smnuHorario_Click(object sender, EventArgs e)
+        {
+            if (!clsVentanas.VentanaHorarioActiva)
+            {
+                clsVentanas.VentanaHorarioActiva = true;
+                frmHorario ventanaHorario = new frmHorario();
+                ventanaHorario.MdiParent = this;
+                ventanaHorario.Show();
+            }
+        }
 
         private void smnuAcercaDe_Click(object sender, EventArgs e)
         {
@@ -294,6 +312,50 @@ namespace SistemaCentroSalud
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.ventanaBienvenida != null)
+            {
+                this.Dispose();
+                this.ventanaBienvenida.limpiarFormulario();
+                this.ventanaBienvenida.Visible = true;
+            }
+            else
+            {
+                this.Dispose();
+            }
+        }
+
+        private void tsbContrasena_Click(object sender, EventArgs e)
+        {
+            frmCambiarContrasena ventanaCambiarContrasena = new frmCambiarContrasena(this);
+            ventanaCambiarContrasena.ShowDialog();
+        }
+
+        private void tsbPaciente_Click(object sender, EventArgs e)
+        {
+            frmPaciente ventanaPaciente = new frmPaciente(this);
+            ventanaPaciente.MdiParent = this;
+            ventanaPaciente.Show();
+        }
+
+        private void tsbCitas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbHistoriaClinica_Click(object sender, EventArgs e)
+        {
+            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
+            ventanaHistoriaClinica.MdiParent = this;
+            ventanaHistoriaClinica.Show();
+        }
+
+        private void tsbFormularioHIS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbSalir_Click(object sender, EventArgs e)
         {
             if (this.ventanaBienvenida != null)
             {

@@ -15,5 +15,10 @@ namespace SistemaCentroSalud
         {
             InitializeComponent();
         }
+
+        private void frmCita_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
     }
 }

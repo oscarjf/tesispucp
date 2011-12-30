@@ -14194,3 +14194,5 @@ INSERT INTO Cie10 VALUES('Z99.2','Dependencia de diálisis renal')
 INSERT INTO Cie10 VALUES('Z99.3','Dependencia de silla de ruedas')
 INSERT INTO Cie10 VALUES('Z99.8','Dependencia de otras máquinas y dispositivos capacitantes')
 INSERT INTO Cie10 VALUES('Z99.9','Dependencia de máquina y dispositivo capacitante, no especificada')
+
+UPDATE Cie10 SET Descripcion = UPPER(Descripcion)

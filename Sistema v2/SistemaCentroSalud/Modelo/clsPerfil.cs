@@ -17,12 +17,12 @@ namespace Modelo
             get { return strNombre; }
             set { strNombre = value; }
         }
-        private string strTipoPersonal;
+        private string strTipoEmpleado;
 
-        public string TipoPersonal
+        public string TipoEmpleado
         {
-            get { return strTipoPersonal; }
-            set { strTipoPersonal = value; }
+            get { return strTipoEmpleado; }
+            set { strTipoEmpleado = value; }
         }
         private string strEstado;
 
@@ -31,12 +31,12 @@ namespace Modelo
             get { return strEstado; }
             set { strEstado = value; }
         }
-        private string strListaIdVentanas;
+        private string strListaMenus;
 
-        public string ListaIdVentanas
+        public string ListaMenus
         {
-            get { return strListaIdVentanas; }
-            set { strListaIdVentanas = value; }
+            get { return strListaMenus; }
+            set { strListaMenus = value; }
         }
 
         public override string ToString()
@@ -48,9 +48,9 @@ namespace Modelo
         {
             IdPerfil = 0;
             Nombre = "";
-            TipoPersonal = "";
+            TipoEmpleado = "";
             Estado = "ACTIVO";
-            ListaIdVentanas = "";
+            ListaMenus = "";
         }
     }
 }

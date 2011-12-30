@@ -49,6 +49,7 @@
     <Compile Include="clsArea.cs" />
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsCPT.cs" />
+    <Compile Include="clsDetalleDisponibilidad.cs" />
     <Compile Include="clsDetalleHorario.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsEnfermero.cs" />

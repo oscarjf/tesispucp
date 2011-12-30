@@ -159,6 +159,30 @@ namespace Control
             }
         }
 
+        public static DataTable obtenerMenusPerfil(int numIdEmpleado)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdEmpleado";
+            sqlParametro.Value = numIdEmpleado;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ObtenerMenus", lstParametrosSQL);
+
+            if (dtResultado.Rows.Count != 0)
+            {
+                return dtResultado;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static bool validarCambioCuenta(int numIdEmpleado, string strNombreUsuario, string strContrasena)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();

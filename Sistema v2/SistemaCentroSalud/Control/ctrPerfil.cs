@@ -162,10 +162,18 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPerfil", lstParametrosSQL);
+            DataSet dsResultado = clsGestorBD.ejecutarStoredProcedureDataSet("up_ManPerfil", lstParametrosSQL);
 
-            objPerfil.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
-            objPerfil.TipoEmpleado = dtResultado.Rows[0]["TipoEmpleado"].ToString();
+            objPerfil.Nombre = dsResultado.Tables[0].Rows[0]["Nombre"].ToString();
+            objPerfil.TipoEmpleado = dsResultado.Tables[0].Rows[0]["TipoEmpleado"].ToString();
+            
+            string strListaMenus = dsResultado.Tables[1].Rows[0]["Menu"].ToString();
+            for (int i = 1; i < dsResultado.Tables[1].Rows.Count; i++)
+            {
+                strListaMenus = strListaMenus + "," + dsResultado.Tables[1].Rows[i]["Menu"].ToString();
+            }
+
+            objPerfil.ListaMenus = strListaMenus;
 
             return objPerfil;
         }

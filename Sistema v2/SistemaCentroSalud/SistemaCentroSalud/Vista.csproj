@@ -84,11 +84,11 @@
     <Compile Include="Ventanas Auxiliares\frmBuscarPaciente.Designer.cs">
       <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas Doctor\frmHorario.cs">
+    <Compile Include="Ventanas Doctor\frmDisponibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas Doctor\frmHorario.Designer.cs">
-      <DependentUpon>frmHorario.cs</DependentUpon>
+    <Compile Include="Ventanas Doctor\frmDisponibilidad.Designer.cs">
+      <DependentUpon>frmDisponibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas Admisión\frmCita.cs">
       <SubType>Form</SubType>
@@ -221,8 +221,8 @@
     <EmbeddedResource Include="Ventanas Auxiliares\frmBuscarPaciente.resx">
       <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas Doctor\frmHorario.resx">
-      <DependentUpon>frmHorario.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas Doctor\frmDisponibilidad.resx">
+      <DependentUpon>frmDisponibilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Admisión\frmCita.resx">
       <DependentUpon>frmCita.cs</DependentUpon>

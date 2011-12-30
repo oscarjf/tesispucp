@@ -11,9 +11,9 @@ namespace SistemaCentroSalud
 {
     public partial class frmBuscarPaciente : Form
     {
-        private frmHorario ventanaHorario; 
+        private frmDisponibilidad ventanaHorario; 
 
-        public frmBuscarPaciente(frmHorario ventanaHorario)
+        public frmBuscarPaciente(frmDisponibilidad ventanaHorario)
         {
             InitializeComponent();
             this.ventanaHorario = ventanaHorario;

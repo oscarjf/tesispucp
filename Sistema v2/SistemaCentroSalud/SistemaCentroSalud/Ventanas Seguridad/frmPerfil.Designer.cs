@@ -31,46 +31,78 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfil));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Paciente");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cita");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Consulta");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Doctor");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Enfermero");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Técnico");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Administrativo");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Doctor");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Enfermero");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Técnico");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Administrativo");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
             treeNode5,
             treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Historia Clínica Completa");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Historia Clínica");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Formulario HIS");
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Historia Clínica Completa");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Historia Clínica");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Formulario HIS");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Disponibilidad");
             System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Doctor", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
             treeNode10,
             treeNode11,
             treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Áreas");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Especialidades Médicas");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Horario");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Área");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Especialidad Médica");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Pabellón");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Consultorio");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Modo de Ingreso");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Parámetros Centro de Salud", new System.Windows.Forms.TreeNode[] {
             treeNode14,
             treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Perfil");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Auditoría");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Respaldo");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Tipo de Documento");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Ocupación");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Religión");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Idioma");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Etnia");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("País");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Parámetros Paciente", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("CPT");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Laboratorio");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Financiador de Salud");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Unidad Productora de Servicios");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Parámetros Formulario HIS", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
             treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Reportes");
+            treeNode26,
+            treeNode31});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Reportes");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Perfil");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Auditoría");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Respaldar");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Restaurar");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37});
             this.tbcPerfil = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnInactivar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActivar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -83,9 +115,8 @@
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.cboEstadoBuscar = new System.Windows.Forms.ComboBox();
             this.lblEstadoBuscar = new System.Windows.Forms.Label();
-            this.cboAreaBuscar = new System.Windows.Forms.ComboBox();
+            this.cboTipoEmpleadoBuscar = new System.Windows.Forms.ComboBox();
             this.lblAreaBuscar = new System.Windows.Forms.Label();
-            this.cuTextBox1 = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -100,8 +131,9 @@
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
             this.cboTipoEmpleadoDetalle = new System.Windows.Forms.ComboBox();
             this.lblTipoEmpleado = new System.Windows.Forms.Label();
-            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreDetalle = new System.Windows.Forms.Label();
+            this.txtNombreBuscar = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbcPerfil.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
@@ -118,13 +150,15 @@
             this.tbcPerfil.Location = new System.Drawing.Point(0, 0);
             this.tbcPerfil.Name = "tbcPerfil";
             this.tbcPerfil.SelectedIndex = 0;
-            this.tbcPerfil.Size = new System.Drawing.Size(569, 318);
+            this.tbcPerfil.Size = new System.Drawing.Size(459, 318);
             this.tbcPerfil.TabIndex = 0;
+            this.tbcPerfil.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcPerfil_Selecting);
+            this.tbcPerfil.SelectedIndexChanged += new System.EventHandler(this.tbcPerfil_SelectedIndexChanged);
             // 
             // tbpBuscar
             // 
             this.tbpBuscar.Controls.Add(this.btnSalir);
-            this.tbpBuscar.Controls.Add(this.btnInactivar);
+            this.tbpBuscar.Controls.Add(this.btnEliminar);
             this.tbpBuscar.Controls.Add(this.btnActivar);
             this.tbpBuscar.Controls.Add(this.btnVer);
             this.tbpBuscar.Controls.Add(this.btnModificar);
@@ -134,7 +168,7 @@
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(561, 292);
+            this.tbpBuscar.Size = new System.Drawing.Size(451, 292);
             this.tbpBuscar.TabIndex = 0;
             this.tbpBuscar.Text = "Buscar";
             this.tbpBuscar.UseVisualStyleBackColor = true;
@@ -150,18 +184,20 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnInactivar
+            // btnEliminar
             // 
-            this.btnInactivar.Image = ((System.Drawing.Image)(resources.GetObject("btnInactivar.Image")));
-            this.btnInactivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInactivar.Location = new System.Drawing.Point(279, 262);
-            this.btnInactivar.Name = "btnInactivar";
-            this.btnInactivar.Size = new System.Drawing.Size(75, 23);
-            this.btnInactivar.TabIndex = 18;
-            this.btnInactivar.Text = "Inactivar";
-            this.btnInactivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInactivar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(279, 262);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActivar
             // 
@@ -175,6 +211,7 @@
             this.btnActivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActivar.UseVisualStyleBackColor = true;
             this.btnActivar.Visible = false;
+            this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
             // 
             // btnVer
             // 
@@ -187,6 +224,7 @@
             this.btnVer.Text = "Ver";
             this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // btnModificar
             // 
@@ -199,6 +237,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -211,6 +250,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgvPerfiles
             // 
@@ -230,6 +270,7 @@
             this.dgvPerfiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPerfiles.Size = new System.Drawing.Size(435, 144);
             this.dgvPerfiles.TabIndex = 1;
+            this.dgvPerfiles.SelectionChanged += new System.EventHandler(this.dgvPerfiles_SelectionChanged);
             // 
             // Id
             // 
@@ -262,9 +303,9 @@
             // 
             this.gbxCriterios.Controls.Add(this.cboEstadoBuscar);
             this.gbxCriterios.Controls.Add(this.lblEstadoBuscar);
-            this.gbxCriterios.Controls.Add(this.cboAreaBuscar);
+            this.gbxCriterios.Controls.Add(this.cboTipoEmpleadoBuscar);
             this.gbxCriterios.Controls.Add(this.lblAreaBuscar);
-            this.gbxCriterios.Controls.Add(this.cuTextBox1);
+            this.gbxCriterios.Controls.Add(this.txtNombreBuscar);
             this.gbxCriterios.Controls.Add(this.lblNombreBuscar);
             this.gbxCriterios.Location = new System.Drawing.Point(8, 6);
             this.gbxCriterios.Name = "gbxCriterios";
@@ -281,7 +322,7 @@
             "TODOS",
             "ACTIVO",
             "INACTIVO"});
-            this.cboEstadoBuscar.Location = new System.Drawing.Point(295, 56);
+            this.cboEstadoBuscar.Location = new System.Drawing.Point(318, 56);
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(111, 21);
             this.cboEstadoBuscar.TabIndex = 5;
@@ -289,38 +330,35 @@
             // lblEstadoBuscar
             // 
             this.lblEstadoBuscar.AutoSize = true;
-            this.lblEstadoBuscar.Location = new System.Drawing.Point(246, 59);
+            this.lblEstadoBuscar.Location = new System.Drawing.Point(271, 59);
             this.lblEstadoBuscar.Name = "lblEstadoBuscar";
             this.lblEstadoBuscar.Size = new System.Drawing.Size(43, 13);
             this.lblEstadoBuscar.TabIndex = 4;
             this.lblEstadoBuscar.Text = "Estado:";
             // 
-            // cboAreaBuscar
+            // cboTipoEmpleadoBuscar
             // 
-            this.cboAreaBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAreaBuscar.FormattingEnabled = true;
-            this.cboAreaBuscar.Location = new System.Drawing.Point(59, 56);
-            this.cboAreaBuscar.Name = "cboAreaBuscar";
-            this.cboAreaBuscar.Size = new System.Drawing.Size(157, 21);
-            this.cboAreaBuscar.TabIndex = 3;
+            this.cboTipoEmpleadoBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoEmpleadoBuscar.FormattingEnabled = true;
+            this.cboTipoEmpleadoBuscar.Items.AddRange(new object[] {
+            "TODOS",
+            "ADMINISTRATIVO",
+            "DOCTOR",
+            "ENFERMERO",
+            "TÉCNICO"});
+            this.cboTipoEmpleadoBuscar.Location = new System.Drawing.Point(108, 56);
+            this.cboTipoEmpleadoBuscar.Name = "cboTipoEmpleadoBuscar";
+            this.cboTipoEmpleadoBuscar.Size = new System.Drawing.Size(157, 21);
+            this.cboTipoEmpleadoBuscar.TabIndex = 3;
             // 
             // lblAreaBuscar
             // 
             this.lblAreaBuscar.AutoSize = true;
             this.lblAreaBuscar.Location = new System.Drawing.Point(6, 59);
             this.lblAreaBuscar.Name = "lblAreaBuscar";
-            this.lblAreaBuscar.Size = new System.Drawing.Size(32, 13);
+            this.lblAreaBuscar.Size = new System.Drawing.Size(96, 13);
             this.lblAreaBuscar.TabIndex = 2;
-            this.lblAreaBuscar.Text = "Área:";
-            // 
-            // cuTextBox1
-            // 
-            this.cuTextBox1.Location = new System.Drawing.Point(59, 23);
-            this.cuTextBox1.Name = "cuTextBox1";
-            this.cuTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.cuTextBox1.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.cuTextBox1.TabIndex = 1;
-            this.cuTextBox1.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.lblAreaBuscar.Text = "Tipo de Empleado:";
             // 
             // lblNombreBuscar
             // 
@@ -340,7 +378,7 @@
             this.tbpDetalle.Location = new System.Drawing.Point(4, 22);
             this.tbpDetalle.Name = "tbpDetalle";
             this.tbpDetalle.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDetalle.Size = new System.Drawing.Size(561, 292);
+            this.tbpDetalle.Size = new System.Drawing.Size(451, 292);
             this.tbpDetalle.TabIndex = 1;
             this.tbpDetalle.Text = "Detalle";
             this.tbpDetalle.UseVisualStyleBackColor = true;
@@ -356,6 +394,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -368,6 +407,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // gbxPermisos
             // 
@@ -392,6 +432,7 @@
             this.btnTodoIzquierda.TabIndex = 8;
             this.btnTodoIzquierda.Text = "<<";
             this.btnTodoIzquierda.UseVisualStyleBackColor = true;
+            this.btnTodoIzquierda.Click += new System.EventHandler(this.btnTodoIzquierda_Click);
             // 
             // btnIzquierda
             // 
@@ -401,6 +442,7 @@
             this.btnIzquierda.TabIndex = 7;
             this.btnIzquierda.Text = "<";
             this.btnIzquierda.UseVisualStyleBackColor = true;
+            this.btnIzquierda.Click += new System.EventHandler(this.btnIzquierda_Click);
             // 
             // btnDerecha
             // 
@@ -410,6 +452,7 @@
             this.btnDerecha.TabIndex = 6;
             this.btnDerecha.Text = ">";
             this.btnDerecha.UseVisualStyleBackColor = true;
+            this.btnDerecha.Click += new System.EventHandler(this.btnDerecha_Click);
             // 
             // btnTodoDerecha
             // 
@@ -419,6 +462,7 @@
             this.btnTodoDerecha.TabIndex = 5;
             this.btnTodoDerecha.Text = ">>";
             this.btnTodoDerecha.UseVisualStyleBackColor = true;
+            this.btnTodoDerecha.Click += new System.EventHandler(this.btnTodoDerecha_Click);
             // 
             // lbxAccesosPermitidos
             // 
@@ -432,63 +476,98 @@
             // 
             this.tvAccesos.Location = new System.Drawing.Point(9, 19);
             this.tvAccesos.Name = "tvAccesos";
-            treeNode1.Name = "nodPaciente";
+            treeNode1.Name = "smnuPaciente";
             treeNode1.Text = "Paciente";
-            treeNode2.Name = "nodCita";
+            treeNode2.Name = "smnuCita";
             treeNode2.Text = "Cita";
-            treeNode3.Name = "nodConsulta";
-            treeNode3.Text = "Consulta";
-            treeNode4.Name = "nodAdmision";
-            treeNode4.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode4.Text = "Admisión";
-            treeNode5.Name = "nodDoctor";
-            treeNode5.Text = "Doctor";
-            treeNode6.Name = "nodEnfermero";
-            treeNode6.Text = "Enfermero";
-            treeNode7.Name = "nodTecnico";
-            treeNode7.Text = "Técnico";
-            treeNode8.Name = "nodAdministrativo";
-            treeNode8.Text = "Administrativo";
-            treeNode9.Name = "nodPersonal";
-            treeNode9.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode9.Text = "Personal";
-            treeNode10.Name = "nodHistoriaClinicaCompleta";
-            treeNode10.Text = "Historia Clínica Completa";
-            treeNode11.Name = "nodHistoriaClinica";
-            treeNode11.Text = "Historia Clínica";
-            treeNode12.Name = "nodFormularioHIS";
-            treeNode12.Text = "Formulario HIS";
+            treeNode3.Name = "nodAdmision";
+            treeNode3.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode3.Text = "Admisión";
+            treeNode4.Name = "smnuDoctor";
+            treeNode4.Text = "Doctor";
+            treeNode5.Name = "smnuEnfermero";
+            treeNode5.Text = "Enfermero";
+            treeNode6.Name = "smnuTecnico";
+            treeNode6.Text = "Técnico";
+            treeNode7.Name = "smnuAdministrativo";
+            treeNode7.Text = "Administrativo";
+            treeNode8.Name = "nodPersonal";
+            treeNode8.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode8.Text = "Personal";
+            treeNode9.Name = "smnuHistoriaClinicaCompleta";
+            treeNode9.Text = "Historia Clínica Completa";
+            treeNode10.Name = "smnuHistoriaClinica";
+            treeNode10.Text = "Historia Clínica";
+            treeNode11.Name = "smnuFormularioHIS";
+            treeNode11.Text = "Formulario HIS";
+            treeNode12.Name = "smnuDisponibilidad";
+            treeNode12.Text = "Disponibilidad";
             treeNode13.Name = "nodDoctor";
             treeNode13.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             treeNode13.Text = "Doctor";
-            treeNode14.Name = "nodAreas";
-            treeNode14.Text = "Áreas";
-            treeNode15.Name = "nodEspecialidadesMedicas";
-            treeNode15.Text = "Especialidades Médicas";
-            treeNode16.Name = "nodHorario";
-            treeNode16.Text = "Horario";
-            treeNode17.Name = "nodMantenimiento";
-            treeNode17.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode17.Text = "Mantenimiento";
-            treeNode18.Name = "nodPerfil";
-            treeNode18.Text = "Perfil";
-            treeNode19.Name = "nodAuditoria";
-            treeNode19.Text = "Auditoría";
-            treeNode20.Name = "nodRespaldo";
-            treeNode20.Text = "Respaldo";
-            treeNode21.Name = "nodSeguridad";
-            treeNode21.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode21.Text = "Seguridad";
-            treeNode22.Name = "nodReportes";
-            treeNode22.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode22.Text = "Reportes";
+            treeNode14.Name = "smnuArea";
+            treeNode14.Text = "Área";
+            treeNode15.Name = "smnuEspecialidad";
+            treeNode15.Text = "Especialidad Médica";
+            treeNode16.Name = "smnuPabellon";
+            treeNode16.Text = "Pabellón";
+            treeNode17.Name = "smnuConsultorio";
+            treeNode17.Text = "Consultorio";
+            treeNode18.Name = "smnuModoIngreso";
+            treeNode18.Text = "Modo de Ingreso";
+            treeNode19.Name = "nodParametrosCentroSalud";
+            treeNode19.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode19.Text = "Parámetros Centro de Salud";
+            treeNode20.Name = "smnuTipoDocumento";
+            treeNode20.Text = "Tipo de Documento";
+            treeNode21.Name = "smnuOcupacion";
+            treeNode21.Text = "Ocupación";
+            treeNode22.Name = "smnuReligion";
+            treeNode22.Text = "Religión";
+            treeNode23.Name = "smnuIdioma";
+            treeNode23.Text = "Idioma";
+            treeNode24.Name = "smnuEtnia";
+            treeNode24.Text = "Etnia";
+            treeNode25.Name = "smnuPais";
+            treeNode25.Text = "País";
+            treeNode26.Name = "nodParametrosPaciente";
+            treeNode26.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode26.Text = "Parámetros Paciente";
+            treeNode27.Name = "smnuCPT";
+            treeNode27.Text = "CPT";
+            treeNode28.Name = "smnuLaboratorio";
+            treeNode28.Text = "Laboratorio";
+            treeNode29.Name = "smnuFinanciadorSalud";
+            treeNode29.Text = "Financiador de Salud";
+            treeNode30.Name = "smnuUnidadProductoraServicios";
+            treeNode30.Text = "Unidad Productora de Servicios";
+            treeNode31.Name = "nodParametrosFormularioHIS";
+            treeNode31.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode31.Text = "Parámetros Formulario HIS";
+            treeNode32.Name = "nodMantenimiento";
+            treeNode32.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode32.Text = "Mantenimiento";
+            treeNode33.Name = "nodReportes";
+            treeNode33.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode33.Text = "Reportes";
+            treeNode34.Name = "smnuPerfil";
+            treeNode34.Text = "Perfil";
+            treeNode35.Name = "smnuAuditoria";
+            treeNode35.Text = "Auditoría";
+            treeNode36.Name = "smnuRespaldar";
+            treeNode36.Text = "Respaldar";
+            treeNode37.Name = "smnuRestaurar";
+            treeNode37.Text = "Restaurar";
+            treeNode38.Name = "nodSeguridad";
+            treeNode38.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode38.Text = "Seguridad";
             this.tvAccesos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode9,
+            treeNode3,
+            treeNode8,
             treeNode13,
-            treeNode17,
-            treeNode21,
-            treeNode22});
+            treeNode32,
+            treeNode33,
+            treeNode38});
             this.tvAccesos.Size = new System.Drawing.Size(212, 134);
             this.tvAccesos.TabIndex = 4;
             // 
@@ -524,7 +603,7 @@
             "TÉCNICO"});
             this.cboTipoEmpleadoDetalle.Location = new System.Drawing.Point(322, 32);
             this.cboTipoEmpleadoDetalle.Name = "cboTipoEmpleadoDetalle";
-            this.cboTipoEmpleadoDetalle.Size = new System.Drawing.Size(160, 21);
+            this.cboTipoEmpleadoDetalle.Size = new System.Drawing.Size(157, 21);
             this.cboTipoEmpleadoDetalle.TabIndex = 4;
             // 
             // lblTipoEmpleado
@@ -536,15 +615,6 @@
             this.lblTipoEmpleado.TabIndex = 3;
             this.lblTipoEmpleado.Text = "Tipo Empleado:";
             // 
-            // txtNombreDetalle
-            // 
-            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
-            this.txtNombreDetalle.Name = "txtNombreDetalle";
-            this.txtNombreDetalle.Size = new System.Drawing.Size(212, 20);
-            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombreDetalle.TabIndex = 2;
-            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
             // lblNombreDetalle
             // 
             this.lblNombreDetalle.AutoSize = true;
@@ -554,11 +624,31 @@
             this.lblNombreDetalle.TabIndex = 2;
             this.lblNombreDetalle.Text = "Nombre:";
             // 
+            // txtNombreBuscar
+            // 
+            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreBuscar.Location = new System.Drawing.Point(108, 23);
+            this.txtNombreBuscar.Name = "txtNombreBuscar";
+            this.txtNombreBuscar.Size = new System.Drawing.Size(157, 20);
+            this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreBuscar.TabIndex = 1;
+            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtNombreDetalle
+            // 
+            this.txtNombreDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
+            this.txtNombreDetalle.Name = "txtNombreDetalle";
+            this.txtNombreDetalle.Size = new System.Drawing.Size(212, 20);
+            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreDetalle.TabIndex = 2;
+            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
             // frmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 317);
+            this.ClientSize = new System.Drawing.Size(457, 317);
             this.Controls.Add(this.tbcPerfil);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -566,6 +656,7 @@
             this.Name = "frmPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfil";
+            this.Load += new System.EventHandler(this.frmPerfil_Load);
             this.tbcPerfil.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).EndInit();
@@ -602,13 +693,13 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnInactivar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cboEstadoBuscar;
         private System.Windows.Forms.Label lblEstadoBuscar;
-        private System.Windows.Forms.ComboBox cboAreaBuscar;
+        private System.Windows.Forms.ComboBox cboTipoEmpleadoBuscar;
         private System.Windows.Forms.Label lblAreaBuscar;
-        private SistemaCentroSalud.Controles.cuTextBox cuTextBox1;
+        private SistemaCentroSalud.Controles.cuTextBox txtNombreBuscar;
         private System.Windows.Forms.Label lblNombreBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;

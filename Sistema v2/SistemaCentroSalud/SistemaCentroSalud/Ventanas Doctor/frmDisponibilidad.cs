@@ -5,21 +5,25 @@ using Comun;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Schedule;
 using DevComponents.Schedule.Model;
+using Modelo;
+using System.Collections.Generic;
 
 namespace SistemaCentroSalud
 {
-    public partial class frmHorario : Form
+    public partial class frmDisponibilidad : Form
     {
         private int numNumeroSemana;
         private bool blnCambios = true;
         private int numIntervaloTiempo; //FALTA MODIFICAR
+        private int numId = -1;
+        private List<clsDetalleDisponibilidad> lstDisponibilidad = new List<clsDetalleDisponibilidad>();
 
-        public frmHorario()
+        public frmDisponibilidad()
         {
             InitializeComponent();
         }
 
-        private void frmHorario_Load(object sender, EventArgs e)
+        private void frmDisponibilidad_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             numNumeroSemana = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(Convert.ToDateTime(mcCalendario.SelectionStart), CalendarWeekRule.FirstDay, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
@@ -43,7 +47,7 @@ namespace SistemaCentroSalud
             }
         }
 
-        private void frmHorario_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmDisponibilidad_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (blnCambios)
             {
@@ -149,7 +153,8 @@ namespace SistemaCentroSalud
         private Appointment AddNewAppointment(DateTime dtInicio, DateTime dtFin, bool blnCita, string strDescripcion)
         {
             Appointment appointment = new Appointment();
-
+            
+            appointment.Id = numId;
             appointment.StartTime = dtInicio;
             appointment.EndTime = dtFin;
 
@@ -179,6 +184,17 @@ namespace SistemaCentroSalud
             appointment.Locked = true;
 
             cvCalendario.CalendarModel.Appointments.Add(appointment);
+
+            clsDetalleDisponibilidad objDetalleDisponibilidad = new clsDetalleDisponibilidad();
+            objDetalleDisponibilidad.IdDisponibilidad = 1; //FALTA MODIFICAR
+            objDetalleDisponibilidad.IdDetalleDisponibilidad = appointment.Id;
+            objDetalleDisponibilidad.Fecha = appointment.StartTime.Date;
+            objDetalleDisponibilidad.HoraInicio = appointment.StartTime;
+            objDetalleDisponibilidad.HoraFin = appointment.EndTime;
+
+            lstDisponibilidad.Add(objDetalleDisponibilidad);
+
+            numId = numId - 1;
 
             return (appointment);
         }
@@ -214,6 +230,15 @@ namespace SistemaCentroSalud
 
             if (view != null)
             {
+                for (int i = 0; i < lstDisponibilidad.Count; i++)
+                {
+                    if (lstDisponibilidad[i].IdDetalleDisponibilidad == view.Appointment.Id)
+                    {
+                        lstDisponibilidad.RemoveAt(i);
+                        break;
+                    }
+                }
+                
                 cvCalendario.CalendarModel.Appointments.Remove(view.Appointment);
             }
         }

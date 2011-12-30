@@ -66,5 +66,12 @@ namespace SistemaCentroSalud.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap NoFoto {
+            get {
+                object obj = ResourceManager.GetObject("NoFoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

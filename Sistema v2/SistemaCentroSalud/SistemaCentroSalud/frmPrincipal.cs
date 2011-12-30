@@ -85,7 +85,7 @@ namespace SistemaCentroSalud
             if (!clsVentanas.VentanaHorarioActiva)
             {
                 clsVentanas.VentanaHorarioActiva = true;
-                frmHorario ventanaHorario = new frmHorario();
+                frmDisponibilidad ventanaHorario = new frmDisponibilidad();
                 ventanaHorario.MdiParent = this;
                 ventanaHorario.Show();
             }
@@ -272,6 +272,12 @@ namespace SistemaCentroSalud
             sstInformacion.Visible = smnuBarraEstado.Checked;
         }
 
+        private void smnuBarraAcciones_Click(object sender, EventArgs e)
+        {
+            smnuBarraAcciones.Checked = !smnuBarraAcciones.Checked;
+            bbarIconos.Visible = smnuBarraAcciones.Checked;
+        }
+
         private void smnuSalir_Click(object sender, EventArgs e)
         {
             if (this.ventanaBienvenida != null)
@@ -356,6 +362,50 @@ namespace SistemaCentroSalud
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)
+        {
+            if (this.ventanaBienvenida != null)
+            {
+                this.Dispose();
+                this.ventanaBienvenida.limpiarFormulario();
+                this.ventanaBienvenida.Visible = true;
+            }
+            else
+            {
+                this.Dispose();
+            }
+        }
+
+        private void bbtnCambiarContrasena_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmCambiarContrasena ventanaCambiarContrasena = new frmCambiarContrasena(this);
+            ventanaCambiarContrasena.ShowDialog();
+        }
+
+        private void bbtnPaciente_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmPaciente ventanaPaciente = new frmPaciente(this);
+            ventanaPaciente.MdiParent = this;
+            ventanaPaciente.Show();
+        }
+
+        private void bbtnCita_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
+        }
+
+        private void bbtnHistoriaClinica_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
+            ventanaHistoriaClinica.MdiParent = this;
+            ventanaHistoriaClinica.Show();
+        }
+
+        private void bbtnFormularioHIS_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
+        }
+
+        private void bbtnSalir_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
             if (this.ventanaBienvenida != null)
             {

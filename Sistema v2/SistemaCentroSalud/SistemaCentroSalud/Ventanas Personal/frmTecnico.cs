@@ -236,7 +236,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private void cargarComboPerfil()
         {
             clsPerfil objPerfil = new clsPerfil();
-            objPerfil.TipoPersonal = "TÉCNICO";
+            objPerfil.TipoEmpleado = "TÉCNICO";
 
             DataTable dt = ctrPerfil.seleccionarPerfilesCriterios(objPerfil);
 

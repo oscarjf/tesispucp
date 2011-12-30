@@ -1,6 +1,6 @@
 ﻿namespace SistemaCentroSalud
 {
-    partial class frmHorario
+    partial class frmDisponibilidad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHorario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDisponibilidad));
             this.pnlIzquierdo = new System.Windows.Forms.Panel();
             this.pnlInferior = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -238,7 +238,7 @@
             this.cvCalendario.TimeSlotDuration = 30;
             this.cvCalendario.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cvCalendario_MouseUp);
             // 
-            // frmHorario
+            // frmDisponibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,11 +246,11 @@
             this.Controls.Add(this.pnlDerecho);
             this.Controls.Add(this.pnlIzquierdo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmHorario";
+            this.Name = "frmDisponibilidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Horario";
-            this.Load += new System.EventHandler(this.frmHorario_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHorario_FormClosing);
+            this.Text = "Disponibilidad";
+            this.Load += new System.EventHandler(this.frmDisponibilidad_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDisponibilidad_FormClosing);
             this.pnlIzquierdo.ResumeLayout(false);
             this.pnlInferior.ResumeLayout(false);
             this.pnlDerecho.ResumeLayout(false);

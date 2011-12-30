@@ -4,12 +4,7 @@ go
 
 
 
-DROP TABLE VentanasxPerfil
-go
-
-
-
-DROP TABLE Menu
+DROP TABLE MenusxPerfil
 go
 
 
@@ -856,17 +851,18 @@ go
 
 
 
-CREATE TABLE Menu
+CREATE TABLE MenusxPerfil
 ( 
-	IdMenu               int IDENTITY ( 1,1 ) ,
-	Nombre               varchar(50)  NOT NULL 
+	IdMenuPerfil         int IDENTITY ( 1,1 ) ,
+	IdPerfil             int  NOT NULL ,
+	Menu                 varchar(50)  NULL 
 )
 go
 
 
 
-ALTER TABLE Menu
-	ADD CONSTRAINT XPKMenu PRIMARY KEY (IdMenu ASC)
+ALTER TABLE MenusxPerfil
+	ADD CONSTRAINT XPKMenusxPerfil PRIMARY KEY (IdMenuPerfil ASC)
 go
 
 
@@ -1086,22 +1082,6 @@ go
 
 ALTER TABLE UnidadProductoraServicio
 	ADD CONSTRAINT XPKUnidadProductoraServicio PRIMARY KEY (IdUnidadProductoraServicio ASC)
-go
-
-
-
-CREATE TABLE VentanasxPerfil
-( 
-	IdVentanaPerfil      int IDENTITY ( 1,1 ) ,
-	IdMenu               int  NOT NULL ,
-	IdPerfil             int  NOT NULL 
-)
-go
-
-
-
-ALTER TABLE VentanasxPerfil
-	ADD CONSTRAINT XPKVentanasxPerfil PRIMARY KEY (IdVentanaPerfil ASC)
 go
 
 
@@ -1449,6 +1429,15 @@ go
 
 
 
+ALTER TABLE MenusxPerfil
+	ADD CONSTRAINT R_11 FOREIGN KEY (IdPerfil) REFERENCES Perfil(IdPerfil)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
 ALTER TABLE Paciente
 	ADD  FOREIGN KEY (IdPaciente) REFERENCES Persona(IdPersona)
 		ON DELETE CASCADE
@@ -1525,24 +1514,6 @@ ALTER TABLE Tecnico
 	ADD  FOREIGN KEY (IdTecnico) REFERENCES Empleado(IdEmpleado)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
-go
-
-
-
-
-ALTER TABLE VentanasxPerfil
-	ADD CONSTRAINT R_10 FOREIGN KEY (IdMenu) REFERENCES Menu(IdMenu)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
-go
-
-
-
-
-ALTER TABLE VentanasxPerfil
-	ADD CONSTRAINT R_11 FOREIGN KEY (IdPerfil) REFERENCES Perfil(IdPerfil)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
 go
 
 

@@ -9,7 +9,7 @@ go
 
 
 
-DROP TABLE Ventana
+DROP TABLE Menu
 go
 
 
@@ -856,6 +856,21 @@ go
 
 
 
+CREATE TABLE Menu
+( 
+	IdMenu               int IDENTITY ( 1,1 ) ,
+	Nombre               varchar(50)  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE Menu
+	ADD CONSTRAINT XPKMenu PRIMARY KEY (IdMenu ASC)
+go
+
+
+
 CREATE TABLE ModoIngreso
 ( 
 	IdModoIngreso        int IDENTITY ( 1,1 ) ,
@@ -948,7 +963,7 @@ CREATE TABLE Perfil
 ( 
 	IdPerfil             int IDENTITY ( 1,1 ) ,
 	Nombre               varchar(50)  NOT NULL ,
-	TipoPersonal         varchar(14)  NOT NULL ,
+	TipoEmpleado         varchar(14)  NOT NULL ,
 	Estado               varchar(8)  NOT NULL 
 )
 go
@@ -1075,25 +1090,10 @@ go
 
 
 
-CREATE TABLE Ventana
-( 
-	IdVentana            int IDENTITY ( 1,1 ) ,
-	Nombre               varchar(50)  NOT NULL 
-)
-go
-
-
-
-ALTER TABLE Ventana
-	ADD CONSTRAINT XPKVentana PRIMARY KEY (IdVentana ASC)
-go
-
-
-
 CREATE TABLE VentanasxPerfil
 ( 
 	IdVentanaPerfil      int IDENTITY ( 1,1 ) ,
-	IdVentana            int  NOT NULL ,
+	IdMenu               int  NOT NULL ,
 	IdPerfil             int  NOT NULL 
 )
 go
@@ -1531,7 +1531,7 @@ go
 
 
 ALTER TABLE VentanasxPerfil
-	ADD CONSTRAINT R_10 FOREIGN KEY (IdVentana) REFERENCES Ventana(IdVentana)
+	ADD CONSTRAINT R_10 FOREIGN KEY (IdMenu) REFERENCES Menu(IdMenu)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

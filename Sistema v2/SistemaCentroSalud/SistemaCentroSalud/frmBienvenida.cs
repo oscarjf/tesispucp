@@ -11,6 +11,7 @@ namespace SistemaCentroSalud
         private int numIdEmpleado = 0;
         private string strUsuario = "";
         private string strContrasena = "";
+        private DataTable dtMenus;
         
         public frmBienvenida()
         {
@@ -45,6 +46,11 @@ namespace SistemaCentroSalud
                 txtUsuario.Focus();
                 return false;
             }
+        }
+
+        public DataTable getMenus()
+        {
+            return dtMenus;
         }
 
         public int getIdEmpleado()
@@ -82,6 +88,8 @@ namespace SistemaCentroSalud
                     numIdEmpleado = numId;
                     setUsuario(txtUsuario.Text);
                     setContrasena(txtContrasena.Text);
+
+                    dtMenus = ctrEmpleado.obtenerMenusPerfil(numIdEmpleado);
 
                     frmPrincipal ventanaPrincipal = new frmPrincipal(this);
                     ventanaPrincipal.Show();

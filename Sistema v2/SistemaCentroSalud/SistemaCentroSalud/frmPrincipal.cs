@@ -22,7 +22,58 @@ namespace SistemaCentroSalud
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < ventanaBienvenida.getMenus().Rows.Count; i++)
+            {
+                for (int j = 0; j < menuStrip.Items.Count; j++)
+                {
+                    if (compararMenu(ventanaBienvenida.getMenus().Rows[i]["Menu"].ToString(), menuStrip.Items[j]))
+                    {
+                        break;
+                    }
+                }
+            }
+        }
 
+        private bool compararMenu(string strNombre, object objObjeto)
+        {
+            if (objObjeto is ToolStripMenuItem)
+            {
+                if (((ToolStripMenuItem)objObjeto).DropDownItems.Count > 0)
+                {
+                    for (int i = 0; i < ((ToolStripMenuItem)objObjeto).DropDownItems.Count; i++)
+                    {
+                        compararMenu(strNombre, ((ToolStripDropDownItem)objObjeto).DropDownItems[i]);
+                    }
+                }
+                else
+                {
+                    if (strNombre.CompareTo(((ToolStripMenuItem)objObjeto).Name) == 0)
+                    {
+                        ((ToolStripMenuItem)objObjeto).Enabled = true;
+                        return true;
+                    }
+                }
+            }
+            else if (objObjeto is ToolStripDropDownItem)
+            {
+                if (((ToolStripDropDownItem)objObjeto).DropDownItems.Count > 0)
+                {
+                    for (int i = 0; i < ((ToolStripDropDownItem)objObjeto).DropDownItems.Count; i++)
+                    {
+                        compararMenu(strNombre, ((ToolStripDropDownItem)objObjeto).DropDownItems[i]);
+                    }
+                }
+                else
+                {
+                    if (strNombre.CompareTo(((ToolStripDropDownItem)objObjeto).Name) == 0)
+                    {
+                        ((ToolStripDropDownItem)objObjeto).Enabled = true;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void smnuContrasena_Click(object sender, EventArgs e)

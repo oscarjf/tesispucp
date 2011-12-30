@@ -29,76 +29,76 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfil));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Paciente");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cita");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Doctor");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Enfermero");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Técnico");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Administrativo");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Historia Clínica Completa");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Historia Clínica");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Formulario HIS");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Disponibilidad");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Doctor", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Área");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Especialidad Médica");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Pabellón");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Consultorio");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Modo de Ingreso");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Parámetros Centro de Salud", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Tipo de Documento");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Ocupación");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Religión");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Idioma");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Etnia");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("País");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Parámetros Paciente", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("CPT");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Laboratorio");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Financiador de Salud");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Unidad Productora de Servicios");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Parámetros Formulario HIS", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode26,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Reportes");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Perfil");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Auditoría");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Respaldar");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Restaurar");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
-            treeNode34,
-            treeNode35,
-            treeNode36,
-            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Paciente");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Cita");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
+            treeNode39,
+            treeNode40});
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Doctor");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Enfermero");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Técnico");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Administrativo");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
+            treeNode42,
+            treeNode43,
+            treeNode44,
+            treeNode45});
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Historia Clínica Completa");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Historia Clínica");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Formulario HIS");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Disponibilidad");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Doctor", new System.Windows.Forms.TreeNode[] {
+            treeNode47,
+            treeNode48,
+            treeNode49,
+            treeNode50});
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Área");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Especialidad Médica");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Pabellón");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Consultorio");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Modo de Ingreso");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Parámetros Centro de Salud", new System.Windows.Forms.TreeNode[] {
+            treeNode52,
+            treeNode53,
+            treeNode54,
+            treeNode55,
+            treeNode56});
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Tipo de Documento");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Ocupación");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Religión");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Idioma");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Etnia");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("País");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Parámetros Paciente", new System.Windows.Forms.TreeNode[] {
+            treeNode58,
+            treeNode59,
+            treeNode60,
+            treeNode61,
+            treeNode62,
+            treeNode63});
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("CPT");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Laboratorio");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Financiador de Salud");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Unidad Productora de Servicios");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Parámetros Formulario HIS", new System.Windows.Forms.TreeNode[] {
+            treeNode65,
+            treeNode66,
+            treeNode67,
+            treeNode68});
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
+            treeNode57,
+            treeNode64,
+            treeNode69});
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Reportes");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Perfil");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Auditoría");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Respaldar");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Restaurar");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
+            treeNode72,
+            treeNode73,
+            treeNode74,
+            treeNode75});
             this.tbcPerfil = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -326,6 +326,7 @@
             this.cboEstadoBuscar.Name = "cboEstadoBuscar";
             this.cboEstadoBuscar.Size = new System.Drawing.Size(111, 21);
             this.cboEstadoBuscar.TabIndex = 5;
+            this.cboEstadoBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblEstadoBuscar
             // 
@@ -350,6 +351,7 @@
             this.cboTipoEmpleadoBuscar.Name = "cboTipoEmpleadoBuscar";
             this.cboTipoEmpleadoBuscar.Size = new System.Drawing.Size(157, 21);
             this.cboTipoEmpleadoBuscar.TabIndex = 3;
+            this.cboTipoEmpleadoBuscar.SelectedIndexChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblAreaBuscar
             // 
@@ -476,98 +478,98 @@
             // 
             this.tvAccesos.Location = new System.Drawing.Point(9, 19);
             this.tvAccesos.Name = "tvAccesos";
-            treeNode1.Name = "smnuPaciente";
-            treeNode1.Text = "Paciente";
-            treeNode2.Name = "smnuCita";
-            treeNode2.Text = "Cita";
-            treeNode3.Name = "nodAdmision";
-            treeNode3.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode3.Text = "Admisión";
-            treeNode4.Name = "smnuDoctor";
-            treeNode4.Text = "Doctor";
-            treeNode5.Name = "smnuEnfermero";
-            treeNode5.Text = "Enfermero";
-            treeNode6.Name = "smnuTecnico";
-            treeNode6.Text = "Técnico";
-            treeNode7.Name = "smnuAdministrativo";
-            treeNode7.Text = "Administrativo";
-            treeNode8.Name = "nodPersonal";
-            treeNode8.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode8.Text = "Personal";
-            treeNode9.Name = "smnuHistoriaClinicaCompleta";
-            treeNode9.Text = "Historia Clínica Completa";
-            treeNode10.Name = "smnuHistoriaClinica";
-            treeNode10.Text = "Historia Clínica";
-            treeNode11.Name = "smnuFormularioHIS";
-            treeNode11.Text = "Formulario HIS";
-            treeNode12.Name = "smnuDisponibilidad";
-            treeNode12.Text = "Disponibilidad";
-            treeNode13.Name = "nodDoctor";
-            treeNode13.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode13.Text = "Doctor";
-            treeNode14.Name = "smnuArea";
-            treeNode14.Text = "Área";
-            treeNode15.Name = "smnuEspecialidad";
-            treeNode15.Text = "Especialidad Médica";
-            treeNode16.Name = "smnuPabellon";
-            treeNode16.Text = "Pabellón";
-            treeNode17.Name = "smnuConsultorio";
-            treeNode17.Text = "Consultorio";
-            treeNode18.Name = "smnuModoIngreso";
-            treeNode18.Text = "Modo de Ingreso";
-            treeNode19.Name = "nodParametrosCentroSalud";
-            treeNode19.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            treeNode19.Text = "Parámetros Centro de Salud";
-            treeNode20.Name = "smnuTipoDocumento";
-            treeNode20.Text = "Tipo de Documento";
-            treeNode21.Name = "smnuOcupacion";
-            treeNode21.Text = "Ocupación";
-            treeNode22.Name = "smnuReligion";
-            treeNode22.Text = "Religión";
-            treeNode23.Name = "smnuIdioma";
-            treeNode23.Text = "Idioma";
-            treeNode24.Name = "smnuEtnia";
-            treeNode24.Text = "Etnia";
-            treeNode25.Name = "smnuPais";
-            treeNode25.Text = "País";
-            treeNode26.Name = "nodParametrosPaciente";
-            treeNode26.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            treeNode26.Text = "Parámetros Paciente";
-            treeNode27.Name = "smnuCPT";
-            treeNode27.Text = "CPT";
-            treeNode28.Name = "smnuLaboratorio";
-            treeNode28.Text = "Laboratorio";
-            treeNode29.Name = "smnuFinanciadorSalud";
-            treeNode29.Text = "Financiador de Salud";
-            treeNode30.Name = "smnuUnidadProductoraServicios";
-            treeNode30.Text = "Unidad Productora de Servicios";
-            treeNode31.Name = "nodParametrosFormularioHIS";
-            treeNode31.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            treeNode31.Text = "Parámetros Formulario HIS";
-            treeNode32.Name = "nodMantenimiento";
-            treeNode32.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode32.Text = "Mantenimiento";
-            treeNode33.Name = "nodReportes";
-            treeNode33.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode33.Text = "Reportes";
-            treeNode34.Name = "smnuPerfil";
-            treeNode34.Text = "Perfil";
-            treeNode35.Name = "smnuAuditoria";
-            treeNode35.Text = "Auditoría";
-            treeNode36.Name = "smnuRespaldar";
-            treeNode36.Text = "Respaldar";
-            treeNode37.Name = "smnuRestaurar";
-            treeNode37.Text = "Restaurar";
-            treeNode38.Name = "nodSeguridad";
-            treeNode38.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode38.Text = "Seguridad";
+            treeNode39.Name = "smnuPaciente";
+            treeNode39.Text = "Paciente";
+            treeNode40.Name = "smnuCita";
+            treeNode40.Text = "Cita";
+            treeNode41.Name = "nodAdmision";
+            treeNode41.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode41.Text = "Admisión";
+            treeNode42.Name = "smnuDoctor";
+            treeNode42.Text = "Doctor";
+            treeNode43.Name = "smnuEnfermero";
+            treeNode43.Text = "Enfermero";
+            treeNode44.Name = "smnuTecnico";
+            treeNode44.Text = "Técnico";
+            treeNode45.Name = "smnuAdministrativo";
+            treeNode45.Text = "Administrativo";
+            treeNode46.Name = "nodPersonal";
+            treeNode46.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode46.Text = "Personal";
+            treeNode47.Name = "smnuHistoriaClinicaCompleta";
+            treeNode47.Text = "Historia Clínica Completa";
+            treeNode48.Name = "smnuHistoriaClinica";
+            treeNode48.Text = "Historia Clínica";
+            treeNode49.Name = "smnuFormularioHIS";
+            treeNode49.Text = "Formulario HIS";
+            treeNode50.Name = "smnuDisponibilidad";
+            treeNode50.Text = "Disponibilidad";
+            treeNode51.Name = "nodDoctor";
+            treeNode51.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode51.Text = "Doctor";
+            treeNode52.Name = "smnuArea";
+            treeNode52.Text = "Área";
+            treeNode53.Name = "smnuEspecialidad";
+            treeNode53.Text = "Especialidad Médica";
+            treeNode54.Name = "smnuPabellon";
+            treeNode54.Text = "Pabellón";
+            treeNode55.Name = "smnuConsultorio";
+            treeNode55.Text = "Consultorio";
+            treeNode56.Name = "smnuModoIngreso";
+            treeNode56.Text = "Modo de Ingreso";
+            treeNode57.Name = "nodParametrosCentroSalud";
+            treeNode57.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode57.Text = "Parámetros Centro de Salud";
+            treeNode58.Name = "smnuTipoDocumento";
+            treeNode58.Text = "Tipo de Documento";
+            treeNode59.Name = "smnuOcupacion";
+            treeNode59.Text = "Ocupación";
+            treeNode60.Name = "smnuReligion";
+            treeNode60.Text = "Religión";
+            treeNode61.Name = "smnuIdioma";
+            treeNode61.Text = "Idioma";
+            treeNode62.Name = "smnuEtnia";
+            treeNode62.Text = "Etnia";
+            treeNode63.Name = "smnuPais";
+            treeNode63.Text = "País";
+            treeNode64.Name = "nodParametrosPaciente";
+            treeNode64.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode64.Text = "Parámetros Paciente";
+            treeNode65.Name = "smnuCPT";
+            treeNode65.Text = "CPT";
+            treeNode66.Name = "smnuLaboratorio";
+            treeNode66.Text = "Laboratorio";
+            treeNode67.Name = "smnuFinanciadorSalud";
+            treeNode67.Text = "Financiador de Salud";
+            treeNode68.Name = "smnuUnidadProductoraServicios";
+            treeNode68.Text = "Unidad Productora de Servicios";
+            treeNode69.Name = "nodParametrosFormularioHIS";
+            treeNode69.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            treeNode69.Text = "Parámetros Formulario HIS";
+            treeNode70.Name = "nodMantenimiento";
+            treeNode70.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode70.Text = "Mantenimiento";
+            treeNode71.Name = "nodReportes";
+            treeNode71.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode71.Text = "Reportes";
+            treeNode72.Name = "smnuPerfil";
+            treeNode72.Text = "Perfil";
+            treeNode73.Name = "smnuAuditoria";
+            treeNode73.Text = "Auditoría";
+            treeNode74.Name = "smnuRespaldar";
+            treeNode74.Text = "Respaldar";
+            treeNode75.Name = "smnuRestaurar";
+            treeNode75.Text = "Restaurar";
+            treeNode76.Name = "nodSeguridad";
+            treeNode76.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode76.Text = "Seguridad";
             this.tvAccesos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode8,
-            treeNode13,
-            treeNode32,
-            treeNode33,
-            treeNode38});
+            treeNode41,
+            treeNode46,
+            treeNode51,
+            treeNode70,
+            treeNode71,
+            treeNode76});
             this.tvAccesos.Size = new System.Drawing.Size(212, 134);
             this.tvAccesos.TabIndex = 4;
             // 
@@ -633,6 +635,7 @@
             this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreBuscar.TabIndex = 1;
             this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtNombreDetalle
             // 

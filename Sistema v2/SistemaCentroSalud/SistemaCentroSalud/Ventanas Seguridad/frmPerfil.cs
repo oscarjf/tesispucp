@@ -34,19 +34,22 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
             for (int i = 0; i < dtPerfiles.Rows.Count; i++)
             {
-                dgvPerfiles.Rows.Add(new String[] { dtPerfiles.Rows[i]["IdPerfil"].ToString(), 
+                if (dtPerfiles.Rows[i]["IdPerfil"].ToString().CompareTo("1") != 0)
+                {
+                    dgvPerfiles.Rows.Add(new String[] { dtPerfiles.Rows[i]["IdPerfil"].ToString(), 
                                                  dtPerfiles.Rows[i]["Nombre"].ToString(),
                                                  dtPerfiles.Rows[i]["TipoEmpleado"].ToString(), 
                                                  dtPerfiles.Rows[i]["Estado"].ToString() });
 
-                if (dtPerfiles.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
-                {
-                    dgvPerfiles.Rows[i].Cells[1].Style.ForeColor = Color.White;
-                    dgvPerfiles.Rows[i].Cells[1].Style.BackColor = Color.Red;
-                    dgvPerfiles.Rows[i].Cells[2].Style.ForeColor = Color.White;
-                    dgvPerfiles.Rows[i].Cells[2].Style.BackColor = Color.Red;
-                    dgvPerfiles.Rows[i].Cells[3].Style.ForeColor = Color.White;
-                    dgvPerfiles.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    if (dtPerfiles.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
+                    {
+                        dgvPerfiles.Rows[i].Cells[1].Style.ForeColor = Color.White;
+                        dgvPerfiles.Rows[i].Cells[1].Style.BackColor = Color.Red;
+                        dgvPerfiles.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                        dgvPerfiles.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                        dgvPerfiles.Rows[i].Cells[3].Style.ForeColor = Color.White;
+                        dgvPerfiles.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    }
                 }
             }
 
@@ -69,14 +72,24 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
             {
                 txtNombreDetalle.Text = objPerfil.Nombre;
                 cboTipoEmpleadoDetalle.Text = objPerfil.TipoEmpleado;
-                //Lista
+
+                string[] strMenus = objPerfil.ListaMenus.Split(',');
+                foreach (string menu in strMenus)
+                {
+                    lbxAccesosPermitidos.Items.Add(menu);
+                }
             }
 
             if (numAccion == clsComun.VER)
             {
                 txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
                 cboTipoEmpleadoDetalle.Enabled = false;
-                //Lista
+                //lbxAccesosPermitidos.Enabled = false;
+
+                btnTodoDerecha.Visible = false;
+                btnDerecha.Visible = false;
+                btnIzquierda.Visible = false;
+                btnTodoIzquierda.Visible = false;
 
                 btnCancelar.Visible = false;
                 btnGuardar.Text = "Volver";
@@ -85,7 +98,12 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
             {
                 txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
                 cboTipoEmpleadoDetalle.Enabled = true;
-                //Lista
+                //lbxAccesosPermitidos.Enabled = true;
+
+                btnTodoDerecha.Visible = true;
+                btnDerecha.Visible = true;
+                btnIzquierda.Visible = true;
+                btnTodoIzquierda.Visible = true;
 
                 btnCancelar.Visible = true;
                 btnGuardar.Text = "Guardar";

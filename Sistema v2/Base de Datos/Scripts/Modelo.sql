@@ -1,4 +1,9 @@
 
+DROP TABLE EspecialidadesxDoctor
+go
+
+
+
 DROP TABLE VentanasxPerfil
 go
 
@@ -25,6 +30,11 @@ go
 
 
 DROP TABLE DetalleHorario
+go
+
+
+
+DROP TABLE Especialidad
 go
 
 
@@ -99,31 +109,6 @@ go
 
 
 
-DROP TABLE Paciente
-go
-
-
-
-DROP TABLE Religion
-go
-
-
-
-DROP TABLE Idioma
-go
-
-
-
-DROP TABLE Ocupacion
-go
-
-
-
-DROP TABLE EspecialidadesxDoctor
-go
-
-
-
 DROP TABLE Doctor
 go
 
@@ -140,6 +125,31 @@ go
 
 
 DROP TABLE Perfil
+go
+
+
+
+DROP TABLE Area
+go
+
+
+
+DROP TABLE Paciente
+go
+
+
+
+DROP TABLE Religion
+go
+
+
+
+DROP TABLE Idioma
+go
+
+
+
+DROP TABLE Ocupacion
 go
 
 
@@ -164,12 +174,12 @@ go
 
 
 
-DROP TABLE Especialidad
+DROP TABLE DetalleDisponibilidad
 go
 
 
 
-DROP TABLE Area
+DROP TABLE Disponibilidad
 go
 
 
@@ -236,55 +246,55 @@ go
 CREATE TABLE Antecedentes
 ( 
 	IdAntecedentes       bigint IDENTITY ( 1,1 ) ,
-	IndTabaco            char(1)  NULL DEFAULT '' ,
-	IndAlcohol           char(1)  NULL DEFAULT '' ,
-	IndCafe              char(1)  NULL DEFAULT '' ,
-	IndTe                char(1)  NULL DEFAULT '' ,
-	IndDrogas            char(1)  NULL DEFAULT '' ,
-	IndDiabetes          char(1)  NULL DEFAULT '' ,
-	DescripcionDiabetes  varchar(300)  NULL DEFAULT '' ,
-	IndHipertension      char(1)  NULL DEFAULT '' ,
-	DescripcionHipertension varchar(300)  NULL DEFAULT '' ,
-	IndCoronariopatia    char(1)  NULL DEFAULT '' ,
-	DescripcionCoronariopatia varchar(300)  NULL DEFAULT '' ,
-	IndDislipidemia      char(1)  NULL DEFAULT '' ,
-	DescripcionDislipidemia varchar(300)  NULL DEFAULT '' ,
-	IndAsma              char(1)  NULL DEFAULT '' ,
-	DescripcionAsma      varchar(300)  NULL DEFAULT '' ,
-	IndPsicopatia        char(1)  NULL DEFAULT '' ,
-	DescripcionPsicopatia varchar(300)  NULL DEFAULT '' ,
-	IndAlergias          char(1)  NULL DEFAULT '' ,
-	DescripcionAlergias  varchar(300)  NULL DEFAULT '' ,
-	IndTuberculosis      char(1)  NULL DEFAULT '' ,
-	DescripcionTuberculosis varchar(300)  NULL DEFAULT '' ,
-	IndAtipia            char(1)  NULL DEFAULT '' ,
-	DescripcionAtipia    varchar(300)  NULL DEFAULT '' ,
-	IndGota              char(1)  NULL DEFAULT '' ,
-	DescripcionGota      varchar(300)  NULL DEFAULT '' ,
-	IndAfeccionBroncopulmonar char(1)  NULL DEFAULT '' ,
-	DescripcionAfeccionBroncopulmonar varchar(300)  NULL DEFAULT '' ,
-	IndEndocrinopatia    char(1)  NULL DEFAULT '' ,
-	DescripcionEndocrinopatia varchar(300)  NULL DEFAULT '' ,
-	IndNefropatia        char(1)  NULL DEFAULT '' ,
-	DescripcionNefropatia varchar(300)  NULL DEFAULT '' ,
-	IndUropatia          char(1)  NULL DEFAULT '' ,
-	DescripcionUropatia  varchar(300)  NULL DEFAULT '' ,
-	IndHemopatia         char(1)  NULL DEFAULT '' ,
-	DescripcionHemopatia varchar(300)  NULL DEFAULT '' ,
-	IndETS               char(1)  NULL DEFAULT '' ,
-	DescripcionETS       varchar(300)  NULL DEFAULT '' ,
-	IndUlcera            char(1)  NULL DEFAULT '' ,
-	DescripcionUlcera    varchar(300)  NULL DEFAULT '' ,
-	IndColecistopatia    char(1)  NULL DEFAULT '' ,
-	DescripcionColecistopatia varchar(300)  NULL DEFAULT '' ,
-	IndHepatitis         char(1)  NULL DEFAULT '' ,
-	DescripcionHepatitis varchar(300)  NULL DEFAULT '' ,
-	IndEnfermedadesNeurologicas char(1)  NULL DEFAULT '' ,
-	DescripcionEnfermedadesNeurologicas varchar(300)  NULL DEFAULT '' ,
-	IndFiebresProlongadas char(1)  NULL DEFAULT '' ,
-	DescripcionFiebresProlongadas varchar(300)  NULL DEFAULT '' ,
-	IndColagenopatia     char(1)  NULL DEFAULT '' ,
-	DescripcionColagenopatia varchar(300)  NULL DEFAULT '' ,
+	IndTabaco            char(1)  NULL ,
+	IndAlcohol           char(1)  NULL ,
+	IndCafe              char(1)  NULL ,
+	IndTe                char(1)  NULL ,
+	IndDrogas            char(1)  NULL ,
+	IndDiabetes          char(1)  NULL ,
+	DescripcionDiabetes  varchar(300)  NULL ,
+	IndHipertension      char(1)  NULL ,
+	DescripcionHipertension varchar(300)  NULL ,
+	IndCoronariopatia    char(1)  NULL ,
+	DescripcionCoronariopatia varchar(300)  NULL ,
+	IndDislipidemia      char(1)  NULL ,
+	DescripcionDislipidemia varchar(300)  NULL ,
+	IndAsma              char(1)  NULL ,
+	DescripcionAsma      varchar(300)  NULL ,
+	IndPsicopatia        char(1)  NULL ,
+	DescripcionPsicopatia varchar(300)  NULL ,
+	IndAlergias          char(1)  NULL ,
+	DescripcionAlergias  varchar(300)  NULL ,
+	IndTuberculosis      char(1)  NULL ,
+	DescripcionTuberculosis varchar(300)  NULL ,
+	IndAtipia            char(1)  NULL ,
+	DescripcionAtipia    varchar(300)  NULL ,
+	IndGota              char(1)  NULL ,
+	DescripcionGota      varchar(300)  NULL ,
+	IndAfeccionBroncopulmonar char(1)  NULL ,
+	DescripcionAfeccionBroncopulmonar varchar(300)  NULL ,
+	IndEndocrinopatia    char(1)  NULL ,
+	DescripcionEndocrinopatia varchar(300)  NULL ,
+	IndNefropatia        char(1)  NULL ,
+	DescripcionNefropatia varchar(300)  NULL ,
+	IndUropatia          char(1)  NULL ,
+	DescripcionUropatia  varchar(300)  NULL ,
+	IndHemopatia         char(1)  NULL ,
+	DescripcionHemopatia varchar(300)  NULL ,
+	IndETS               char(1)  NULL ,
+	DescripcionETS       varchar(300)  NULL ,
+	IndUlcera            char(1)  NULL ,
+	DescripcionUlcera    varchar(300)  NULL ,
+	IndColecistopatia    char(1)  NULL ,
+	DescripcionColecistopatia varchar(300)  NULL ,
+	IndHepatitis         char(1)  NULL ,
+	DescripcionHepatitis varchar(300)  NULL ,
+	IndEnfermedadesNeurologicas char(1)  NULL ,
+	DescripcionEnfermedadesNeurologicas varchar(300)  NULL ,
+	IndFiebresProlongadas char(1)  NULL ,
+	DescripcionFiebresProlongadas varchar(300)  NULL ,
+	IndColagenopatia     char(1)  NULL ,
+	DescripcionColagenopatia varchar(300)  NULL ,
 	Otros                varchar(600)  NULL 
 )
 go
@@ -387,6 +397,24 @@ go
 
 
 
+CREATE TABLE DetalleDisponibilidad
+( 
+	IdDetalleDisponibilidad bigint IDENTITY ( 1,1 ) ,
+	IdDisponibilidad     bigint  NOT NULL ,
+	Fecha                datetime  NOT NULL ,
+	HoraInicio           datetime  NOT NULL ,
+	HoraFin              datetime  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE DetalleDisponibilidad
+	ADD CONSTRAINT XPKDetalleDisponibilidad PRIMARY KEY (IdDetalleDisponibilidad ASC)
+go
+
+
+
 CREATE TABLE DetalleFormularioHIS
 ( 
 	IdDetalleFormularioHIS bigint  NOT NULL ,
@@ -482,12 +510,28 @@ go
 
 
 
+CREATE TABLE Disponibilidad
+( 
+	IdDisponibilidad     bigint IDENTITY ( 1,1 ) ,
+	Estado               varchar(8)  NULL 
+)
+go
+
+
+
+ALTER TABLE Disponibilidad
+	ADD CONSTRAINT XPKDisponibilidad PRIMARY KEY (IdDisponibilidad ASC)
+go
+
+
+
 CREATE TABLE Doctor
 ( 
 	IdDoctor             bigint  NOT NULL ,
 	CMP                  varchar(5)  NOT NULL ,
 	IndicadorHC          char(1)  NOT NULL ,
-	IdHorario            bigint  NULL 
+	IdHorario            bigint  NULL ,
+	IdDisponibilidad     bigint  NULL 
 )
 go
 
@@ -1099,6 +1143,15 @@ go
 
 
 
+ALTER TABLE DetalleDisponibilidad
+	ADD CONSTRAINT R_73 FOREIGN KEY (IdDisponibilidad) REFERENCES Disponibilidad(IdDisponibilidad)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
 ALTER TABLE DetalleFormularioHIS
 	ADD CONSTRAINT R_59 FOREIGN KEY (IdFinanciadorSalud) REFERENCES FinanciadorSalud(IdFinanciadorSalud)
 		ON DELETE NO ACTION
@@ -1227,6 +1280,15 @@ go
 
 ALTER TABLE Doctor
 	ADD CONSTRAINT R_68 FOREIGN KEY (IdHorario) REFERENCES Horario(IdHorario)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE Doctor
+	ADD CONSTRAINT R_74 FOREIGN KEY (IdDisponibilidad) REFERENCES Disponibilidad(IdDisponibilidad)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

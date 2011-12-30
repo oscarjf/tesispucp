@@ -165,7 +165,7 @@ namespace Control
             DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPerfil", lstParametrosSQL);
 
             objPerfil.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
-            objPerfil.TipoPersonal = dtResultado.Rows[0]["TipoPersonal"].ToString();
+            objPerfil.TipoEmpleado = dtResultado.Rows[0]["TipoEmpleado"].ToString();
 
             return objPerfil;
         }

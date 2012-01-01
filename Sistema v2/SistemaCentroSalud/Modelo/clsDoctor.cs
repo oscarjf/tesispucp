@@ -250,6 +250,13 @@ namespace Modelo
             get { return numIdHorario; }
             set { numIdHorario = value; }
         }
+        private int numIdDisponibilidad;
+
+        public int _IdDisponibilidad
+        {
+            get { return numIdDisponibilidad; }
+            set { numIdDisponibilidad = value; }
+        }
         private string strListaIdEspecialidades;
 
         public string ListaIdEspecialidades

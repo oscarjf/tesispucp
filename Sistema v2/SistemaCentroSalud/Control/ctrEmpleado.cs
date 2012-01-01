@@ -183,6 +183,30 @@ namespace Control
             }
         }
 
+        public static string obtenerTipoEmpleado(int numIdEmpleado)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdEmpleado";
+            sqlParametro.Value = numIdEmpleado;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ObtenerTipoEmpleado", lstParametrosSQL);
+
+            if (dtResultado.Rows.Count != 0)
+            {
+                return dtResultado.Rows[0]["TipoEmpleado"].ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public static bool validarCambioCuenta(int numIdEmpleado, string strNombreUsuario, string strContrasena)
         {
             List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();

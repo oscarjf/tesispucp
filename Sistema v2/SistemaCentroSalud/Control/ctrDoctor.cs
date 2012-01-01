@@ -202,6 +202,7 @@ namespace Control
             objDoctor.CMP = dtResultado.Rows[0]["CMP"].ToString();
             objDoctor.IndicadorHC = dtResultado.Rows[0]["IndicadorHC"].ToString();
             objDoctor._IdHorario = Int32.Parse(dtResultado.Rows[0]["IdHorario"].ToString());
+            objDoctor._IdDisponibilidad = Int32.Parse(dtResultado.Rows[0]["IdDisponibilidad"].ToString());
             objDoctor._Especialidades = new List<clsEspecialidad>();
             for (int i = 0; i < dtResultado2.Rows.Count; i++)
             {

@@ -445,7 +445,8 @@ CREATE TABLE DetalleHorario
 	HoraInicio           datetime  NOT NULL ,
 	HoraFin              datetime  NOT NULL ,
 	IdConsultorio        int  NOT NULL ,
-	IdEspecialidad       int  NOT NULL 
+	IdEspecialidad       int  NOT NULL ,
+	Estado               varchar(8)  NOT NULL 
 )
 go
 
@@ -855,7 +856,7 @@ CREATE TABLE MenusxPerfil
 ( 
 	IdMenuPerfil         int IDENTITY ( 1,1 ) ,
 	IdPerfil             int  NOT NULL ,
-	Menu                 varchar(50)  NULL 
+	Menu                 varchar(50)  NOT NULL 
 )
 go
 
@@ -1515,4 +1516,5 @@ ALTER TABLE Tecnico
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 go
+
 

@@ -4,6 +4,11 @@ using System.IO;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Modelo;
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
 
 namespace Comun
 {
@@ -236,6 +241,60 @@ namespace Comun
             {
                 return strCadena;
             }
+        }
+
+        /// <summary>
+        /// Convierte una lista a un archivo XML
+        /// </summary>
+        /// <param name="lstDetalleDisponibilidad"> Lista a ser convertida </param>
+        /// <returns>string</returns>
+        public static string Serializar(List<clsDetalleDisponibilidad> lstDetalleDisponibilidad)
+        {
+            string strXML = null;
+
+            MemoryStream ms = new MemoryStream();
+            XmlSerializer xs = new XmlSerializer(typeof(List<clsDetalleDisponibilidad>));
+            XmlTextWriter xtw = new XmlTextWriter(ms, Encoding.Default);
+
+            XmlSerializerNamespaces xsn = new XmlSerializerNamespaces();
+            xsn.Add(String.Empty, String.Empty);
+
+            xs.Serialize(xtw, lstDetalleDisponibilidad, xsn);
+            ms = (MemoryStream)xtw.BaseStream;
+
+            UTF8Encoding encoding = new UTF8Encoding();
+            strXML = encoding.GetString(ms.ToArray());
+
+            XmlDocument xmlDocumento = new XmlDocument();
+            xmlDocumento.LoadXml(strXML);
+
+            CambiarXmlEncoding(xmlDocumento, "UTF-16");
+            StringWriter sr = new StringWriter();
+            XmlTextWriter xmltr = new XmlTextWriter(sr);
+            xmlDocumento.WriteTo(xmltr);
+
+            strXML = sr.ToString();
+
+            sr.Close();
+            xmltr.Close();
+
+            return strXML;
+        }
+
+        /// <summary>
+        /// Cambia el codificado de un archivo XML
+        /// </summary>
+        /// <param name="xmlDocumento"> Documento XML </param>
+        /// <param name="strEncoding"> Codificación </param>
+        /// <returns>XmlDocument</returns>
+        private static XmlDocument CambiarXmlEncoding(XmlDocument xmlDocumento, string strEncoding)
+        {
+            if (xmlDocumento.FirstChild.NodeType == XmlNodeType.XmlDeclaration)
+            {
+                XmlDeclaration xmlDeclaration = (XmlDeclaration)xmlDocumento.FirstChild;
+                xmlDeclaration.Encoding = strEncoding;
+            }
+            return xmlDocumento;
         }
     }
 }

@@ -38,14 +38,8 @@
             this.cmbMenues = new DevComponents.DotNetBar.ContextMenuBar();
             this.biEnBlanco = new DevComponents.DotNetBar.ButtonItem();
             this.biDisponible = new DevComponents.DotNetBar.ButtonItem();
-            this.biProgramarCita = new DevComponents.DotNetBar.ButtonItem();
             this.biRegistro = new DevComponents.DotNetBar.ButtonItem();
             this.biEliminar = new DevComponents.DotNetBar.ButtonItem();
-            this.liTipo = new DevComponents.DotNetBar.LabelItem();
-            this.biLibre = new DevComponents.DotNetBar.ButtonItem();
-            this.biOcupado = new DevComponents.DotNetBar.ButtonItem();
-            this.biCita = new DevComponents.DotNetBar.ButtonItem();
-            this.biEliminarCita = new DevComponents.DotNetBar.ButtonItem();
             this.cvCalendario = new DevComponents.DotNetBar.Schedule.CalendarView();
             this.pnlIzquierdo.SuspendLayout();
             this.pnlInferior.SuspendLayout();
@@ -108,8 +102,10 @@
             // 
             // mcCalendario
             // 
-            this.mcCalendario.CalendarDimensions = new System.Drawing.Size(1, 3);
+            this.mcCalendario.CalendarDimensions = new System.Drawing.Size(1, 2);
             this.mcCalendario.Location = new System.Drawing.Point(0, 0);
+            this.mcCalendario.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.mcCalendario.MinDate = new System.DateTime(2011, 1, 1, 0, 0, 0, 0);
             this.mcCalendario.Name = "mcCalendario";
             this.mcCalendario.TabIndex = 0;
             this.mcCalendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcCalendario_DateChanged);
@@ -130,9 +126,8 @@
             this.cmbMenues.DockSide = DevComponents.DotNetBar.eDockSide.Document;
             this.cmbMenues.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.biEnBlanco,
-            this.biRegistro,
-            this.biCita});
-            this.cmbMenues.Location = new System.Drawing.Point(69, 482);
+            this.biRegistro});
+            this.cmbMenues.Location = new System.Drawing.Point(80, 482);
             this.cmbMenues.Name = "cmbMenues";
             this.cmbMenues.Size = new System.Drawing.Size(504, 25);
             this.cmbMenues.Stretch = true;
@@ -146,8 +141,7 @@
             this.biEnBlanco.AutoExpandOnClick = true;
             this.biEnBlanco.Name = "biEnBlanco";
             this.biEnBlanco.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.biDisponible,
-            this.biProgramarCita});
+            this.biDisponible});
             this.biEnBlanco.Text = "En Blanco";
             // 
             // biDisponible
@@ -156,21 +150,12 @@
             this.biDisponible.Text = "Disponible";
             this.biDisponible.Click += new System.EventHandler(this.biDisponible_Click);
             // 
-            // biProgramarCita
-            // 
-            this.biProgramarCita.Name = "biProgramarCita";
-            this.biProgramarCita.Text = "Programar Cita";
-            this.biProgramarCita.Click += new System.EventHandler(this.biProgramarCita_Click);
-            // 
             // biRegistro
             // 
             this.biRegistro.AutoExpandOnClick = true;
             this.biRegistro.Name = "biRegistro";
             this.biRegistro.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.biEliminar,
-            this.liTipo,
-            this.biLibre,
-            this.biOcupado});
+            this.biEliminar});
             this.biRegistro.Text = "Registro";
             // 
             // biEliminar
@@ -178,45 +163,6 @@
             this.biEliminar.Name = "biEliminar";
             this.biEliminar.Text = "Eliminar";
             this.biEliminar.Click += new System.EventHandler(this.biEliminar_Click);
-            // 
-            // liTipo
-            // 
-            this.liTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(238)))));
-            this.liTipo.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
-            this.liTipo.BorderType = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.liTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            this.liTipo.Name = "liTipo";
-            this.liTipo.PaddingBottom = 1;
-            this.liTipo.PaddingLeft = 10;
-            this.liTipo.PaddingTop = 1;
-            this.liTipo.SingleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.liTipo.Text = "Tipo";
-            // 
-            // biLibre
-            // 
-            this.biLibre.Name = "biLibre";
-            this.biLibre.Text = "Libre";
-            this.biLibre.Click += new System.EventHandler(this.biLibre_Click);
-            // 
-            // biOcupado
-            // 
-            this.biOcupado.Name = "biOcupado";
-            this.biOcupado.Text = "Ocupado";
-            this.biOcupado.Click += new System.EventHandler(this.biOcupado_Click);
-            // 
-            // biCita
-            // 
-            this.biCita.AutoExpandOnClick = true;
-            this.biCita.Name = "biCita";
-            this.biCita.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.biEliminarCita});
-            this.biCita.Text = "Cita";
-            // 
-            // biEliminarCita
-            // 
-            this.biEliminarCita.Name = "biEliminarCita";
-            this.biEliminarCita.Text = "Eliminar";
-            this.biEliminarCita.Click += new System.EventHandler(this.biEliminar_Click);
             // 
             // cvCalendario
             // 
@@ -273,12 +219,6 @@
         private DevComponents.DotNetBar.ButtonItem biDisponible;
         private DevComponents.DotNetBar.ButtonItem biRegistro;
         private DevComponents.DotNetBar.ButtonItem biEliminar;
-        private DevComponents.DotNetBar.LabelItem liTipo;
-        private DevComponents.DotNetBar.ButtonItem biLibre;
-        private DevComponents.DotNetBar.ButtonItem biOcupado;
-        private DevComponents.DotNetBar.ButtonItem biProgramarCita;
-        private DevComponents.DotNetBar.ButtonItem biCita;
-        private DevComponents.DotNetBar.ButtonItem biEliminarCita;
 
     }
 }

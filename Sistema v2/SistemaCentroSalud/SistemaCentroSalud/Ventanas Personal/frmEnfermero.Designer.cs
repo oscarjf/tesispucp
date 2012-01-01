@@ -1121,7 +1121,7 @@
             this.MaximizeBox = false;
             this.Name = "frmEnfermero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Enfermero";
+            this.Text = "Enfermero(a)";
             this.Load += new System.EventHandler(this.frmEnfermero_Load);
             this.tbcEnfermero.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);

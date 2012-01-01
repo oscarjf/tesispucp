@@ -102,7 +102,7 @@
             this.tsbContrasena = new System.Windows.Forms.ToolStripButton();
             this.tsspSeparador1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbPaciente = new System.Windows.Forms.ToolStripButton();
-            this.tsbCitas = new System.Windows.Forms.ToolStripButton();
+            this.tsbCita = new System.Windows.Forms.ToolStripButton();
             this.tsspSeparador2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbHistoriaClinica = new System.Windows.Forms.ToolStripButton();
             this.tsbFormularioHIS = new System.Windows.Forms.ToolStripButton();
@@ -119,7 +119,15 @@
             this.bbtnCita = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnHistoriaClinica = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnFormularioHIS = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnDoctor = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnEnfermero = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnTecnico = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnAdministrativo = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnSalir = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnCalculadora = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnBlocDeNotas = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnPerfil = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnAuditoria = new DevComponents.DotNetBar.BubbleButton();
             this.menuStrip.SuspendLayout();
             this.tsIconos.SuspendLayout();
             this.sstInformacion.SuspendLayout();
@@ -305,7 +313,7 @@
             this.smnuDoctor.Name = "smnuDoctor";
             this.smnuDoctor.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.smnuDoctor.Size = new System.Drawing.Size(227, 24);
-            this.smnuDoctor.Text = "Doctor";
+            this.smnuDoctor.Text = "Doctor(a)";
             this.smnuDoctor.Click += new System.EventHandler(this.smnuDoctor_Click);
             // 
             // smnuEnfermero
@@ -316,7 +324,7 @@
             this.smnuEnfermero.Name = "smnuEnfermero";
             this.smnuEnfermero.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.smnuEnfermero.Size = new System.Drawing.Size(227, 24);
-            this.smnuEnfermero.Text = "Enfermero";
+            this.smnuEnfermero.Text = "Enfermero(a)";
             this.smnuEnfermero.Click += new System.EventHandler(this.smnuEnfermero_Click);
             // 
             // smnuTecnico
@@ -327,7 +335,7 @@
             this.smnuTecnico.Name = "smnuTecnico";
             this.smnuTecnico.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.smnuTecnico.Size = new System.Drawing.Size(227, 24);
-            this.smnuTecnico.Text = "Técnico";
+            this.smnuTecnico.Text = "Técnico(a)";
             this.smnuTecnico.Click += new System.EventHandler(this.smnuTecnico_Click);
             // 
             // tsspPersonal
@@ -766,7 +774,7 @@
             this.tsbContrasena,
             this.tsspSeparador1,
             this.tsbPaciente,
-            this.tsbCitas,
+            this.tsbCita,
             this.tsspSeparador2,
             this.tsbHistoriaClinica,
             this.tsbFormularioHIS,
@@ -805,16 +813,16 @@
             this.tsbPaciente.Text = "Pacientes";
             this.tsbPaciente.Click += new System.EventHandler(this.tsbPaciente_Click);
             // 
-            // tsbCitas
+            // tsbCita
             // 
-            this.tsbCitas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCitas.Image = ((System.Drawing.Image)(resources.GetObject("tsbCitas.Image")));
-            this.tsbCitas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbCitas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCitas.Name = "tsbCitas";
-            this.tsbCitas.Size = new System.Drawing.Size(24, 24);
-            this.tsbCitas.Text = "Citas";
-            this.tsbCitas.Click += new System.EventHandler(this.tsbCitas_Click);
+            this.tsbCita.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCita.Image = ((System.Drawing.Image)(resources.GetObject("tsbCita.Image")));
+            this.tsbCita.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbCita.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCita.Name = "tsbCita";
+            this.tsbCita.Size = new System.Drawing.Size(24, 24);
+            this.tsbCita.Text = "Citas";
+            this.tsbCita.Click += new System.EventHandler(this.tsbCitas_Click);
             // 
             // tsspSeparador2
             // 
@@ -874,8 +882,8 @@
             // 
             this.tslUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tslUsuario.Name = "tslUsuario";
-            this.tslUsuario.Size = new System.Drawing.Size(66, 20);
-            this.tslUsuario.Text = "Usuario: ";
+            this.tslUsuario.Size = new System.Drawing.Size(78, 20);
+            this.tslUsuario.Text = "USUARIO: ";
             // 
             // nomusuario
             // 
@@ -932,6 +940,14 @@
             this.bbtnCita,
             this.bbtnHistoriaClinica,
             this.bbtnFormularioHIS,
+            this.bbtnDoctor,
+            this.bbtnEnfermero,
+            this.bbtnTecnico,
+            this.bbtnAdministrativo,
+            this.bbtnCalculadora,
+            this.bbtnBlocDeNotas,
+            this.bbtnPerfil,
+            this.bbtnAuditoria,
             this.bbtnSalir});
             this.bbtbIconos.DarkBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bbtbIconos.LightBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -980,6 +996,38 @@
             this.bbtnFormularioHIS.TooltipText = "Formulario HIS";
             this.bbtnFormularioHIS.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnFormularioHIS_Click);
             // 
+            // bbtnDoctor
+            // 
+            this.bbtnDoctor.Image = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.Image")));
+            this.bbtnDoctor.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.ImageLarge")));
+            this.bbtnDoctor.Name = "bbtnDoctor";
+            this.bbtnDoctor.TooltipText = "Doctor(a)";
+            this.bbtnDoctor.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnDoctor_Click);
+            // 
+            // bbtnEnfermero
+            // 
+            this.bbtnEnfermero.Image = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.Image")));
+            this.bbtnEnfermero.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.ImageLarge")));
+            this.bbtnEnfermero.Name = "bbtnEnfermero";
+            this.bbtnEnfermero.TooltipText = "Enfermero(a)";
+            this.bbtnEnfermero.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnEnfermero_Click);
+            // 
+            // bbtnTecnico
+            // 
+            this.bbtnTecnico.Image = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.Image")));
+            this.bbtnTecnico.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.ImageLarge")));
+            this.bbtnTecnico.Name = "bbtnTecnico";
+            this.bbtnTecnico.TooltipText = "Técnico(a)";
+            this.bbtnTecnico.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnTecnico_Click);
+            // 
+            // bbtnAdministrativo
+            // 
+            this.bbtnAdministrativo.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.Image")));
+            this.bbtnAdministrativo.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.ImageLarge")));
+            this.bbtnAdministrativo.Name = "bbtnAdministrativo";
+            this.bbtnAdministrativo.TooltipText = "Administrativo";
+            this.bbtnAdministrativo.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAdministrativo_Click);
+            // 
             // bbtnSalir
             // 
             this.bbtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.Image")));
@@ -987,6 +1035,38 @@
             this.bbtnSalir.Name = "bbtnSalir";
             this.bbtnSalir.TooltipText = "Salir";
             this.bbtnSalir.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnSalir_Click);
+            // 
+            // bbtnCalculadora
+            // 
+            this.bbtnCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.Image")));
+            this.bbtnCalculadora.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.ImageLarge")));
+            this.bbtnCalculadora.Name = "bbtnCalculadora";
+            this.bbtnCalculadora.TooltipText = "Calculadora";
+            this.bbtnCalculadora.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCalculadora_Click);
+            // 
+            // bbtnBlocDeNotas
+            // 
+            this.bbtnBlocDeNotas.Image = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.Image")));
+            this.bbtnBlocDeNotas.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.ImageLarge")));
+            this.bbtnBlocDeNotas.Name = "bbtnBlocDeNotas";
+            this.bbtnBlocDeNotas.TooltipText = "Bloc de Notas";
+            this.bbtnBlocDeNotas.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnBlocDeNotas_Click);
+            // 
+            // bbtnPerfil
+            // 
+            this.bbtnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.Image")));
+            this.bbtnPerfil.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.ImageLarge")));
+            this.bbtnPerfil.Name = "bbtnPerfil";
+            this.bbtnPerfil.TooltipText = "Perfil";
+            this.bbtnPerfil.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnPerfil_Click);
+            // 
+            // bbtnAuditoria
+            // 
+            this.bbtnAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.Image")));
+            this.bbtnAuditoria.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.ImageLarge")));
+            this.bbtnAuditoria.Name = "bbtnAuditoria";
+            this.bbtnAuditoria.TooltipText = "Auditoría";
+            this.bbtnAuditoria.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAuditoria_Click);
             // 
             // frmPrincipal
             // 
@@ -1064,7 +1144,7 @@
         private System.Windows.Forms.ToolStripButton tsbContrasena;
         private System.Windows.Forms.ToolStripSeparator tsspSeparador1;
         private System.Windows.Forms.ToolStripButton tsbPaciente;
-        private System.Windows.Forms.ToolStripButton tsbCitas;
+        private System.Windows.Forms.ToolStripButton tsbCita;
         private System.Windows.Forms.ToolStripSeparator tsspSeparador2;
         private System.Windows.Forms.ToolStripButton tsbHistoriaClinica;
         private System.Windows.Forms.ToolStripButton tsbFormularioHIS;
@@ -1110,6 +1190,14 @@
         private System.Windows.Forms.ToolStripMenuItem smnuBarraAcciones;
         private System.Windows.Forms.ToolStripSeparator tsspHistoriaClinica;
         private System.Windows.Forms.ToolStripSeparator tsspDisponibilidad;
+        private DevComponents.DotNetBar.BubbleButton bbtnDoctor;
+        private DevComponents.DotNetBar.BubbleButton bbtnEnfermero;
+        private DevComponents.DotNetBar.BubbleButton bbtnTecnico;
+        private DevComponents.DotNetBar.BubbleButton bbtnAdministrativo;
+        private DevComponents.DotNetBar.BubbleButton bbtnCalculadora;
+        private DevComponents.DotNetBar.BubbleButton bbtnBlocDeNotas;
+        private DevComponents.DotNetBar.BubbleButton bbtnPerfil;
+        private DevComponents.DotNetBar.BubbleButton bbtnAuditoria;
     }
 }
 

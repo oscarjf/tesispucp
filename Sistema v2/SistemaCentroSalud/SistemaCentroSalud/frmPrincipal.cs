@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Comun;
+using Control;
+using Modelo;
 using SistemaCentroSalud.Ventanas_Ayuda;
 using SistemaCentroSalud.Ventanas_Doctor;
 using SistemaCentroSalud.Ventanas_Mantenimiento;
@@ -13,6 +15,7 @@ namespace SistemaCentroSalud
     public partial class frmPrincipal : Form
     {
         private frmBienvenida ventanaBienvenida;
+        private object objEmpleado;
 
         public frmPrincipal(frmBienvenida ventanaBienvenida)
         {
@@ -22,6 +25,8 @@ namespace SistemaCentroSalud
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            setEmpleado();
+
             for (int i = 0; i < ventanaBienvenida.getMenus().Rows.Count; i++)
             {
                 for (int j = 0; j < menuStrip.Items.Count; j++)
@@ -31,6 +36,76 @@ namespace SistemaCentroSalud
                         break;
                     }
                 }
+            }
+
+            activarBotones();
+
+            if (objEmpleado is clsDoctor)
+            {
+                tslUsuario.Text = tslUsuario + ((clsDoctor)objEmpleado).Paterno + " " + ((clsDoctor)objEmpleado).Materno + ", " + ((clsDoctor)objEmpleado).Nombres;
+            }
+            else if (objEmpleado is clsEnfermero)
+            {
+                tslUsuario.Text = tslUsuario + ((clsEnfermero)objEmpleado).Paterno + " " + ((clsEnfermero)objEmpleado).Materno + ", " + ((clsEnfermero)objEmpleado).Nombres;
+            }
+            else if (objEmpleado is clsTecnico)
+            {
+                tslUsuario.Text = tslUsuario + ((clsTecnico)objEmpleado).Paterno + " " + ((clsTecnico)objEmpleado).Materno + ", " + ((clsTecnico)objEmpleado).Nombres;
+            }
+            else if (objEmpleado is clsAdministrativo)
+            {
+                tslUsuario.Text = tslUsuario + ((clsAdministrativo)objEmpleado).Paterno + " " + ((clsAdministrativo)objEmpleado).Materno + ", " + ((clsAdministrativo)objEmpleado).Nombres;
+            }
+        }
+
+        private void activarBotones()
+        {
+            tsbPaciente.Enabled = smnuPaciente.Enabled;
+            tsbCita.Enabled = smnuCita.Enabled;
+            tsbHistoriaClinica.Enabled = smnuHistoriaClinica.Enabled;
+            tsbFormularioHIS.Enabled = smnuFormularioHIS.Enabled;
+
+            bbtnPaciente.Visible = smnuPaciente.Enabled;
+            bbtnCita.Visible = smnuCita.Enabled;
+            bbtnHistoriaClinica.Visible = smnuHistoriaClinica.Enabled;
+            bbtnFormularioHIS.Visible = smnuFormularioHIS.Enabled;
+            bbtnDoctor.Visible = smnuDoctor.Enabled;
+            bbtnEnfermero.Visible = smnuEnfermero.Enabled;
+            bbtnTecnico.Visible = smnuTecnico.Enabled;
+            bbtnAdministrativo.Visible = smnuAdministrativo.Enabled;
+            bbtnPerfil.Visible = smnuPerfil.Enabled;
+            bbtnAuditoria.Visible = smnuAuditoria.Enabled;
+        }
+
+        private void setEmpleado()
+        {
+            if (ventanaBienvenida.getTipoEmpleado().CompareTo("DOCTOR") == 0)
+            {
+                clsDoctor objDoctor = new clsDoctor();
+                objDoctor.IdDoctor = ventanaBienvenida.getIdEmpleado();
+
+                objEmpleado = ctrDoctor.seleccionarDoctor(objDoctor);
+            }
+            else if (ventanaBienvenida.getTipoEmpleado().CompareTo("ENFERMERO") == 0)
+            {
+                clsEnfermero objEnfermero = new clsEnfermero();
+                objEnfermero.IdEnfermero = ventanaBienvenida.getIdEmpleado();
+
+                objEmpleado = ctrEnfermero.seleccionarEnfermero(objEnfermero);
+            }
+            else if (ventanaBienvenida.getTipoEmpleado().CompareTo("TÉCNICO") == 0)
+            {
+                clsTecnico objTecnico = new clsTecnico();
+                objTecnico.IdTecnico = ventanaBienvenida.getIdEmpleado();
+
+                objEmpleado = ctrTecnico.seleccionarTecnico(objTecnico);
+            }
+            else if (ventanaBienvenida.getTipoEmpleado().CompareTo("ADMINISTRATIVO") == 0)
+            {
+                clsAdministrativo objAdministrativo = new clsAdministrativo();
+                objAdministrativo.IdAdministrativo = ventanaBienvenida.getIdEmpleado();
+
+                objEmpleado = ctrAdministrativo.seleccionarAdministrativo(objAdministrativo);
             }
         }
 
@@ -133,12 +208,19 @@ namespace SistemaCentroSalud
 
         private void smnuHorario_Click(object sender, EventArgs e)
         {
-            if (!clsVentanas.VentanaHorarioActiva)
+            if (objEmpleado is clsDoctor)
             {
-                clsVentanas.VentanaHorarioActiva = true;
-                frmDisponibilidad ventanaHorario = new frmDisponibilidad();
-                ventanaHorario.MdiParent = this;
-                ventanaHorario.Show();
+                if (!clsVentanas.VentanaHorarioActiva)
+                {
+                    clsVentanas.VentanaHorarioActiva = true;
+                    frmDisponibilidad ventanaHorario = new frmDisponibilidad(((clsDoctor)objEmpleado)._IdDisponibilidad);
+                    ventanaHorario.MdiParent = this;
+                    ventanaHorario.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sólo un doctor puede modificar su disponibilidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -384,15 +466,12 @@ namespace SistemaCentroSalud
 
         private void tsbContrasena_Click(object sender, EventArgs e)
         {
-            frmCambiarContrasena ventanaCambiarContrasena = new frmCambiarContrasena(this);
-            ventanaCambiarContrasena.ShowDialog();
+            smnuContrasena_Click(sender, e);
         }
 
         private void tsbPaciente_Click(object sender, EventArgs e)
         {
-            frmPaciente ventanaPaciente = new frmPaciente(this);
-            ventanaPaciente.MdiParent = this;
-            ventanaPaciente.Show();
+            smnuPaciente_Click(sender, e);
         }
 
         private void tsbCitas_Click(object sender, EventArgs e)
@@ -402,9 +481,7 @@ namespace SistemaCentroSalud
 
         private void tsbHistoriaClinica_Click(object sender, EventArgs e)
         {
-            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
-            ventanaHistoriaClinica.MdiParent = this;
-            ventanaHistoriaClinica.Show();
+            smnuHistoriaClinica_Click(sender, e);
         }
 
         private void tsbFormularioHIS_Click(object sender, EventArgs e)
@@ -414,29 +491,17 @@ namespace SistemaCentroSalud
 
         private void tsbSalir_Click(object sender, EventArgs e)
         {
-            if (this.ventanaBienvenida != null)
-            {
-                this.Dispose();
-                this.ventanaBienvenida.limpiarFormulario();
-                this.ventanaBienvenida.Visible = true;
-            }
-            else
-            {
-                this.Dispose();
-            }
+            smnuSalir_Click(sender, e);
         }
 
         private void bbtnCambiarContrasena_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmCambiarContrasena ventanaCambiarContrasena = new frmCambiarContrasena(this);
-            ventanaCambiarContrasena.ShowDialog();
+            smnuContrasena_Click(sender, e);
         }
 
         private void bbtnPaciente_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmPaciente ventanaPaciente = new frmPaciente(this);
-            ventanaPaciente.MdiParent = this;
-            ventanaPaciente.Show();
+            smnuPaciente_Click(sender, e);
         }
 
         private void bbtnCita_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -446,9 +511,7 @@ namespace SistemaCentroSalud
 
         private void bbtnHistoriaClinica_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
-            ventanaHistoriaClinica.MdiParent = this;
-            ventanaHistoriaClinica.Show();
+            smnuHistoriaClinica_Click(sender, e);
         }
 
         private void bbtnFormularioHIS_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -458,16 +521,47 @@ namespace SistemaCentroSalud
 
         private void bbtnSalir_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            if (this.ventanaBienvenida != null)
-            {
-                this.Dispose();
-                this.ventanaBienvenida.limpiarFormulario();
-                this.ventanaBienvenida.Visible = true;
-            }
-            else
-            {
-                this.Dispose();
-            }
+            smnuSalir_Click(sender, e);
+        }
+
+        private void bbtnCalculadora_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuCalculadora_Click(sender, e);
+        }
+
+        private void bbtnBlocDeNotas_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuBlocDeNotas_Click(sender, e);
+        }
+
+        private void bbtnDoctor_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuDoctor_Click(sender, e);
+        }
+
+        private void bbtnEnfermero_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuEnfermero_Click(sender, e);
+        }
+
+        private void bbtnTecnico_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuTecnico_Click(sender, e);
+        }
+
+        private void bbtnAdministrativo_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuAdministrativo_Click(sender, e);
+        }
+
+        private void bbtnPerfil_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuPerfil_Click(sender, e);
+        }
+
+        private void bbtnAuditoria_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
         }
     }
 }

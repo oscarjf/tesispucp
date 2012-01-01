@@ -1,26 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
 using Comun;
+using Control;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Schedule;
 using DevComponents.Schedule.Model;
 using Modelo;
-using System.Collections.Generic;
 
 namespace SistemaCentroSalud
 {
     public partial class frmDisponibilidad : Form
     {
         private int numNumeroSemana;
-        private bool blnCambios = true;
         private int numIntervaloTiempo; //FALTA MODIFICAR
+        private int numIdDisponibilidad;
         private int numId = -1;
-        private List<clsDetalleDisponibilidad> lstDisponibilidad = new List<clsDetalleDisponibilidad>();
+        private List<clsDetalleDisponibilidad> lstDetalleDisponibilidad = new List<clsDetalleDisponibilidad>();
+        private string strListaEliminados = "";
 
-        public frmDisponibilidad()
+        public frmDisponibilidad(int numIdDisponibilidad)
         {
             InitializeComponent();
+            this.numIdDisponibilidad = numIdDisponibilidad;
         }
 
         private void frmDisponibilidad_Load(object sender, EventArgs e)
@@ -29,31 +33,63 @@ namespace SistemaCentroSalud
             numNumeroSemana = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(Convert.ToDateTime(mcCalendario.SelectionStart), CalendarWeekRule.FirstDay, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
             numIntervaloTiempo = 20;
             cvCalendario.TimeSlotDuration = numIntervaloTiempo;
+
+            cargarDisponibilidad();
+        }
+
+        private void cargarDisponibilidad()
+        {
+            clsDetalleDisponibilidad objDetalleDisponibilidad = new clsDetalleDisponibilidad();
+            objDetalleDisponibilidad.FechaElegida = mcCalendario.SelectionStart;
+            objDetalleDisponibilidad.IdDisponibilidadDoctor = numIdDisponibilidad;
+            objDetalleDisponibilidad.DetalleXML = clsComun.Serializar(lstDetalleDisponibilidad);
+
+            DataTable dtDetalleDisponibilidad = new DataTable();
+
+            dtDetalleDisponibilidad = ctrDisponibilidad.seleccionarDetallesDisponibilidad(objDetalleDisponibilidad);
+
+            for (int i = 0; i < dtDetalleDisponibilidad.Rows.Count; i++)
+            {
+                Appointment appointment = new Appointment();
+
+                appointment.Id = Int32.Parse(dtDetalleDisponibilidad.Rows[i]["IdDetalleDisponibilidad"].ToString());
+                appointment.StartTime = DateTime.Parse(dtDetalleDisponibilidad.Rows[i]["HoraInicio"].ToString());
+                appointment.EndTime = DateTime.Parse(dtDetalleDisponibilidad.Rows[i]["HoraFin"].ToString());
+
+                appointment.Subject = "LIBRE";
+
+                appointment.Description = "";
+                appointment.Tooltip = "";
+
+                appointment.CategoryColor = Appointment.CategoryBlue;
+                appointment.TimeMarkedAs = Appointment.TimerMarkerFree;
+
+                appointment.Locked = true;
+
+                cvCalendario.CalendarModel.Appointments.Add(appointment);
+            }
         }
 
         private void mcCalendario_DateChanged(object sender, DateRangeEventArgs e)
         {
-            if (mcCalendario.SelectionStart >= DateTime.Now.Date)
-            {
-                int numSemana = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(Convert.ToDateTime(mcCalendario.SelectionStart), CalendarWeekRule.FirstDay, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
+            //int numSemana = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(Convert.ToDateTime(mcCalendario.SelectionStart), CalendarWeekRule.FirstDay, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
 
-                if (blnCambios)
-                {
-                    numNumeroSemana = numSemana;
-                }
+            //if (blnCambios)
+            //{
+            //    numNumeroSemana = numSemana;
+            //}
 
-                cvCalendario.WeekViewStartDate = mcCalendario.SelectionStart.AddDays(0 - (int)mcCalendario.SelectionStart.DayOfWeek);
-                cvCalendario.WeekViewEndDate = mcCalendario.SelectionStart.AddDays(6 - (int)mcCalendario.SelectionStart.DayOfWeek);
-            }
+            cvCalendario.WeekViewStartDate = mcCalendario.SelectionStart.AddDays(0 - (int)mcCalendario.SelectionStart.DayOfWeek);
+            cvCalendario.WeekViewEndDate = mcCalendario.SelectionStart.AddDays(6 - (int)mcCalendario.SelectionStart.DayOfWeek);
         }
 
         private void frmDisponibilidad_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (blnCambios)
+            if (lstDetalleDisponibilidad.Count > 0 || strListaEliminados.CompareTo("") != 0)
             {
-                if (MessageBox.Show("Hay cambios que no se han guardado y se perderán\n¿Desea guardar los cambios realizados?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                if (MessageBox.Show("Hay cambios que no se han guardado y se perderán\n¿Desea guardar los cambios realizados?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    
+                    btnGuardar_Click(sender, e);
                 }
             }
 
@@ -99,6 +135,10 @@ namespace SistemaCentroSalud
             {
                 ShowContextMenu(biEnBlanco);
             }
+            else
+            {
+                MessageBox.Show("No se pueden editar fechas anteriores", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void BaseViewMouseUp(object sender, MouseEventArgs e)
@@ -119,19 +159,11 @@ namespace SistemaCentroSalud
             view.IsSelected = true;
 
             biEliminar.Enabled = (view.Appointment.IsRecurringInstance == false);
-            
+
             if (view.Appointment.StartTime >= DateTime.Now.Date)
             {
-                if (view.Appointment.Subject.CompareTo("LIBRE") == 0 || view.Appointment.Subject.CompareTo("OCUPADO") == 0)
-                {
-                    biRegistro.Tag = view;
-                    ShowContextMenu(biRegistro);
-                }
-                else
-                {
-                    biCita.Tag = view;
-                    ShowContextMenu(biCita);
-                }
+                biRegistro.Tag = view;
+                ShowContextMenu(biRegistro);
             }
         }
 
@@ -150,7 +182,7 @@ namespace SistemaCentroSalud
             }
         }
 
-        private Appointment AddNewAppointment(DateTime dtInicio, DateTime dtFin, bool blnCita, string strDescripcion)
+        private Appointment AddNewAppointment(DateTime dtInicio, DateTime dtFin, string strDescripcion)
         {
             Appointment appointment = new Appointment();
             
@@ -158,41 +190,26 @@ namespace SistemaCentroSalud
             appointment.StartTime = dtInicio;
             appointment.EndTime = dtFin;
 
-            if (blnCita)
-            {
-                appointment.EndTime = dtInicio.AddMinutes(numIntervaloTiempo);
-                
-                appointment.Subject = "CITA";
+            appointment.Subject = "LIBRE";
 
-                appointment.Description = strDescripcion;
-                appointment.Tooltip = strDescripcion;
+            appointment.Description = "";
+            appointment.Tooltip = "";
 
-                appointment.CategoryColor = Appointment.CategoryGreen;
-                appointment.TimeMarkedAs = Appointment.TimerMarkerTentative;
-            }
-            else
-            {
-                appointment.Subject = "LIBRE";
-
-                appointment.Description = "";
-                appointment.Tooltip = "";
-
-                appointment.CategoryColor = Appointment.CategoryBlue;
-                appointment.TimeMarkedAs = Appointment.TimerMarkerFree;
-            }
+            appointment.CategoryColor = Appointment.CategoryBlue;
+            appointment.TimeMarkedAs = Appointment.TimerMarkerFree;
 
             appointment.Locked = true;
 
             cvCalendario.CalendarModel.Appointments.Add(appointment);
 
             clsDetalleDisponibilidad objDetalleDisponibilidad = new clsDetalleDisponibilidad();
-            objDetalleDisponibilidad.IdDisponibilidad = 1; //FALTA MODIFICAR
-            objDetalleDisponibilidad.IdDetalleDisponibilidad = appointment.Id;
-            objDetalleDisponibilidad.Fecha = appointment.StartTime.Date;
-            objDetalleDisponibilidad.HoraInicio = appointment.StartTime;
-            objDetalleDisponibilidad.HoraFin = appointment.EndTime;
+            objDetalleDisponibilidad._IdDisponibilidad = numIdDisponibilidad;
+            objDetalleDisponibilidad._IdDetalleDisponibilidad = appointment.Id;
+            objDetalleDisponibilidad._Fecha = appointment.StartTime.Date;
+            objDetalleDisponibilidad._HoraInicio = appointment.StartTime;
+            objDetalleDisponibilidad._HoraFin = appointment.EndTime;
 
-            lstDisponibilidad.Add(objDetalleDisponibilidad);
+            lstDetalleDisponibilidad.Add(objDetalleDisponibilidad);
 
             numId = numId - 1;
 
@@ -204,23 +221,7 @@ namespace SistemaCentroSalud
             DateTime dtInicio = cvCalendario.DateSelectionStart.GetValueOrDefault();
             DateTime dtFin = cvCalendario.DateSelectionEnd.GetValueOrDefault();
 
-            AddNewAppointment(dtInicio, dtFin, false, "");
-        }
-
-        public void setearCita()
-        {
-            DateTime dtInicio = cvCalendario.DateSelectionStart.GetValueOrDefault();
-            DateTime dtFin = cvCalendario.DateSelectionEnd.GetValueOrDefault();
-
-            string strDescripcion = "DÍA: " + dtInicio.ToShortDateString() + "\n\nHORA: " + dtInicio.ToShortTimeString() + "\n\nPACIENTE: CHICANA VIVAR, WILDER JOSUE";
-
-            AddNewAppointment(dtInicio, dtFin, true, strDescripcion);
-        }
-
-        private void biProgramarCita_Click(object sender, EventArgs e)
-        {
-            frmBuscarPaciente ventanaBuscarPaciente = new frmBuscarPaciente(this);
-            ventanaBuscarPaciente.Show();
+            AddNewAppointment(dtInicio, dtFin, "");
         }
 
         private void biEliminar_Click(object sender, EventArgs e)
@@ -230,52 +231,38 @@ namespace SistemaCentroSalud
 
             if (view != null)
             {
-                for (int i = 0; i < lstDisponibilidad.Count; i++)
+                if (view.Appointment.Id < 0)
                 {
-                    if (lstDisponibilidad[i].IdDetalleDisponibilidad == view.Appointment.Id)
+                    for (int i = 0; i < lstDetalleDisponibilidad.Count; i++)
                     {
-                        lstDisponibilidad.RemoveAt(i);
-                        break;
+                        if (lstDetalleDisponibilidad[i]._IdDetalleDisponibilidad == view.Appointment.Id)
+                        {
+                            lstDetalleDisponibilidad.RemoveAt(i);
+                            break;
+                        }
+                    }
+
+                    cvCalendario.CalendarModel.Appointments.Remove(view.Appointment);
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Está seguro(a) de que desea eliminar esta disponibilidad?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    {
+                        strListaEliminados = strListaEliminados + "," + view.Appointment.Id;
+
+                        cvCalendario.CalendarModel.Appointments.Remove(view.Appointment);
                     }
                 }
-                
-                cvCalendario.CalendarModel.Appointments.Remove(view.Appointment);
             }
         }
         
-        private void biLibre_Click(object sender, EventArgs e)
-        {
-            ButtonItem bi = sender as ButtonItem;
-            AppointmentView view = bi.Parent.Tag as AppointmentView;
-
-            if (view != null)
-            {
-                view.Appointment.Subject = "LIBRE";
-                view.Appointment.CategoryColor = Appointment.CategoryBlue;
-                view.Appointment.TimeMarkedAs = bi.Text.Equals(Appointment.TimerMarkerDefault) ? null : Appointment.TimerMarkerFree;
-            }
-        }
-
-        private void biOcupado_Click(object sender, EventArgs e)
-        {
-            ButtonItem bi = sender as ButtonItem;
-            AppointmentView view = bi.Parent.Tag as AppointmentView;
-
-            if (view != null)
-            {
-                view.Appointment.Subject = "OCUPADO";
-                view.Appointment.CategoryColor = Appointment.CategoryRed;
-                view.Appointment.TimeMarkedAs = bi.Text.Equals(Appointment.TimerMarkerDefault) ? null : Appointment.TimerMarkerBusy;
-            }
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (blnCambios)
+            if (lstDetalleDisponibilidad.Count > 0 || strListaEliminados.CompareTo("") != 0)
             {
-                if (MessageBox.Show("Hay cambios que no se han guardado y se perderán\n¿Desea guardar los cambios realizados?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                if (MessageBox.Show("Hay cambios que no se han guardado y se perderán\n¿Desea guardar los cambios realizados?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-
+                    btnGuardar_Click(sender, e);
                 }
             }
 
@@ -285,12 +272,28 @@ namespace SistemaCentroSalud
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            clsDetalleDisponibilidad objDetalleDisponibilidad = new clsDetalleDisponibilidad();
+            objDetalleDisponibilidad.IdDisponibilidadDoctor = numIdDisponibilidad;
+            objDetalleDisponibilidad.DetalleXML = clsComun.Serializar(lstDetalleDisponibilidad);
+            objDetalleDisponibilidad.ListaEliminados = strListaEliminados;
 
-        }
+            if (ctrDisponibilidad.registrarDetalleDisponibilidad(objDetalleDisponibilidad))
+            {
+                MessageBox.Show("La disponibilidad se registró exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (MessageBox.Show("Ocurrió un error mientras se intentaba registrar la disponibilidad", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                {
+                    btnGuardar_Click(sender, e);
+                }
+            }
 
-        private void biCita_Click(object sender, EventArgs e)
-        {
+            lstDetalleDisponibilidad.Clear();
+            strListaEliminados = "";
 
+            cvCalendario.CalendarModel.Appointments.Clear();
+            cargarDisponibilidad();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace SistemaCentroSalud
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            ventanaHorario.setearCita();
             this.Dispose();
         }
 

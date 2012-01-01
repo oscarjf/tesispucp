@@ -1209,7 +1209,7 @@
             this.MaximizeBox = false;
             this.Name = "frmDoctor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Doctor";
+            this.Text = "Doctor(a)";
             this.Load += new System.EventHandler(this.frmDoctor_Load);
             this.tbcDoctor.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);

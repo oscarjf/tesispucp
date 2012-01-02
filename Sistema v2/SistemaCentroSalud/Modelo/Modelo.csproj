@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="clsAdministrativo.cs" />
     <Compile Include="clsArea.cs" />
+    <Compile Include="clsBaseDatos.cs" />
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsCPT.cs" />
     <Compile Include="clsDetalleDisponibilidad.cs" />

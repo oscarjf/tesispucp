@@ -751,40 +751,47 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             if (dgvAdministrativos.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString().CompareTo("1") != 0)
                 {
-                    numAccion = clsComun.ELIMINAR;
-
-                    numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
-
-                    clsAdministrativo objAdministrativo = new clsAdministrativo();
-                    objAdministrativo.IdAdministrativo = numIdAdministrativo;
-
-                    if (ctrAdministrativo.eliminarAdministrativo(objAdministrativo))
+                    if (MessageBox.Show("¿Está seguro que desea eliminar este empleado administrativo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Value = "INACTIVO";
+                        numAccion = clsComun.ELIMINAR;
 
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.ForeColor = Color.White;
-                        dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.BackColor = Color.Red;
+                        numIdAdministrativo = Int32.Parse(dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[0].Value.ToString());
 
-                        btnActivar.Visible = true;
-                        btnEliminar.Visible = false;
+                        clsAdministrativo objAdministrativo = new clsAdministrativo();
+                        objAdministrativo.IdAdministrativo = numIdAdministrativo;
 
-                        MessageBox.Show("El empleado administrativo se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (ctrAdministrativo.eliminarAdministrativo(objAdministrativo))
                         {
-                            btnEliminar_Click(sender, e);
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Value = "INACTIVO";
+
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.ForeColor = Color.White;
+                            dgvAdministrativos.Rows[dgvAdministrativos.CurrentRow.Index].Cells[4].Style.BackColor = Color.Red;
+
+                            btnActivar.Visible = true;
+                            btnEliminar.Visible = false;
+
+                            MessageBox.Show("El empleado administrativo se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el empleado administrativo", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnEliminar_Click(sender, e);
+                            }
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Este usuario no puede eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

@@ -31,6 +31,16 @@ namespace Acceso
         }
 
         /// <summary>
+        /// Conecta con master
+        /// </summary>
+        public static SqlConnection conectarMaster()
+        {
+            SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=master;Integrated Security=SSPI");
+            
+            return sqlConexion;
+        }
+
+        /// <summary>
         /// Ejecuta un stored procedure y devuelve un 'int'
         /// </summary>
         /// <param name="strNombreStoredProcedure"> Nombre del stored procedure </param>
@@ -159,6 +169,32 @@ namespace Acceso
                 {
                     sqlConexion.Close();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Ejecuta una sentencia SQL y devuelve un 'bool'
+        /// </summary>
+        /// <param name="sqlConexion"> Conexión </param>
+        /// <param name="strSentenciaSQL"> Sentencia SQL </param>
+        /// <returns>bool</returns>
+        public static bool ejecutarSentenciaSQL(SqlConnection sqlConexion, string strSentenciaSQL)
+        {
+            try
+            {
+                sqlConexion = conectar();
+                SqlCommand sqlComando = new SqlCommand(strSentenciaSQL, sqlConexion);
+                sqlConexion.Open();
+
+                sqlComando.ExecuteNonQuery();
+                sqlConexion.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                clsComun.registrarErrorLog(ex.ToString());
+                return false;
             }
         }
     }

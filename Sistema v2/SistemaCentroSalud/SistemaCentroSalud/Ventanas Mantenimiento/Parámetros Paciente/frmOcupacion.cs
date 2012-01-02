@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmOcupacion()
         {
             InitializeComponent();
+
+            clsOcupacion objOcupacion = new clsOcupacion();
+            objOcupacion.Estado = "TODOS";
+
+            dtOcupaciones = ctrOcupacion.seleccionarOcupacionesCriterios(objOcupacion);
+
+            cargarGrilla();
         }
 
         private void frmOcupacion_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvOcupaciones.Refresh();
         }
 
         private void cargarGrilla()

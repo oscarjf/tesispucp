@@ -18,7 +18,16 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
         public frmDoctor()
         {
-            InitializeComponent();      
+            InitializeComponent();
+
+            clsDoctor objDoctor = new clsDoctor();
+            objDoctor.IdArea = 0;
+            objDoctor.ListaIdEspecialidades = "0";
+            objDoctor.Estado = "TODOS";
+
+            dtDoctores = ctrDoctor.seleccionarDoctoresCriterios(objDoctor);
+
+            cargarGrilla();
         }
 
         private void frmDoctor_Load(object sender, EventArgs e)
@@ -37,11 +46,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             //cboEspecialidadBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            //clsDoctor objD = new clsDoctor();
-
-            //dtDoctores = ctrDoctor.seleccionarDoctores(objD);
-
-            //cargarGrilla();
+            dgvDoctores.Refresh();
         }
 
         private void cargarComboEspecialidad()

@@ -19,6 +19,14 @@ namespace SistemaCentroSalud.Ventanas_Personal
         public frmAdministrativo()
         {
             InitializeComponent();
+
+            clsAdministrativo objAdministrativo = new clsAdministrativo();
+            objAdministrativo.IdArea = 0;
+            objAdministrativo.Estado = "TODOS";
+
+            dtAdministrativos = ctrAdministrativo.seleccionarAdministrativosCriterios(objAdministrativo);
+
+            cargarGrilla();
         }
 
         private void frmAdministrativo_Load(object sender, EventArgs e)
@@ -35,11 +43,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            //clsAdministrativo objA = new clsAdministrativo();
-
-            //dtAdministrativos = ctrAdministrativo.seleccionarAdministrativos(objA);
-
-            //cargarGrilla();
+            dgvAdministrativos.Refresh();
         }
 
         private void cargarComboTipoDocumento()

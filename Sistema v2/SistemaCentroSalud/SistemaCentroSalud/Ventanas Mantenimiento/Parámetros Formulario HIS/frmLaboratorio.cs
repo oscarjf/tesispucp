@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmLaboratorio()
         {
             InitializeComponent();
+
+            clsLaboratorio objLaboratorio = new clsLaboratorio();
+            objLaboratorio.Estado = "TODOS";
+
+            dtLaboratorios = ctrLaboratorio.seleccionarLaboratoriosCriterios(objLaboratorio);
+
+            cargarGrilla();
         }
 
         private void frmLaboratorio_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvLaboratorios.Refresh();
         }
 
         private void cargarGrilla()

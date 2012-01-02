@@ -118,33 +118,10 @@ namespace SistemaCentroSalud
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro(a) de que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                this.Dispose();
-            }
+            this.Dispose();
         }
 
-        private void frmBienvenida_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("¿Está seguro(a) de que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                this.Dispose();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
-        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == '\r')
-            {
-                validarAcceso();
-            }
-        }
-
-        private void txtContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        private void ingresar(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
             {

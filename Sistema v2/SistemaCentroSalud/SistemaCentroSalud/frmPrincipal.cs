@@ -390,6 +390,8 @@ namespace SistemaCentroSalud
                 objBaseDatos.NombreBaseDatos = "CentroSalud";
                 objBaseDatos.Ruta = fi.FullName;
 
+                Cursor.Current = Cursors.WaitCursor;
+
                 if (ctrBaseDatos.respaldarBaseDatos(objBaseDatos))
                 {
                     MessageBox.Show("Se generó el backup exitosamente", "Respaldo Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -399,6 +401,8 @@ namespace SistemaCentroSalud
                     MessageBox.Show("Ocurrió un error mientras se intentaba generar el backup", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void smnuRestaurar_Click(object sender, EventArgs e)
@@ -477,15 +481,18 @@ namespace SistemaCentroSalud
 
         private void smnuSalir_Click(object sender, EventArgs e)
         {
-            if (this.ventanaBienvenida != null)
+            if (MessageBox.Show("¿Está seguro(a) de que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.Dispose();
-                this.ventanaBienvenida.limpiarFormulario();
-                this.ventanaBienvenida.Visible = true;
-            }
-            else
-            {
-                this.Dispose();
+                if (this.ventanaBienvenida != null)
+                {
+                    this.Dispose();
+                    this.ventanaBienvenida.limpiarFormulario();
+                    this.ventanaBienvenida.Visible = true;
+                }
+                else
+                {
+                    this.Dispose();
+                }
             }
         }
 
@@ -516,15 +523,22 @@ namespace SistemaCentroSalud
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.ventanaBienvenida != null)
+            if (MessageBox.Show("¿Está seguro(a) de que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.Dispose();
-                this.ventanaBienvenida.limpiarFormulario();
-                this.ventanaBienvenida.Visible = true;
+                if (this.ventanaBienvenida != null)
+                {
+                    this.Dispose();
+                    this.ventanaBienvenida.limpiarFormulario();
+                    this.ventanaBienvenida.Visible = true;
+                }
+                else
+                {
+                    this.Dispose();
+                }
             }
             else
             {
-                this.Dispose();
+                e.Cancel = true;
             }
         }
 

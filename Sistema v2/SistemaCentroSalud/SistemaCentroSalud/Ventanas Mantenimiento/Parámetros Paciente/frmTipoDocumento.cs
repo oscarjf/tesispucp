@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmTipoDocumento()
         {
             InitializeComponent();
+
+            clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
+            objTipoDocumento.Estado = "TODOS";
+
+            dtTiposDocumento = ctrTipoDocumento.seleccionarTiposDocumentosCriterios(objTipoDocumento);
+
+            cargarGrilla();
         }
 
         private void frmTipoDocumento_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvTiposDocumento.Refresh();
         }
 
         private void cargarGrilla()

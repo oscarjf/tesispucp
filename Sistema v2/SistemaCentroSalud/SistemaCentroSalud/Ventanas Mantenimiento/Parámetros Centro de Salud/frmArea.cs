@@ -17,6 +17,14 @@ namespace SistemaCentroSalud
         public frmArea()
         {
             InitializeComponent();
+
+            clsArea objArea = new clsArea();
+            objArea.TipoArea = "TODAS";
+            objArea.Estado = "TODOS";
+
+            dtAreas = ctrArea.seleccionarAreasCriterios(objArea);
+
+            cargarGrilla();
         }
 
         private void frmArea_Load(object sender, EventArgs e)
@@ -25,6 +33,8 @@ namespace SistemaCentroSalud
             tbpDetalle.Enabled = false;
             cboTipoBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvAreas.Refresh();
         }
 
         private void cargarGrilla()

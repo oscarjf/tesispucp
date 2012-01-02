@@ -19,6 +19,14 @@ namespace SistemaCentroSalud.Ventanas_Personal
         public frmTecnico()
         {
             InitializeComponent();
+
+            clsTecnico objTecnico = new clsTecnico();
+            objTecnico.IdArea = 0;
+            objTecnico.Estado = "TODOS";
+
+            dtTecnicos = ctrTecnico.seleccionarTecnicosCriterios(objTecnico);
+
+            cargarGrilla();
         }
 
         private void frmTecnico_Load(object sender, EventArgs e)
@@ -35,11 +43,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            //clsTecnico objT = new clsTecnico();
-
-            //dtTecnicos = ctrTecnico.seleccionarTecnicos(objT);
-
-            //cargarGrilla();
+            dgvTecnicos.Refresh();
         }
 
         private void cargarComboTipoDocumento()

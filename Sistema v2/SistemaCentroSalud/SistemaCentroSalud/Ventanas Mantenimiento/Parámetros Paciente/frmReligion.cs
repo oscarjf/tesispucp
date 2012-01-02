@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmReligion()
         {
             InitializeComponent();
+
+            clsReligion objReligion = new clsReligion();
+            objReligion.Estado = "TODOS";
+
+            dtReligiones = ctrReligion.seleccionarReligionesCriterios(objReligion);
+
+            cargarGrilla();
         }
 
         private void frmReligion_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvReligiones.Refresh();
         }
 
         private void cargarGrilla()

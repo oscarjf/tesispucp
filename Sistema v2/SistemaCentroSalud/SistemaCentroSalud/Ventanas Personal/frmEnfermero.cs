@@ -19,6 +19,14 @@ namespace SistemaCentroSalud.Ventanas_Personal
         public frmEnfermero()
         {
             InitializeComponent();
+
+            clsEnfermero objEnfermero = new clsEnfermero();
+            objEnfermero.IdArea = 0;
+            objEnfermero.Estado = "TODOS";
+
+            dtEnfermeros = ctrEnfermero.seleccionarEnfermerosCriterios(objEnfermero);
+
+            cargarGrilla();
         }
 
         private void frmEnfermero_Load(object sender, EventArgs e)
@@ -35,11 +43,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
 
-            //clsEnfermero objE = new clsEnfermero();
-
-            //dtEnfermeros = ctrEnfermero.seleccionarEnfermeros(objE);
-
-            //cargarGrilla();
+            dgvEnfermeros.Refresh();
         }
 
         private void cargarComboTipoDocumento()

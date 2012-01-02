@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmIdioma()
         {
             InitializeComponent();
+
+            clsIdioma objIdioma = new clsIdioma();
+            objIdioma.Estado = "TODOS";
+
+            dtIdiomas = ctrIdioma.seleccionarIdiomasCriterios(objIdioma);
+
+            cargarGrilla();
         }
 
         private void frmIdioma_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvIdiomas.Refresh();
         }
 
         private void cargarGrilla()

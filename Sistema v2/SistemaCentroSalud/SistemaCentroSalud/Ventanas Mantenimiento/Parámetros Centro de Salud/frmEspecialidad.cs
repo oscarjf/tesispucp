@@ -17,6 +17,14 @@ namespace SistemaCentroSalud
         public frmEspecialidad()
         {
             InitializeComponent();
+
+            clsEspecialidad objEspecialidad = new clsEspecialidad();
+            objEspecialidad.IdArea = 0;
+            objEspecialidad.Estado = "TODOS";
+
+            dtEspecialidades = ctrEspecialidad.seleccionarEspecialidadesCriterios(objEspecialidad);
+
+            cargarGrilla();
         }
 
         private void frmEspecialidad_Load(object sender, EventArgs e)
@@ -28,6 +36,8 @@ namespace SistemaCentroSalud
 
             cboAreaBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvEspecialidades.Refresh();
         }
 
         private void cargarCombosArea()

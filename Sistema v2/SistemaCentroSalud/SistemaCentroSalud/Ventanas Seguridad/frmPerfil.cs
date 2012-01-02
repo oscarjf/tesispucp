@@ -17,6 +17,14 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
         public frmPerfil()
         {
             InitializeComponent();
+
+            clsPerfil objPerfil = new clsPerfil();
+            objPerfil.TipoEmpleado = "TODOS";
+            objPerfil.Estado = "TODOS";
+
+            dtPerfiles = ctrPerfil.seleccionarPerfilesCriterios(objPerfil);
+
+            cargarGrilla();
         }
 
         private void frmPerfil_Load(object sender, EventArgs e)
@@ -26,6 +34,8 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
             cboTipoEmpleadoBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvPerfiles.Refresh();
         }
 
         private void cargarGrilla()
@@ -34,22 +44,19 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
             for (int i = 0; i < dtPerfiles.Rows.Count; i++)
             {
-                if (dtPerfiles.Rows[i]["IdPerfil"].ToString().CompareTo("1") != 0)
-                {
-                    dgvPerfiles.Rows.Add(new String[] { dtPerfiles.Rows[i]["IdPerfil"].ToString(), 
-                                                 dtPerfiles.Rows[i]["Nombre"].ToString(),
-                                                 dtPerfiles.Rows[i]["TipoEmpleado"].ToString(), 
-                                                 dtPerfiles.Rows[i]["Estado"].ToString() });
+                dgvPerfiles.Rows.Add(new String[] { dtPerfiles.Rows[i]["IdPerfil"].ToString(), 
+                                             dtPerfiles.Rows[i]["Nombre"].ToString(),
+                                             dtPerfiles.Rows[i]["TipoEmpleado"].ToString(), 
+                                             dtPerfiles.Rows[i]["Estado"].ToString() });
 
-                    if (dtPerfiles.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
-                    {
-                        dgvPerfiles.Rows[i].Cells[1].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[i].Cells[1].Style.BackColor = Color.Red;
-                        dgvPerfiles.Rows[i].Cells[2].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[i].Cells[2].Style.BackColor = Color.Red;
-                        dgvPerfiles.Rows[i].Cells[3].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[i].Cells[3].Style.BackColor = Color.Red;
-                    }
+                if (dtPerfiles.Rows[i]["Estado"].ToString().CompareTo("INACTIVO") == 0)
+                {
+                    dgvPerfiles.Rows[i].Cells[1].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[1].Style.BackColor = Color.Red;
+                    dgvPerfiles.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                    dgvPerfiles.Rows[i].Cells[3].Style.ForeColor = Color.White;
+                    dgvPerfiles.Rows[i].Cells[3].Style.BackColor = Color.Red;
                 }
             }
 
@@ -290,20 +297,27 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
         {
             if (dgvPerfiles.SelectedRows.Count > 0)
             {
-                numAccion = clsComun.MODIFICAR;
+                if (dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString().CompareTo("1") != 0)
+                {
+                    numAccion = clsComun.MODIFICAR;
 
-                numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
+                    numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
 
-                limpiarFormulario();
+                    limpiarFormulario();
 
-                clsPerfil objPerfil = new clsPerfil();
-                objPerfil.IdPerfil = numIdPerfil;
+                    clsPerfil objPerfil = new clsPerfil();
+                    objPerfil.IdPerfil = numIdPerfil;
 
-                objPerfil = ctrPerfil.seleccionarPerfil(objPerfil);
+                    objPerfil = ctrPerfil.seleccionarPerfil(objPerfil);
 
-                mostrarInformacion(objPerfil, numAccion);
+                    mostrarInformacion(objPerfil, numAccion);
 
-                txtNombreDetalle.Focus();
+                    txtNombreDetalle.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Este perfil no se puede modificar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
@@ -315,38 +329,45 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
         {
             if (dgvPerfiles.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea eliminar este perfil?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString().CompareTo("1") != 0)
                 {
-                    numAccion = clsComun.ELIMINAR;
-
-                    numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
-
-                    clsPerfil objPerfil = new clsPerfil();
-                    objPerfil.IdPerfil = numIdPerfil;
-
-                    if (ctrPerfil.eliminarPerfil(objPerfil))
+                    if (MessageBox.Show("¿Está seguro que desea eliminar este perfil?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Value = "INACTIVO";
+                        numAccion = clsComun.ELIMINAR;
 
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
-                        dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
+                        numIdPerfil = Int32.Parse(dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[0].Value.ToString());
 
-                        btnActivar.Visible = true;
-                        btnEliminar.Visible = false;
+                        clsPerfil objPerfil = new clsPerfil();
+                        objPerfil.IdPerfil = numIdPerfil;
 
-                        MessageBox.Show("El perfil se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el perfil", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                        if (ctrPerfil.eliminarPerfil(objPerfil))
                         {
-                            btnEliminar_Click(sender, e);
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Value = "INACTIVO";
+
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[1].Style.ForeColor = Color.White;
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[1].Style.BackColor = Color.Red;
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[2].Style.ForeColor = Color.White;
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[2].Style.BackColor = Color.Red;
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Style.ForeColor = Color.White;
+                            dgvPerfiles.Rows[dgvPerfiles.CurrentRow.Index].Cells[3].Style.BackColor = Color.Red;
+
+                            btnActivar.Visible = true;
+                            btnEliminar.Visible = false;
+
+                            MessageBox.Show("El perfil se eliminó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Ocurrió un error mientras se intentaba eliminar el perfil", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) != DialogResult.Cancel)
+                            {
+                                btnEliminar_Click(sender, e);
+                            }
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Este perfil no se puede eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

@@ -425,6 +425,7 @@
             // 
             this.txtMaternoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMaternoBuscar.Location = new System.Drawing.Point(147, 41);
+            this.txtMaternoBuscar.MaxLength = 30;
             this.txtMaternoBuscar.Name = "txtMaternoBuscar";
             this.txtMaternoBuscar.Size = new System.Drawing.Size(124, 20);
             this.txtMaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -450,7 +451,7 @@
             // 
             this.txtNumeroLicenciaBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumeroLicenciaBuscar.Location = new System.Drawing.Point(10, 92);
-            this.txtNumeroLicenciaBuscar.MaxLength = 5;
+            this.txtNumeroLicenciaBuscar.MaxLength = 7;
             this.txtNumeroLicenciaBuscar.Name = "txtNumeroLicenciaBuscar";
             this.txtNumeroLicenciaBuscar.Size = new System.Drawing.Size(125, 20);
             this.txtNumeroLicenciaBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -462,7 +463,7 @@
             // 
             this.txtNombresBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombresBuscar.Location = new System.Drawing.Point(281, 41);
-            this.txtNombresBuscar.MaxLength = 5;
+            this.txtNombresBuscar.MaxLength = 30;
             this.txtNombresBuscar.Name = "txtNombresBuscar";
             this.txtNombresBuscar.Size = new System.Drawing.Size(259, 20);
             this.txtNombresBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -474,6 +475,7 @@
             // 
             this.txtPaternoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPaternoBuscar.Location = new System.Drawing.Point(10, 41);
+            this.txtPaternoBuscar.MaxLength = 30;
             this.txtPaternoBuscar.Name = "txtPaternoBuscar";
             this.txtPaternoBuscar.Size = new System.Drawing.Size(125, 20);
             this.txtPaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -577,6 +579,7 @@
             // txtCorreoElectronico
             // 
             this.txtCorreoElectronico.Location = new System.Drawing.Point(10, 115);
+            this.txtCorreoElectronico.MaxLength = 100;
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(195, 20);
             this.txtCorreoElectronico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -595,6 +598,7 @@
             // txtCelular
             // 
             this.txtCelular.Location = new System.Drawing.Point(10, 76);
+            this.txtCelular.MaxLength = 12;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(112, 20);
             this.txtCelular.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -613,6 +617,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(10, 36);
+            this.txtTelefono.MaxLength = 12;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(112, 20);
             this.txtTelefono.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -649,6 +654,7 @@
             // 
             this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(12, 83);
+            this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(521, 20);
             this.txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -965,6 +971,7 @@
             // 
             this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombres.Location = new System.Drawing.Point(271, 34);
+            this.txtNombres.MaxLength = 30;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(124, 20);
             this.txtNombres.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -975,6 +982,7 @@
             // 
             this.txtMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMaterno.Location = new System.Drawing.Point(141, 35);
+            this.txtMaterno.MaxLength = 30;
             this.txtMaterno.Name = "txtMaterno";
             this.txtMaterno.Size = new System.Drawing.Size(125, 20);
             this.txtMaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -985,6 +993,7 @@
             // 
             this.txtPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPaterno.Location = new System.Drawing.Point(10, 36);
+            this.txtPaterno.MaxLength = 30;
             this.txtPaterno.Name = "txtPaterno";
             this.txtPaterno.Size = new System.Drawing.Size(125, 20);
             this.txtPaterno.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;

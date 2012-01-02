@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmEtnia()
         {
             InitializeComponent();
+
+            clsEtnia objEtnia = new clsEtnia();
+            objEtnia.Estado = "TODOS";
+
+            dtEtnias = ctrEtnia.seleccionarEtniasCriterios(objEtnia);
+
+            cargarGrilla();
         }
 
         private void frmEtnia_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvEtnias.Refresh();
         }
 
         private void cargarGrilla()

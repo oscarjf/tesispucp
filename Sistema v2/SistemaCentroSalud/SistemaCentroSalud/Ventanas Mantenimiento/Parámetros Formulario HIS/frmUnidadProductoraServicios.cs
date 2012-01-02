@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmUnidadProductoraServicios()
         {
             InitializeComponent();
+
+            clsUnidadProductoraServicio objUnidadProductoraServicio = new clsUnidadProductoraServicio();
+            objUnidadProductoraServicio.Estado = "TODOS";
+
+            dtUnidadesProductorasServicios = ctrUnidadProductoraServicio.seleccionarUnidadesProductorasServicioCriterios(objUnidadProductoraServicio);
+
+            cargarGrilla();
         }
 
         private void frmUnidadProductoraServicios_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvUnidadesProductorasServicio.Refresh();
         }
 
         private void cargarGrilla()

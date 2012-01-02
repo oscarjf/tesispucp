@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmModoIngreso()
         {
             InitializeComponent();
+
+            clsModoIngreso objModoIngreso = new clsModoIngreso();
+            objModoIngreso.Estado = "TODOS";
+
+            dtModosIngreso = ctrModoIngreso.seleccionarModosIngresoCriterios(objModoIngreso);
+
+            cargarGrilla();
         }
 
         private void frmModoIngreso_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvModosIngreso.Refresh();
         }
 
         private void cargarGrilla()

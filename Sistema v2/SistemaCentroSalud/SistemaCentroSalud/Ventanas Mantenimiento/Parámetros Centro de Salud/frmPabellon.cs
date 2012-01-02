@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmPabellon()
         {
             InitializeComponent();
+
+            clsPabellon objPabellon = new clsPabellon();
+            objPabellon.Estado = "TODOS";
+
+            dtPabellones = ctrPabellon.seleccionarPabellonesCriterios(objPabellon);
+
+            cargarGrilla();
         }
 
         private void frmPabellon_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvPabellones.Refresh();
         }
 
         private void cargarGrilla()

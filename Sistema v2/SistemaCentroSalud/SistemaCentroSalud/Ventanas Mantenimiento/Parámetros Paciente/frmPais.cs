@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmPais()
         {
             InitializeComponent();
+
+            clsPais objPais = new clsPais();
+            objPais.Estado = "TODOS";
+
+            dtPaises = ctrPais.seleccionarPaisesCriterios(objPais);
+
+            cargarGrilla();
         }
 
         private void frmPais_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvPaises.Refresh();
         }
 
         private void cargarGrilla()

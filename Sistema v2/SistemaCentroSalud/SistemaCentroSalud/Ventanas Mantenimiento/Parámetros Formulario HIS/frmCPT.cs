@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmCPT()
         {
             InitializeComponent();
+
+            clsCPT objCPT = new clsCPT();
+            objCPT.Estado = "TODOS";
+
+            dtCPTs = ctrCPT.seleccionarCPTsCriterios(objCPT);
+
+            cargarGrilla();
         }
 
         private void frmCPT_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvCPTs.Refresh();
         }
 
         private void cargarGrilla()

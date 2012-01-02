@@ -257,7 +257,7 @@
             // 
             this.txtNumeroBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumeroBuscar.Location = new System.Drawing.Point(84, 52);
-            this.txtNumeroBuscar.MaxLength = 30;
+            this.txtNumeroBuscar.MaxLength = 10;
             this.txtNumeroBuscar.Name = "txtNumeroBuscar";
             this.txtNumeroBuscar.Size = new System.Drawing.Size(133, 20);
             this.txtNumeroBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -320,12 +320,12 @@
             // 
             this.txtPisoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPisoBuscar.Location = new System.Drawing.Point(298, 22);
-            this.txtPisoBuscar.MaxLength = 30;
+            this.txtPisoBuscar.MaxLength = 4;
             this.txtPisoBuscar.Name = "txtPisoBuscar";
             this.txtPisoBuscar.Size = new System.Drawing.Size(121, 20);
             this.txtPisoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPisoBuscar.TabIndex = 1;
-            this.txtPisoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtPisoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             this.txtPisoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblPisoBuscar
@@ -395,7 +395,7 @@
             // 
             this.txtNumeroDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumeroDetalle.Location = new System.Drawing.Point(13, 90);
-            this.txtNumeroDetalle.MaxLength = 30;
+            this.txtNumeroDetalle.MaxLength = 10;
             this.txtNumeroDetalle.Name = "txtNumeroDetalle";
             this.txtNumeroDetalle.Size = new System.Drawing.Size(139, 20);
             this.txtNumeroDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -433,12 +433,12 @@
             // 
             this.txtPisoDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPisoDetalle.Location = new System.Drawing.Point(217, 32);
-            this.txtPisoDetalle.MaxLength = 30;
+            this.txtPisoDetalle.MaxLength = 4;
             this.txtPisoDetalle.Name = "txtPisoDetalle";
             this.txtPisoDetalle.Size = new System.Drawing.Size(156, 20);
             this.txtPisoDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPisoDetalle.TabIndex = 1;
-            this.txtPisoDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtPisoDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // lblPisoDetalle
             // 

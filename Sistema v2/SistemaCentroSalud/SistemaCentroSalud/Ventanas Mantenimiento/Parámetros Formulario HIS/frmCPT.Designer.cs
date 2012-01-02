@@ -43,22 +43,22 @@
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
-            this.txtCodigoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblCodigoBuscar = new System.Windows.Forms.Label();
             this.cboEstadoBuscar = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtNombreBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
-            this.txtCodigoDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblCodigoDetalle = new System.Windows.Forms.Label();
-            this.rtxtDescripcionDetalle = new SistemaCentroSalud.Controles.cuRichTextBox();
             this.lblDescripcionDetalle = new System.Windows.Forms.Label();
-            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreDetalle = new System.Windows.Forms.Label();
+            this.txtCodigoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNombreBuscar = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtCodigoDetalle = new SistemaCentroSalud.Controles.cuTextBox();
+            this.rtxtDescripcionDetalle = new SistemaCentroSalud.Controles.cuRichTextBox();
+            this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbcCPT.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCPTs)).BeginInit();
@@ -242,18 +242,6 @@
             this.gbxCriterios.TabStop = false;
             this.gbxCriterios.Text = "Criterios de Búsqueda";
             // 
-            // txtCodigoBuscar
-            // 
-            this.txtCodigoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoBuscar.Location = new System.Drawing.Point(311, 22);
-            this.txtCodigoBuscar.MaxLength = 30;
-            this.txtCodigoBuscar.Name = "txtCodigoBuscar";
-            this.txtCodigoBuscar.Size = new System.Drawing.Size(121, 20);
-            this.txtCodigoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCodigoBuscar.TabIndex = 2;
-            this.txtCodigoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            this.txtCodigoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
-            // 
             // lblCodigoBuscar
             // 
             this.lblCodigoBuscar.AutoSize = true;
@@ -285,18 +273,6 @@
             this.lblEstado.Size = new System.Drawing.Size(43, 13);
             this.lblEstado.TabIndex = 4;
             this.lblEstado.Text = "Estado:";
-            // 
-            // txtNombreBuscar
-            // 
-            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombreBuscar.Location = new System.Drawing.Point(59, 22);
-            this.txtNombreBuscar.MaxLength = 30;
-            this.txtNombreBuscar.Name = "txtNombreBuscar";
-            this.txtNombreBuscar.Size = new System.Drawing.Size(193, 20);
-            this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombreBuscar.TabIndex = 1;
-            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombreBuscar
             // 
@@ -361,17 +337,6 @@
             this.gbxInformacion.TabStop = false;
             this.gbxInformacion.Text = "Información";
             // 
-            // txtCodigoDetalle
-            // 
-            this.txtCodigoDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoDetalle.Location = new System.Drawing.Point(268, 32);
-            this.txtCodigoDetalle.MaxLength = 30;
-            this.txtCodigoDetalle.Name = "txtCodigoDetalle";
-            this.txtCodigoDetalle.Size = new System.Drawing.Size(121, 20);
-            this.txtCodigoDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtCodigoDetalle.TabIndex = 2;
-            this.txtCodigoDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
             // lblCodigoDetalle
             // 
             this.lblCodigoDetalle.AutoSize = true;
@@ -380,16 +345,6 @@
             this.lblCodigoDetalle.Size = new System.Drawing.Size(43, 13);
             this.lblCodigoDetalle.TabIndex = 8;
             this.lblCodigoDetalle.Text = "Código:";
-            // 
-            // rtxtDescripcionDetalle
-            // 
-            this.rtxtDescripcionDetalle.Location = new System.Drawing.Point(9, 81);
-            this.rtxtDescripcionDetalle.MaxLength = 200;
-            this.rtxtDescripcionDetalle.Name = "rtxtDescripcionDetalle";
-            this.rtxtDescripcionDetalle.Size = new System.Drawing.Size(426, 96);
-            this.rtxtDescripcionDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
-            this.rtxtDescripcionDetalle.TabIndex = 3;
-            this.rtxtDescripcionDetalle.Text = "";
             // 
             // lblDescripcionDetalle
             // 
@@ -400,17 +355,6 @@
             this.lblDescripcionDetalle.TabIndex = 4;
             this.lblDescripcionDetalle.Text = "Descripción:";
             // 
-            // txtNombreDetalle
-            // 
-            this.txtNombreDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
-            this.txtNombreDetalle.MaxLength = 30;
-            this.txtNombreDetalle.Name = "txtNombreDetalle";
-            this.txtNombreDetalle.Size = new System.Drawing.Size(221, 20);
-            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombreDetalle.TabIndex = 1;
-            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
             // lblNombreDetalle
             // 
             this.lblNombreDetalle.AutoSize = true;
@@ -419,6 +363,62 @@
             this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
             this.lblNombreDetalle.TabIndex = 0;
             this.lblNombreDetalle.Text = "Nombre:";
+            // 
+            // txtCodigoBuscar
+            // 
+            this.txtCodigoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoBuscar.Location = new System.Drawing.Point(311, 22);
+            this.txtCodigoBuscar.MaxLength = 6;
+            this.txtCodigoBuscar.Name = "txtCodigoBuscar";
+            this.txtCodigoBuscar.Size = new System.Drawing.Size(121, 20);
+            this.txtCodigoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtCodigoBuscar.TabIndex = 2;
+            this.txtCodigoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtCodigoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
+            // 
+            // txtNombreBuscar
+            // 
+            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreBuscar.Location = new System.Drawing.Point(59, 22);
+            this.txtNombreBuscar.MaxLength = 100;
+            this.txtNombreBuscar.Name = "txtNombreBuscar";
+            this.txtNombreBuscar.Size = new System.Drawing.Size(193, 20);
+            this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreBuscar.TabIndex = 1;
+            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
+            // 
+            // txtCodigoDetalle
+            // 
+            this.txtCodigoDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoDetalle.Location = new System.Drawing.Point(268, 32);
+            this.txtCodigoDetalle.MaxLength = 6;
+            this.txtCodigoDetalle.Name = "txtCodigoDetalle";
+            this.txtCodigoDetalle.Size = new System.Drawing.Size(121, 20);
+            this.txtCodigoDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtCodigoDetalle.TabIndex = 2;
+            this.txtCodigoDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // rtxtDescripcionDetalle
+            // 
+            this.rtxtDescripcionDetalle.Location = new System.Drawing.Point(9, 81);
+            this.rtxtDescripcionDetalle.MaxLength = 300;
+            this.rtxtDescripcionDetalle.Name = "rtxtDescripcionDetalle";
+            this.rtxtDescripcionDetalle.Size = new System.Drawing.Size(426, 96);
+            this.rtxtDescripcionDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
+            this.rtxtDescripcionDetalle.TabIndex = 3;
+            this.rtxtDescripcionDetalle.Text = "";
+            // 
+            // txtNombreDetalle
+            // 
+            this.txtNombreDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
+            this.txtNombreDetalle.MaxLength = 100;
+            this.txtNombreDetalle.Name = "txtNombreDetalle";
+            this.txtNombreDetalle.Size = new System.Drawing.Size(221, 20);
+            this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreDetalle.TabIndex = 1;
+            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // frmCPT
             // 

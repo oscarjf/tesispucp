@@ -253,12 +253,12 @@
             // 
             this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreBuscar.Location = new System.Drawing.Point(84, 22);
-            this.txtNombreBuscar.MaxLength = 30;
+            this.txtNombreBuscar.MaxLength = 50;
             this.txtNombreBuscar.Name = "txtNombreBuscar";
             this.txtNombreBuscar.Size = new System.Drawing.Size(133, 20);
             this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreBuscar.TabIndex = 1;
-            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
             this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombreBuscar
@@ -325,7 +325,7 @@
             // rtxtDescripcionDetalle
             // 
             this.rtxtDescripcionDetalle.Location = new System.Drawing.Point(9, 81);
-            this.rtxtDescripcionDetalle.MaxLength = 200;
+            this.rtxtDescripcionDetalle.MaxLength = 500;
             this.rtxtDescripcionDetalle.Name = "rtxtDescripcionDetalle";
             this.rtxtDescripcionDetalle.Size = new System.Drawing.Size(426, 96);
             this.rtxtDescripcionDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -345,12 +345,12 @@
             // 
             this.txtNombreDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreDetalle.Location = new System.Drawing.Point(9, 32);
-            this.txtNombreDetalle.MaxLength = 30;
+            this.txtNombreDetalle.MaxLength = 50;
             this.txtNombreDetalle.Name = "txtNombreDetalle";
             this.txtNombreDetalle.Size = new System.Drawing.Size(139, 20);
             this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreDetalle.TabIndex = 1;
-            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
             // 
             // lblNombreDetalle
             // 

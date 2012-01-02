@@ -17,6 +17,14 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmConsultorio()
         {
             InitializeComponent();
+
+            clsConsultorio objConsultorio = new clsConsultorio();
+            objConsultorio.IdPabellon = 0;
+            objConsultorio.Estado = "TODOS";
+
+            dtConsultorios = ctrConsultorio.seleccionarConsultoriosCriterios(objConsultorio);
+
+            cargarGrilla();
         }
 
         private void frmConsultorio_Load(object sender, EventArgs e)
@@ -28,6 +36,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
 
             cboPabellonBuscar.SelectedIndex = 0;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvConsultorios.Refresh();
         }
 
         private void cargarCombosPabellon()

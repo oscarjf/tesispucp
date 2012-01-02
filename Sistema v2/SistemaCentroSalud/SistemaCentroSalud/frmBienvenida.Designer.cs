@@ -121,7 +121,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(151, 20);
             this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Text = "admin";
-            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ingresar);
             // 
             // txtContrasena
             // 
@@ -131,7 +131,7 @@
             this.txtContrasena.Size = new System.Drawing.Size(151, 20);
             this.txtContrasena.TabIndex = 1;
             this.txtContrasena.Text = "admin";
-            this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasena_KeyPress);
+            this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ingresar);
             // 
             // frmBienvenida
             // 
@@ -153,7 +153,6 @@
             this.Name = "frmBienvenida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido(a)";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBienvenida_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

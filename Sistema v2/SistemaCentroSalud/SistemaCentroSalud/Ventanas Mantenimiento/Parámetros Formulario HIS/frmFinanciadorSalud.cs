@@ -17,6 +17,13 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
         public frmFinanciadorSalud()
         {
             InitializeComponent();
+
+            clsFinanciadorSalud objFinanciadorSalud = new clsFinanciadorSalud();
+            objFinanciadorSalud.Estado = "TODOS";
+
+            dtFinanciadoresSalud = ctrFinanciadorSalud.seleccionarFinanciadoresSaludCriterios(objFinanciadorSalud);
+
+            cargarGrilla();
         }
 
         private void frmFinanciadorSalud_Load(object sender, EventArgs e)
@@ -24,6 +31,8 @@ namespace SistemaCentroSalud.Ventanas_Mantenimiento
             tbpBuscar.Enabled = true;
             tbpDetalle.Enabled = false;
             cboEstadoBuscar.SelectedIndex = 0;
+
+            dgvFinanciadoresSalud.Refresh();
         }
 
         private void cargarGrilla()

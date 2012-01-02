@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ctrAdministrativo.cs" />
     <Compile Include="ctrArea.cs" />
+    <Compile Include="ctrBaseDatos.cs" />
     <Compile Include="ctrConsultorio.cs" />
     <Compile Include="ctrCPT.cs" />
     <Compile Include="ctrDisponibilidad.cs" />

@@ -9,6 +9,7 @@ using SistemaCentroSalud.Ventanas_Doctor;
 using SistemaCentroSalud.Ventanas_Mantenimiento;
 using SistemaCentroSalud.Ventanas_Personal;
 using SistemaCentroSalud.Ventanas_Seguridad;
+using System.IO;
 
 namespace SistemaCentroSalud
 {
@@ -370,6 +371,69 @@ namespace SistemaCentroSalud
             frmPerfil ventanaPerfil = new frmPerfil();
             ventanaPerfil.MdiParent = this;
             ventanaPerfil.Show();
+        }
+
+        private void smnuRespaldar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfdRespaldar = new SaveFileDialog();
+            sfdRespaldar.Title = "Guardar respaldo como";
+
+            sfdRespaldar.Filter = "Archivos BAK (*.bak)|*.bak";
+            sfdRespaldar.FilterIndex = 2;
+            sfdRespaldar.RestoreDirectory = true;
+
+            if (sfdRespaldar.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo fi = new FileInfo(sfdRespaldar.FileName);
+
+                clsBaseDatos objBaseDatos = new clsBaseDatos();
+                objBaseDatos.NombreBaseDatos = "CentroSalud";
+                objBaseDatos.Ruta = fi.FullName;
+
+                if (ctrBaseDatos.respaldarBaseDatos(objBaseDatos))
+                {
+                    MessageBox.Show("Se generó el backup exitosamente", "Respaldo Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error mientras se intentaba generar el backup", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void smnuRestaurar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Al restaurar el sistema puede que pierda infomación reciente.\nSe recomienda hacer una copia de respaldo antes.\n\n¿Desea continuar?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                OpenFileDialog ofdRestaurar = new OpenFileDialog();
+                ofdRestaurar.Title = "Seleccionar archivo de respaldo";
+
+                ofdRestaurar.Filter = "Archivos BAK (*.bak)|*.bak";
+                ofdRestaurar.FilterIndex = 2;
+                ofdRestaurar.RestoreDirectory = true;
+
+                if (ofdRestaurar.ShowDialog() == DialogResult.OK)
+                {
+                    FileInfo fi = new FileInfo(ofdRestaurar.FileName);
+
+                    clsBaseDatos objBaseDatos = new clsBaseDatos();
+                    objBaseDatos.NombreBaseDatos = "CentroSalud";
+                    objBaseDatos.Ruta = fi.FullName;
+
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    if (ctrBaseDatos.restaurarBaseDatos(objBaseDatos))
+                    {
+                        MessageBox.Show("El sistema se restauró exitosamente", "Restaurado Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error mientras se intentaba restaurar el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void smnuCascada_Click(object sender, EventArgs e)

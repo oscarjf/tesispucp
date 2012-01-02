@@ -123,11 +123,11 @@
             this.bbtnEnfermero = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnTecnico = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnAdministrativo = new DevComponents.DotNetBar.BubbleButton();
-            this.bbtnSalir = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnCalculadora = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnBlocDeNotas = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnPerfil = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnAuditoria = new DevComponents.DotNetBar.BubbleButton();
+            this.bbtnSalir = new DevComponents.DotNetBar.BubbleButton();
             this.menuStrip.SuspendLayout();
             this.tsIconos.SuspendLayout();
             this.sstInformacion.SuspendLayout();
@@ -626,6 +626,7 @@
             this.smnuRespaldar.Name = "smnuRespaldar";
             this.smnuRespaldar.Size = new System.Drawing.Size(152, 24);
             this.smnuRespaldar.Text = "Respaldar";
+            this.smnuRespaldar.Click += new System.EventHandler(this.smnuRespaldar_Click);
             // 
             // smnuRestaurar
             // 
@@ -634,6 +635,7 @@
             this.smnuRestaurar.Name = "smnuRestaurar";
             this.smnuRestaurar.Size = new System.Drawing.Size(152, 24);
             this.smnuRestaurar.Text = "Restaurar";
+            this.smnuRestaurar.Click += new System.EventHandler(this.smnuRestaurar_Click);
             // 
             // mnuVentanas
             // 
@@ -1028,14 +1030,6 @@
             this.bbtnAdministrativo.TooltipText = "Administrativo";
             this.bbtnAdministrativo.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAdministrativo_Click);
             // 
-            // bbtnSalir
-            // 
-            this.bbtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.Image")));
-            this.bbtnSalir.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.ImageLarge")));
-            this.bbtnSalir.Name = "bbtnSalir";
-            this.bbtnSalir.TooltipText = "Salir";
-            this.bbtnSalir.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnSalir_Click);
-            // 
             // bbtnCalculadora
             // 
             this.bbtnCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.Image")));
@@ -1067,6 +1061,14 @@
             this.bbtnAuditoria.Name = "bbtnAuditoria";
             this.bbtnAuditoria.TooltipText = "Auditoría";
             this.bbtnAuditoria.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAuditoria_Click);
+            // 
+            // bbtnSalir
+            // 
+            this.bbtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.Image")));
+            this.bbtnSalir.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.ImageLarge")));
+            this.bbtnSalir.Name = "bbtnSalir";
+            this.bbtnSalir.TooltipText = "Salir";
+            this.bbtnSalir.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnSalir_Click);
             // 
             // frmPrincipal
             // 

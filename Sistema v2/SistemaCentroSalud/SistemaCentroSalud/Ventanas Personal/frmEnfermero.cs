@@ -16,6 +16,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private string strRutaFoto = "";
         private bool blnCambioFoto = false;
 
+        private string strUsuario;
+        private string strContrasena;
+
         public frmEnfermero()
         {
             InitializeComponent();
@@ -647,9 +650,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     objEnfermero.Telefono = txtTelefono.Text;
                     objEnfermero.Celular = txtCelular.Text;
                     objEnfermero.CorreoElectronico = txtCorreoElectronico.Text;
-                    objEnfermero.Usuario = ctrEmpleado.generarNombreUsuario(numIdEnfermero, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                    objEnfermero.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
-
+                    
                     if (blnCambioFoto)
                     {
                         guardarFoto();
@@ -659,6 +660,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                     if (numAccion == clsComun.INSERTAR)
                     {
+                        objEnfermero.Usuario = ctrEmpleado.generarNombreUsuario(numIdEnfermero, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                        objEnfermero.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
                         if (ctrEnfermero.registrarEnfermero(objEnfermero))
                         {
                             enviarCorreo(txtCorreoElectronico.Text, objEnfermero.Paterno, objEnfermero.Materno, objEnfermero.Nombres, objEnfermero.Usuario, objEnfermero.Contrasena);
@@ -693,6 +697,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else if (numAccion == clsComun.MODIFICAR)
                     {
+                        objEnfermero.Usuario = strUsuario;
+                        objEnfermero.Contrasena = strContrasena;
+
                         if (ctrEnfermero.modificarEnfermero(objEnfermero))
                         {
                             MessageBox.Show("El enfermero se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -772,6 +779,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objEnfermero.IdEnfermero = numIdEnfermero;
 
                 objEnfermero = ctrEnfermero.seleccionarEnfermero(objEnfermero);
+
+                strUsuario = objEnfermero.Usuario;
+                strContrasena = objEnfermero.Contrasena;
 
                 mostrarInformacion(objEnfermero, numAccion);
 

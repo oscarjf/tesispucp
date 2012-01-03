@@ -16,6 +16,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private string strRutaFoto = "";
         private bool blnCambioFoto = false;
 
+        private string strUsuario;
+        private string strContrasena;
+
         public frmTecnico()
         {
             InitializeComponent();
@@ -611,9 +614,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     objTecnico.Telefono = txtTelefono.Text;
                     objTecnico.Celular = txtCelular.Text;
                     objTecnico.CorreoElectronico = txtCorreoElectronico.Text;
-                    objTecnico.Usuario = ctrEmpleado.generarNombreUsuario(numIdTecnico, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                    objTecnico.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
-
+                    
                     if (blnCambioFoto)
                     {
                         guardarFoto();
@@ -623,6 +624,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                     if (numAccion == clsComun.INSERTAR)
                     {
+                        objTecnico.Usuario = ctrEmpleado.generarNombreUsuario(numIdTecnico, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                        objTecnico.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
                         if (ctrTecnico.registrarTecnico(objTecnico))
                         {
                             enviarCorreo(txtCorreoElectronico.Text, objTecnico.Paterno, objTecnico.Materno, objTecnico.Nombres, objTecnico.Usuario, objTecnico.Contrasena);
@@ -657,6 +661,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else if (numAccion == clsComun.MODIFICAR)
                     {
+                        objTecnico.Usuario = strUsuario;
+                        objTecnico.Contrasena = strContrasena;
+
                         if (ctrTecnico.modificarTecnico(objTecnico))
                         {
                             MessageBox.Show("El técnico se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -736,6 +743,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objTecnico.IdTecnico = numIdTecnico;
 
                 objTecnico = ctrTecnico.seleccionarTecnico(objTecnico);
+
+                strUsuario = objTecnico.Usuario;
+                strContrasena = objTecnico.Contrasena;
 
                 mostrarInformacion(objTecnico, numAccion);
 

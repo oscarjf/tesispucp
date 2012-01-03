@@ -16,6 +16,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private string strRutaFoto = "";
         private bool blnCambioFoto = false;
 
+        private string strUsuario;
+        private string strContrasena;
+
         public frmDoctor()
         {
             InitializeComponent();
@@ -748,9 +751,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     objDoctor.Telefono = txtTelefono.Text;
                     objDoctor.Celular = txtCelular.Text;
                     objDoctor.CorreoElectronico = txtCorreoElectronico.Text;
-                    objDoctor.Usuario = ctrEmpleado.generarNombreUsuario(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                    objDoctor.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
-
+                    
                     if (blnCambioFoto)
                     {
                         guardarFoto();
@@ -760,6 +761,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                     if (numAccion == clsComun.INSERTAR)
                     {
+                        objDoctor.Usuario = ctrEmpleado.generarNombreUsuario(numIdDoctor, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                        objDoctor.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
                         if (ctrDoctor.registrarDoctor(objDoctor))
                         {
                             enviarCorreo(txtCorreoElectronico.Text, objDoctor.Paterno, objDoctor.Materno, objDoctor.Nombres, objDoctor.Usuario, objDoctor.Contrasena);
@@ -794,6 +798,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else if (numAccion == clsComun.MODIFICAR)
                     {
+                        objDoctor.Usuario = strUsuario;
+                        objDoctor.Contrasena = strContrasena;
+
                         if (ctrDoctor.modificarDoctor(objDoctor))
                         {
                             MessageBox.Show("El doctor se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -873,6 +880,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objDoctor.IdDoctor = numIdDoctor;
 
                 objDoctor = ctrDoctor.seleccionarDoctor(objDoctor);
+
+                strUsuario = objDoctor.Usuario;
+                strContrasena = objDoctor.Contrasena;
 
                 mostrarInformacion(objDoctor, numAccion);
 

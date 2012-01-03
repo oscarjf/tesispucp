@@ -16,6 +16,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
         private string strRutaFoto = "";
         private bool blnCambioFoto = false;
 
+        private string strUsuario;
+        private string strContrasena;
+
         public frmAdministrativo()
         {
             InitializeComponent();
@@ -611,9 +614,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     objAdministrativo.Telefono = txtTelefono.Text;
                     objAdministrativo.Celular = txtCelular.Text;
                     objAdministrativo.CorreoElectronico = txtCorreoElectronico.Text;
-                    objAdministrativo.Usuario = ctrEmpleado.generarNombreUsuario(numIdAdministrativo, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
-                    objAdministrativo.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
-
+                    
                     if (blnCambioFoto)
                     {
                         guardarFoto();
@@ -623,6 +624,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                     if (numAccion == clsComun.INSERTAR)
                     {
+                        objAdministrativo.Usuario = ctrEmpleado.generarNombreUsuario(numIdAdministrativo, txtPaterno.Text, txtMaterno.Text, txtNombres.Text);
+                        objAdministrativo.Contrasena = clsSeguridad.generarContrasenaAleatoria(8);
+
                         if (ctrAdministrativo.registrarAdministrativo(objAdministrativo))
                         {
                             enviarCorreo(txtCorreoElectronico.Text, objAdministrativo.Paterno, objAdministrativo.Materno, objAdministrativo.Nombres, objAdministrativo.Usuario, objAdministrativo.Contrasena);
@@ -657,6 +661,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     }
                     else if (numAccion == clsComun.MODIFICAR)
                     {
+                        objAdministrativo.Usuario = strUsuario;
+                        objAdministrativo.Contrasena = strContrasena;
+
                         if (ctrAdministrativo.modificarAdministrativo(objAdministrativo))
                         {
                             MessageBox.Show("El empleado administrativo se modificó exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -736,6 +743,9 @@ namespace SistemaCentroSalud.Ventanas_Personal
                 objAdministrativo.IdAdministrativo = numIdAdministrativo;
 
                 objAdministrativo = ctrAdministrativo.seleccionarAdministrativo(objAdministrativo);
+
+                strUsuario = objAdministrativo.Usuario;
+                strContrasena = objAdministrativo.Contrasena;
 
                 mostrarInformacion(objAdministrativo, numAccion);
 

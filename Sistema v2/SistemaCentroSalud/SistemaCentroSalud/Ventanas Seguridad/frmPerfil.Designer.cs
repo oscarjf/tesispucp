@@ -117,6 +117,7 @@
             this.lblEstadoBuscar = new System.Windows.Forms.Label();
             this.cboTipoEmpleadoBuscar = new System.Windows.Forms.ComboBox();
             this.lblAreaBuscar = new System.Windows.Forms.Label();
+            this.txtNombreBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblNombreBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -131,9 +132,8 @@
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
             this.cboTipoEmpleadoDetalle = new System.Windows.Forms.ComboBox();
             this.lblTipoEmpleado = new System.Windows.Forms.Label();
-            this.lblNombreDetalle = new System.Windows.Forms.Label();
-            this.txtNombreBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNombreDetalle = new SistemaCentroSalud.Controles.cuTextBox();
+            this.lblNombreDetalle = new System.Windows.Forms.Label();
             this.tbcPerfil.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
@@ -362,6 +362,18 @@
             this.lblAreaBuscar.Size = new System.Drawing.Size(96, 13);
             this.lblAreaBuscar.TabIndex = 2;
             this.lblAreaBuscar.Text = "Tipo de Empleado:";
+            // 
+            // txtNombreBuscar
+            // 
+            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreBuscar.Location = new System.Drawing.Point(108, 23);
+            this.txtNombreBuscar.MaxLength = 50;
+            this.txtNombreBuscar.Name = "txtNombreBuscar";
+            this.txtNombreBuscar.Size = new System.Drawing.Size(157, 20);
+            this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNombreBuscar.TabIndex = 1;
+            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombreBuscar
             // 
@@ -618,27 +630,6 @@
             this.lblTipoEmpleado.TabIndex = 3;
             this.lblTipoEmpleado.Text = "Tipo Empleado:";
             // 
-            // lblNombreDetalle
-            // 
-            this.lblNombreDetalle.AutoSize = true;
-            this.lblNombreDetalle.Location = new System.Drawing.Point(6, 16);
-            this.lblNombreDetalle.Name = "lblNombreDetalle";
-            this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreDetalle.TabIndex = 2;
-            this.lblNombreDetalle.Text = "Nombre:";
-            // 
-            // txtNombreBuscar
-            // 
-            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombreBuscar.Location = new System.Drawing.Point(108, 23);
-            this.txtNombreBuscar.MaxLength = 50;
-            this.txtNombreBuscar.Name = "txtNombreBuscar";
-            this.txtNombreBuscar.Size = new System.Drawing.Size(157, 20);
-            this.txtNombreBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNombreBuscar.TabIndex = 1;
-            this.txtNombreBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
-            // 
             // txtNombreDetalle
             // 
             this.txtNombreDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -649,6 +640,15 @@
             this.txtNombreDetalle.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombreDetalle.TabIndex = 2;
             this.txtNombreDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            // 
+            // lblNombreDetalle
+            // 
+            this.lblNombreDetalle.AutoSize = true;
+            this.lblNombreDetalle.Location = new System.Drawing.Point(6, 16);
+            this.lblNombreDetalle.Name = "lblNombreDetalle";
+            this.lblNombreDetalle.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreDetalle.TabIndex = 2;
+            this.lblNombreDetalle.Text = "Nombre:";
             // 
             // frmPerfil
             // 

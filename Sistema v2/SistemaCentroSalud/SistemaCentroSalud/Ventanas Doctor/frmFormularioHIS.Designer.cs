@@ -47,8 +47,11 @@
             this.rbtnDiagnosticoR = new System.Windows.Forms.RadioButton();
             this.rbtnDiagnosticoD = new System.Windows.Forms.RadioButton();
             this.rbtnDiagnosticoP = new System.Windows.Forms.RadioButton();
+            this.txtDiagnostico = new SistemaCentroSalud.Controles.cuTextBox();
             this.cboSexo = new System.Windows.Forms.ComboBox();
+            this.txtEdad = new SistemaCentroSalud.Controles.cuTextBox();
             this.cboDistritoProcedencia = new System.Windows.Forms.ComboBox();
+            this.txtNumeroHistoriaClinica = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblDiagnostico = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblEdad = new System.Windows.Forms.Label();
@@ -58,9 +61,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.ttpInformacion = new System.Windows.Forms.ToolTip(this.components);
-            this.txtDiagnostico = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtEdad = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtNumeroHistoriaClinica = new SistemaCentroSalud.Controles.cuTextBox();
             this.gbxDatosFormulario.SuspendLayout();
             this.gbxServicio.SuspendLayout();
             this.gbxEstablecimiento.SuspendLayout();
@@ -271,6 +271,17 @@
             this.rbtnDiagnosticoP.Text = "P (Presuntivo)";
             this.rbtnDiagnosticoP.UseVisualStyleBackColor = true;
             // 
+            // txtDiagnostico
+            // 
+            this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
+            this.txtDiagnostico.Name = "txtDiagnostico";
+            this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
+            this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtDiagnostico.TabIndex = 9;
+            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            // 
             // cboSexo
             // 
             this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -284,6 +295,16 @@
             this.cboSexo.Size = new System.Drawing.Size(118, 21);
             this.cboSexo.TabIndex = 8;
             // 
+            // txtEdad
+            // 
+            this.txtEdad.Location = new System.Drawing.Point(158, 76);
+            this.txtEdad.MaxLength = 2;
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(40, 20);
+            this.txtEdad.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtEdad.TabIndex = 7;
+            this.txtEdad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            // 
             // cboDistritoProcedencia
             // 
             this.cboDistritoProcedencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -292,6 +313,15 @@
             this.cboDistritoProcedencia.Name = "cboDistritoProcedencia";
             this.cboDistritoProcedencia.Size = new System.Drawing.Size(161, 21);
             this.cboDistritoProcedencia.TabIndex = 6;
+            // 
+            // txtNumeroHistoriaClinica
+            // 
+            this.txtNumeroHistoriaClinica.Location = new System.Drawing.Point(158, 22);
+            this.txtNumeroHistoriaClinica.Name = "txtNumeroHistoriaClinica";
+            this.txtNumeroHistoriaClinica.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroHistoriaClinica.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNumeroHistoriaClinica.TabIndex = 5;
+            this.txtNumeroHistoriaClinica.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // lblDiagnostico
             // 
@@ -375,36 +405,6 @@
             this.btnImportar.Text = "Importar";
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImportar.UseVisualStyleBackColor = true;
-            // 
-            // txtDiagnostico
-            // 
-            this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
-            this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
-            this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtDiagnostico.TabIndex = 9;
-            this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(158, 76);
-            this.txtEdad.MaxLength = 2;
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(40, 20);
-            this.txtEdad.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtEdad.TabIndex = 7;
-            this.txtEdad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
-            // 
-            // txtNumeroHistoriaClinica
-            // 
-            this.txtNumeroHistoriaClinica.Location = new System.Drawing.Point(158, 22);
-            this.txtNumeroHistoriaClinica.Name = "txtNumeroHistoriaClinica";
-            this.txtNumeroHistoriaClinica.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroHistoriaClinica.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNumeroHistoriaClinica.TabIndex = 5;
-            this.txtNumeroHistoriaClinica.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
             // 
             // frmFormularioHIS
             // 

@@ -33,14 +33,14 @@
             this.gbxAcceso = new System.Windows.Forms.GroupBox();
             this.pbxIncorrecto = new System.Windows.Forms.PictureBox();
             this.pbxCorrecto = new System.Windows.Forms.PictureBox();
+            this.txtUsuario = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtRepetirContrasena = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtNuevaContrasena = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblRepetirContrasena = new System.Windows.Forms.Label();
             this.lblNuevaContrasena = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtUsuario = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtRepetirContrasena = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtNuevaContrasena = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtIngresarContrasena = new SistemaCentroSalud.Controles.cuTextBox();
             this.gbxAcceso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIncorrecto)).BeginInit();
@@ -96,6 +96,16 @@
             this.pbxCorrecto.Tag = "";
             this.pbxCorrecto.Visible = false;
             // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(137, 28);
+            this.txtUsuario.MaxLength = 20;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(130, 20);
+            this.txtUsuario.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -104,6 +114,28 @@
             this.lblUsuario.Size = new System.Drawing.Size(101, 13);
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Nombre de Usuario:";
+            // 
+            // txtRepetirContrasena
+            // 
+            this.txtRepetirContrasena.Location = new System.Drawing.Point(137, 116);
+            this.txtRepetirContrasena.MaxLength = 60;
+            this.txtRepetirContrasena.Name = "txtRepetirContrasena";
+            this.txtRepetirContrasena.PasswordChar = '*';
+            this.txtRepetirContrasena.Size = new System.Drawing.Size(130, 20);
+            this.txtRepetirContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtRepetirContrasena.TabIndex = 5;
+            this.txtRepetirContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtNuevaContrasena
+            // 
+            this.txtNuevaContrasena.Location = new System.Drawing.Point(137, 71);
+            this.txtNuevaContrasena.MaxLength = 60;
+            this.txtNuevaContrasena.Name = "txtNuevaContrasena";
+            this.txtNuevaContrasena.PasswordChar = '*';
+            this.txtNuevaContrasena.Size = new System.Drawing.Size(130, 20);
+            this.txtNuevaContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtNuevaContrasena.TabIndex = 4;
+            this.txtNuevaContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // lblRepetirContrasena
             // 
@@ -149,38 +181,10 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(137, 28);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(130, 20);
-            this.txtUsuario.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtUsuario.TabIndex = 3;
-            this.txtUsuario.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtRepetirContrasena
-            // 
-            this.txtRepetirContrasena.Location = new System.Drawing.Point(137, 116);
-            this.txtRepetirContrasena.Name = "txtRepetirContrasena";
-            this.txtRepetirContrasena.PasswordChar = '*';
-            this.txtRepetirContrasena.Size = new System.Drawing.Size(130, 20);
-            this.txtRepetirContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtRepetirContrasena.TabIndex = 5;
-            this.txtRepetirContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtNuevaContrasena
-            // 
-            this.txtNuevaContrasena.Location = new System.Drawing.Point(137, 71);
-            this.txtNuevaContrasena.Name = "txtNuevaContrasena";
-            this.txtNuevaContrasena.PasswordChar = '*';
-            this.txtNuevaContrasena.Size = new System.Drawing.Size(130, 20);
-            this.txtNuevaContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtNuevaContrasena.TabIndex = 4;
-            this.txtNuevaContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
             // txtIngresarContrasena
             // 
             this.txtIngresarContrasena.Location = new System.Drawing.Point(149, 10);
+            this.txtIngresarContrasena.MaxLength = 60;
             this.txtIngresarContrasena.Name = "txtIngresarContrasena";
             this.txtIngresarContrasena.PasswordChar = '*';
             this.txtIngresarContrasena.Size = new System.Drawing.Size(130, 20);

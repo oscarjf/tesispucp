@@ -602,7 +602,7 @@
             this.smnuPerfil.Enabled = false;
             this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(152, 24);
+            this.smnuPerfil.Size = new System.Drawing.Size(144, 24);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
@@ -611,20 +611,20 @@
             this.smnuAuditoria.Enabled = false;
             this.smnuAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("smnuAuditoria.Image")));
             this.smnuAuditoria.Name = "smnuAuditoria";
-            this.smnuAuditoria.Size = new System.Drawing.Size(152, 24);
+            this.smnuAuditoria.Size = new System.Drawing.Size(144, 24);
             this.smnuAuditoria.Text = "Auditoría";
             // 
             // tsspSeguridad
             // 
             this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(149, 6);
+            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
             // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Enabled = false;
             this.smnuRespaldar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldar.Image")));
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(152, 24);
+            this.smnuRespaldar.Size = new System.Drawing.Size(144, 24);
             this.smnuRespaldar.Text = "Respaldar";
             this.smnuRespaldar.Click += new System.EventHandler(this.smnuRespaldar_Click);
             // 
@@ -633,7 +633,7 @@
             this.smnuRestaurar.Enabled = false;
             this.smnuRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRestaurar.Image")));
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(152, 24);
+            this.smnuRestaurar.Size = new System.Drawing.Size(144, 24);
             this.smnuRestaurar.Text = "Restaurar";
             this.smnuRestaurar.Click += new System.EventHandler(this.smnuRestaurar_Click);
             // 

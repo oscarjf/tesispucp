@@ -441,7 +441,7 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
                 foreach (string strMenu in lbxAccesosPermitidos.Items)
                 {
-                    if (tnNodo.Name.CompareTo(strMenu) == 0)
+                    if (tnNodo.Text.CompareTo(strMenu) == 0)
                     {
                         blnEncontrado = true;
                         break;
@@ -450,7 +450,7 @@ namespace SistemaCentroSalud.Ventanas_Seguridad
 
                 if (!blnEncontrado)
                 {
-                    lbxAccesosPermitidos.Items.Add(tnNodo.Name);
+                    lbxAccesosPermitidos.Items.Add(tnNodo.Text);
                 }
             }
         }

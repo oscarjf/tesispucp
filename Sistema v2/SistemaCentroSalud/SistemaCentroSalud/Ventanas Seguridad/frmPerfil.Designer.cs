@@ -34,9 +34,9 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Admisión", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Doctor");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Enfermero");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Técnico");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Doctor(a)");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Enfermero(a)");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Técnico(a)");
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Administrativo");
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
             treeNode4,
@@ -85,20 +85,22 @@
             treeNode28,
             treeNode29,
             treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Horarios");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Mantenimiento", new System.Windows.Forms.TreeNode[] {
             treeNode19,
             treeNode26,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Reportes");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Perfil");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Auditoría");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Respaldar");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Restaurar");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
-            treeNode34,
+            treeNode31,
+            treeNode32});
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Reportes");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Perfil");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Auditoría");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Respaldar");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Restaurar");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Seguridad", new System.Windows.Forms.TreeNode[] {
             treeNode35,
             treeNode36,
-            treeNode37});
+            treeNode37,
+            treeNode38});
             this.tbcPerfil = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -499,11 +501,11 @@
             treeNode3.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             treeNode3.Text = "Admisión";
             treeNode4.Name = "smnuDoctor";
-            treeNode4.Text = "Doctor";
+            treeNode4.Text = "Doctor(a)";
             treeNode5.Name = "smnuEnfermero";
-            treeNode5.Text = "Enfermero";
+            treeNode5.Text = "Enfermero(a)";
             treeNode6.Name = "smnuTecnico";
-            treeNode6.Text = "Técnico";
+            treeNode6.Text = "Técnico(a)";
             treeNode7.Name = "smnuAdministrativo";
             treeNode7.Text = "Administrativo";
             treeNode8.Name = "nodPersonal";
@@ -559,30 +561,32 @@
             treeNode31.Name = "nodParametrosFormularioHIS";
             treeNode31.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             treeNode31.Text = "Parámetros Formulario HIS";
-            treeNode32.Name = "nodMantenimiento";
-            treeNode32.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode32.Text = "Mantenimiento";
-            treeNode33.Name = "nodReportes";
+            treeNode32.Name = "smnuHorarios";
+            treeNode32.Text = "Horarios";
+            treeNode33.Name = "nodMantenimiento";
             treeNode33.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode33.Text = "Reportes";
-            treeNode34.Name = "smnuPerfil";
-            treeNode34.Text = "Perfil";
-            treeNode35.Name = "smnuAuditoria";
-            treeNode35.Text = "Auditoría";
-            treeNode36.Name = "smnuRespaldar";
-            treeNode36.Text = "Respaldar";
-            treeNode37.Name = "smnuRestaurar";
-            treeNode37.Text = "Restaurar";
-            treeNode38.Name = "nodSeguridad";
-            treeNode38.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode38.Text = "Seguridad";
+            treeNode33.Text = "Mantenimiento";
+            treeNode34.Name = "nodReportes";
+            treeNode34.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode34.Text = "Reportes";
+            treeNode35.Name = "smnuPerfil";
+            treeNode35.Text = "Perfil";
+            treeNode36.Name = "smnuAuditoria";
+            treeNode36.Text = "Auditoría";
+            treeNode37.Name = "smnuRespaldar";
+            treeNode37.Text = "Respaldar";
+            treeNode38.Name = "smnuRestaurar";
+            treeNode38.Text = "Restaurar";
+            treeNode39.Name = "nodSeguridad";
+            treeNode39.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode39.Text = "Seguridad";
             this.tvAccesos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode8,
             treeNode13,
-            treeNode32,
             treeNode33,
-            treeNode38});
+            treeNode34,
+            treeNode39});
             this.tvAccesos.Size = new System.Drawing.Size(212, 134);
             this.tvAccesos.TabIndex = 4;
             // 

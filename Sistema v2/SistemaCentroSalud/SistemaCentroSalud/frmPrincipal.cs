@@ -123,7 +123,7 @@ namespace SistemaCentroSalud
                 }
                 else
                 {
-                    if (strNombre.CompareTo(((ToolStripMenuItem)objObjeto).Name) == 0)
+                    if (strNombre.CompareTo(((ToolStripMenuItem)objObjeto).Text) == 0)
                     {
                         ((ToolStripMenuItem)objObjeto).Enabled = true;
                         return true;

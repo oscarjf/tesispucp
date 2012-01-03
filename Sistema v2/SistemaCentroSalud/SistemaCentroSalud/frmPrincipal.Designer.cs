@@ -73,6 +73,8 @@
             this.smnuLaboratorio = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuFinanciadorSalud = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuUnidadProductoraServicios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsspParametros = new System.Windows.Forms.ToolStripSeparator();
+            this.smnuHorarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuCalculadora = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuBlocDeNotas = new System.Windows.Forms.ToolStripMenuItem();
@@ -359,7 +361,9 @@
             this.mnuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smnuParametrosCentroSalud,
             this.smnuParametrosPaciente,
-            this.smnuParametrosHIS});
+            this.smnuParametrosHIS,
+            this.tsspParametros,
+            this.smnuHorarios});
             this.mnuMantenimiento.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.mnuMantenimiento.Name = "mnuMantenimiento";
             this.mnuMantenimiento.Size = new System.Drawing.Size(122, 24);
@@ -551,6 +555,19 @@
             this.smnuUnidadProductoraServicios.Text = "Unidad Productora de Servicios";
             this.smnuUnidadProductoraServicios.Click += new System.EventHandler(this.smnuUnidadProductoraServicios_Click);
             // 
+            // tsspParametros
+            // 
+            this.tsspParametros.Name = "tsspParametros";
+            this.tsspParametros.Size = new System.Drawing.Size(260, 6);
+            // 
+            // smnuHorarios
+            // 
+            this.smnuHorarios.Enabled = false;
+            this.smnuHorarios.Image = ((System.Drawing.Image)(resources.GetObject("smnuHorarios.Image")));
+            this.smnuHorarios.Name = "smnuHorarios";
+            this.smnuHorarios.Size = new System.Drawing.Size(263, 24);
+            this.smnuHorarios.Text = "Horarios";
+            // 
             // mnuHerramientas
             // 
             this.mnuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -602,7 +619,7 @@
             this.smnuPerfil.Enabled = false;
             this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(144, 24);
+            this.smnuPerfil.Size = new System.Drawing.Size(152, 24);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
@@ -611,20 +628,20 @@
             this.smnuAuditoria.Enabled = false;
             this.smnuAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("smnuAuditoria.Image")));
             this.smnuAuditoria.Name = "smnuAuditoria";
-            this.smnuAuditoria.Size = new System.Drawing.Size(144, 24);
+            this.smnuAuditoria.Size = new System.Drawing.Size(152, 24);
             this.smnuAuditoria.Text = "Auditoría";
             // 
             // tsspSeguridad
             // 
             this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
+            this.tsspSeguridad.Size = new System.Drawing.Size(149, 6);
             // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Enabled = false;
             this.smnuRespaldar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldar.Image")));
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(144, 24);
+            this.smnuRespaldar.Size = new System.Drawing.Size(152, 24);
             this.smnuRespaldar.Text = "Respaldar";
             this.smnuRespaldar.Click += new System.EventHandler(this.smnuRespaldar_Click);
             // 
@@ -633,7 +650,7 @@
             this.smnuRestaurar.Enabled = false;
             this.smnuRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRestaurar.Image")));
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(144, 24);
+            this.smnuRestaurar.Size = new System.Drawing.Size(152, 24);
             this.smnuRestaurar.Text = "Restaurar";
             this.smnuRestaurar.Click += new System.EventHandler(this.smnuRestaurar_Click);
             // 
@@ -1200,6 +1217,8 @@
         private DevComponents.DotNetBar.BubbleButton bbtnBlocDeNotas;
         private DevComponents.DotNetBar.BubbleButton bbtnPerfil;
         private DevComponents.DotNetBar.BubbleButton bbtnAuditoria;
+        private System.Windows.Forms.ToolStripSeparator tsspParametros;
+        private System.Windows.Forms.ToolStripMenuItem smnuHorarios;
     }
 }
 

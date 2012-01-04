@@ -164,41 +164,45 @@ namespace Control
 
             lstParametrosSQL.Add(sqlParametro);
 
-            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_ManPaciente", lstParametrosSQL);
+            DataSet dsResultado = clsGestorBD.ejecutarStoredProcedureDataSet("up_ManPaciente", lstParametrosSQL);
 
-            objPaciente.IdPaciente = Int32.Parse(dtResultado.Rows[0]["IdPersona"].ToString());
-            objPaciente.Paterno = dtResultado.Rows[0]["Paterno"].ToString();
-            objPaciente.Materno = dtResultado.Rows[0]["Materno"].ToString();
-            objPaciente.Nombres = dtResultado.Rows[0]["Nombres"].ToString();
-            objPaciente.FechaNacimiento = DateTime.Parse(dtResultado.Rows[0]["FechaNacimiento"].ToString());
-            objPaciente.Sexo = dtResultado.Rows[0]["Sexo"].ToString();
-            objPaciente.IdTipoDocumento = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdTipoDocumento"].ToString()));
-            objPaciente.NumeroDocumento = dtResultado.Rows[0]["NumeroDocumento"].ToString();
-            objPaciente.EstadoCivil = dtResultado.Rows[0]["EstadoCivil"].ToString();
-            objPaciente._IdLugarNacimiento = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdLugarNacimiento"].ToString()));
-            objPaciente.Pais = dtResultado.Rows[0]["Pais"].ToString();
-            objPaciente.DepartamentoNacimiento = dtResultado.Rows[0]["Departamento"].ToString();
-            objPaciente.ProvinciaNacimiento = dtResultado.Rows[0]["Provincia"].ToString();
-            objPaciente.DistritoNacimiento = dtResultado.Rows[0]["Distrito"].ToString();
-            objPaciente._IdDomicilio = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdDomicilio"].ToString()));
-            objPaciente.DepartamentoDomicilio = dtResultado.Rows[0]["DepartamentoDomicilio"].ToString();
-            objPaciente.ProvinciaDomicilio = dtResultado.Rows[0]["ProvinciaDomicilio"].ToString();
-            objPaciente.DistritoDomicilio = dtResultado.Rows[0]["DistritoDomicilio"].ToString();
-            objPaciente.Direccion = dtResultado.Rows[0]["Direccion"].ToString();
-            objPaciente.Telefono = dtResultado.Rows[0]["Telefono"].ToString();
-            objPaciente.Celular = dtResultado.Rows[0]["Celular"].ToString();
-            objPaciente.CorreoElectronico = dtResultado.Rows[0]["CorreoElectronico"].ToString();
-            objPaciente.IdEtnia = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdEtnia"].ToString()));
-            objPaciente.IdIdioma = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdIdioma"].ToString()));
-            objPaciente.IdOcupacion = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdOcupacion"].ToString()));
-            objPaciente.IdReligion = Int32.Parse(clsComun.vacioToCero(dtResultado.Rows[0]["IdReligion"].ToString()));
-            objPaciente.GrupoSanguineo = dtResultado.Rows[0]["GrupoSanguineo"].ToString();
-            objPaciente.FactorSanguineo = dtResultado.Rows[0]["FactorSanguineo"].ToString();
-            objPaciente.NumeroHistoriaClinica = dtResultado.Rows[0]["NumeroHistoriaClinica"].ToString();
+            objPaciente.IdPaciente = Int32.Parse(dsResultado.Tables[0].Rows[0]["IdPersona"].ToString());
+            objPaciente.Paterno = dsResultado.Tables[0].Rows[0]["Paterno"].ToString();
+            objPaciente.Materno = dsResultado.Tables[0].Rows[0]["Materno"].ToString();
+            objPaciente.Nombres = dsResultado.Tables[0].Rows[0]["Nombres"].ToString();
+            objPaciente.FechaNacimiento = DateTime.Parse(dsResultado.Tables[0].Rows[0]["FechaNacimiento"].ToString());
+            objPaciente.Sexo = dsResultado.Tables[0].Rows[0]["Sexo"].ToString();
+            objPaciente.EstadoCivil = dsResultado.Tables[0].Rows[0]["EstadoCivil"].ToString();
+            objPaciente._IdLugarNacimiento = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdLugarNacimiento"].ToString()));
+            objPaciente.Pais = dsResultado.Tables[0].Rows[0]["Pais"].ToString();
+            objPaciente.DepartamentoNacimiento = dsResultado.Tables[0].Rows[0]["Departamento"].ToString();
+            objPaciente.ProvinciaNacimiento = dsResultado.Tables[0].Rows[0]["Provincia"].ToString();
+            objPaciente.DistritoNacimiento = dsResultado.Tables[0].Rows[0]["Distrito"].ToString();
+            objPaciente._IdDomicilio = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdDomicilio"].ToString()));
+            objPaciente.DepartamentoDomicilio = dsResultado.Tables[0].Rows[0]["DepartamentoDomicilio"].ToString();
+            objPaciente.ProvinciaDomicilio = dsResultado.Tables[0].Rows[0]["ProvinciaDomicilio"].ToString();
+            objPaciente.DistritoDomicilio = dsResultado.Tables[0].Rows[0]["DistritoDomicilio"].ToString();
+            objPaciente.Direccion = dsResultado.Tables[0].Rows[0]["Direccion"].ToString();
+            objPaciente.Telefono = dsResultado.Tables[0].Rows[0]["Telefono"].ToString();
+            objPaciente.Celular = dsResultado.Tables[0].Rows[0]["Celular"].ToString();
+            objPaciente.CorreoElectronico = dsResultado.Tables[0].Rows[0]["CorreoElectronico"].ToString();
+            objPaciente.IdEtnia = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdEtnia"].ToString()));
+            objPaciente.IdIdioma = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdIdioma"].ToString()));
+            objPaciente.IdOcupacion = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdOcupacion"].ToString()));
+            objPaciente.IdReligion = Int32.Parse(clsComun.vacioToCero(dsResultado.Tables[0].Rows[0]["IdReligion"].ToString()));
+            objPaciente.GrupoSanguineo = dsResultado.Tables[0].Rows[0]["GrupoSanguineo"].ToString();
+            objPaciente.FactorSanguineo = dsResultado.Tables[0].Rows[0]["FactorSanguineo"].ToString();
+            objPaciente.NumeroHistoriaClinica = dsResultado.Tables[0].Rows[0]["NumeroHistoriaClinica"].ToString();
 
-            if (objPaciente.IdTipoDocumento != 0)
+            if (dsResultado.Tables[1].Rows[0]["IdTipoDocumento"].ToString() != "NULL")
             {
-                objPaciente._TipoDocumento = dtResultado.Rows[0]["TipoDocumento"].ToString();
+                objPaciente.IdTipoDocumento = Int32.Parse(dsResultado.Tables[1].Rows[0]["IdTipoDocumento"].ToString());
+                objPaciente._TipoDocumento = dsResultado.Tables[1].Rows[0]["TipoDocumento"].ToString();
+            }
+            else
+            {
+                objPaciente.IdTipoDocumento = 0;
+                objPaciente._TipoDocumento = "";
             }
 
             if (objPaciente.IdEtnia != 0)

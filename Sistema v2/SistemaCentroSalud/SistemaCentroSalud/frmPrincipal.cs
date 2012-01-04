@@ -30,9 +30,9 @@ namespace SistemaCentroSalud
 
             for (int i = 0; i < ventanaBienvenida.getMenus().Rows.Count; i++)
             {
-                for (int j = 0; j < menuStrip.Items.Count; j++)
+                for (int j = 0; j < msPrincipal.Items.Count; j++)
                 {
-                    if (compararMenu(ventanaBienvenida.getMenus().Rows[i]["Menu"].ToString(), menuStrip.Items[j]))
+                    if (compararMenu(ventanaBienvenida.getMenus().Rows[i]["Menu"].ToString(), msPrincipal.Items[j]))
                     {
                         break;
                     }

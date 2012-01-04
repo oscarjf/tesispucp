@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.msPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuInicio = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspInicio = new System.Windows.Forms.ToolStripSeparator();
@@ -130,15 +130,15 @@
             this.bbtnPerfil = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnAuditoria = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnSalir = new DevComponents.DotNetBar.BubbleButton();
-            this.menuStrip.SuspendLayout();
+            this.msPrincipal.SuspendLayout();
             this.tsIconos.SuspendLayout();
             this.sstInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bbarIconos)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip
+            // msPrincipal
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuInicio,
             this.mnuAdmision,
             this.mnuDoctor,
@@ -150,12 +150,12 @@
             this.mnuVentanas,
             this.mnuVer,
             this.mnuAyuda});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.MdiWindowListItem = this.mnuVentanas;
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(880, 28);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "MenuStrip";
+            this.msPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.msPrincipal.MdiWindowListItem = this.mnuVentanas;
+            this.msPrincipal.Name = "msPrincipal";
+            this.msPrincipal.Size = new System.Drawing.Size(880, 28);
+            this.msPrincipal.TabIndex = 0;
+            this.msPrincipal.Text = "MenuStrip";
             // 
             // mnuInicio
             // 
@@ -619,7 +619,7 @@
             this.smnuPerfil.Enabled = false;
             this.smnuPerfil.Image = ((System.Drawing.Image)(resources.GetObject("smnuPerfil.Image")));
             this.smnuPerfil.Name = "smnuPerfil";
-            this.smnuPerfil.Size = new System.Drawing.Size(152, 24);
+            this.smnuPerfil.Size = new System.Drawing.Size(144, 24);
             this.smnuPerfil.Text = "Perfil";
             this.smnuPerfil.Click += new System.EventHandler(this.smnuPerfil_Click);
             // 
@@ -628,20 +628,20 @@
             this.smnuAuditoria.Enabled = false;
             this.smnuAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("smnuAuditoria.Image")));
             this.smnuAuditoria.Name = "smnuAuditoria";
-            this.smnuAuditoria.Size = new System.Drawing.Size(152, 24);
+            this.smnuAuditoria.Size = new System.Drawing.Size(144, 24);
             this.smnuAuditoria.Text = "Auditoría";
             // 
             // tsspSeguridad
             // 
             this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(149, 6);
+            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
             // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Enabled = false;
             this.smnuRespaldar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRespaldar.Image")));
             this.smnuRespaldar.Name = "smnuRespaldar";
-            this.smnuRespaldar.Size = new System.Drawing.Size(152, 24);
+            this.smnuRespaldar.Size = new System.Drawing.Size(144, 24);
             this.smnuRespaldar.Text = "Respaldar";
             this.smnuRespaldar.Click += new System.EventHandler(this.smnuRespaldar_Click);
             // 
@@ -650,7 +650,7 @@
             this.smnuRestaurar.Enabled = false;
             this.smnuRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("smnuRestaurar.Image")));
             this.smnuRestaurar.Name = "smnuRestaurar";
-            this.smnuRestaurar.Size = new System.Drawing.Size(152, 24);
+            this.smnuRestaurar.Size = new System.Drawing.Size(144, 24);
             this.smnuRestaurar.Text = "Restaurar";
             this.smnuRestaurar.Click += new System.EventHandler(this.smnuRestaurar_Click);
             // 
@@ -1095,18 +1095,18 @@
             this.Controls.Add(this.bbarIconos);
             this.Controls.Add(this.sstInformacion);
             this.Controls.Add(this.tsIconos);
-            this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.msPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip;
+            this.MainMenuStrip = this.msPrincipal;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión Centro de Salud";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.msPrincipal.ResumeLayout(false);
+            this.msPrincipal.PerformLayout();
             this.tsIconos.ResumeLayout(false);
             this.tsIconos.PerformLayout();
             this.sstInformacion.ResumeLayout(false);
@@ -1119,7 +1119,7 @@
         #endregion
 
 
-        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.MenuStrip msPrincipal;
         private System.Windows.Forms.ToolStrip tsIconos;
         private System.Windows.Forms.StatusStrip sstInformacion;
         private System.Windows.Forms.ToolStripSeparator tsspInicio;

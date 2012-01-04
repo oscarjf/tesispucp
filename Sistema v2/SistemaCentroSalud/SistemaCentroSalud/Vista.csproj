@@ -78,10 +78,10 @@
     <Compile Include="Controles\cuTextBox.Designer.cs">
       <DependentUpon>cuTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConfigurar.cs">
+    <Compile Include="Ventanas Auxiliares\frmConfigurar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfigurar.Designer.cs">
+    <Compile Include="Ventanas Auxiliares\frmConfigurar.Designer.cs">
       <DependentUpon>frmConfigurar.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas Auxiliares\frmBuscarPaciente.cs">
@@ -224,7 +224,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmConfigurar.resx">
+    <EmbeddedResource Include="Ventanas Auxiliares\frmConfigurar.resx">
       <DependentUpon>frmConfigurar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Auxiliares\frmBuscarPaciente.resx">

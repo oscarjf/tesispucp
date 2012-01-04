@@ -65,7 +65,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
 
                 objTipoDocumento.IdTipoDocumento = Int32.Parse(dt.Rows[i]["IdTipoDocumento"].ToString());
                 objTipoDocumento.Nombre = dt.Rows[i]["Nombre"].ToString();
-                objTipoDocumento.NumeroDigitos = dt.Rows[i]["NUMERODIGITOS"].ToString();
+                objTipoDocumento.NumeroDigitos = dt.Rows[i]["NumeroDigitos"].ToString();
 
                 cboTipoDocumento.Items.Add(objTipoDocumento);
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using Comun;
 using Control;
@@ -9,7 +10,6 @@ using SistemaCentroSalud.Ventanas_Doctor;
 using SistemaCentroSalud.Ventanas_Mantenimiento;
 using SistemaCentroSalud.Ventanas_Personal;
 using SistemaCentroSalud.Ventanas_Seguridad;
-using System.IO;
 
 namespace SistemaCentroSalud
 {
@@ -67,6 +67,7 @@ namespace SistemaCentroSalud
             tsbFormularioHIS.Enabled = smnuFormularioHIS.Enabled;
 
             bbtnPaciente.Visible = smnuPaciente.Enabled;
+            bbtnTriaje.Visible = smnuTriaje.Enabled;
             bbtnCita.Visible = smnuCita.Enabled;
             bbtnHistoriaClinica.Visible = smnuHistoriaClinica.Enabled;
             bbtnFormularioHIS.Visible = smnuFormularioHIS.Enabled;
@@ -163,6 +164,13 @@ namespace SistemaCentroSalud
             frmPaciente ventanaPaciente = new frmPaciente(this);
             ventanaPaciente.MdiParent = this;
             ventanaPaciente.Show();
+        }
+
+        private void smnuTriaje_Click(object sender, EventArgs e)
+        {
+            frmTriaje ventanaTriaje = new frmTriaje();
+            ventanaTriaje.MdiParent = this;
+            ventanaTriaje.Show();
         }
 
         private void smnuCitas_Click(object sender, EventArgs e)
@@ -580,6 +588,11 @@ namespace SistemaCentroSalud
         private void bbtnPaciente_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
             smnuPaciente_Click(sender, e);
+        }
+
+        private void bbtnTriaje_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            smnuTriaje_Click(sender, e);
         }
 
         private void bbtnCita_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)

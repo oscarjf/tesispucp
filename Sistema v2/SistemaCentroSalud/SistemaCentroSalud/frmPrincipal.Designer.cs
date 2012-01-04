@@ -32,84 +32,34 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.msPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuInicio = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspInicio = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmision = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuPaciente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspAdmision = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuCita = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDoctor = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuHistoriaClinicaCompleta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspHistoriaClinica = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuHistoriaClinica = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuFormularioHIS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspDisponibilidad = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuDisponibilidad = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPersonal = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuDoctor = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuEnfermero = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuTecnico = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspPersonal = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuAdministrativo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuParametrosCentroSalud = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuArea = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuEspecialidad = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsspArea = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuPabellon = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuConsultorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsspLugares = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuModoIngreso = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuParametrosPaciente = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuTipoDocumento = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuOcupacion = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuReligion = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuIdioma = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuEtnia = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuPais = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuParametrosHIS = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuCPT = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuLaboratorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuFinanciadorSalud = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuUnidadProductoraServicios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspParametros = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuHorarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHerramientas = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuCalculadora = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuBlocDeNotas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeguridad = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspSeguridad = new System.Windows.Forms.ToolStripSeparator();
-            this.smnuRespaldar = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuRestaurar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuVentanas = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuCascada = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuMosaicoVertical = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuMosaicoHorizontal = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuCerrarTodo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuVer = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuBarraHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuBarraEstado = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuBarraAcciones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.smnuContenido = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuIndice = new System.Windows.Forms.ToolStripMenuItem();
-            this.smnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsspAyuda = new System.Windows.Forms.ToolStripSeparator();
             this.smnuAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.tsIconos = new System.Windows.Forms.ToolStrip();
-            this.tsbContrasena = new System.Windows.Forms.ToolStripButton();
             this.tsspSeparador1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbPaciente = new System.Windows.Forms.ToolStripButton();
-            this.tsbCita = new System.Windows.Forms.ToolStripButton();
             this.tsspSeparador2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbHistoriaClinica = new System.Windows.Forms.ToolStripButton();
-            this.tsbFormularioHIS = new System.Windows.Forms.ToolStripButton();
             this.tsspSeparador3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.sstInformacion = new System.Windows.Forms.StatusStrip();
             this.tslUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.nomusuario = new System.Windows.Forms.ToolStripStatusLabel();
@@ -130,6 +80,58 @@
             this.bbtnPerfil = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnAuditoria = new DevComponents.DotNetBar.BubbleButton();
             this.bbtnSalir = new DevComponents.DotNetBar.BubbleButton();
+            this.tsbContrasena = new System.Windows.Forms.ToolStripButton();
+            this.tsbPaciente = new System.Windows.Forms.ToolStripButton();
+            this.tsbCita = new System.Windows.Forms.ToolStripButton();
+            this.tsbHistoriaClinica = new System.Windows.Forms.ToolStripButton();
+            this.tsbFormularioHIS = new System.Windows.Forms.ToolStripButton();
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.smnuContrasena = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuPaciente = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuTriaje = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuCita = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuHistoriaClinica = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuFormularioHIS = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuDisponibilidad = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuDoctor = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuEnfermero = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuTecnico = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuAdministrativo = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuParametrosCentroSalud = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuEspecialidad = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsspArea = new System.Windows.Forms.ToolStripSeparator();
+            this.smnuPabellon = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuConsultorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsspLugares = new System.Windows.Forms.ToolStripSeparator();
+            this.smnuModoIngreso = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuParametrosPaciente = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuTipoDocumento = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuOcupacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuReligion = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuIdioma = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuEtnia = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuPais = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuParametrosHIS = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuCPT = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuLaboratorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuFinanciadorSalud = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuUnidadProductoraServicios = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuHorarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuCalculadora = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuBlocDeNotas = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuPerfil = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuRespaldar = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuRestaurar = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuCascada = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuMosaicoVertical = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuMosaicoHorizontal = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuCerrarTodo = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuIndice = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
+            this.bbtnTriaje = new DevComponents.DotNetBar.BubbleButton();
             this.msPrincipal.SuspendLayout();
             this.tsIconos.SuspendLayout();
             this.sstInformacion.SuspendLayout();
@@ -169,35 +171,16 @@
             this.mnuInicio.Size = new System.Drawing.Size(57, 24);
             this.mnuInicio.Text = "&Inicio";
             // 
-            // smnuContrasena
-            // 
-            this.smnuContrasena.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smnuContrasena.Image = ((System.Drawing.Image)(resources.GetObject("smnuContrasena.Image")));
-            this.smnuContrasena.Name = "smnuContrasena";
-            this.smnuContrasena.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.smnuContrasena.Size = new System.Drawing.Size(202, 24);
-            this.smnuContrasena.Text = "Contraseña";
-            this.smnuContrasena.Click += new System.EventHandler(this.smnuContrasena_Click);
-            // 
             // tsspInicio
             // 
             this.tsspInicio.Name = "tsspInicio";
             this.tsspInicio.Size = new System.Drawing.Size(199, 6);
             // 
-            // smnuSalir
-            // 
-            this.smnuSalir.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.smnuSalir.Image = ((System.Drawing.Image)(resources.GetObject("smnuSalir.Image")));
-            this.smnuSalir.Name = "smnuSalir";
-            this.smnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.smnuSalir.Size = new System.Drawing.Size(202, 24);
-            this.smnuSalir.Text = "&Salir";
-            this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
-            // 
             // mnuAdmision
             // 
             this.mnuAdmision.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smnuPaciente,
+            this.smnuTriaje,
             this.tsspAdmision,
             this.smnuCita});
             this.mnuAdmision.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -205,32 +188,10 @@
             this.mnuAdmision.Size = new System.Drawing.Size(84, 24);
             this.mnuAdmision.Text = "&Admisión";
             // 
-            // smnuPaciente
-            // 
-            this.smnuPaciente.Enabled = false;
-            this.smnuPaciente.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.smnuPaciente.Image = ((System.Drawing.Image)(resources.GetObject("smnuPaciente.Image")));
-            this.smnuPaciente.Name = "smnuPaciente";
-            this.smnuPaciente.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.smnuPaciente.Size = new System.Drawing.Size(184, 24);
-            this.smnuPaciente.Text = "Paciente";
-            this.smnuPaciente.Click += new System.EventHandler(this.smnuPaciente_Click);
-            // 
             // tsspAdmision
             // 
             this.tsspAdmision.Name = "tsspAdmision";
             this.tsspAdmision.Size = new System.Drawing.Size(181, 6);
-            // 
-            // smnuCita
-            // 
-            this.smnuCita.Enabled = false;
-            this.smnuCita.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.smnuCita.Image = ((System.Drawing.Image)(resources.GetObject("smnuCita.Image")));
-            this.smnuCita.Name = "smnuCita";
-            this.smnuCita.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
-            this.smnuCita.Size = new System.Drawing.Size(184, 24);
-            this.smnuCita.Text = "Cita";
-            this.smnuCita.Click += new System.EventHandler(this.smnuCitas_Click);
             // 
             // mnuDoctor
             // 
@@ -260,6 +221,519 @@
             this.tsspHistoriaClinica.Name = "tsspHistoriaClinica";
             this.tsspHistoriaClinica.Size = new System.Drawing.Size(244, 6);
             // 
+            // tsspDisponibilidad
+            // 
+            this.tsspDisponibilidad.Name = "tsspDisponibilidad";
+            this.tsspDisponibilidad.Size = new System.Drawing.Size(244, 6);
+            // 
+            // mnuPersonal
+            // 
+            this.mnuPersonal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuDoctor,
+            this.smnuEnfermero,
+            this.smnuTecnico,
+            this.tsspPersonal,
+            this.smnuAdministrativo});
+            this.mnuPersonal.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuPersonal.Name = "mnuPersonal";
+            this.mnuPersonal.Size = new System.Drawing.Size(77, 24);
+            this.mnuPersonal.Text = "&Personal";
+            // 
+            // tsspPersonal
+            // 
+            this.tsspPersonal.Name = "tsspPersonal";
+            this.tsspPersonal.Size = new System.Drawing.Size(224, 6);
+            // 
+            // mnuMantenimiento
+            // 
+            this.mnuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuParametrosCentroSalud,
+            this.smnuParametrosPaciente,
+            this.smnuParametrosHIS,
+            this.tsspParametros,
+            this.smnuHorarios});
+            this.mnuMantenimiento.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuMantenimiento.Name = "mnuMantenimiento";
+            this.mnuMantenimiento.Size = new System.Drawing.Size(122, 24);
+            this.mnuMantenimiento.Text = "&Mantenimiento";
+            // 
+            // tsspParametros
+            // 
+            this.tsspParametros.Name = "tsspParametros";
+            this.tsspParametros.Size = new System.Drawing.Size(260, 6);
+            // 
+            // mnuHerramientas
+            // 
+            this.mnuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuCalculadora,
+            this.smnuBlocDeNotas});
+            this.mnuHerramientas.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuHerramientas.Name = "mnuHerramientas";
+            this.mnuHerramientas.Size = new System.Drawing.Size(110, 24);
+            this.mnuHerramientas.Text = "Herramientas";
+            // 
+            // mnuReportes
+            // 
+            this.mnuReportes.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuReportes.Name = "mnuReportes";
+            this.mnuReportes.Size = new System.Drawing.Size(80, 24);
+            this.mnuReportes.Text = "&Reportes";
+            // 
+            // mnuSeguridad
+            // 
+            this.mnuSeguridad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuPerfil,
+            this.smnuAuditoria,
+            this.tsspSeguridad,
+            this.smnuRespaldar,
+            this.smnuRestaurar});
+            this.mnuSeguridad.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuSeguridad.Name = "mnuSeguridad";
+            this.mnuSeguridad.Size = new System.Drawing.Size(89, 24);
+            this.mnuSeguridad.Text = "&Seguridad";
+            // 
+            // tsspSeguridad
+            // 
+            this.tsspSeguridad.Name = "tsspSeguridad";
+            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
+            // 
+            // mnuVentanas
+            // 
+            this.mnuVentanas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuCascada,
+            this.smnuMosaicoVertical,
+            this.smnuMosaicoHorizontal,
+            this.smnuCerrarTodo});
+            this.mnuVentanas.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuVentanas.Name = "mnuVentanas";
+            this.mnuVentanas.Size = new System.Drawing.Size(81, 24);
+            this.mnuVentanas.Text = "Ve&ntanas";
+            // 
+            // mnuVer
+            // 
+            this.mnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuBarraHerramientas,
+            this.smnuBarraEstado,
+            this.smnuBarraAcciones});
+            this.mnuVer.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuVer.Name = "mnuVer";
+            this.mnuVer.Size = new System.Drawing.Size(43, 24);
+            this.mnuVer.Text = "&Ver";
+            // 
+            // smnuBarraHerramientas
+            // 
+            this.smnuBarraHerramientas.Checked = true;
+            this.smnuBarraHerramientas.CheckOnClick = true;
+            this.smnuBarraHerramientas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.smnuBarraHerramientas.Name = "smnuBarraHerramientas";
+            this.smnuBarraHerramientas.Size = new System.Drawing.Size(224, 24);
+            this.smnuBarraHerramientas.Text = "&Barra de herramientas";
+            this.smnuBarraHerramientas.Click += new System.EventHandler(this.smnuBarraHerramientas_Click);
+            // 
+            // smnuBarraEstado
+            // 
+            this.smnuBarraEstado.Checked = true;
+            this.smnuBarraEstado.CheckOnClick = true;
+            this.smnuBarraEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.smnuBarraEstado.Name = "smnuBarraEstado";
+            this.smnuBarraEstado.Size = new System.Drawing.Size(224, 24);
+            this.smnuBarraEstado.Text = "&Barra de estado";
+            this.smnuBarraEstado.Click += new System.EventHandler(this.smnuBarraEstado_Click);
+            // 
+            // smnuBarraAcciones
+            // 
+            this.smnuBarraAcciones.Checked = true;
+            this.smnuBarraAcciones.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.smnuBarraAcciones.Name = "smnuBarraAcciones";
+            this.smnuBarraAcciones.Size = new System.Drawing.Size(224, 24);
+            this.smnuBarraAcciones.Text = "&Barra de acciones";
+            this.smnuBarraAcciones.Click += new System.EventHandler(this.smnuBarraAcciones_Click);
+            // 
+            // mnuAyuda
+            // 
+            this.mnuAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuContenido,
+            this.smnuIndice,
+            this.smnuBuscar,
+            this.tsspAyuda,
+            this.smnuAcercaDe});
+            this.mnuAyuda.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mnuAyuda.Name = "mnuAyuda";
+            this.mnuAyuda.Size = new System.Drawing.Size(63, 24);
+            this.mnuAyuda.Text = "Ay&uda";
+            // 
+            // smnuContenido
+            // 
+            this.smnuContenido.Name = "smnuContenido";
+            this.smnuContenido.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.smnuContenido.Size = new System.Drawing.Size(204, 24);
+            this.smnuContenido.Text = "&Contenido";
+            // 
+            // tsspAyuda
+            // 
+            this.tsspAyuda.Name = "tsspAyuda";
+            this.tsspAyuda.Size = new System.Drawing.Size(201, 6);
+            // 
+            // smnuAcercaDe
+            // 
+            this.smnuAcercaDe.Name = "smnuAcercaDe";
+            this.smnuAcercaDe.Size = new System.Drawing.Size(204, 24);
+            this.smnuAcercaDe.Text = "&Acerca de...";
+            this.smnuAcercaDe.Click += new System.EventHandler(this.smnuAcercaDe_Click);
+            // 
+            // tsIconos
+            // 
+            this.tsIconos.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsIconos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbContrasena,
+            this.tsspSeparador1,
+            this.tsbPaciente,
+            this.tsbCita,
+            this.tsspSeparador2,
+            this.tsbHistoriaClinica,
+            this.tsbFormularioHIS,
+            this.tsspSeparador3,
+            this.tsbSalir});
+            this.tsIconos.Location = new System.Drawing.Point(0, 28);
+            this.tsIconos.Name = "tsIconos";
+            this.tsIconos.Size = new System.Drawing.Size(880, 27);
+            this.tsIconos.TabIndex = 1;
+            this.tsIconos.Text = "tsIconos";
+            // 
+            // tsspSeparador1
+            // 
+            this.tsspSeparador1.Name = "tsspSeparador1";
+            this.tsspSeparador1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tsspSeparador2
+            // 
+            this.tsspSeparador2.Name = "tsspSeparador2";
+            this.tsspSeparador2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tsspSeparador3
+            // 
+            this.tsspSeparador3.Name = "tsspSeparador3";
+            this.tsspSeparador3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // sstInformacion
+            // 
+            this.sstInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslUsuario,
+            this.nomusuario});
+            this.sstInformacion.Location = new System.Drawing.Point(0, 428);
+            this.sstInformacion.Name = "sstInformacion";
+            this.sstInformacion.Size = new System.Drawing.Size(880, 25);
+            this.sstInformacion.TabIndex = 2;
+            this.sstInformacion.Text = "StatusStrip";
+            // 
+            // tslUsuario
+            // 
+            this.tslUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tslUsuario.Name = "tslUsuario";
+            this.tslUsuario.Size = new System.Drawing.Size(78, 20);
+            this.tslUsuario.Text = "USUARIO: ";
+            // 
+            // nomusuario
+            // 
+            this.nomusuario.Name = "nomusuario";
+            this.nomusuario.Size = new System.Drawing.Size(0, 20);
+            // 
+            // bbarIconos
+            // 
+            this.bbarIconos.Alignment = DevComponents.DotNetBar.eBubbleButtonAlignment.Bottom;
+            this.bbarIconos.AntiAlias = true;
+            this.bbarIconos.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.bbarIconos.BackgroundStyle.Class = "";
+            this.bbarIconos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.bbarIconos.ButtonBackAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bbarIconos.ButtonBackAreaStyle.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.bbarIconos.ButtonBackAreaStyle.BorderBottomWidth = 1;
+            this.bbarIconos.ButtonBackAreaStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.bbarIconos.ButtonBackAreaStyle.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.bbarIconos.ButtonBackAreaStyle.BorderLeftWidth = 1;
+            this.bbarIconos.ButtonBackAreaStyle.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.bbarIconos.ButtonBackAreaStyle.BorderRightWidth = 1;
+            this.bbarIconos.ButtonBackAreaStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.bbarIconos.ButtonBackAreaStyle.BorderTopWidth = 1;
+            this.bbarIconos.ButtonBackAreaStyle.Class = "";
+            this.bbarIconos.ButtonBackAreaStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.bbarIconos.ButtonBackAreaStyle.PaddingBottom = 3;
+            this.bbarIconos.ButtonBackAreaStyle.PaddingLeft = 3;
+            this.bbarIconos.ButtonBackAreaStyle.PaddingRight = 3;
+            this.bbarIconos.ButtonBackAreaStyle.PaddingTop = 3;
+            this.bbarIconos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bbarIconos.ImageSizeNormal = new System.Drawing.Size(24, 24);
+            this.bbarIconos.Location = new System.Drawing.Point(0, 375);
+            this.bbarIconos.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.bbarIconos.Name = "bbarIconos";
+            this.bbarIconos.SelectedTab = this.bbtbIconos;
+            this.bbarIconos.SelectedTabColors.BorderColor = System.Drawing.Color.Black;
+            this.bbarIconos.Size = new System.Drawing.Size(880, 53);
+            this.bbarIconos.TabIndex = 4;
+            this.bbarIconos.Tabs.Add(this.bbtbIconos);
+            // 
+            // bbtbIconos
+            // 
+            this.bbtbIconos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(232)))));
+            this.bbtbIconos.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(149)))), ((int)(((byte)(170)))));
+            this.bbtbIconos.Buttons.AddRange(new DevComponents.DotNetBar.BubbleButton[] {
+            this.bbtnCambiarContrasena,
+            this.bbtnPaciente,
+            this.bbtnTriaje,
+            this.bbtnCita,
+            this.bbtnHistoriaClinica,
+            this.bbtnFormularioHIS,
+            this.bbtnDoctor,
+            this.bbtnEnfermero,
+            this.bbtnTecnico,
+            this.bbtnAdministrativo,
+            this.bbtnCalculadora,
+            this.bbtnBlocDeNotas,
+            this.bbtnPerfil,
+            this.bbtnAuditoria,
+            this.bbtnSalir});
+            this.bbtbIconos.DarkBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bbtbIconos.LightBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bbtbIconos.Name = "bbtbIconos";
+            this.bbtbIconos.PredefinedColor = DevComponents.DotNetBar.eTabItemColor.Silver;
+            this.bbtbIconos.Text = "Acciones";
+            this.bbtbIconos.TextColor = System.Drawing.Color.Black;
+            // 
+            // bbtnCambiarContrasena
+            // 
+            this.bbtnCambiarContrasena.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCambiarContrasena.Image")));
+            this.bbtnCambiarContrasena.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCambiarContrasena.ImageLarge")));
+            this.bbtnCambiarContrasena.Name = "bbtnCambiarContrasena";
+            this.bbtnCambiarContrasena.TooltipText = "Cambiar Contraseña";
+            this.bbtnCambiarContrasena.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCambiarContrasena_Click);
+            // 
+            // bbtnPaciente
+            // 
+            this.bbtnPaciente.Image = ((System.Drawing.Image)(resources.GetObject("bbtnPaciente.Image")));
+            this.bbtnPaciente.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnPaciente.ImageLarge")));
+            this.bbtnPaciente.Name = "bbtnPaciente";
+            this.bbtnPaciente.TooltipText = "Pacientes";
+            this.bbtnPaciente.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnPaciente_Click);
+            // 
+            // bbtnCita
+            // 
+            this.bbtnCita.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCita.Image")));
+            this.bbtnCita.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCita.ImageLarge")));
+            this.bbtnCita.Name = "bbtnCita";
+            this.bbtnCita.TooltipText = "Citas";
+            this.bbtnCita.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCita_Click);
+            // 
+            // bbtnHistoriaClinica
+            // 
+            this.bbtnHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("bbtnHistoriaClinica.Image")));
+            this.bbtnHistoriaClinica.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnHistoriaClinica.ImageLarge")));
+            this.bbtnHistoriaClinica.Name = "bbtnHistoriaClinica";
+            this.bbtnHistoriaClinica.TooltipText = "Historia Clínica";
+            this.bbtnHistoriaClinica.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnHistoriaClinica_Click);
+            // 
+            // bbtnFormularioHIS
+            // 
+            this.bbtnFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("bbtnFormularioHIS.Image")));
+            this.bbtnFormularioHIS.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnFormularioHIS.ImageLarge")));
+            this.bbtnFormularioHIS.Name = "bbtnFormularioHIS";
+            this.bbtnFormularioHIS.TooltipText = "Formulario HIS";
+            this.bbtnFormularioHIS.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnFormularioHIS_Click);
+            // 
+            // bbtnDoctor
+            // 
+            this.bbtnDoctor.Image = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.Image")));
+            this.bbtnDoctor.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.ImageLarge")));
+            this.bbtnDoctor.Name = "bbtnDoctor";
+            this.bbtnDoctor.TooltipText = "Doctor(a)";
+            this.bbtnDoctor.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnDoctor_Click);
+            // 
+            // bbtnEnfermero
+            // 
+            this.bbtnEnfermero.Image = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.Image")));
+            this.bbtnEnfermero.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.ImageLarge")));
+            this.bbtnEnfermero.Name = "bbtnEnfermero";
+            this.bbtnEnfermero.TooltipText = "Enfermero(a)";
+            this.bbtnEnfermero.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnEnfermero_Click);
+            // 
+            // bbtnTecnico
+            // 
+            this.bbtnTecnico.Image = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.Image")));
+            this.bbtnTecnico.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.ImageLarge")));
+            this.bbtnTecnico.Name = "bbtnTecnico";
+            this.bbtnTecnico.TooltipText = "Técnico(a)";
+            this.bbtnTecnico.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnTecnico_Click);
+            // 
+            // bbtnAdministrativo
+            // 
+            this.bbtnAdministrativo.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.Image")));
+            this.bbtnAdministrativo.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.ImageLarge")));
+            this.bbtnAdministrativo.Name = "bbtnAdministrativo";
+            this.bbtnAdministrativo.TooltipText = "Administrativo";
+            this.bbtnAdministrativo.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAdministrativo_Click);
+            // 
+            // bbtnCalculadora
+            // 
+            this.bbtnCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.Image")));
+            this.bbtnCalculadora.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.ImageLarge")));
+            this.bbtnCalculadora.Name = "bbtnCalculadora";
+            this.bbtnCalculadora.TooltipText = "Calculadora";
+            this.bbtnCalculadora.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCalculadora_Click);
+            // 
+            // bbtnBlocDeNotas
+            // 
+            this.bbtnBlocDeNotas.Image = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.Image")));
+            this.bbtnBlocDeNotas.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.ImageLarge")));
+            this.bbtnBlocDeNotas.Name = "bbtnBlocDeNotas";
+            this.bbtnBlocDeNotas.TooltipText = "Bloc de Notas";
+            this.bbtnBlocDeNotas.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnBlocDeNotas_Click);
+            // 
+            // bbtnPerfil
+            // 
+            this.bbtnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.Image")));
+            this.bbtnPerfil.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.ImageLarge")));
+            this.bbtnPerfil.Name = "bbtnPerfil";
+            this.bbtnPerfil.TooltipText = "Perfil";
+            this.bbtnPerfil.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnPerfil_Click);
+            // 
+            // bbtnAuditoria
+            // 
+            this.bbtnAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.Image")));
+            this.bbtnAuditoria.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.ImageLarge")));
+            this.bbtnAuditoria.Name = "bbtnAuditoria";
+            this.bbtnAuditoria.TooltipText = "Auditoría";
+            this.bbtnAuditoria.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAuditoria_Click);
+            // 
+            // bbtnSalir
+            // 
+            this.bbtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.Image")));
+            this.bbtnSalir.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.ImageLarge")));
+            this.bbtnSalir.Name = "bbtnSalir";
+            this.bbtnSalir.TooltipText = "Salir";
+            this.bbtnSalir.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnSalir_Click);
+            // 
+            // tsbContrasena
+            // 
+            this.tsbContrasena.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbContrasena.Image = ((System.Drawing.Image)(resources.GetObject("tsbContrasena.Image")));
+            this.tsbContrasena.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbContrasena.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbContrasena.Name = "tsbContrasena";
+            this.tsbContrasena.Size = new System.Drawing.Size(24, 24);
+            this.tsbContrasena.Text = "Cambiar Contraseña";
+            this.tsbContrasena.Click += new System.EventHandler(this.tsbContrasena_Click);
+            // 
+            // tsbPaciente
+            // 
+            this.tsbPaciente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPaciente.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaciente.Image")));
+            this.tsbPaciente.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbPaciente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPaciente.Name = "tsbPaciente";
+            this.tsbPaciente.Size = new System.Drawing.Size(24, 24);
+            this.tsbPaciente.Text = "Pacientes";
+            this.tsbPaciente.Click += new System.EventHandler(this.tsbPaciente_Click);
+            // 
+            // tsbCita
+            // 
+            this.tsbCita.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCita.Image = ((System.Drawing.Image)(resources.GetObject("tsbCita.Image")));
+            this.tsbCita.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbCita.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCita.Name = "tsbCita";
+            this.tsbCita.Size = new System.Drawing.Size(24, 24);
+            this.tsbCita.Text = "Citas";
+            this.tsbCita.Click += new System.EventHandler(this.tsbCitas_Click);
+            // 
+            // tsbHistoriaClinica
+            // 
+            this.tsbHistoriaClinica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("tsbHistoriaClinica.Image")));
+            this.tsbHistoriaClinica.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbHistoriaClinica.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbHistoriaClinica.Name = "tsbHistoriaClinica";
+            this.tsbHistoriaClinica.Size = new System.Drawing.Size(24, 24);
+            this.tsbHistoriaClinica.Text = "Historia Clínica";
+            this.tsbHistoriaClinica.Click += new System.EventHandler(this.tsbHistoriaClinica_Click);
+            // 
+            // tsbFormularioHIS
+            // 
+            this.tsbFormularioHIS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("tsbFormularioHIS.Image")));
+            this.tsbFormularioHIS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbFormularioHIS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbFormularioHIS.Name = "tsbFormularioHIS";
+            this.tsbFormularioHIS.Size = new System.Drawing.Size(24, 24);
+            this.tsbFormularioHIS.Text = "Formulario HIS";
+            this.tsbFormularioHIS.Click += new System.EventHandler(this.tsbFormularioHIS_Click);
+            // 
+            // tsbSalir
+            // 
+            this.tsbSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
+            this.tsbSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Size = new System.Drawing.Size(24, 24);
+            this.tsbSalir.Text = "Salir";
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
+            // smnuContrasena
+            // 
+            this.smnuContrasena.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smnuContrasena.Image = ((System.Drawing.Image)(resources.GetObject("smnuContrasena.Image")));
+            this.smnuContrasena.Name = "smnuContrasena";
+            this.smnuContrasena.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.smnuContrasena.Size = new System.Drawing.Size(202, 24);
+            this.smnuContrasena.Text = "Contraseña";
+            this.smnuContrasena.Click += new System.EventHandler(this.smnuContrasena_Click);
+            // 
+            // smnuSalir
+            // 
+            this.smnuSalir.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.smnuSalir.Image = ((System.Drawing.Image)(resources.GetObject("smnuSalir.Image")));
+            this.smnuSalir.Name = "smnuSalir";
+            this.smnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.smnuSalir.Size = new System.Drawing.Size(202, 24);
+            this.smnuSalir.Text = "&Salir";
+            this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
+            // 
+            // smnuPaciente
+            // 
+            this.smnuPaciente.Enabled = false;
+            this.smnuPaciente.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.smnuPaciente.Image = ((System.Drawing.Image)(resources.GetObject("smnuPaciente.Image")));
+            this.smnuPaciente.Name = "smnuPaciente";
+            this.smnuPaciente.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.smnuPaciente.Size = new System.Drawing.Size(184, 24);
+            this.smnuPaciente.Text = "Paciente";
+            this.smnuPaciente.Click += new System.EventHandler(this.smnuPaciente_Click);
+            // 
+            // smnuTriaje
+            // 
+            this.smnuTriaje.Enabled = false;
+            this.smnuTriaje.Image = ((System.Drawing.Image)(resources.GetObject("smnuTriaje.Image")));
+            this.smnuTriaje.Name = "smnuTriaje";
+            this.smnuTriaje.Size = new System.Drawing.Size(184, 24);
+            this.smnuTriaje.Text = "Triaje";
+            this.smnuTriaje.Click += new System.EventHandler(this.smnuTriaje_Click);
+            // 
+            // smnuCita
+            // 
+            this.smnuCita.Enabled = false;
+            this.smnuCita.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.smnuCita.Image = ((System.Drawing.Image)(resources.GetObject("smnuCita.Image")));
+            this.smnuCita.Name = "smnuCita";
+            this.smnuCita.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.smnuCita.Size = new System.Drawing.Size(184, 24);
+            this.smnuCita.Text = "Cita";
+            this.smnuCita.Click += new System.EventHandler(this.smnuCitas_Click);
+            // 
             // smnuHistoriaClinica
             // 
             this.smnuHistoriaClinica.Enabled = false;
@@ -279,11 +753,6 @@
             this.smnuFormularioHIS.Size = new System.Drawing.Size(247, 24);
             this.smnuFormularioHIS.Text = "Formulario HIS";
             // 
-            // tsspDisponibilidad
-            // 
-            this.tsspDisponibilidad.Name = "tsspDisponibilidad";
-            this.tsspDisponibilidad.Size = new System.Drawing.Size(244, 6);
-            // 
             // smnuDisponibilidad
             // 
             this.smnuDisponibilidad.Enabled = false;
@@ -293,19 +762,6 @@
             this.smnuDisponibilidad.Size = new System.Drawing.Size(247, 24);
             this.smnuDisponibilidad.Text = "Disponibilidad";
             this.smnuDisponibilidad.Click += new System.EventHandler(this.smnuHorario_Click);
-            // 
-            // mnuPersonal
-            // 
-            this.mnuPersonal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuDoctor,
-            this.smnuEnfermero,
-            this.smnuTecnico,
-            this.tsspPersonal,
-            this.smnuAdministrativo});
-            this.mnuPersonal.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuPersonal.Name = "mnuPersonal";
-            this.mnuPersonal.Size = new System.Drawing.Size(77, 24);
-            this.mnuPersonal.Text = "&Personal";
             // 
             // smnuDoctor
             // 
@@ -340,11 +796,6 @@
             this.smnuTecnico.Text = "Técnico(a)";
             this.smnuTecnico.Click += new System.EventHandler(this.smnuTecnico_Click);
             // 
-            // tsspPersonal
-            // 
-            this.tsspPersonal.Name = "tsspPersonal";
-            this.tsspPersonal.Size = new System.Drawing.Size(224, 6);
-            // 
             // smnuAdministrativo
             // 
             this.smnuAdministrativo.Enabled = false;
@@ -355,19 +806,6 @@
             this.smnuAdministrativo.Size = new System.Drawing.Size(227, 24);
             this.smnuAdministrativo.Text = "Administrativo";
             this.smnuAdministrativo.Click += new System.EventHandler(this.smnuAdministrativo_Click);
-            // 
-            // mnuMantenimiento
-            // 
-            this.mnuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuParametrosCentroSalud,
-            this.smnuParametrosPaciente,
-            this.smnuParametrosHIS,
-            this.tsspParametros,
-            this.smnuHorarios});
-            this.mnuMantenimiento.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuMantenimiento.Name = "mnuMantenimiento";
-            this.mnuMantenimiento.Size = new System.Drawing.Size(122, 24);
-            this.mnuMantenimiento.Text = "&Mantenimiento";
             // 
             // smnuParametrosCentroSalud
             // 
@@ -555,11 +993,6 @@
             this.smnuUnidadProductoraServicios.Text = "Unidad Productora de Servicios";
             this.smnuUnidadProductoraServicios.Click += new System.EventHandler(this.smnuUnidadProductoraServicios_Click);
             // 
-            // tsspParametros
-            // 
-            this.tsspParametros.Name = "tsspParametros";
-            this.tsspParametros.Size = new System.Drawing.Size(260, 6);
-            // 
             // smnuHorarios
             // 
             this.smnuHorarios.Enabled = false;
@@ -567,16 +1000,6 @@
             this.smnuHorarios.Name = "smnuHorarios";
             this.smnuHorarios.Size = new System.Drawing.Size(263, 24);
             this.smnuHorarios.Text = "Horarios";
-            // 
-            // mnuHerramientas
-            // 
-            this.mnuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuCalculadora,
-            this.smnuBlocDeNotas});
-            this.mnuHerramientas.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuHerramientas.Name = "mnuHerramientas";
-            this.mnuHerramientas.Size = new System.Drawing.Size(110, 24);
-            this.mnuHerramientas.Text = "Herramientas";
             // 
             // smnuCalculadora
             // 
@@ -593,26 +1016,6 @@
             this.smnuBlocDeNotas.Size = new System.Drawing.Size(171, 24);
             this.smnuBlocDeNotas.Text = "Bloc de Notas";
             this.smnuBlocDeNotas.Click += new System.EventHandler(this.smnuBlocDeNotas_Click);
-            // 
-            // mnuReportes
-            // 
-            this.mnuReportes.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuReportes.Name = "mnuReportes";
-            this.mnuReportes.Size = new System.Drawing.Size(80, 24);
-            this.mnuReportes.Text = "&Reportes";
-            // 
-            // mnuSeguridad
-            // 
-            this.mnuSeguridad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuPerfil,
-            this.smnuAuditoria,
-            this.tsspSeguridad,
-            this.smnuRespaldar,
-            this.smnuRestaurar});
-            this.mnuSeguridad.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuSeguridad.Name = "mnuSeguridad";
-            this.mnuSeguridad.Size = new System.Drawing.Size(89, 24);
-            this.mnuSeguridad.Text = "&Seguridad";
             // 
             // smnuPerfil
             // 
@@ -631,11 +1034,6 @@
             this.smnuAuditoria.Size = new System.Drawing.Size(144, 24);
             this.smnuAuditoria.Text = "Auditoría";
             // 
-            // tsspSeguridad
-            // 
-            this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
-            // 
             // smnuRespaldar
             // 
             this.smnuRespaldar.Enabled = false;
@@ -653,18 +1051,6 @@
             this.smnuRestaurar.Size = new System.Drawing.Size(144, 24);
             this.smnuRestaurar.Text = "Restaurar";
             this.smnuRestaurar.Click += new System.EventHandler(this.smnuRestaurar_Click);
-            // 
-            // mnuVentanas
-            // 
-            this.mnuVentanas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuCascada,
-            this.smnuMosaicoVertical,
-            this.smnuMosaicoHorizontal,
-            this.smnuCerrarTodo});
-            this.mnuVentanas.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuVentanas.Name = "mnuVentanas";
-            this.mnuVentanas.Size = new System.Drawing.Size(81, 24);
-            this.mnuVentanas.Text = "Ve&ntanas";
             // 
             // smnuCascada
             // 
@@ -698,66 +1084,6 @@
             this.smnuCerrarTodo.Text = "C&errar todo";
             this.smnuCerrarTodo.Click += new System.EventHandler(this.smnuCerrarTodo_Click);
             // 
-            // mnuVer
-            // 
-            this.mnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuBarraHerramientas,
-            this.smnuBarraEstado,
-            this.smnuBarraAcciones});
-            this.mnuVer.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuVer.Name = "mnuVer";
-            this.mnuVer.Size = new System.Drawing.Size(43, 24);
-            this.mnuVer.Text = "&Ver";
-            // 
-            // smnuBarraHerramientas
-            // 
-            this.smnuBarraHerramientas.Checked = true;
-            this.smnuBarraHerramientas.CheckOnClick = true;
-            this.smnuBarraHerramientas.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.smnuBarraHerramientas.Name = "smnuBarraHerramientas";
-            this.smnuBarraHerramientas.Size = new System.Drawing.Size(224, 24);
-            this.smnuBarraHerramientas.Text = "&Barra de herramientas";
-            this.smnuBarraHerramientas.Click += new System.EventHandler(this.smnuBarraHerramientas_Click);
-            // 
-            // smnuBarraEstado
-            // 
-            this.smnuBarraEstado.Checked = true;
-            this.smnuBarraEstado.CheckOnClick = true;
-            this.smnuBarraEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.smnuBarraEstado.Name = "smnuBarraEstado";
-            this.smnuBarraEstado.Size = new System.Drawing.Size(224, 24);
-            this.smnuBarraEstado.Text = "&Barra de estado";
-            this.smnuBarraEstado.Click += new System.EventHandler(this.smnuBarraEstado_Click);
-            // 
-            // smnuBarraAcciones
-            // 
-            this.smnuBarraAcciones.Checked = true;
-            this.smnuBarraAcciones.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.smnuBarraAcciones.Name = "smnuBarraAcciones";
-            this.smnuBarraAcciones.Size = new System.Drawing.Size(224, 24);
-            this.smnuBarraAcciones.Text = "&Barra de acciones";
-            this.smnuBarraAcciones.Click += new System.EventHandler(this.smnuBarraAcciones_Click);
-            // 
-            // mnuAyuda
-            // 
-            this.mnuAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smnuContenido,
-            this.smnuIndice,
-            this.smnuBuscar,
-            this.tsspAyuda,
-            this.smnuAcercaDe});
-            this.mnuAyuda.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.mnuAyuda.Name = "mnuAyuda";
-            this.mnuAyuda.Size = new System.Drawing.Size(63, 24);
-            this.mnuAyuda.Text = "Ay&uda";
-            // 
-            // smnuContenido
-            // 
-            this.smnuContenido.Name = "smnuContenido";
-            this.smnuContenido.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.smnuContenido.Size = new System.Drawing.Size(204, 24);
-            this.smnuContenido.Text = "&Contenido";
-            // 
             // smnuIndice
             // 
             this.smnuIndice.Image = ((System.Drawing.Image)(resources.GetObject("smnuIndice.Image")));
@@ -774,318 +1100,13 @@
             this.smnuBuscar.Size = new System.Drawing.Size(204, 24);
             this.smnuBuscar.Text = "&Buscar";
             // 
-            // tsspAyuda
-            // 
-            this.tsspAyuda.Name = "tsspAyuda";
-            this.tsspAyuda.Size = new System.Drawing.Size(201, 6);
-            // 
-            // smnuAcercaDe
-            // 
-            this.smnuAcercaDe.Name = "smnuAcercaDe";
-            this.smnuAcercaDe.Size = new System.Drawing.Size(204, 24);
-            this.smnuAcercaDe.Text = "&Acerca de...";
-            this.smnuAcercaDe.Click += new System.EventHandler(this.smnuAcercaDe_Click);
-            // 
-            // tsIconos
-            // 
-            this.tsIconos.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsIconos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbContrasena,
-            this.tsspSeparador1,
-            this.tsbPaciente,
-            this.tsbCita,
-            this.tsspSeparador2,
-            this.tsbHistoriaClinica,
-            this.tsbFormularioHIS,
-            this.tsspSeparador3,
-            this.tsbSalir});
-            this.tsIconos.Location = new System.Drawing.Point(0, 28);
-            this.tsIconos.Name = "tsIconos";
-            this.tsIconos.Size = new System.Drawing.Size(880, 27);
-            this.tsIconos.TabIndex = 1;
-            this.tsIconos.Text = "tsIconos";
-            // 
-            // tsbContrasena
-            // 
-            this.tsbContrasena.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbContrasena.Image = ((System.Drawing.Image)(resources.GetObject("tsbContrasena.Image")));
-            this.tsbContrasena.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbContrasena.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbContrasena.Name = "tsbContrasena";
-            this.tsbContrasena.Size = new System.Drawing.Size(24, 24);
-            this.tsbContrasena.Text = "Cambiar Contraseña";
-            this.tsbContrasena.Click += new System.EventHandler(this.tsbContrasena_Click);
-            // 
-            // tsspSeparador1
-            // 
-            this.tsspSeparador1.Name = "tsspSeparador1";
-            this.tsspSeparador1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // tsbPaciente
-            // 
-            this.tsbPaciente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPaciente.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaciente.Image")));
-            this.tsbPaciente.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbPaciente.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPaciente.Name = "tsbPaciente";
-            this.tsbPaciente.Size = new System.Drawing.Size(24, 24);
-            this.tsbPaciente.Text = "Pacientes";
-            this.tsbPaciente.Click += new System.EventHandler(this.tsbPaciente_Click);
-            // 
-            // tsbCita
-            // 
-            this.tsbCita.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCita.Image = ((System.Drawing.Image)(resources.GetObject("tsbCita.Image")));
-            this.tsbCita.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbCita.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCita.Name = "tsbCita";
-            this.tsbCita.Size = new System.Drawing.Size(24, 24);
-            this.tsbCita.Text = "Citas";
-            this.tsbCita.Click += new System.EventHandler(this.tsbCitas_Click);
-            // 
-            // tsspSeparador2
-            // 
-            this.tsspSeparador2.Name = "tsspSeparador2";
-            this.tsspSeparador2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // tsbHistoriaClinica
-            // 
-            this.tsbHistoriaClinica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("tsbHistoriaClinica.Image")));
-            this.tsbHistoriaClinica.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbHistoriaClinica.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbHistoriaClinica.Name = "tsbHistoriaClinica";
-            this.tsbHistoriaClinica.Size = new System.Drawing.Size(24, 24);
-            this.tsbHistoriaClinica.Text = "Historia Clínica";
-            this.tsbHistoriaClinica.Click += new System.EventHandler(this.tsbHistoriaClinica_Click);
-            // 
-            // tsbFormularioHIS
-            // 
-            this.tsbFormularioHIS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("tsbFormularioHIS.Image")));
-            this.tsbFormularioHIS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbFormularioHIS.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbFormularioHIS.Name = "tsbFormularioHIS";
-            this.tsbFormularioHIS.Size = new System.Drawing.Size(24, 24);
-            this.tsbFormularioHIS.Text = "Formulario HIS";
-            this.tsbFormularioHIS.Click += new System.EventHandler(this.tsbFormularioHIS_Click);
-            // 
-            // tsspSeparador3
-            // 
-            this.tsspSeparador3.Name = "tsspSeparador3";
-            this.tsspSeparador3.Size = new System.Drawing.Size(6, 27);
-            // 
-            // tsbSalir
-            // 
-            this.tsbSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
-            this.tsbSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Size = new System.Drawing.Size(24, 24);
-            this.tsbSalir.Text = "Salir";
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
-            // 
-            // sstInformacion
-            // 
-            this.sstInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslUsuario,
-            this.nomusuario});
-            this.sstInformacion.Location = new System.Drawing.Point(0, 428);
-            this.sstInformacion.Name = "sstInformacion";
-            this.sstInformacion.Size = new System.Drawing.Size(880, 25);
-            this.sstInformacion.TabIndex = 2;
-            this.sstInformacion.Text = "StatusStrip";
-            // 
-            // tslUsuario
-            // 
-            this.tslUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tslUsuario.Name = "tslUsuario";
-            this.tslUsuario.Size = new System.Drawing.Size(78, 20);
-            this.tslUsuario.Text = "USUARIO: ";
-            // 
-            // nomusuario
-            // 
-            this.nomusuario.Name = "nomusuario";
-            this.nomusuario.Size = new System.Drawing.Size(0, 20);
-            // 
-            // bbarIconos
-            // 
-            this.bbarIconos.Alignment = DevComponents.DotNetBar.eBubbleButtonAlignment.Bottom;
-            this.bbarIconos.AntiAlias = true;
-            this.bbarIconos.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.bbarIconos.BackgroundStyle.Class = "";
-            this.bbarIconos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.bbarIconos.ButtonBackAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bbarIconos.ButtonBackAreaStyle.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.bbarIconos.ButtonBackAreaStyle.BorderBottomWidth = 1;
-            this.bbarIconos.ButtonBackAreaStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.bbarIconos.ButtonBackAreaStyle.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.bbarIconos.ButtonBackAreaStyle.BorderLeftWidth = 1;
-            this.bbarIconos.ButtonBackAreaStyle.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.bbarIconos.ButtonBackAreaStyle.BorderRightWidth = 1;
-            this.bbarIconos.ButtonBackAreaStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.bbarIconos.ButtonBackAreaStyle.BorderTopWidth = 1;
-            this.bbarIconos.ButtonBackAreaStyle.Class = "";
-            this.bbarIconos.ButtonBackAreaStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.bbarIconos.ButtonBackAreaStyle.PaddingBottom = 3;
-            this.bbarIconos.ButtonBackAreaStyle.PaddingLeft = 3;
-            this.bbarIconos.ButtonBackAreaStyle.PaddingRight = 3;
-            this.bbarIconos.ButtonBackAreaStyle.PaddingTop = 3;
-            this.bbarIconos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bbarIconos.ImageSizeNormal = new System.Drawing.Size(24, 24);
-            this.bbarIconos.Location = new System.Drawing.Point(0, 375);
-            this.bbarIconos.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.bbarIconos.Name = "bbarIconos";
-            this.bbarIconos.SelectedTab = this.bbtbIconos;
-            this.bbarIconos.SelectedTabColors.BorderColor = System.Drawing.Color.Black;
-            this.bbarIconos.Size = new System.Drawing.Size(880, 53);
-            this.bbarIconos.TabIndex = 4;
-            this.bbarIconos.Tabs.Add(this.bbtbIconos);
-            // 
-            // bbtbIconos
-            // 
-            this.bbtbIconos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(232)))));
-            this.bbtbIconos.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(149)))), ((int)(((byte)(170)))));
-            this.bbtbIconos.Buttons.AddRange(new DevComponents.DotNetBar.BubbleButton[] {
-            this.bbtnCambiarContrasena,
-            this.bbtnPaciente,
-            this.bbtnCita,
-            this.bbtnHistoriaClinica,
-            this.bbtnFormularioHIS,
-            this.bbtnDoctor,
-            this.bbtnEnfermero,
-            this.bbtnTecnico,
-            this.bbtnAdministrativo,
-            this.bbtnCalculadora,
-            this.bbtnBlocDeNotas,
-            this.bbtnPerfil,
-            this.bbtnAuditoria,
-            this.bbtnSalir});
-            this.bbtbIconos.DarkBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bbtbIconos.LightBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bbtbIconos.Name = "bbtbIconos";
-            this.bbtbIconos.PredefinedColor = DevComponents.DotNetBar.eTabItemColor.Silver;
-            this.bbtbIconos.Text = "Acciones";
-            this.bbtbIconos.TextColor = System.Drawing.Color.Black;
-            // 
-            // bbtnCambiarContrasena
-            // 
-            this.bbtnCambiarContrasena.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCambiarContrasena.Image")));
-            this.bbtnCambiarContrasena.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCambiarContrasena.ImageLarge")));
-            this.bbtnCambiarContrasena.Name = "bbtnCambiarContrasena";
-            this.bbtnCambiarContrasena.TooltipText = "Cambiar Contraseña";
-            this.bbtnCambiarContrasena.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCambiarContrasena_Click);
-            // 
-            // bbtnPaciente
-            // 
-            this.bbtnPaciente.Image = ((System.Drawing.Image)(resources.GetObject("bbtnPaciente.Image")));
-            this.bbtnPaciente.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnPaciente.ImageLarge")));
-            this.bbtnPaciente.Name = "bbtnPaciente";
-            this.bbtnPaciente.TooltipText = "Pacientes";
-            this.bbtnPaciente.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnPaciente_Click);
-            // 
-            // bbtnCita
-            // 
-            this.bbtnCita.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCita.Image")));
-            this.bbtnCita.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCita.ImageLarge")));
-            this.bbtnCita.Name = "bbtnCita";
-            this.bbtnCita.TooltipText = "Citas";
-            this.bbtnCita.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCita_Click);
-            // 
-            // bbtnHistoriaClinica
-            // 
-            this.bbtnHistoriaClinica.Image = ((System.Drawing.Image)(resources.GetObject("bbtnHistoriaClinica.Image")));
-            this.bbtnHistoriaClinica.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnHistoriaClinica.ImageLarge")));
-            this.bbtnHistoriaClinica.Name = "bbtnHistoriaClinica";
-            this.bbtnHistoriaClinica.TooltipText = "Historia Clínica";
-            this.bbtnHistoriaClinica.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnHistoriaClinica_Click);
-            // 
-            // bbtnFormularioHIS
-            // 
-            this.bbtnFormularioHIS.Image = ((System.Drawing.Image)(resources.GetObject("bbtnFormularioHIS.Image")));
-            this.bbtnFormularioHIS.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnFormularioHIS.ImageLarge")));
-            this.bbtnFormularioHIS.Name = "bbtnFormularioHIS";
-            this.bbtnFormularioHIS.TooltipText = "Formulario HIS";
-            this.bbtnFormularioHIS.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnFormularioHIS_Click);
-            // 
-            // bbtnDoctor
-            // 
-            this.bbtnDoctor.Image = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.Image")));
-            this.bbtnDoctor.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnDoctor.ImageLarge")));
-            this.bbtnDoctor.Name = "bbtnDoctor";
-            this.bbtnDoctor.TooltipText = "Doctor(a)";
-            this.bbtnDoctor.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnDoctor_Click);
-            // 
-            // bbtnEnfermero
-            // 
-            this.bbtnEnfermero.Image = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.Image")));
-            this.bbtnEnfermero.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnEnfermero.ImageLarge")));
-            this.bbtnEnfermero.Name = "bbtnEnfermero";
-            this.bbtnEnfermero.TooltipText = "Enfermero(a)";
-            this.bbtnEnfermero.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnEnfermero_Click);
-            // 
-            // bbtnTecnico
-            // 
-            this.bbtnTecnico.Image = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.Image")));
-            this.bbtnTecnico.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnTecnico.ImageLarge")));
-            this.bbtnTecnico.Name = "bbtnTecnico";
-            this.bbtnTecnico.TooltipText = "Técnico(a)";
-            this.bbtnTecnico.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnTecnico_Click);
-            // 
-            // bbtnAdministrativo
-            // 
-            this.bbtnAdministrativo.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.Image")));
-            this.bbtnAdministrativo.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAdministrativo.ImageLarge")));
-            this.bbtnAdministrativo.Name = "bbtnAdministrativo";
-            this.bbtnAdministrativo.TooltipText = "Administrativo";
-            this.bbtnAdministrativo.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAdministrativo_Click);
-            // 
-            // bbtnCalculadora
-            // 
-            this.bbtnCalculadora.Image = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.Image")));
-            this.bbtnCalculadora.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnCalculadora.ImageLarge")));
-            this.bbtnCalculadora.Name = "bbtnCalculadora";
-            this.bbtnCalculadora.TooltipText = "Calculadora";
-            this.bbtnCalculadora.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnCalculadora_Click);
-            // 
-            // bbtnBlocDeNotas
-            // 
-            this.bbtnBlocDeNotas.Image = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.Image")));
-            this.bbtnBlocDeNotas.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnBlocDeNotas.ImageLarge")));
-            this.bbtnBlocDeNotas.Name = "bbtnBlocDeNotas";
-            this.bbtnBlocDeNotas.TooltipText = "Bloc de Notas";
-            this.bbtnBlocDeNotas.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnBlocDeNotas_Click);
-            // 
-            // bbtnPerfil
-            // 
-            this.bbtnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.Image")));
-            this.bbtnPerfil.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnPerfil.ImageLarge")));
-            this.bbtnPerfil.Name = "bbtnPerfil";
-            this.bbtnPerfil.TooltipText = "Perfil";
-            this.bbtnPerfil.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnPerfil_Click);
-            // 
-            // bbtnAuditoria
-            // 
-            this.bbtnAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.Image")));
-            this.bbtnAuditoria.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnAuditoria.ImageLarge")));
-            this.bbtnAuditoria.Name = "bbtnAuditoria";
-            this.bbtnAuditoria.TooltipText = "Auditoría";
-            this.bbtnAuditoria.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnAuditoria_Click);
-            // 
-            // bbtnSalir
-            // 
-            this.bbtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.Image")));
-            this.bbtnSalir.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnSalir.ImageLarge")));
-            this.bbtnSalir.Name = "bbtnSalir";
-            this.bbtnSalir.TooltipText = "Salir";
-            this.bbtnSalir.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnSalir_Click);
+            // bbtnTriaje
+            // 
+            this.bbtnTriaje.Image = ((System.Drawing.Image)(resources.GetObject("bbtnTriaje.Image")));
+            this.bbtnTriaje.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bbtnTriaje.ImageLarge")));
+            this.bbtnTriaje.Name = "bbtnTriaje";
+            this.bbtnTriaje.TooltipText = "Triaje";
+            this.bbtnTriaje.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bbtnTriaje_Click);
             // 
             // frmPrincipal
             // 
@@ -1219,6 +1240,8 @@
         private DevComponents.DotNetBar.BubbleButton bbtnAuditoria;
         private System.Windows.Forms.ToolStripSeparator tsspParametros;
         private System.Windows.Forms.ToolStripMenuItem smnuHorarios;
+        private System.Windows.Forms.ToolStripMenuItem smnuTriaje;
+        private DevComponents.DotNetBar.BubbleButton bbtnTriaje;
     }
 }
 

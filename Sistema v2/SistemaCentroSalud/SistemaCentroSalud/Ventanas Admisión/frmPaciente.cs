@@ -468,6 +468,8 @@ namespace SistemaCentroSalud
                 }
                 else
                 {
+                    MessageBox.Show("Debe ingresar el número de historia clínica", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtNumeroHistoriaClinica.Focus();
                     return false;
                 }
             }

@@ -86,10 +86,12 @@ namespace SistemaCentroSalud
 
         private void validarAcceso()
         {
+            Cursor.Current = Cursors.WaitCursor;
+            
             if (validarFormulario())
             {
                 int numId = ctrEmpleado.validarIngreso(txtUsuario.Text, txtContrasena.Text);
-                if (numId != 0)
+                if (numId > 0)
                 {
                     numIdEmpleado = numId;
                     setUsuario(txtUsuario.Text);
@@ -102,13 +104,19 @@ namespace SistemaCentroSalud
                     ventanaPrincipal.Show();
                     this.Visible = false;
                 }
-                else
+                else if (numId != -1)
                 {
                     MessageBox.Show("Usuario y/o contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtContrasena.Clear();
                     txtContrasena.Focus();
                 }
+                else
+                {
+                    MessageBox.Show("No se encuentra la base de datos\nVerifique la configuración", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -127,6 +135,17 @@ namespace SistemaCentroSalud
             {
                 validarAcceso();
             }
+        }
+
+        private void smnuSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void smnuConfigurar_Click(object sender, EventArgs e)
+        {
+            frmConfigurar ventanaConfigurar = new frmConfigurar();
+            ventanaConfigurar.ShowDialog();
         }
 
         private void lnkContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -38,7 +38,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.msBienvenida = new System.Windows.Forms.MenuStrip();
+            this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.smnuConfigurar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.smnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.msBienvenida.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -133,6 +139,47 @@
             this.txtContrasena.Text = "admin";
             this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ingresar);
             // 
+            // msBienvenida
+            // 
+            this.msBienvenida.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSalir});
+            this.msBienvenida.Location = new System.Drawing.Point(0, 0);
+            this.msBienvenida.Name = "msBienvenida";
+            this.msBienvenida.Size = new System.Drawing.Size(347, 24);
+            this.msBienvenida.TabIndex = 12;
+            this.msBienvenida.Text = "menuStrip1";
+            // 
+            // mnuSalir
+            // 
+            this.mnuSalir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smnuConfigurar,
+            this.toolStripSeparator1,
+            this.smnuSalir});
+            this.mnuSalir.Name = "mnuSalir";
+            this.mnuSalir.Size = new System.Drawing.Size(48, 20);
+            this.mnuSalir.Text = "Inicio";
+            // 
+            // smnuConfigurar
+            // 
+            this.smnuConfigurar.Image = ((System.Drawing.Image)(resources.GetObject("smnuConfigurar.Image")));
+            this.smnuConfigurar.Name = "smnuConfigurar";
+            this.smnuConfigurar.Size = new System.Drawing.Size(152, 22);
+            this.smnuConfigurar.Text = "Configurar";
+            this.smnuConfigurar.Click += new System.EventHandler(this.smnuConfigurar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // smnuSalir
+            // 
+            this.smnuSalir.Image = ((System.Drawing.Image)(resources.GetObject("smnuSalir.Image")));
+            this.smnuSalir.Name = "smnuSalir";
+            this.smnuSalir.Size = new System.Drawing.Size(152, 22);
+            this.smnuSalir.Text = "Salir";
+            this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
+            // 
             // frmBienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +191,7 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lnkContrasena);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.msBienvenida);
             this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
@@ -154,6 +202,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido(a)";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.msBienvenida.ResumeLayout(false);
+            this.msBienvenida.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +220,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.MenuStrip msBienvenida;
+        private System.Windows.Forms.ToolStripMenuItem mnuSalir;
+        private System.Windows.Forms.ToolStripMenuItem smnuConfigurar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem smnuSalir;
     }
 }

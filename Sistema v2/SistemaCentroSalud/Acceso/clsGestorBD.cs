@@ -18,7 +18,12 @@ namespace Acceso
         private static string strCatalogo = tr.ReadLine();
         private static string strUsuario = tr.ReadLine();
         private static string strContrasena = tr.ReadLine();
-       
+
+        public clsGestorBD()
+        {
+            tr.Close();
+            tr.Dispose();
+        }
         /// <summary>
         /// Conecta con la base de datos
         /// </summary>
@@ -36,7 +41,8 @@ namespace Acceso
         public static SqlConnection conectarMaster()
         {
             SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=master;Integrated Security=SSPI");
-            
+            //SqlConnection sqlConexion = new SqlConnection("Data Source=" + strServidor + "; Initial Catalog=master; user id = " + strUsuario + "; password = " + strContrasena + "; Trusted_Connection = FALSE");
+
             return sqlConexion;
         }
 
@@ -73,7 +79,7 @@ namespace Acceso
             catch (Exception ex)
             {
                 clsComun.registrarErrorLog(ex.ToString());
-                return 0;
+                return -1;
             }
             finally
             {

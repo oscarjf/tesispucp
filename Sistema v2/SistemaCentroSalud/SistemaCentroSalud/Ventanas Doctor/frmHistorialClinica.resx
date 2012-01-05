@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="colIdHistoriaClinica.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colNumeroHistoriaClinica.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colPaterno.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colMaterno.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colNombres.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colTipoDocumento.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colNumeroDocumento.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -185,25 +209,10 @@
         rrhq8U+X/7O+Of53WiNfTJRNgrUMnopTGDrlJzF0cJUz6KNrAgDLNasge3RE1QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="colIdPaciente.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colPaterno.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colMaterno.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colNombres.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colNumeroHistoriaClinica.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnQuitar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAATZJREFUOE9jYBgF1AmB+/r8Ag8CjSQfRANxqpHkKxAuwIKB4iB5sDqg+qc+klxg
+        vAAADrwBlbxySQAAATZJREFUOE9jYBgF1AmB+/r8Ag8CjSQfRANxqpHkKxAuwIKB4iB5sDqg+qc+klxg
         F9z21Ov63pyy8Xt72sbv3Skbf/albPw1EYgnIeEJQPFeoJqulI3fWtM2fquO33jPUy8OaoD6+a8Vfv8/
         Vfn8/1rn8/97k8//Hy0+/3+2AmkQBrJBYiA5kJr3pb7/P+a4/79iKTMdbMANV+lzX4od/n8oc/j/udrh
         /7c6h/8/Gh3+/2yCYBAbJPYFKPcRqOZtoeP/D5l2/69YyEwDG3BEnuPMHROx3zfNxX/fthb/fcdO/Pc9
@@ -214,7 +223,7 @@
   <data name="btnAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAk9JREFUOE9jYKARYHScoq+dvDkiPnV9XEriltBIi15VaVLsYvFb7FI39drEX/Nv
+        vAAADrwBlbxySQAAAk9JREFUOE9jYKARYHScoq+dvDkiPnV9XEriltBIi15VaVLsYvFb7FI39drEX/Nv
         zv3fd63rldMcs1BSDGB1XejY0H+t79fMGzP/d1xtfW0zxzCCJAM8ltjUt19p/NV/pet/w5WK11bzNMNx
         GqA+R5jXdq2GpO1iI0l3IHaZYyjlv9GipfVK8e/uKzX/667mvLFZopEKkgOpsV1rJGm6SktCZqUMJ9hQ
         6/UGJSWX0zdWXcjcWH0pfWP1+bTNZadjbrRdzf3XcS3/f+O19J+FpyLOlFyI31hwLmZjzpmYjTGn/Dfo

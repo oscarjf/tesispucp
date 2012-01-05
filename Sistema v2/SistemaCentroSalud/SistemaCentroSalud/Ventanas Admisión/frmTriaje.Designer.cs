@@ -635,7 +635,7 @@
             this.txtPresionArterial.Size = new System.Drawing.Size(84, 20);
             this.txtPresionArterial.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPresionArterial.TabIndex = 4;
-            this.txtPresionArterial.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Decimales;
+            this.txtPresionArterial.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // txtFrecuenciaRespiratoria
             // 

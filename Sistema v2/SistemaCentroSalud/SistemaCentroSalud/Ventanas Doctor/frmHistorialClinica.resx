@@ -126,7 +126,7 @@
   <metadata name="colHora.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colDoctor.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colResponsable.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -159,7 +159,7 @@
         hHpCA6GWUDY4TPWOTzn4jVUTZd9QDQdE92cyLgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnContinuar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAG1SURBVChTjZFbKMNhGMa/tJrtwpRjmZYx2s2wIjkkLjTl
@@ -198,6 +198,42 @@
     <value>True</value>
   </metadata>
   <metadata name="colNumeroHistoriaClinica.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnQuitar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vwAADr8BOAVTJAAAATZJREFUOE9jYBgF1AmB+/r8Ag8CjSQfRANxqpHkKxAuwIKB4iB5sDqg+qc+klxg
+        F9z21Ov63pyy8Xt72sbv3Skbf/albPw1EYgnIeEJQPFeoJqulI3fWtM2fquO33jPUy8OaoD6+a8Vfv8/
+        Vfn8/1rn8/97k8//Hy0+/3+2AmkQBrJBYiA5kJr3pb7/P+a4/79iKTMdbMANV+lzX4od/n8oc/j/udrh
+        /7c6h/8/Gh3+/2yCYBAbJPYFKPcRqOZtoeP/D5l2/69YyEwDG3BEnuPMHROx3zfNxX/fthb/fcdO/Pc9
+        RyB2QsJAPkj8lpU4WN0dI7HfR2V5JoENmMbKkDSfk6FjPjdD20J+hrbFggxtS4XRMFBsMVBuIS9DG0jd
+        PHaG9mnsDE6waGQBMjjIwEzUSQdD2xQA2wy71Hx4ZCoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wAAADsABataJCQAAAk9JREFUOE9jYKARYHScoq+dvDkiPnV9XEriltBIi15VaVLsYvFb7FI39drEX/Nv
+        zv3fd63rldMcs1BSDGB1XejY0H+t79fMGzP/d1xtfW0zxzCCJAM8ltjUt19p/NV/pet/w5WK11bzNMNx
+        GqA+R5jXdq2GpO1iI0l3IHaZYyjlv9GipfVK8e/uKzX/667mvLFZopEKkgOpsV1rJGm6SktCZqUMJ9hQ
+        6/UGJSWX0zdWXcjcWH0pfWP1+bTNZadjbrRdzf3XcS3/f+O19J+FpyLOlFyI31hwLmZjzpmYjTGn/Dfo
+        rlaEhIvPdofN3fca/vfeqvvff7v6/8S7Ff/77uT/77iZ8r/tZuL/1huJ/ztuZf5vvpn5v/Za6v+yS8n/
+        0y9E/Ndfq9wONiBou+Hm7tsR//tuhv2fdCfk/+R7wf977gT8b78d8r/tdiAY99/x/9932/t/503P/81X
+        vP4XX3T4b7ZeAmKA3jyG+e7bGJ747WR4HLIHghOOCXxsu+fwv+O+y//aW6Z/ww+yvgGJB+9leOy3neGJ
+        6xaGJ1rzGMrBBggWMGhLlDF4ylQweICwNJDtt4VzQcMjuT8tj5T+1zyW+WC5hLUFWR6knj+dQQF7zNgz
+        sMQeZ6hteMH0q+UF0/+6N0yvPfcx4I5GDFOMGVhTzjHUd39g+NX3nuF/22eG1/5HSDSg8Lh+w5r3wb+3
+        fg77v+Jd8JuYQ9okpMR6Bha7RYLliYek32cfl/kad0TmgdEC/kBSkjKjeDmDgmoVg7dWDYOfSjWDm0Ql
+        gyg2AwAxdRJAwkoHSwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="colIdCie10.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colCodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colDescripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

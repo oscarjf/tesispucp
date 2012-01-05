@@ -77,7 +77,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
         {
             clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
 
-            DataTable dt = ctrTipoDocumento.seleccionarTiposDocumento(objTipoDocumento);
+            DataTable dt = ctrTipoDocumento.seleccionarTiposDocumentosCriterios(objTipoDocumento);
 
             objTipoDocumento.Nombre = "SELECCIONAR";
 

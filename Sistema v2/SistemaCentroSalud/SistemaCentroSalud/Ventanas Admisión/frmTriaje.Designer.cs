@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTriaje));
-            this.tbcPaciente = new System.Windows.Forms.TabControl();
+            this.tbcTriaje = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@
             this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumeroHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.lblTipoDocumentoBuscar = new System.Windows.Forms.Label();
@@ -57,19 +58,22 @@
             this.txtNombresBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtPaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rtxtObservaciones = new SistemaCentroSalud.Controles.cuRichTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblObservaciones = new System.Windows.Forms.Label();
+            this.gbxTipoSangre = new System.Windows.Forms.GroupBox();
             this.cboFactorSanguineo = new System.Windows.Forms.ComboBox();
             this.cboGrupoSanguineo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFactorSanguineo = new System.Windows.Forms.Label();
+            this.lblGrupoSanguineo = new System.Windows.Forms.Label();
             this.gbxOtrosDatos = new System.Windows.Forms.GroupBox();
+            this.cboModoIngreso = new System.Windows.Forms.ComboBox();
+            this.lblModoIngreso = new System.Windows.Forms.Label();
             this.txtTalla = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtPeso = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblTalla = new System.Windows.Forms.Label();
             this.lblPeso = new System.Windows.Forms.Label();
             this.gbxSignosVitales = new System.Windows.Forms.GroupBox();
+            this.txtIdEpisodio = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtIdExamenFisico = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblLPM = new System.Windows.Forms.Label();
             this.lblRPM = new System.Windows.Forms.Label();
             this.txtPresionArterial = new SistemaCentroSalud.Controles.cuTextBox();
@@ -77,30 +81,33 @@
             this.lblPresionArterial = new System.Windows.Forms.Label();
             this.lblFrecuenciaRespiratoria = new System.Windows.Forms.Label();
             this.txtFrecuenciaCardiaca = new SistemaCentroSalud.Controles.cuTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFrecuenciaCardiaca = new System.Windows.Forms.Label();
             this.txtTemperatura = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblTemperatura = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.tbcPaciente.SuspendLayout();
+            this.rtxtObservaciones = new SistemaCentroSalud.Controles.cuRichTextBox();
+            this.tbcTriaje.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.gbxCriterios.SuspendLayout();
             this.tbpDetalle.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbxTipoSangre.SuspendLayout();
             this.gbxOtrosDatos.SuspendLayout();
             this.gbxSignosVitales.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbcPaciente
+            // tbcTriaje
             // 
-            this.tbcPaciente.Controls.Add(this.tbpBuscar);
-            this.tbcPaciente.Controls.Add(this.tbpDetalle);
-            this.tbcPaciente.Location = new System.Drawing.Point(1, 0);
-            this.tbcPaciente.Name = "tbcPaciente";
-            this.tbcPaciente.SelectedIndex = 0;
-            this.tbcPaciente.Size = new System.Drawing.Size(787, 418);
-            this.tbcPaciente.TabIndex = 1;
+            this.tbcTriaje.Controls.Add(this.tbpBuscar);
+            this.tbcTriaje.Controls.Add(this.tbpDetalle);
+            this.tbcTriaje.Location = new System.Drawing.Point(1, 0);
+            this.tbcTriaje.Name = "tbcTriaje";
+            this.tbcTriaje.SelectedIndex = 0;
+            this.tbcTriaje.Size = new System.Drawing.Size(787, 418);
+            this.tbcTriaje.TabIndex = 1;
+            this.tbcTriaje.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcTriaje_Selecting);
+            this.tbcTriaje.SelectedIndexChanged += new System.EventHandler(this.tbcTriaje_SelectedIndexChanged);
             // 
             // tbpBuscar
             // 
@@ -184,6 +191,7 @@
             this.colNombres,
             this.colTipoDocumento,
             this.colNumeroDocumento,
+            this.colIdHistoriaClinica,
             this.colNumeroHistoriaClinica});
             this.dgvPacientes.Location = new System.Drawing.Point(8, 138);
             this.dgvPacientes.MultiSelect = false;
@@ -236,6 +244,13 @@
             this.colNumeroDocumento.HeaderText = "No. Documento";
             this.colNumeroDocumento.Name = "colNumeroDocumento";
             this.colNumeroDocumento.ReadOnly = true;
+            // 
+            // colIdHistoriaClinica
+            // 
+            this.colIdHistoriaClinica.HeaderText = "IdHistoriaClinica";
+            this.colIdHistoriaClinica.Name = "colIdHistoriaClinica";
+            this.colIdHistoriaClinica.ReadOnly = true;
+            this.colIdHistoriaClinica.Visible = false;
             // 
             // colNumeroHistoriaClinica
             // 
@@ -303,6 +318,7 @@
             this.txtNumeroHistoriaClinicaBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNumeroHistoriaClinicaBuscar.TabIndex = 4;
             this.txtNumeroHistoriaClinicaBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            this.txtNumeroHistoriaClinicaBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNumeroDocumentoBuscar
             // 
@@ -323,6 +339,7 @@
             this.txtNumeroDocumentoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNumeroDocumentoBuscar.TabIndex = 6;
             this.txtNumeroDocumentoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            this.txtNumeroDocumentoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // lblNombresBuscar
             // 
@@ -361,6 +378,7 @@
             this.txtMaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtMaternoBuscar.TabIndex = 2;
             this.txtMaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtMaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtNombresBuscar
             // 
@@ -372,6 +390,7 @@
             this.txtNombresBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombresBuscar.TabIndex = 3;
             this.txtNombresBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtNombresBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtPaternoBuscar
             // 
@@ -383,16 +402,17 @@
             this.txtPaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPaternoBuscar.TabIndex = 1;
             this.txtPaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtPaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // tbpDetalle
             // 
-            this.tbpDetalle.Controls.Add(this.label4);
-            this.tbpDetalle.Controls.Add(this.rtxtObservaciones);
-            this.tbpDetalle.Controls.Add(this.groupBox1);
+            this.tbpDetalle.Controls.Add(this.lblObservaciones);
+            this.tbpDetalle.Controls.Add(this.gbxTipoSangre);
             this.tbpDetalle.Controls.Add(this.gbxOtrosDatos);
             this.tbpDetalle.Controls.Add(this.gbxSignosVitales);
             this.tbpDetalle.Controls.Add(this.btnGuardar);
             this.tbpDetalle.Controls.Add(this.btnCancelar);
+            this.tbpDetalle.Controls.Add(this.rtxtObservaciones);
             this.tbpDetalle.Location = new System.Drawing.Point(4, 22);
             this.tbpDetalle.Name = "tbpDetalle";
             this.tbpDetalle.Padding = new System.Windows.Forms.Padding(3);
@@ -401,40 +421,29 @@
             this.tbpDetalle.Text = "Detalle";
             this.tbpDetalle.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // lblObservaciones
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 213);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Observaciones:";
+            this.lblObservaciones.AutoSize = true;
+            this.lblObservaciones.Location = new System.Drawing.Point(7, 213);
+            this.lblObservaciones.Name = "lblObservaciones";
+            this.lblObservaciones.Size = new System.Drawing.Size(81, 13);
+            this.lblObservaciones.TabIndex = 34;
+            this.lblObservaciones.Text = "Observaciones:";
             // 
-            // rtxtObservaciones
+            // gbxTipoSangre
             // 
-            this.rtxtObservaciones.BackColor = System.Drawing.Color.LightYellow;
-            this.rtxtObservaciones.Location = new System.Drawing.Point(9, 228);
-            this.rtxtObservaciones.MaxLength = 1000;
-            this.rtxtObservaciones.Name = "rtxtObservaciones";
-            this.rtxtObservaciones.Size = new System.Drawing.Size(764, 117);
-            this.rtxtObservaciones.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
-            this.rtxtObservaciones.TabIndex = 11;
-            this.rtxtObservaciones.Text = "";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.gbxTipoSangre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cboFactorSanguineo);
-            this.groupBox1.Controls.Add(this.cboGrupoSanguineo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(7, 106);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 100);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo de Sangre";
+            this.gbxTipoSangre.Controls.Add(this.cboFactorSanguineo);
+            this.gbxTipoSangre.Controls.Add(this.cboGrupoSanguineo);
+            this.gbxTipoSangre.Controls.Add(this.lblFactorSanguineo);
+            this.gbxTipoSangre.Controls.Add(this.lblGrupoSanguineo);
+            this.gbxTipoSangre.Location = new System.Drawing.Point(7, 106);
+            this.gbxTipoSangre.Name = "gbxTipoSangre";
+            this.gbxTipoSangre.Size = new System.Drawing.Size(377, 100);
+            this.gbxTipoSangre.TabIndex = 5;
+            this.gbxTipoSangre.TabStop = false;
+            this.gbxTipoSangre.Text = "Tipo de Sangre";
             // 
             // cboFactorSanguineo
             // 
@@ -464,28 +473,30 @@
             this.cboGrupoSanguineo.Size = new System.Drawing.Size(125, 21);
             this.cboGrupoSanguineo.TabIndex = 6;
             // 
-            // label2
+            // lblFactorSanguineo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Factor Sanguíneo:";
+            this.lblFactorSanguineo.AutoSize = true;
+            this.lblFactorSanguineo.Location = new System.Drawing.Point(6, 59);
+            this.lblFactorSanguineo.Name = "lblFactorSanguineo";
+            this.lblFactorSanguineo.Size = new System.Drawing.Size(96, 13);
+            this.lblFactorSanguineo.TabIndex = 7;
+            this.lblFactorSanguineo.Text = "Factor Sanguíneo:";
             // 
-            // label3
+            // lblGrupoSanguineo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Grupo Sanguíneo:";
+            this.lblGrupoSanguineo.AutoSize = true;
+            this.lblGrupoSanguineo.Location = new System.Drawing.Point(6, 25);
+            this.lblGrupoSanguineo.Name = "lblGrupoSanguineo";
+            this.lblGrupoSanguineo.Size = new System.Drawing.Size(95, 13);
+            this.lblGrupoSanguineo.TabIndex = 0;
+            this.lblGrupoSanguineo.Text = "Grupo Sanguíneo:";
             // 
             // gbxOtrosDatos
             // 
             this.gbxOtrosDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxOtrosDatos.Controls.Add(this.cboModoIngreso);
+            this.gbxOtrosDatos.Controls.Add(this.lblModoIngreso);
             this.gbxOtrosDatos.Controls.Add(this.txtTalla);
             this.gbxOtrosDatos.Controls.Add(this.txtPeso);
             this.gbxOtrosDatos.Controls.Add(this.lblTalla);
@@ -497,22 +508,40 @@
             this.gbxOtrosDatos.TabStop = false;
             this.gbxOtrosDatos.Text = "Otros Datos";
             // 
+            // cboModoIngreso
+            // 
+            this.cboModoIngreso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboModoIngreso.FormattingEnabled = true;
+            this.cboModoIngreso.Location = new System.Drawing.Point(240, 22);
+            this.cboModoIngreso.Name = "cboModoIngreso";
+            this.cboModoIngreso.Size = new System.Drawing.Size(125, 21);
+            this.cboModoIngreso.TabIndex = 11;
+            // 
+            // lblModoIngreso
+            // 
+            this.lblModoIngreso.AutoSize = true;
+            this.lblModoIngreso.Location = new System.Drawing.Point(141, 25);
+            this.lblModoIngreso.Name = "lblModoIngreso";
+            this.lblModoIngreso.Size = new System.Drawing.Size(90, 13);
+            this.lblModoIngreso.TabIndex = 11;
+            this.lblModoIngreso.Text = "Modo de Ingreso:";
+            // 
             // txtTalla
             // 
-            this.txtTalla.Location = new System.Drawing.Point(147, 56);
+            this.txtTalla.Location = new System.Drawing.Point(67, 56);
             this.txtTalla.MaxLength = 5;
             this.txtTalla.Name = "txtTalla";
-            this.txtTalla.Size = new System.Drawing.Size(84, 20);
+            this.txtTalla.Size = new System.Drawing.Size(50, 20);
             this.txtTalla.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtTalla.TabIndex = 10;
             this.txtTalla.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Decimales;
             // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(147, 22);
+            this.txtPeso.Location = new System.Drawing.Point(67, 22);
             this.txtPeso.MaxLength = 6;
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(84, 20);
+            this.txtPeso.Size = new System.Drawing.Size(50, 20);
             this.txtPeso.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPeso.TabIndex = 9;
             this.txtPeso.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Decimales;
@@ -539,6 +568,8 @@
             // 
             this.gbxSignosVitales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxSignosVitales.Controls.Add(this.txtIdEpisodio);
+            this.gbxSignosVitales.Controls.Add(this.txtIdExamenFisico);
             this.gbxSignosVitales.Controls.Add(this.lblLPM);
             this.gbxSignosVitales.Controls.Add(this.lblRPM);
             this.gbxSignosVitales.Controls.Add(this.txtPresionArterial);
@@ -546,7 +577,7 @@
             this.gbxSignosVitales.Controls.Add(this.lblPresionArterial);
             this.gbxSignosVitales.Controls.Add(this.lblFrecuenciaRespiratoria);
             this.gbxSignosVitales.Controls.Add(this.txtFrecuenciaCardiaca);
-            this.gbxSignosVitales.Controls.Add(this.label1);
+            this.gbxSignosVitales.Controls.Add(this.lblFrecuenciaCardiaca);
             this.gbxSignosVitales.Controls.Add(this.txtTemperatura);
             this.gbxSignosVitales.Controls.Add(this.lblTemperatura);
             this.gbxSignosVitales.Location = new System.Drawing.Point(7, 6);
@@ -556,9 +587,30 @@
             this.gbxSignosVitales.TabStop = false;
             this.gbxSignosVitales.Text = "Signos Vitales";
             // 
+            // txtIdEpisodio
+            // 
+            this.txtIdEpisodio.Location = new System.Drawing.Point(711, 52);
+            this.txtIdEpisodio.Name = "txtIdEpisodio";
+            this.txtIdEpisodio.Size = new System.Drawing.Size(36, 20);
+            this.txtIdEpisodio.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtIdEpisodio.TabIndex = 13;
+            this.txtIdEpisodio.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtIdEpisodio.Visible = false;
+            // 
+            // txtIdExamenFisico
+            // 
+            this.txtIdExamenFisico.Location = new System.Drawing.Point(712, 24);
+            this.txtIdExamenFisico.Name = "txtIdExamenFisico";
+            this.txtIdExamenFisico.Size = new System.Drawing.Size(36, 20);
+            this.txtIdExamenFisico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtIdExamenFisico.TabIndex = 12;
+            this.txtIdExamenFisico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            this.txtIdExamenFisico.Visible = false;
+            // 
             // lblLPM
             // 
             this.lblLPM.AutoSize = true;
+            this.lblLPM.ForeColor = System.Drawing.Color.Silver;
             this.lblLPM.Location = new System.Drawing.Point(220, 55);
             this.lblLPM.Name = "lblLPM";
             this.lblLPM.Size = new System.Drawing.Size(29, 13);
@@ -568,6 +620,7 @@
             // lblRPM
             // 
             this.lblRPM.AutoSize = true;
+            this.lblRPM.ForeColor = System.Drawing.Color.Silver;
             this.lblRPM.Location = new System.Drawing.Point(620, 27);
             this.lblRPM.Name = "lblRPM";
             this.lblRPM.Size = new System.Drawing.Size(31, 13);
@@ -622,14 +675,14 @@
             this.txtFrecuenciaCardiaca.TabIndex = 2;
             this.txtFrecuenciaCardiaca.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Decimales;
             // 
-            // label1
+            // lblFrecuenciaCardiaca
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Frecuencia Cardiaca:";
+            this.lblFrecuenciaCardiaca.AutoSize = true;
+            this.lblFrecuenciaCardiaca.Location = new System.Drawing.Point(6, 55);
+            this.lblFrecuenciaCardiaca.Name = "lblFrecuenciaCardiaca";
+            this.lblFrecuenciaCardiaca.Size = new System.Drawing.Size(108, 13);
+            this.lblFrecuenciaCardiaca.TabIndex = 2;
+            this.lblFrecuenciaCardiaca.Text = "Frecuencia Cardiaca:";
             // 
             // txtTemperatura
             // 
@@ -654,10 +707,10 @@
             // 
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(689, 351);
+            this.btnGuardar.Location = new System.Drawing.Point(680, 359);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.TabIndex = 13;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -667,21 +720,32 @@
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(573, 351);
+            this.btnCancelar.Location = new System.Drawing.Point(564, 359);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // rtxtObservaciones
+            // 
+            this.rtxtObservaciones.BackColor = System.Drawing.Color.LightYellow;
+            this.rtxtObservaciones.Location = new System.Drawing.Point(9, 228);
+            this.rtxtObservaciones.MaxLength = 1000;
+            this.rtxtObservaciones.Name = "rtxtObservaciones";
+            this.rtxtObservaciones.Size = new System.Drawing.Size(764, 125);
+            this.rtxtObservaciones.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
+            this.rtxtObservaciones.TabIndex = 12;
+            this.rtxtObservaciones.Text = "";
             // 
             // frmTriaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 416);
-            this.Controls.Add(this.tbcPaciente);
+            this.Controls.Add(this.tbcTriaje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -689,15 +753,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Triaje";
             this.Load += new System.EventHandler(this.frmTriaje_Load);
-            this.tbcPaciente.ResumeLayout(false);
+            this.tbcTriaje.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.gbxCriterios.ResumeLayout(false);
             this.gbxCriterios.PerformLayout();
             this.tbpDetalle.ResumeLayout(false);
             this.tbpDetalle.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbxTipoSangre.ResumeLayout(false);
+            this.gbxTipoSangre.PerformLayout();
             this.gbxOtrosDatos.ResumeLayout(false);
             this.gbxOtrosDatos.PerformLayout();
             this.gbxSignosVitales.ResumeLayout(false);
@@ -708,20 +772,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tbcPaciente;
+        private System.Windows.Forms.TabControl tbcTriaje;
         private System.Windows.Forms.TabPage tbpBuscar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvPacientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroHistoriaClinica;
         private System.Windows.Forms.GroupBox gbxCriterios;
         private System.Windows.Forms.Label lblTipoDocumentoBuscar;
         private System.Windows.Forms.ComboBox cboTipoDocumentoBuscar;
@@ -738,9 +794,9 @@
         private System.Windows.Forms.TabPage tbpDetalle;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbxTipoSangre;
+        private System.Windows.Forms.Label lblFactorSanguineo;
+        private System.Windows.Forms.Label lblGrupoSanguineo;
         private System.Windows.Forms.GroupBox gbxOtrosDatos;
         private SistemaCentroSalud.Controles.cuTextBox txtTalla;
         private SistemaCentroSalud.Controles.cuTextBox txtPeso;
@@ -752,14 +808,27 @@
         private System.Windows.Forms.Label lblPresionArterial;
         private System.Windows.Forms.Label lblFrecuenciaRespiratoria;
         private SistemaCentroSalud.Controles.cuTextBox txtFrecuenciaCardiaca;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFrecuenciaCardiaca;
         private SistemaCentroSalud.Controles.cuTextBox txtTemperatura;
         private System.Windows.Forms.Label lblTemperatura;
         private System.Windows.Forms.ComboBox cboFactorSanguineo;
         private System.Windows.Forms.ComboBox cboGrupoSanguineo;
+        private System.Windows.Forms.Label lblObservaciones;
+        private SistemaCentroSalud.Controles.cuRichTextBox rtxtObservaciones;
         private System.Windows.Forms.Label lblLPM;
         private System.Windows.Forms.Label lblRPM;
-        private System.Windows.Forms.Label label4;
-        private SistemaCentroSalud.Controles.cuRichTextBox rtxtObservaciones;
+        private System.Windows.Forms.Label lblModoIngreso;
+        private System.Windows.Forms.ComboBox cboModoIngreso;
+        private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdHistoriaClinica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroHistoriaClinica;
+        private SistemaCentroSalud.Controles.cuTextBox txtIdEpisodio;
+        private SistemaCentroSalud.Controles.cuTextBox txtIdExamenFisico;
     }
 }

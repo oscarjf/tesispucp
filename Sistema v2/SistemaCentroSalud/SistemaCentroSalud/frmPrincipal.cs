@@ -17,6 +17,7 @@ namespace SistemaCentroSalud
     {
         private frmBienvenida ventanaBienvenida;
         private object objEmpleado;
+        private int numIdEmpleado;
 
         public frmPrincipal(frmBienvenida ventanaBienvenida)
         {
@@ -87,6 +88,7 @@ namespace SistemaCentroSalud
                 objDoctor.IdDoctor = ventanaBienvenida.getIdEmpleado();
 
                 objEmpleado = ctrDoctor.seleccionarDoctor(objDoctor);
+                numIdEmpleado = ((clsDoctor)objEmpleado).IdDoctor;
             }
             else if (ventanaBienvenida.getTipoEmpleado().CompareTo("ENFERMERO") == 0)
             {
@@ -94,6 +96,7 @@ namespace SistemaCentroSalud
                 objEnfermero.IdEnfermero = ventanaBienvenida.getIdEmpleado();
 
                 objEmpleado = ctrEnfermero.seleccionarEnfermero(objEnfermero);
+                numIdEmpleado = ((clsEnfermero)objEmpleado).IdEnfermero;
             }
             else if (ventanaBienvenida.getTipoEmpleado().CompareTo("TÉCNICO") == 0)
             {
@@ -101,6 +104,7 @@ namespace SistemaCentroSalud
                 objTecnico.IdTecnico = ventanaBienvenida.getIdEmpleado();
 
                 objEmpleado = ctrTecnico.seleccionarTecnico(objTecnico);
+                numIdEmpleado = ((clsTecnico)objEmpleado).IdTecnico;
             }
             else if (ventanaBienvenida.getTipoEmpleado().CompareTo("ADMINISTRATIVO") == 0)
             {
@@ -108,7 +112,13 @@ namespace SistemaCentroSalud
                 objAdministrativo.IdAdministrativo = ventanaBienvenida.getIdEmpleado();
 
                 objEmpleado = ctrAdministrativo.seleccionarAdministrativo(objAdministrativo);
+                numIdEmpleado = ((clsAdministrativo)objEmpleado).IdAdministrativo;
             }
+        }
+
+        public int getIdEmpleado()
+        {
+            return numIdEmpleado;
         }
 
         private bool compararMenu(string strNombre, object objObjeto)
@@ -168,7 +178,7 @@ namespace SistemaCentroSalud
 
         private void smnuTriaje_Click(object sender, EventArgs e)
         {
-            frmTriaje ventanaTriaje = new frmTriaje();
+            frmTriaje ventanaTriaje = new frmTriaje(this);
             ventanaTriaje.MdiParent = this;
             ventanaTriaje.Show();
         }

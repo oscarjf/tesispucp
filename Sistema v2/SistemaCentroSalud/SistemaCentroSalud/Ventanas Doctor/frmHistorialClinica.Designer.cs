@@ -32,7 +32,11 @@
             this.tbcHistoriaClinica = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.lblEpisodios = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEpisodios = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.lblTipoDocumentoBuscar = new System.Windows.Forms.Label();
             this.cboTipoDocumentoBuscar = new System.Windows.Forms.ComboBox();
@@ -48,7 +52,7 @@
             this.txtPaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnContinuar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvHistoriasClinicas = new System.Windows.Forms.DataGridView();
             this.colIdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,7 +105,7 @@
             this.cboReligion = new System.Windows.Forms.ComboBox();
             this.lblReligion = new System.Windows.Forms.Label();
             this.cboRaza = new System.Windows.Forms.ComboBox();
-            this.lblRaza = new System.Windows.Forms.Label();
+            this.lblEtnia = new System.Windows.Forms.Label();
             this.cboOcupacion = new System.Windows.Forms.ComboBox();
             this.lblOcupacion = new System.Windows.Forms.Label();
             this.cboSexo = new System.Windows.Forms.ComboBox();
@@ -186,29 +190,27 @@
             this.txtFrecuenciaRespiratoria = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblPresionArterial = new System.Windows.Forms.Label();
             this.lblFrecuenciaRespiratoria = new System.Windows.Forms.Label();
-            this.txtPulso = new SistemaCentroSalud.Controles.cuTextBox();
-            this.lblPulso = new System.Windows.Forms.Label();
             this.txtFrecuenciaCardiaca = new SistemaCentroSalud.Controles.cuTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTemperatura = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblTemperatura = new System.Windows.Forms.Label();
             this.tbpDiagnostico = new System.Windows.Forms.TabPage();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgvDiagnosticos = new System.Windows.Forms.DataGridView();
+            this.colIdCie10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblDescripcionActual = new System.Windows.Forms.Label();
             this.lblDiagnostico = new System.Windows.Forms.Label();
-            this.lblDiagnosticoAnterior = new System.Windows.Forms.Label();
             this.rtxtDiagnosticoActual = new SistemaCentroSalud.Controles.cuRichTextBox();
             this.txtDiagnostico = new SistemaCentroSalud.Controles.cuTextBox();
-            this.rtxtDiagnosticoAnterior = new SistemaCentroSalud.Controles.cuRichTextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcHistoriaClinica.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEpisodios)).BeginInit();
             this.gbxCriterios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).BeginInit();
             this.tbpDetalle.SuspendLayout();
@@ -229,6 +231,7 @@
             this.gbxOtrosDatos.SuspendLayout();
             this.gbxSignosVitales.SuspendLayout();
             this.tbpDiagnostico.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiagnosticos)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcHistoriaClinica
@@ -245,11 +248,11 @@
             // tbpBuscar
             // 
             this.tbpBuscar.Controls.Add(this.lblEpisodios);
-            this.tbpBuscar.Controls.Add(this.dataGridView1);
+            this.tbpBuscar.Controls.Add(this.dgvEpisodios);
             this.tbpBuscar.Controls.Add(this.gbxCriterios);
             this.tbpBuscar.Controls.Add(this.btnSalir);
             this.tbpBuscar.Controls.Add(this.btnVer);
-            this.tbpBuscar.Controls.Add(this.btnModificar);
+            this.tbpBuscar.Controls.Add(this.btnContinuar);
             this.tbpBuscar.Controls.Add(this.btnNuevo);
             this.tbpBuscar.Controls.Add(this.dgvHistoriasClinicas);
             this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
@@ -269,28 +272,57 @@
             this.lblEpisodios.TabIndex = 46;
             this.lblEpisodios.Text = "Episodios:";
             // 
-            // dataGridView1
+            // dgvEpisodios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgvEpisodios.AllowUserToAddRows = false;
+            this.dgvEpisodios.AllowUserToDeleteRows = false;
+            this.dgvEpisodios.AllowUserToResizeColumns = false;
+            this.dgvEpisodios.AllowUserToResizeRows = false;
+            this.dgvEpisodios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEpisodios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEpisodios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.colFecha,
             this.colHora,
-            this.colDoctor});
-            this.dataGridView1.Location = new System.Drawing.Point(464, 151);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(340, 230);
-            this.dataGridView1.TabIndex = 17;
+            this.colResponsable});
+            this.dgvEpisodios.Location = new System.Drawing.Point(464, 151);
+            this.dgvEpisodios.MultiSelect = false;
+            this.dgvEpisodios.Name = "dgvEpisodios";
+            this.dgvEpisodios.RowHeadersVisible = false;
+            this.dgvEpisodios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEpisodios.Size = new System.Drawing.Size(340, 230);
+            this.dgvEpisodios.TabIndex = 17;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "IdPaciente";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // colFecha
+            // 
+            this.colFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFecha.HeaderText = "Fecha";
+            this.colFecha.Name = "colFecha";
+            this.colFecha.ReadOnly = true;
+            // 
+            // colHora
+            // 
+            this.colHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHora.HeaderText = "Hora";
+            this.colHora.Name = "colHora";
+            this.colHora.ReadOnly = true;
+            // 
+            // colResponsable
+            // 
+            this.colResponsable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colResponsable.HeaderText = "Responsable";
+            this.colResponsable.Name = "colResponsable";
+            this.colResponsable.ReadOnly = true;
             // 
             // gbxCriterios
             // 
@@ -457,18 +489,18 @@
             this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVer.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnContinuar
             // 
-            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(190, 387);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnContinuar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
+            this.btnContinuar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinuar.Location = new System.Drawing.Point(190, 387);
+            this.btnContinuar.Name = "btnContinuar";
+            this.btnContinuar.Size = new System.Drawing.Size(75, 23);
+            this.btnContinuar.TabIndex = 13;
+            this.btnContinuar.Text = "Continuar";
+            this.btnContinuar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnContinuar.UseVisualStyleBackColor = true;
             // 
             // btnNuevo
             // 
@@ -512,7 +544,6 @@
             this.colIdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colIdPaciente.HeaderText = "IdPaciente";
             this.colIdPaciente.Name = "colIdPaciente";
-            this.colIdPaciente.ReadOnly = true;
             this.colIdPaciente.Visible = false;
             // 
             // colPaterno
@@ -520,28 +551,24 @@
             this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPaterno.HeaderText = "Ap. Paterno";
             this.colPaterno.Name = "colPaterno";
-            this.colPaterno.ReadOnly = true;
             // 
             // colMaterno
             // 
             this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colMaterno.HeaderText = "Ap. Materno";
             this.colMaterno.Name = "colMaterno";
-            this.colMaterno.ReadOnly = true;
             // 
             // colNombres
             // 
             this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNombres.HeaderText = "Nombres";
             this.colNombres.Name = "colNombres";
-            this.colNombres.ReadOnly = true;
             // 
             // colNumeroHistoriaClinica
             // 
             this.colNumeroHistoriaClinica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNumeroHistoriaClinica.HeaderText = "No. Historia Clínica";
             this.colNumeroHistoriaClinica.Name = "colNumeroHistoriaClinica";
-            this.colNumeroHistoriaClinica.ReadOnly = true;
             // 
             // tbpDetalle
             // 
@@ -865,7 +892,7 @@
             this.gbxPersonal.Controls.Add(this.cboReligion);
             this.gbxPersonal.Controls.Add(this.lblReligion);
             this.gbxPersonal.Controls.Add(this.cboRaza);
-            this.gbxPersonal.Controls.Add(this.lblRaza);
+            this.gbxPersonal.Controls.Add(this.lblEtnia);
             this.gbxPersonal.Controls.Add(this.cboOcupacion);
             this.gbxPersonal.Controls.Add(this.lblOcupacion);
             this.gbxPersonal.Controls.Add(this.cboSexo);
@@ -1051,14 +1078,14 @@
             this.cboRaza.Size = new System.Drawing.Size(125, 21);
             this.cboRaza.TabIndex = 5;
             // 
-            // lblRaza
+            // lblEtnia
             // 
-            this.lblRaza.AutoSize = true;
-            this.lblRaza.Location = new System.Drawing.Point(158, 59);
-            this.lblRaza.Name = "lblRaza";
-            this.lblRaza.Size = new System.Drawing.Size(35, 13);
-            this.lblRaza.TabIndex = 10;
-            this.lblRaza.Text = "Raza:";
+            this.lblEtnia.AutoSize = true;
+            this.lblEtnia.Location = new System.Drawing.Point(158, 59);
+            this.lblEtnia.Name = "lblEtnia";
+            this.lblEtnia.Size = new System.Drawing.Size(34, 13);
+            this.lblEtnia.TabIndex = 10;
+            this.lblEtnia.Text = "Etnia:";
             // 
             // cboOcupacion
             // 
@@ -1834,9 +1861,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtOtrosExamenes.BackColor = System.Drawing.Color.White;
-            this.rtxtOtrosExamenes.Location = new System.Drawing.Point(6, 270);
+            this.rtxtOtrosExamenes.Location = new System.Drawing.Point(6, 232);
             this.rtxtOtrosExamenes.Name = "rtxtOtrosExamenes";
-            this.rtxtOtrosExamenes.Size = new System.Drawing.Size(765, 129);
+            this.rtxtOtrosExamenes.Size = new System.Drawing.Size(765, 169);
             this.rtxtOtrosExamenes.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
             this.rtxtOtrosExamenes.TabIndex = 4;
             this.rtxtOtrosExamenes.Text = "";
@@ -1844,7 +1871,7 @@
             // lblOtrosExamenes
             // 
             this.lblOtrosExamenes.AutoSize = true;
-            this.lblOtrosExamenes.Location = new System.Drawing.Point(3, 254);
+            this.lblOtrosExamenes.Location = new System.Drawing.Point(3, 216);
             this.lblOtrosExamenes.Name = "lblOtrosExamenes";
             this.lblOtrosExamenes.Size = new System.Drawing.Size(87, 13);
             this.lblOtrosExamenes.TabIndex = 3;
@@ -1858,7 +1885,7 @@
             this.gbxOtrosDatos.Controls.Add(this.txtPeso);
             this.gbxOtrosDatos.Controls.Add(this.lblTalla);
             this.gbxOtrosDatos.Controls.Add(this.lblPeso);
-            this.gbxOtrosDatos.Location = new System.Drawing.Point(6, 142);
+            this.gbxOtrosDatos.Location = new System.Drawing.Point(6, 113);
             this.gbxOtrosDatos.Name = "gbxOtrosDatos";
             this.gbxOtrosDatos.Size = new System.Drawing.Size(765, 100);
             this.gbxOtrosDatos.TabIndex = 1;
@@ -1909,22 +1936,20 @@
             this.gbxSignosVitales.Controls.Add(this.txtFrecuenciaRespiratoria);
             this.gbxSignosVitales.Controls.Add(this.lblPresionArterial);
             this.gbxSignosVitales.Controls.Add(this.lblFrecuenciaRespiratoria);
-            this.gbxSignosVitales.Controls.Add(this.txtPulso);
-            this.gbxSignosVitales.Controls.Add(this.lblPulso);
             this.gbxSignosVitales.Controls.Add(this.txtFrecuenciaCardiaca);
             this.gbxSignosVitales.Controls.Add(this.label1);
             this.gbxSignosVitales.Controls.Add(this.txtTemperatura);
             this.gbxSignosVitales.Controls.Add(this.lblTemperatura);
             this.gbxSignosVitales.Location = new System.Drawing.Point(6, 6);
             this.gbxSignosVitales.Name = "gbxSignosVitales";
-            this.gbxSignosVitales.Size = new System.Drawing.Size(765, 130);
+            this.gbxSignosVitales.Size = new System.Drawing.Size(765, 101);
             this.gbxSignosVitales.TabIndex = 0;
             this.gbxSignosVitales.TabStop = false;
             this.gbxSignosVitales.Text = "Signos Vitales";
             // 
             // txtPresionArterial
             // 
-            this.txtPresionArterial.Location = new System.Drawing.Point(434, 81);
+            this.txtPresionArterial.Location = new System.Drawing.Point(433, 53);
             this.txtPresionArterial.Name = "txtPresionArterial";
             this.txtPresionArterial.Size = new System.Drawing.Size(73, 20);
             this.txtPresionArterial.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -1933,7 +1958,7 @@
             // 
             // txtFrecuenciaRespiratoria
             // 
-            this.txtFrecuenciaRespiratoria.Location = new System.Drawing.Point(434, 52);
+            this.txtFrecuenciaRespiratoria.Location = new System.Drawing.Point(433, 24);
             this.txtFrecuenciaRespiratoria.Name = "txtFrecuenciaRespiratoria";
             this.txtFrecuenciaRespiratoria.Size = new System.Drawing.Size(73, 20);
             this.txtFrecuenciaRespiratoria.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -1943,7 +1968,7 @@
             // lblPresionArterial
             // 
             this.lblPresionArterial.AutoSize = true;
-            this.lblPresionArterial.Location = new System.Drawing.Point(293, 84);
+            this.lblPresionArterial.Location = new System.Drawing.Point(292, 56);
             this.lblPresionArterial.Name = "lblPresionArterial";
             this.lblPresionArterial.Size = new System.Drawing.Size(80, 13);
             this.lblPresionArterial.TabIndex = 7;
@@ -1952,29 +1977,11 @@
             // lblFrecuenciaRespiratoria
             // 
             this.lblFrecuenciaRespiratoria.AutoSize = true;
-            this.lblFrecuenciaRespiratoria.Location = new System.Drawing.Point(293, 55);
+            this.lblFrecuenciaRespiratoria.Location = new System.Drawing.Point(292, 27);
             this.lblFrecuenciaRespiratoria.Name = "lblFrecuenciaRespiratoria";
             this.lblFrecuenciaRespiratoria.Size = new System.Drawing.Size(122, 13);
             this.lblFrecuenciaRespiratoria.TabIndex = 6;
             this.lblFrecuenciaRespiratoria.Text = "Frecuencia Respiratoria:";
-            // 
-            // txtPulso
-            // 
-            this.txtPulso.Location = new System.Drawing.Point(130, 81);
-            this.txtPulso.Name = "txtPulso";
-            this.txtPulso.Size = new System.Drawing.Size(73, 20);
-            this.txtPulso.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtPulso.TabIndex = 5;
-            this.txtPulso.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // lblPulso
-            // 
-            this.lblPulso.AutoSize = true;
-            this.lblPulso.Location = new System.Drawing.Point(6, 84);
-            this.lblPulso.Name = "lblPulso";
-            this.lblPulso.Size = new System.Drawing.Size(36, 13);
-            this.lblPulso.TabIndex = 4;
-            this.lblPulso.Text = "Pulso:";
             // 
             // txtFrecuenciaCardiaca
             // 
@@ -2014,15 +2021,16 @@
             // 
             // tbpDiagnostico
             // 
+            this.tbpDiagnostico.Controls.Add(this.btnQuitar);
+            this.tbpDiagnostico.Controls.Add(this.btnAgregar);
+            this.tbpDiagnostico.Controls.Add(this.dgvDiagnosticos);
             this.tbpDiagnostico.Controls.Add(this.btnBuscar);
             this.tbpDiagnostico.Controls.Add(this.btnGuardar);
             this.tbpDiagnostico.Controls.Add(this.btnCancelar);
             this.tbpDiagnostico.Controls.Add(this.lblDescripcionActual);
             this.tbpDiagnostico.Controls.Add(this.lblDiagnostico);
-            this.tbpDiagnostico.Controls.Add(this.lblDiagnosticoAnterior);
             this.tbpDiagnostico.Controls.Add(this.rtxtDiagnosticoActual);
             this.tbpDiagnostico.Controls.Add(this.txtDiagnostico);
-            this.tbpDiagnostico.Controls.Add(this.rtxtDiagnosticoAnterior);
             this.tbpDiagnostico.Location = new System.Drawing.Point(4, 4);
             this.tbpDiagnostico.Name = "tbpDiagnostico";
             this.tbpDiagnostico.Size = new System.Drawing.Size(774, 404);
@@ -2030,12 +2038,77 @@
             this.tbpDiagnostico.Text = "Diagnóstico";
             this.tbpDiagnostico.UseVisualStyleBackColor = true;
             // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitar.Location = new System.Drawing.Point(671, 322);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 38;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(671, 166);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 37;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // dgvDiagnosticos
+            // 
+            this.dgvDiagnosticos.AllowUserToAddRows = false;
+            this.dgvDiagnosticos.AllowUserToDeleteRows = false;
+            this.dgvDiagnosticos.AllowUserToResizeColumns = false;
+            this.dgvDiagnosticos.AllowUserToResizeRows = false;
+            this.dgvDiagnosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiagnosticos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIdCie10,
+            this.colCodigo,
+            this.colDescripcion});
+            this.dgvDiagnosticos.Location = new System.Drawing.Point(13, 195);
+            this.dgvDiagnosticos.MultiSelect = false;
+            this.dgvDiagnosticos.Name = "dgvDiagnosticos";
+            this.dgvDiagnosticos.RowHeadersVisible = false;
+            this.dgvDiagnosticos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDiagnosticos.Size = new System.Drawing.Size(652, 150);
+            this.dgvDiagnosticos.TabIndex = 36;
+            // 
+            // colIdCie10
+            // 
+            this.colIdCie10.HeaderText = "ID";
+            this.colIdCie10.Name = "colIdCie10";
+            this.colIdCie10.ReadOnly = true;
+            this.colIdCie10.Visible = false;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescripcion.HeaderText = "Descripción";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(667, 185);
+            this.btnBuscar.Location = new System.Drawing.Point(671, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 35;
@@ -2073,7 +2146,7 @@
             // 
             this.lblDescripcionActual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDescripcionActual.AutoSize = true;
-            this.lblDescripcionActual.Location = new System.Drawing.Point(6, 216);
+            this.lblDescripcionActual.Location = new System.Drawing.Point(10, 40);
             this.lblDescripcionActual.Name = "lblDescripcionActual";
             this.lblDescripcionActual.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcionActual.TabIndex = 4;
@@ -2083,29 +2156,20 @@
             // 
             this.lblDiagnostico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDiagnostico.AutoSize = true;
-            this.lblDiagnostico.Location = new System.Drawing.Point(6, 188);
+            this.lblDiagnostico.Location = new System.Drawing.Point(10, 15);
             this.lblDiagnostico.Name = "lblDiagnostico";
             this.lblDiagnostico.Size = new System.Drawing.Size(66, 13);
             this.lblDiagnostico.TabIndex = 2;
             this.lblDiagnostico.Text = "Diagnóstico:";
-            // 
-            // lblDiagnosticoAnterior
-            // 
-            this.lblDiagnosticoAnterior.AutoSize = true;
-            this.lblDiagnosticoAnterior.Location = new System.Drawing.Point(6, 3);
-            this.lblDiagnosticoAnterior.Name = "lblDiagnosticoAnterior";
-            this.lblDiagnosticoAnterior.Size = new System.Drawing.Size(46, 13);
-            this.lblDiagnosticoAnterior.TabIndex = 0;
-            this.lblDiagnosticoAnterior.Text = "Anterior:";
             // 
             // rtxtDiagnosticoActual
             // 
             this.rtxtDiagnosticoActual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtDiagnosticoActual.BackColor = System.Drawing.Color.White;
-            this.rtxtDiagnosticoActual.Location = new System.Drawing.Point(9, 232);
+            this.rtxtDiagnosticoActual.Location = new System.Drawing.Point(13, 56);
             this.rtxtDiagnosticoActual.Name = "rtxtDiagnosticoActual";
-            this.rtxtDiagnosticoActual.Size = new System.Drawing.Size(759, 133);
+            this.rtxtDiagnosticoActual.Size = new System.Drawing.Size(652, 133);
             this.rtxtDiagnosticoActual.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
             this.rtxtDiagnosticoActual.TabIndex = 5;
             this.rtxtDiagnosticoActual.Text = "";
@@ -2116,55 +2180,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDiagnostico.Location = new System.Drawing.Point(78, 185);
+            this.txtDiagnostico.BackColor = System.Drawing.Color.White;
+            this.txtDiagnostico.Location = new System.Drawing.Point(82, 12);
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(583, 20);
             this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtDiagnostico.TabIndex = 3;
             this.txtDiagnostico.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // rtxtDiagnosticoAnterior
-            // 
-            this.rtxtDiagnosticoAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtxtDiagnosticoAnterior.BackColor = System.Drawing.Color.White;
-            this.rtxtDiagnosticoAnterior.Location = new System.Drawing.Point(9, 19);
-            this.rtxtDiagnosticoAnterior.Name = "rtxtDiagnosticoAnterior";
-            this.rtxtDiagnosticoAnterior.ReadOnly = true;
-            this.rtxtDiagnosticoAnterior.Size = new System.Drawing.Size(759, 154);
-            this.rtxtDiagnosticoAnterior.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.verdadero;
-            this.rtxtDiagnosticoAnterior.TabIndex = 1;
-            this.rtxtDiagnosticoAnterior.Text = "";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "IdPaciente";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // colFecha
-            // 
-            this.colFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.Name = "colFecha";
-            this.colFecha.ReadOnly = true;
-            // 
-            // colHora
-            // 
-            this.colHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHora.HeaderText = "Hora";
-            this.colHora.Name = "colHora";
-            this.colHora.ReadOnly = true;
-            // 
-            // colDoctor
-            // 
-            this.colDoctor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDoctor.HeaderText = "Doctor";
-            this.colDoctor.Name = "colDoctor";
-            this.colDoctor.ReadOnly = true;
             // 
             // frmHistorialClinica
             // 
@@ -2180,7 +2202,7 @@
             this.tbcHistoriaClinica.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);
             this.tbpBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEpisodios)).EndInit();
             this.gbxCriterios.ResumeLayout(false);
             this.gbxCriterios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).EndInit();
@@ -2213,6 +2235,7 @@
             this.gbxSignosVitales.PerformLayout();
             this.tbpDiagnostico.ResumeLayout(false);
             this.tbpDiagnostico.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiagnosticos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2230,7 +2253,7 @@
         private System.Windows.Forms.DataGridView dgvHistoriasClinicas;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnVer;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnContinuar;
         private System.Windows.Forms.Button btnNuevo;
         private SistemaCentroSalud.Controles.cuRichTextBox rtxtEctoscopiaActual;
         private System.Windows.Forms.Label lblEctoscopiaActual;
@@ -2243,8 +2266,6 @@
         private System.Windows.Forms.Label lblDescripcionActual;
         private SistemaCentroSalud.Controles.cuTextBox txtDiagnostico;
         private System.Windows.Forms.Label lblDiagnostico;
-        private SistemaCentroSalud.Controles.cuRichTextBox rtxtDiagnosticoAnterior;
-        private System.Windows.Forms.Label lblDiagnosticoAnterior;
         private SistemaCentroSalud.Controles.cuRichTextBox rtxtDiagnosticoActual;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
@@ -2273,7 +2294,7 @@
         private System.Windows.Forms.ComboBox cboReligion;
         private System.Windows.Forms.Label lblReligion;
         private System.Windows.Forms.ComboBox cboRaza;
-        private System.Windows.Forms.Label lblRaza;
+        private System.Windows.Forms.Label lblEtnia;
         private System.Windows.Forms.ComboBox cboOcupacion;
         private System.Windows.Forms.Label lblOcupacion;
         private System.Windows.Forms.ComboBox cboSexo;
@@ -2314,8 +2335,6 @@
         private SistemaCentroSalud.Controles.cuTextBox txtFrecuenciaRespiratoria;
         private System.Windows.Forms.Label lblPresionArterial;
         private System.Windows.Forms.Label lblFrecuenciaRespiratoria;
-        private SistemaCentroSalud.Controles.cuTextBox txtPulso;
-        private System.Windows.Forms.Label lblPulso;
         private SistemaCentroSalud.Controles.cuTextBox txtTalla;
         private SistemaCentroSalud.Controles.cuTextBox txtPeso;
         private System.Windows.Forms.Label lblTalla;
@@ -2385,7 +2404,7 @@
         private SistemaCentroSalud.Controles.cuTextBox txtMaternoBuscar;
         private SistemaCentroSalud.Controles.cuTextBox txtNombresBuscar;
         private SistemaCentroSalud.Controles.cuTextBox txtPaternoBuscar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEpisodios;
         private System.Windows.Forms.Label lblEpisodios;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
@@ -2395,6 +2414,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResponsable;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridView dgvDiagnosticos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdCie10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
     }
 }

@@ -110,10 +110,10 @@ namespace SistemaCentroSalud
                 {
                     if (objEspecialidad.IdArea == ((clsArea)cboAreaDetalle.Items[i]).IdArea)
                     {
+                        cboAreaDetalle.SelectedIndex = i;
                         break;
                     }
                 }
-                cboAreaDetalle.SelectedIndex = i;
                 rtxtDescripcionDetalle.Text = objEspecialidad.Descripcion;
             }
 

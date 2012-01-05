@@ -68,6 +68,7 @@
     <Compile Include="clsReligion.cs" />
     <Compile Include="clsTecnico.cs" />
     <Compile Include="clsTipoDocumento.cs" />
+    <Compile Include="clsTriaje.cs" />
     <Compile Include="clsUbigeo.cs" />
     <Compile Include="clsUnidadProductoraServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

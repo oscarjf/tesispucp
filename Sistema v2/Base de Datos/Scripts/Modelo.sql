@@ -620,7 +620,7 @@ CREATE TABLE Episodio
 	IdEnfermedad         bigint  NOT NULL ,
 	IdFuncionesBiologicas bigint  NOT NULL ,
 	FechaRegistro        datetime  NOT NULL ,
-	IdDoctor             bigint  NOT NULL ,
+	IdEmpleado           bigint  NOT NULL ,
 	IdModoIngreso        int  NULL ,
 	IdHistoriaClinica    bigint  NOT NULL 
 )
@@ -689,9 +689,8 @@ go
 CREATE TABLE ExamenFisico
 ( 
 	IdExamenFisico       bigint IDENTITY ( 1,1 ) ,
-	Temperatura          varchar(2)  NULL ,
-	FrecuenciaCardiaca   varchar(3)  NULL ,
-	Pulso                varchar(10)  NULL ,
+	Temperatura          varchar(4)  NULL ,
+	FrecuenciaCardiaca   varchar(10)  NULL ,
 	FrecuenciaRespiratoria varchar(10)  NULL ,
 	PresionArterial      varchar(10)  NULL ,
 	Peso                 varchar(6)  NULL ,
@@ -1341,15 +1340,6 @@ go
 
 
 ALTER TABLE Episodio
-	ADD CONSTRAINT R_50 FOREIGN KEY (IdDoctor) REFERENCES Doctor(IdDoctor)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
-go
-
-
-
-
-ALTER TABLE Episodio
 	ADD CONSTRAINT R_51 FOREIGN KEY (IdModoIngreso) REFERENCES ModoIngreso(IdModoIngreso)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
@@ -1360,6 +1350,15 @@ go
 
 ALTER TABLE Episodio
 	ADD CONSTRAINT R_52 FOREIGN KEY (IdHistoriaClinica) REFERENCES HistoriaClinica(IdHistoriaClinica)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE Episodio
+	ADD CONSTRAINT R_75 FOREIGN KEY (IdEmpleado) REFERENCES Empleado(IdEmpleado)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 go

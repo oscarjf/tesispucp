@@ -8,6 +8,10 @@ namespace SistemaCentroSalud
     {
         private string strRuta = AppDomain.CurrentDomain.BaseDirectory + "\\Acceso.txt";
         private bool blnExiste = false;
+        private string strServidorDefecto = "";
+        private string strBaseDatosDefecto = "";
+        private string strUsuarioDefecto = "";
+        private string strContrasenaDefecto = "";
 
         public frmConfigurar()
         {
@@ -16,14 +20,16 @@ namespace SistemaCentroSalud
 
         private void frmConfigurar_Load(object sender, EventArgs e)
         {
+            txtContrasenaSeguridad.Focus();
+
             if (System.IO.File.Exists(strRuta))
             {
                 TextReader tr = new StreamReader(strRuta);
 
-                txtServidor.Text = tr.ReadLine();
-                txtBaseDatos.Text = tr.ReadLine();
-                txtUsuario.Text = tr.ReadLine();
-                txtContrasena.Text = tr.ReadLine();
+                strServidorDefecto = tr.ReadLine();
+                strBaseDatosDefecto = tr.ReadLine();
+                strUsuarioDefecto = tr.ReadLine();
+                strContrasenaDefecto = tr.ReadLine();
 
                 tr.Close();
                 tr.Dispose();
@@ -77,6 +83,22 @@ namespace SistemaCentroSalud
             }
         }
 
+        private void limpiarFormulario()
+        {
+            txtServidor.Clear();
+            txtBaseDatos.Clear();
+            txtUsuario.Clear();
+            txtContrasena.Clear();
+        }
+
+        private void setearValoresDefecto()
+        {
+            txtServidor.Text = strServidorDefecto;
+            txtBaseDatos.Text = strBaseDatosDefecto;
+            txtUsuario.Text = strUsuarioDefecto;
+            txtContrasena.Text = strContrasenaDefecto;
+        }
+
         private bool guardarInformacion()
         {
             try
@@ -114,6 +136,8 @@ namespace SistemaCentroSalud
                     if (guardarInformacion())
                     {
                         MessageBox.Show("La configuración se registró exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        this.Dispose();
                     }
                     else
                     {
@@ -128,6 +152,8 @@ namespace SistemaCentroSalud
                     if (guardarInformacion())
                     {
                         MessageBox.Show("La configuración se registró exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Dispose();
                     }
                     else
                     {
@@ -143,6 +169,20 @@ namespace SistemaCentroSalud
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtContrasenaSeguridad_TextChanged(object sender, EventArgs e)
+        {
+            if (txtContrasenaSeguridad.Text.ToUpper().CompareTo("TESISPUCP2011") == 0)
+            {
+                setearValoresDefecto();
+                gbxSistema.Enabled = true;
+            }
+            else
+            {
+                limpiarFormulario();
+                gbxSistema.Enabled = false;
+            }
         }
     }
 }

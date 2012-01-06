@@ -157,28 +157,28 @@
             this.smnuSalir});
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(48, 20);
-            this.mnuSalir.Text = "Inicio";
+            this.mnuSalir.Text = "&Inicio";
             // 
             // smnuConfigurar
             // 
             this.smnuConfigurar.Image = ((System.Drawing.Image)(resources.GetObject("smnuConfigurar.Image")));
             this.smnuConfigurar.Name = "smnuConfigurar";
-            this.smnuConfigurar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.smnuConfigurar.Size = new System.Drawing.Size(169, 22);
+            this.smnuConfigurar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.smnuConfigurar.Size = new System.Drawing.Size(171, 22);
             this.smnuConfigurar.Text = "Configurar";
             this.smnuConfigurar.Click += new System.EventHandler(this.smnuConfigurar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
             // 
             // smnuSalir
             // 
             this.smnuSalir.Image = ((System.Drawing.Image)(resources.GetObject("smnuSalir.Image")));
             this.smnuSalir.Name = "smnuSalir";
             this.smnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.smnuSalir.Size = new System.Drawing.Size(169, 22);
+            this.smnuSalir.Size = new System.Drawing.Size(171, 22);
             this.smnuSalir.Text = "Salir";
             this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
             // 

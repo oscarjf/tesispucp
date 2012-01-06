@@ -15,6 +15,8 @@ namespace SistemaCentroSalud
         private int numIdPaciente;
         private int numIdEmpleado;
         private int numIdHistoriaClinica;
+        private string strGrupoSanguineo;
+        private string strFactorSanguineo;
 
         public frmTriaje(frmPrincipal ventanaPrincipal)
         {
@@ -91,8 +93,11 @@ namespace SistemaCentroSalud
                 {
                     numIndice = Int32.Parse(dtPacientes.Rows[i]["IdPersona"].ToString());
 
+                    string strGrupoSanguineo = dtPacientes.Rows[i]["GrupoSanguineo"].ToString();
+                    string strFactorSanguineo = dtPacientes.Rows[i]["FactorSanguineo"].ToString();
                     string strIdTipoDocumento = dtPacientes.Rows[i]["IdTipoDocumento"].ToString();
                     string strTipoDocumento = "";
+                    
 
                     if (strIdTipoDocumento.CompareTo("") != 0)
                     {
@@ -106,7 +111,9 @@ namespace SistemaCentroSalud
                                                      strTipoDocumento,
                                                      dtPacientes.Rows[i]["NumeroDocumento"].ToString(),
                                                      dtPacientes.Rows[i]["IdHistoriaClinica"].ToString(),
-                                                     dtPacientes.Rows[i]["NumeroHistoriaClinica"].ToString(), });
+                                                     dtPacientes.Rows[i]["NumeroHistoriaClinica"].ToString(),
+                                                     strGrupoSanguineo,
+                                                     strFactorSanguineo });
                 }
             }
 
@@ -149,8 +156,14 @@ namespace SistemaCentroSalud
                 txtFrecuenciaCardiaca.Text = objTriaje.FrecuenciaCardiaca;
                 txtFrecuenciaRespiratoria.Text = objTriaje.FrecuenciaRespiratoria;
                 txtPresionArterial.Text = objTriaje.PresionArterial;
-                cboGrupoSanguineo.Text = objTriaje.GrupoSanguineo;
-                cboFactorSanguineo.Text = objTriaje.FactorSanguineo;
+                if (strGrupoSanguineo.CompareTo("") != 0)
+                {
+                    cboGrupoSanguineo.Text = strGrupoSanguineo;
+                }
+                if (strFactorSanguineo.CompareTo("") != 0)
+                {
+                    cboFactorSanguineo.Text = strFactorSanguineo;
+                }
                 txtPeso.Text = objTriaje.Peso;
                 txtTalla.Text = objTriaje.Talla;
                 int i;
@@ -165,6 +178,17 @@ namespace SistemaCentroSalud
                 rtxtObservaciones.Text = objTriaje.Observaciones;
                 txtIdExamenFisico.Text = objTriaje.IdExamenFisico.ToString();
                 txtIdEpisodio.Text = objTriaje.IdEpisodio.ToString();
+            }
+            else
+            {
+                if (strGrupoSanguineo.CompareTo("") != 0)
+                {
+                    cboGrupoSanguineo.Text = strGrupoSanguineo;
+                }
+                if (strFactorSanguineo.CompareTo("") != 0)
+                {
+                    cboFactorSanguineo.Text = strFactorSanguineo;
+                }
             }
 
             if (numAccion == clsComun.VER)
@@ -211,6 +235,8 @@ namespace SistemaCentroSalud
 
                 numIdPaciente = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[0].Value.ToString());
                 numIdHistoriaClinica = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[6].Value.ToString());
+                strGrupoSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[8].Value.ToString();
+                strFactorSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[9].Value.ToString();
 
                 limpiarFormulario();
 
@@ -232,6 +258,8 @@ namespace SistemaCentroSalud
 
                 numIdPaciente = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[0].Value.ToString());
                 numIdHistoriaClinica = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[6].Value.ToString());
+                strGrupoSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[8].Value.ToString();
+                strFactorSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[9].Value.ToString();
 
                 limpiarFormulario();
 
@@ -266,6 +294,8 @@ namespace SistemaCentroSalud
 
                 numIdPaciente = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[0].Value.ToString());
                 numIdHistoriaClinica = Int32.Parse(dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[6].Value.ToString());
+                strGrupoSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[8].Value.ToString();
+                strFactorSanguineo = dgvPacientes.Rows[dgvPacientes.CurrentRow.Index].Cells[9].Value.ToString();
 
                 limpiarFormulario();
 

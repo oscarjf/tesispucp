@@ -36,14 +36,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeroHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxCriterios = new System.Windows.Forms.GroupBox();
             this.lblTipoDocumentoBuscar = new System.Windows.Forms.Label();
             this.cboTipoDocumentoBuscar = new System.Windows.Forms.ComboBox();
@@ -87,6 +79,16 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.rtxtObservaciones = new SistemaCentroSalud.Controles.cuRichTextBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrupoSanguineo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFactorSanguineo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcTriaje.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
@@ -192,7 +194,9 @@
             this.colTipoDocumento,
             this.colNumeroDocumento,
             this.colIdHistoriaClinica,
-            this.colNumeroHistoriaClinica});
+            this.colNumeroHistoriaClinica,
+            this.colGrupoSanguineo,
+            this.colFactorSanguineo});
             this.dgvPacientes.Location = new System.Drawing.Point(8, 138);
             this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
@@ -201,63 +205,6 @@
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientes.Size = new System.Drawing.Size(761, 215);
             this.dgvPacientes.TabIndex = 1;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Id.HeaderText = "IdPaciente";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // colPaterno
-            // 
-            this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPaterno.HeaderText = "Ap. Paterno";
-            this.colPaterno.Name = "colPaterno";
-            this.colPaterno.ReadOnly = true;
-            // 
-            // colMaterno
-            // 
-            this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMaterno.HeaderText = "Ap. Materno";
-            this.colMaterno.Name = "colMaterno";
-            this.colMaterno.ReadOnly = true;
-            // 
-            // colNombres
-            // 
-            this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNombres.HeaderText = "Nombres";
-            this.colNombres.Name = "colNombres";
-            this.colNombres.ReadOnly = true;
-            // 
-            // colTipoDocumento
-            // 
-            this.colTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTipoDocumento.HeaderText = "TipoDocumento";
-            this.colTipoDocumento.Name = "colTipoDocumento";
-            this.colTipoDocumento.ReadOnly = true;
-            // 
-            // colNumeroDocumento
-            // 
-            this.colNumeroDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNumeroDocumento.HeaderText = "No. Documento";
-            this.colNumeroDocumento.Name = "colNumeroDocumento";
-            this.colNumeroDocumento.ReadOnly = true;
-            // 
-            // colIdHistoriaClinica
-            // 
-            this.colIdHistoriaClinica.HeaderText = "IdHistoriaClinica";
-            this.colIdHistoriaClinica.Name = "colIdHistoriaClinica";
-            this.colIdHistoriaClinica.ReadOnly = true;
-            this.colIdHistoriaClinica.Visible = false;
-            // 
-            // colNumeroHistoriaClinica
-            // 
-            this.colNumeroHistoriaClinica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNumeroHistoriaClinica.HeaderText = "No. Historia Clínica";
-            this.colNumeroHistoriaClinica.Name = "colNumeroHistoriaClinica";
-            this.colNumeroHistoriaClinica.ReadOnly = true;
             // 
             // gbxCriterios
             // 
@@ -740,6 +687,77 @@
             this.rtxtObservaciones.TabIndex = 12;
             this.rtxtObservaciones.Text = "";
             // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Id.HeaderText = "IdPaciente";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // colPaterno
+            // 
+            this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPaterno.HeaderText = "Ap. Paterno";
+            this.colPaterno.Name = "colPaterno";
+            this.colPaterno.ReadOnly = true;
+            // 
+            // colMaterno
+            // 
+            this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaterno.HeaderText = "Ap. Materno";
+            this.colMaterno.Name = "colMaterno";
+            this.colMaterno.ReadOnly = true;
+            // 
+            // colNombres
+            // 
+            this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombres.HeaderText = "Nombres";
+            this.colNombres.Name = "colNombres";
+            this.colNombres.ReadOnly = true;
+            // 
+            // colTipoDocumento
+            // 
+            this.colTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTipoDocumento.HeaderText = "TipoDocumento";
+            this.colTipoDocumento.Name = "colTipoDocumento";
+            this.colTipoDocumento.ReadOnly = true;
+            // 
+            // colNumeroDocumento
+            // 
+            this.colNumeroDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNumeroDocumento.HeaderText = "No. Documento";
+            this.colNumeroDocumento.Name = "colNumeroDocumento";
+            this.colNumeroDocumento.ReadOnly = true;
+            // 
+            // colIdHistoriaClinica
+            // 
+            this.colIdHistoriaClinica.HeaderText = "IdHistoriaClinica";
+            this.colIdHistoriaClinica.Name = "colIdHistoriaClinica";
+            this.colIdHistoriaClinica.ReadOnly = true;
+            this.colIdHistoriaClinica.Visible = false;
+            // 
+            // colNumeroHistoriaClinica
+            // 
+            this.colNumeroHistoriaClinica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNumeroHistoriaClinica.HeaderText = "No. Historia Clínica";
+            this.colNumeroHistoriaClinica.Name = "colNumeroHistoriaClinica";
+            this.colNumeroHistoriaClinica.ReadOnly = true;
+            // 
+            // colGrupoSanguineo
+            // 
+            this.colGrupoSanguineo.HeaderText = "GrupoSanguineo";
+            this.colGrupoSanguineo.Name = "colGrupoSanguineo";
+            this.colGrupoSanguineo.ReadOnly = true;
+            this.colGrupoSanguineo.Visible = false;
+            // 
+            // colFactorSanguineo
+            // 
+            this.colFactorSanguineo.HeaderText = "FactorSanguineo";
+            this.colFactorSanguineo.Name = "colFactorSanguineo";
+            this.colFactorSanguineo.ReadOnly = true;
+            this.colFactorSanguineo.Visible = false;
+            // 
             // frmTriaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,6 +838,8 @@
         private System.Windows.Forms.Label lblModoIngreso;
         private System.Windows.Forms.ComboBox cboModoIngreso;
         private System.Windows.Forms.Button btnVer;
+        private SistemaCentroSalud.Controles.cuTextBox txtIdEpisodio;
+        private SistemaCentroSalud.Controles.cuTextBox txtIdExamenFisico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
@@ -828,7 +848,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdHistoriaClinica;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroHistoriaClinica;
-        private SistemaCentroSalud.Controles.cuTextBox txtIdEpisodio;
-        private SistemaCentroSalud.Controles.cuTextBox txtIdExamenFisico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGrupoSanguineo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFactorSanguineo;
     }
 }

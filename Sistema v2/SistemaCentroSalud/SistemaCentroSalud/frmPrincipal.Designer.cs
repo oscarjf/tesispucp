@@ -193,7 +193,7 @@
             this.smnuSalir.Name = "smnuSalir";
             this.smnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.smnuSalir.Size = new System.Drawing.Size(202, 24);
-            this.smnuSalir.Text = "&Salir";
+            this.smnuSalir.Text = "Salir";
             this.smnuSalir.Click += new System.EventHandler(this.smnuSalir_Click);
             // 
             // mnuAdmision
@@ -224,6 +224,7 @@
             this.smnuTriaje.Enabled = false;
             this.smnuTriaje.Image = ((System.Drawing.Image)(resources.GetObject("smnuTriaje.Image")));
             this.smnuTriaje.Name = "smnuTriaje";
+            this.smnuTriaje.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J)));
             this.smnuTriaje.Size = new System.Drawing.Size(184, 24);
             this.smnuTriaje.Text = "Triaje";
             this.smnuTriaje.Click += new System.EventHandler(this.smnuTriaje_Click);
@@ -588,7 +589,7 @@
             this.mnuHerramientas.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.mnuHerramientas.Name = "mnuHerramientas";
             this.mnuHerramientas.Size = new System.Drawing.Size(110, 24);
-            this.mnuHerramientas.Text = "Herramientas";
+            this.mnuHerramientas.Text = "&Herramientas";
             // 
             // smnuCalculadora
             // 
@@ -646,7 +647,7 @@
             // tsspSeguridad
             // 
             this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(149, 6);
+            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
             // 
             // smnuRespaldar
             // 

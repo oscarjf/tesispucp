@@ -288,7 +288,7 @@ CREATE TABLE Antecedentes
 	DescripcionFiebresProlongadas varchar(300)  NULL ,
 	IndColagenopatia     char(1)  NULL ,
 	DescripcionColagenopatia varchar(300)  NULL ,
-	Otros                varchar(600)  NULL ,
+	Otros                varchar(4000)  NULL ,
 	IndAfeccionBroncopulmonar char(1)  NULL ,
 	DescripcionAfeccionBroncopulmonar varchar(300)  NULL 
 )

@@ -32,14 +32,6 @@
             this.tbcHistoriaClinica = new System.Windows.Forms.TabControl();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.dgvHistoriasClinicas = new System.Windows.Forms.DataGridView();
-            this.colIdHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeroHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblEpisodios = new System.Windows.Forms.Label();
             this.dgvEpisodios = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +76,8 @@
             this.cboPais = new System.Windows.Forms.ComboBox();
             this.lblPais = new System.Windows.Forms.Label();
             this.gbxPersonal = new System.Windows.Forms.GroupBox();
+            this.cboIdioma = new System.Windows.Forms.ComboBox();
+            this.lblIdioma = new System.Windows.Forms.Label();
             this.cboFactorSanguineo = new System.Windows.Forms.ComboBox();
             this.lblFactorSanguineo = new System.Windows.Forms.Label();
             this.cboGrupoSanguineo = new System.Windows.Forms.ComboBox();
@@ -95,7 +89,7 @@
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.cboReligion = new System.Windows.Forms.ComboBox();
             this.lblReligion = new System.Windows.Forms.Label();
-            this.cboRaza = new System.Windows.Forms.ComboBox();
+            this.cboEtnia = new System.Windows.Forms.ComboBox();
             this.lblEtnia = new System.Windows.Forms.Label();
             this.cboOcupacion = new System.Windows.Forms.ComboBox();
             this.lblOcupacion = new System.Windows.Forms.Label();
@@ -149,7 +143,7 @@
             this.gbxSignosVitales = new System.Windows.Forms.GroupBox();
             this.lblPresionArterial = new System.Windows.Forms.Label();
             this.lblFrecuenciaRespiratoria = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFrecuenciaCardiaca = new System.Windows.Forms.Label();
             this.lblTemperatura = new System.Windows.Forms.Label();
             this.tbpDiagnostico = new System.Windows.Forms.TabPage();
             this.btnQuitar = new System.Windows.Forms.Button();
@@ -163,6 +157,16 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblDescripcionActual = new System.Windows.Forms.Label();
             this.lblDiagnostico = new System.Windows.Forms.Label();
+            this.colIdHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroHistoriaClinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrupoSanguineo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFactorSanguineo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNumeroHistoriaClinicaBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtNumeroDocumentoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.txtMaternoBuscar = new SistemaCentroSalud.Controles.cuTextBox();
@@ -279,12 +283,14 @@
             this.dgvHistoriasClinicas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIdHistoriaClinica,
             this.colNumeroHistoriaClinica,
-            this.Id,
             this.colPaterno,
             this.colMaterno,
             this.colNombres,
             this.colTipoDocumento,
-            this.colNumeroDocumento});
+            this.colNumeroDocumento,
+            this.colGrupoSanguineo,
+            this.colFactorSanguineo,
+            this.Id});
             this.dgvHistoriasClinicas.Location = new System.Drawing.Point(8, 138);
             this.dgvHistoriasClinicas.MultiSelect = false;
             this.dgvHistoriasClinicas.Name = "dgvHistoriasClinicas";
@@ -293,71 +299,7 @@
             this.dgvHistoriasClinicas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistoriasClinicas.Size = new System.Drawing.Size(432, 243);
             this.dgvHistoriasClinicas.TabIndex = 47;
-            // 
-            // colIdHistoriaClinica
-            // 
-            this.colIdHistoriaClinica.HeaderText = "IdHistoriaClinica";
-            this.colIdHistoriaClinica.Name = "colIdHistoriaClinica";
-            this.colIdHistoriaClinica.ReadOnly = true;
-            this.colIdHistoriaClinica.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colIdHistoriaClinica.Visible = false;
-            // 
-            // colNumeroHistoriaClinica
-            // 
-            this.colNumeroHistoriaClinica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNumeroHistoriaClinica.HeaderText = "No. Historia Clínica";
-            this.colNumeroHistoriaClinica.Name = "colNumeroHistoriaClinica";
-            this.colNumeroHistoriaClinica.ReadOnly = true;
-            this.colNumeroHistoriaClinica.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Id.HeaderText = "IdPaciente";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Id.Visible = false;
-            // 
-            // colPaterno
-            // 
-            this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPaterno.HeaderText = "Ap. Paterno";
-            this.colPaterno.Name = "colPaterno";
-            this.colPaterno.ReadOnly = true;
-            this.colPaterno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colMaterno
-            // 
-            this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMaterno.HeaderText = "Ap. Materno";
-            this.colMaterno.Name = "colMaterno";
-            this.colMaterno.ReadOnly = true;
-            this.colMaterno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colNombres
-            // 
-            this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNombres.HeaderText = "Nombres";
-            this.colNombres.Name = "colNombres";
-            this.colNombres.ReadOnly = true;
-            this.colNombres.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colTipoDocumento
-            // 
-            this.colTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTipoDocumento.HeaderText = "TipoDocumento";
-            this.colTipoDocumento.Name = "colTipoDocumento";
-            this.colTipoDocumento.ReadOnly = true;
-            this.colTipoDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colNumeroDocumento
-            // 
-            this.colNumeroDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNumeroDocumento.HeaderText = "No. Documento";
-            this.colNumeroDocumento.Name = "colNumeroDocumento";
-            this.colNumeroDocumento.ReadOnly = true;
-            this.colNumeroDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvHistoriasClinicas.SelectionChanged += new System.EventHandler(this.dgvHistoriasClinicas_SelectionChanged);
             // 
             // lblEpisodios
             // 
@@ -467,6 +409,7 @@
             this.cboTipoDocumentoBuscar.Name = "cboTipoDocumentoBuscar";
             this.cboTipoDocumentoBuscar.Size = new System.Drawing.Size(124, 21);
             this.cboTipoDocumentoBuscar.TabIndex = 5;
+            this.cboTipoDocumentoBuscar.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumentoBuscar_SelectedIndexChanged);
             // 
             // lblNumeroHistoriaClinicaBuscar
             // 
@@ -675,7 +618,7 @@
             this.gbxDomicilio.Location = new System.Drawing.Point(6, 238);
             this.gbxDomicilio.Name = "gbxDomicilio";
             this.gbxDomicilio.Size = new System.Drawing.Size(748, 116);
-            this.gbxDomicilio.TabIndex = 17;
+            this.gbxDomicilio.TabIndex = 19;
             this.gbxDomicilio.TabStop = false;
             this.gbxDomicilio.Text = "Domicilio";
             // 
@@ -695,7 +638,7 @@
             this.cboDistritoDomicilio.Location = new System.Drawing.Point(313, 33);
             this.cboDistritoDomicilio.Name = "cboDistritoDomicilio";
             this.cboDistritoDomicilio.Size = new System.Drawing.Size(125, 21);
-            this.cboDistritoDomicilio.TabIndex = 19;
+            this.cboDistritoDomicilio.TabIndex = 22;
             // 
             // cboProvinciaDomicilio
             // 
@@ -704,7 +647,8 @@
             this.cboProvinciaDomicilio.Location = new System.Drawing.Point(161, 33);
             this.cboProvinciaDomicilio.Name = "cboProvinciaDomicilio";
             this.cboProvinciaDomicilio.Size = new System.Drawing.Size(122, 21);
-            this.cboProvinciaDomicilio.TabIndex = 18;
+            this.cboProvinciaDomicilio.TabIndex = 21;
+            this.cboProvinciaDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboProvinciaDomicilio_SelectedIndexChanged);
             // 
             // cboDepartamentoDomicilio
             // 
@@ -713,7 +657,8 @@
             this.cboDepartamentoDomicilio.Location = new System.Drawing.Point(10, 33);
             this.cboDepartamentoDomicilio.Name = "cboDepartamentoDomicilio";
             this.cboDepartamentoDomicilio.Size = new System.Drawing.Size(119, 21);
-            this.cboDepartamentoDomicilio.TabIndex = 17;
+            this.cboDepartamentoDomicilio.TabIndex = 20;
+            this.cboDepartamentoDomicilio.SelectedIndexChanged += new System.EventHandler(this.cboDepartamentoDomicilio_SelectedIndexChanged);
             // 
             // lblDistritoDomicilio
             // 
@@ -757,36 +702,41 @@
             this.gbxLugarNacimiento.Location = new System.Drawing.Point(6, 159);
             this.gbxLugarNacimiento.Name = "gbxLugarNacimiento";
             this.gbxLugarNacimiento.Size = new System.Drawing.Size(748, 72);
-            this.gbxLugarNacimiento.TabIndex = 13;
+            this.gbxLugarNacimiento.TabIndex = 14;
             this.gbxLugarNacimiento.TabStop = false;
             this.gbxLugarNacimiento.Text = "Lugar de Nacimiento";
             // 
             // cboDistrito
             // 
             this.cboDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDistrito.Enabled = false;
             this.cboDistrito.FormattingEnabled = true;
             this.cboDistrito.Location = new System.Drawing.Point(463, 32);
             this.cboDistrito.Name = "cboDistrito";
             this.cboDistrito.Size = new System.Drawing.Size(125, 21);
-            this.cboDistrito.TabIndex = 16;
+            this.cboDistrito.TabIndex = 18;
             // 
             // cboProvincia
             // 
             this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProvincia.Enabled = false;
             this.cboProvincia.FormattingEnabled = true;
             this.cboProvincia.Location = new System.Drawing.Point(313, 32);
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(125, 21);
-            this.cboProvincia.TabIndex = 15;
+            this.cboProvincia.TabIndex = 17;
+            this.cboProvincia.SelectedIndexChanged += new System.EventHandler(this.cboProvincia_SelectedIndexChanged);
             // 
             // cboDepartamento
             // 
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDepartamento.Enabled = false;
             this.cboDepartamento.FormattingEnabled = true;
             this.cboDepartamento.Location = new System.Drawing.Point(161, 32);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(119, 21);
-            this.cboDepartamento.TabIndex = 14;
+            this.cboDepartamento.TabIndex = 16;
+            this.cboDepartamento.SelectedIndexChanged += new System.EventHandler(this.cboDepartamento_SelectedIndexChanged);
             // 
             // lblDistrito
             // 
@@ -822,7 +772,8 @@
             this.cboPais.Location = new System.Drawing.Point(10, 32);
             this.cboPais.Name = "cboPais";
             this.cboPais.Size = new System.Drawing.Size(125, 21);
-            this.cboPais.TabIndex = 13;
+            this.cboPais.TabIndex = 15;
+            this.cboPais.SelectedIndexChanged += new System.EventHandler(this.cboPais_SelectedIndexChanged);
             // 
             // lblPais
             // 
@@ -837,6 +788,8 @@
             // 
             this.gbxPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxPersonal.Controls.Add(this.cboIdioma);
+            this.gbxPersonal.Controls.Add(this.lblIdioma);
             this.gbxPersonal.Controls.Add(this.cboFactorSanguineo);
             this.gbxPersonal.Controls.Add(this.lblFactorSanguineo);
             this.gbxPersonal.Controls.Add(this.cboGrupoSanguineo);
@@ -852,7 +805,7 @@
             this.gbxPersonal.Controls.Add(this.lblFechaNacimiento);
             this.gbxPersonal.Controls.Add(this.cboReligion);
             this.gbxPersonal.Controls.Add(this.lblReligion);
-            this.gbxPersonal.Controls.Add(this.cboRaza);
+            this.gbxPersonal.Controls.Add(this.cboEtnia);
             this.gbxPersonal.Controls.Add(this.lblEtnia);
             this.gbxPersonal.Controls.Add(this.cboOcupacion);
             this.gbxPersonal.Controls.Add(this.lblOcupacion);
@@ -868,6 +821,27 @@
             this.gbxPersonal.TabStop = false;
             this.gbxPersonal.Text = "Información Personal";
             // 
+            // cboIdioma
+            // 
+            this.cboIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIdioma.FormattingEnabled = true;
+            this.cboIdioma.Items.AddRange(new object[] {
+            "SELECCIONAR",
+            "ESTUDIANTE"});
+            this.cboIdioma.Location = new System.Drawing.Point(616, 75);
+            this.cboIdioma.Name = "cboIdioma";
+            this.cboIdioma.Size = new System.Drawing.Size(125, 21);
+            this.cboIdioma.TabIndex = 8;
+            // 
+            // lblIdioma
+            // 
+            this.lblIdioma.AutoSize = true;
+            this.lblIdioma.Location = new System.Drawing.Point(613, 59);
+            this.lblIdioma.Name = "lblIdioma";
+            this.lblIdioma.Size = new System.Drawing.Size(41, 13);
+            this.lblIdioma.TabIndex = 27;
+            this.lblIdioma.Text = "Idioma:";
+            // 
             // cboFactorSanguineo
             // 
             this.cboFactorSanguineo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -879,7 +853,7 @@
             this.cboFactorSanguineo.Location = new System.Drawing.Point(616, 114);
             this.cboFactorSanguineo.Name = "cboFactorSanguineo";
             this.cboFactorSanguineo.Size = new System.Drawing.Size(125, 21);
-            this.cboFactorSanguineo.TabIndex = 12;
+            this.cboFactorSanguineo.TabIndex = 13;
             // 
             // lblFactorSanguineo
             // 
@@ -903,7 +877,7 @@
             this.cboGrupoSanguineo.Location = new System.Drawing.Point(463, 114);
             this.cboGrupoSanguineo.Name = "cboGrupoSanguineo";
             this.cboGrupoSanguineo.Size = new System.Drawing.Size(125, 21);
-            this.cboGrupoSanguineo.TabIndex = 11;
+            this.cboGrupoSanguineo.TabIndex = 12;
             // 
             // lblGrupoSanguineo
             // 
@@ -937,7 +911,7 @@
             this.cboEstadoCivil.Location = new System.Drawing.Point(10, 114);
             this.cboEstadoCivil.Name = "cboEstadoCivil";
             this.cboEstadoCivil.Size = new System.Drawing.Size(122, 21);
-            this.cboEstadoCivil.TabIndex = 8;
+            this.cboEstadoCivil.TabIndex = 9;
             // 
             // lblEstadoCivil
             // 
@@ -955,7 +929,8 @@
             this.dtpFechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(125, 20);
-            this.dtpFechaNacimiento.TabIndex = 9;
+            this.dtpFechaNacimiento.TabIndex = 10;
+            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dtpFechaNacimiento_ValueChanged);
             // 
             // lblFechaNacimiento
             // 
@@ -987,19 +962,19 @@
             this.lblReligion.TabIndex = 12;
             this.lblReligion.Text = "Religión:";
             // 
-            // cboRaza
+            // cboEtnia
             // 
-            this.cboRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRaza.FormattingEnabled = true;
-            this.cboRaza.Items.AddRange(new object[] {
+            this.cboEtnia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEtnia.FormattingEnabled = true;
+            this.cboEtnia.Items.AddRange(new object[] {
             "SELECCIONAR",
             "BLANCA",
             "MESTIZA",
             "NEGRA"});
-            this.cboRaza.Location = new System.Drawing.Point(161, 75);
-            this.cboRaza.Name = "cboRaza";
-            this.cboRaza.Size = new System.Drawing.Size(125, 21);
-            this.cboRaza.TabIndex = 5;
+            this.cboEtnia.Location = new System.Drawing.Point(161, 75);
+            this.cboEtnia.Name = "cboEtnia";
+            this.cboEtnia.Size = new System.Drawing.Size(125, 21);
+            this.cboEtnia.TabIndex = 5;
             // 
             // lblEtnia
             // 
@@ -1573,7 +1548,7 @@
             this.gbxSignosVitales.Controls.Add(this.lblPresionArterial);
             this.gbxSignosVitales.Controls.Add(this.lblFrecuenciaRespiratoria);
             this.gbxSignosVitales.Controls.Add(this.txtFrecuenciaCardiaca);
-            this.gbxSignosVitales.Controls.Add(this.label1);
+            this.gbxSignosVitales.Controls.Add(this.lblFrecuenciaCardiaca);
             this.gbxSignosVitales.Controls.Add(this.txtTemperatura);
             this.gbxSignosVitales.Controls.Add(this.lblTemperatura);
             this.gbxSignosVitales.Location = new System.Drawing.Point(6, 6);
@@ -1601,14 +1576,14 @@
             this.lblFrecuenciaRespiratoria.TabIndex = 6;
             this.lblFrecuenciaRespiratoria.Text = "Frecuencia Respiratoria:";
             // 
-            // label1
+            // lblFrecuenciaCardiaca
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Frecuencia Cardiaca:";
+            this.lblFrecuenciaCardiaca.AutoSize = true;
+            this.lblFrecuenciaCardiaca.Location = new System.Drawing.Point(6, 55);
+            this.lblFrecuenciaCardiaca.Name = "lblFrecuenciaCardiaca";
+            this.lblFrecuenciaCardiaca.Size = new System.Drawing.Size(108, 13);
+            this.lblFrecuenciaCardiaca.TabIndex = 2;
+            this.lblFrecuenciaCardiaca.Text = "Frecuencia Cardiaca:";
             // 
             // lblTemperatura
             // 
@@ -1762,6 +1737,85 @@
             this.lblDiagnostico.TabIndex = 2;
             this.lblDiagnostico.Text = "Diagnóstico:";
             // 
+            // colIdHistoriaClinica
+            // 
+            this.colIdHistoriaClinica.HeaderText = "IdHistoriaClinica";
+            this.colIdHistoriaClinica.Name = "colIdHistoriaClinica";
+            this.colIdHistoriaClinica.ReadOnly = true;
+            this.colIdHistoriaClinica.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colIdHistoriaClinica.Visible = false;
+            // 
+            // colNumeroHistoriaClinica
+            // 
+            this.colNumeroHistoriaClinica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNumeroHistoriaClinica.HeaderText = "No. Historia Clínica";
+            this.colNumeroHistoriaClinica.Name = "colNumeroHistoriaClinica";
+            this.colNumeroHistoriaClinica.ReadOnly = true;
+            this.colNumeroHistoriaClinica.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colPaterno
+            // 
+            this.colPaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPaterno.HeaderText = "Ap. Paterno";
+            this.colPaterno.Name = "colPaterno";
+            this.colPaterno.ReadOnly = true;
+            this.colPaterno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colMaterno
+            // 
+            this.colMaterno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaterno.HeaderText = "Ap. Materno";
+            this.colMaterno.Name = "colMaterno";
+            this.colMaterno.ReadOnly = true;
+            this.colMaterno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colNombres
+            // 
+            this.colNombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombres.HeaderText = "Nombres";
+            this.colNombres.Name = "colNombres";
+            this.colNombres.ReadOnly = true;
+            this.colNombres.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colTipoDocumento
+            // 
+            this.colTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTipoDocumento.HeaderText = "TipoDocumento";
+            this.colTipoDocumento.Name = "colTipoDocumento";
+            this.colTipoDocumento.ReadOnly = true;
+            this.colTipoDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colNumeroDocumento
+            // 
+            this.colNumeroDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNumeroDocumento.HeaderText = "No. Documento";
+            this.colNumeroDocumento.Name = "colNumeroDocumento";
+            this.colNumeroDocumento.ReadOnly = true;
+            this.colNumeroDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colGrupoSanguineo
+            // 
+            this.colGrupoSanguineo.HeaderText = "GrupoSanguineo";
+            this.colGrupoSanguineo.Name = "colGrupoSanguineo";
+            this.colGrupoSanguineo.ReadOnly = true;
+            this.colGrupoSanguineo.Visible = false;
+            // 
+            // colFactorSanguineo
+            // 
+            this.colFactorSanguineo.HeaderText = "FactorSanguineo";
+            this.colFactorSanguineo.Name = "colFactorSanguineo";
+            this.colFactorSanguineo.ReadOnly = true;
+            this.colFactorSanguineo.Visible = false;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Id.HeaderText = "IdPaciente";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Id.Visible = false;
+            // 
             // txtNumeroHistoriaClinicaBuscar
             // 
             this.txtNumeroHistoriaClinicaBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1772,6 +1826,7 @@
             this.txtNumeroHistoriaClinicaBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNumeroHistoriaClinicaBuscar.TabIndex = 4;
             this.txtNumeroHistoriaClinicaBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            this.txtNumeroHistoriaClinicaBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtNumeroDocumentoBuscar
             // 
@@ -1783,6 +1838,7 @@
             this.txtNumeroDocumentoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNumeroDocumentoBuscar.TabIndex = 6;
             this.txtNumeroDocumentoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Enteros;
+            this.txtNumeroDocumentoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtMaternoBuscar
             // 
@@ -1794,6 +1850,7 @@
             this.txtMaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtMaternoBuscar.TabIndex = 2;
             this.txtMaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtMaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtNombresBuscar
             // 
@@ -1805,6 +1862,7 @@
             this.txtNombresBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtNombresBuscar.TabIndex = 3;
             this.txtNombresBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtNombresBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // txtPaternoBuscar
             // 
@@ -1816,13 +1874,14 @@
             this.txtPaternoBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
             this.txtPaternoBuscar.TabIndex = 1;
             this.txtPaternoBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtPaternoBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
             // 
             // rtxtEctoscopiaActual
             // 
             this.rtxtEctoscopiaActual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtEctoscopiaActual.Location = new System.Drawing.Point(9, 225);
-            this.rtxtEctoscopiaActual.MaxLength = 1000;
+            this.rtxtEctoscopiaActual.MaxLength = 4000;
             this.rtxtEctoscopiaActual.Name = "rtxtEctoscopiaActual";
             this.rtxtEctoscopiaActual.Size = new System.Drawing.Size(759, 160);
             this.rtxtEctoscopiaActual.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -1850,7 +1909,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(737, 20);
             this.txtDireccion.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtDireccion.TabIndex = 20;
+            this.txtDireccion.TabIndex = 23;
             this.txtDireccion.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // txtEdad
@@ -1861,7 +1920,8 @@
             this.txtEdad.ReadOnly = true;
             this.txtEdad.Size = new System.Drawing.Size(65, 20);
             this.txtEdad.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.verdadero;
-            this.txtEdad.TabIndex = 10;
+            this.txtEdad.TabIndex = 11;
+            this.txtEdad.Text = "0";
             this.txtEdad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // txtNombres
@@ -1900,7 +1960,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtRelatoCronologico.Location = new System.Drawing.Point(201, 244);
-            this.rtxtRelatoCronologico.MaxLength = 1000;
+            this.rtxtRelatoCronologico.MaxLength = 4000;
             this.rtxtRelatoCronologico.Name = "rtxtRelatoCronologico";
             this.rtxtRelatoCronologico.Size = new System.Drawing.Size(553, 122);
             this.rtxtRelatoCronologico.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -1912,7 +1972,7 @@
             this.rtxtSintomasEnfermedad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtSintomasEnfermedad.Location = new System.Drawing.Point(201, 107);
-            this.rtxtSintomasEnfermedad.MaxLength = 1000;
+            this.rtxtSintomasEnfermedad.MaxLength = 4000;
             this.rtxtSintomasEnfermedad.Name = "rtxtSintomasEnfermedad";
             this.rtxtSintomasEnfermedad.Size = new System.Drawing.Size(553, 131);
             this.rtxtSintomasEnfermedad.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -1945,7 +2005,7 @@
             // 
             // txtTiempoEnfermedad
             // 
-            this.txtTiempoEnfermedad.BackColor = System.Drawing.Color.White;
+            this.txtTiempoEnfermedad.BackColor = System.Drawing.Color.LightYellow;
             this.txtTiempoEnfermedad.Location = new System.Drawing.Point(201, 3);
             this.txtTiempoEnfermedad.MaxLength = 3;
             this.txtTiempoEnfermedad.Name = "txtTiempoEnfermedad";
@@ -1960,6 +2020,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtOtrosAntecedentes.Location = new System.Drawing.Point(6, 19);
+            this.rtxtOtrosAntecedentes.MaxLength = 4000;
             this.rtxtOtrosAntecedentes.Name = "rtxtOtrosAntecedentes";
             this.rtxtOtrosAntecedentes.Size = new System.Drawing.Size(742, 74);
             this.rtxtOtrosAntecedentes.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -1969,6 +2030,7 @@
             // txtColagenopatia
             // 
             this.txtColagenopatia.Location = new System.Drawing.Point(612, 173);
+            this.txtColagenopatia.MaxLength = 300;
             this.txtColagenopatia.Name = "txtColagenopatia";
             this.txtColagenopatia.Size = new System.Drawing.Size(141, 20);
             this.txtColagenopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -1978,6 +2040,7 @@
             // txtFiebresProlongadas
             // 
             this.txtFiebresProlongadas.Location = new System.Drawing.Point(612, 147);
+            this.txtFiebresProlongadas.MaxLength = 300;
             this.txtFiebresProlongadas.Name = "txtFiebresProlongadas";
             this.txtFiebresProlongadas.Size = new System.Drawing.Size(141, 20);
             this.txtFiebresProlongadas.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -1987,6 +2050,7 @@
             // txtEnfermedadesNeurologicas
             // 
             this.txtEnfermedadesNeurologicas.Location = new System.Drawing.Point(612, 121);
+            this.txtEnfermedadesNeurologicas.MaxLength = 300;
             this.txtEnfermedadesNeurologicas.Name = "txtEnfermedadesNeurologicas";
             this.txtEnfermedadesNeurologicas.Size = new System.Drawing.Size(141, 20);
             this.txtEnfermedadesNeurologicas.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -1996,6 +2060,7 @@
             // txtHepatitis
             // 
             this.txtHepatitis.Location = new System.Drawing.Point(612, 96);
+            this.txtHepatitis.MaxLength = 300;
             this.txtHepatitis.Name = "txtHepatitis";
             this.txtHepatitis.Size = new System.Drawing.Size(141, 20);
             this.txtHepatitis.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2005,6 +2070,7 @@
             // txtColecistopatia
             // 
             this.txtColecistopatia.Location = new System.Drawing.Point(612, 69);
+            this.txtColecistopatia.MaxLength = 300;
             this.txtColecistopatia.Name = "txtColecistopatia";
             this.txtColecistopatia.Size = new System.Drawing.Size(141, 20);
             this.txtColecistopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2014,6 +2080,7 @@
             // txtUlcera
             // 
             this.txtUlcera.Location = new System.Drawing.Point(612, 44);
+            this.txtUlcera.MaxLength = 300;
             this.txtUlcera.Name = "txtUlcera";
             this.txtUlcera.Size = new System.Drawing.Size(141, 20);
             this.txtUlcera.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2023,6 +2090,7 @@
             // txtETS
             // 
             this.txtETS.Location = new System.Drawing.Point(612, 17);
+            this.txtETS.MaxLength = 300;
             this.txtETS.Name = "txtETS";
             this.txtETS.Size = new System.Drawing.Size(141, 20);
             this.txtETS.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2032,6 +2100,7 @@
             // txtHemopatia
             // 
             this.txtHemopatia.Location = new System.Drawing.Point(352, 173);
+            this.txtHemopatia.MaxLength = 300;
             this.txtHemopatia.Name = "txtHemopatia";
             this.txtHemopatia.Size = new System.Drawing.Size(141, 20);
             this.txtHemopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2041,6 +2110,7 @@
             // txtUropatia
             // 
             this.txtUropatia.Location = new System.Drawing.Point(352, 147);
+            this.txtUropatia.MaxLength = 300;
             this.txtUropatia.Name = "txtUropatia";
             this.txtUropatia.Size = new System.Drawing.Size(141, 20);
             this.txtUropatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2050,6 +2120,7 @@
             // txtNefropatia
             // 
             this.txtNefropatia.Location = new System.Drawing.Point(352, 121);
+            this.txtNefropatia.MaxLength = 300;
             this.txtNefropatia.Name = "txtNefropatia";
             this.txtNefropatia.Size = new System.Drawing.Size(141, 20);
             this.txtNefropatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2059,6 +2130,7 @@
             // txtEndocrinopatia
             // 
             this.txtEndocrinopatia.Location = new System.Drawing.Point(352, 96);
+            this.txtEndocrinopatia.MaxLength = 300;
             this.txtEndocrinopatia.Name = "txtEndocrinopatia";
             this.txtEndocrinopatia.Size = new System.Drawing.Size(141, 20);
             this.txtEndocrinopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2068,6 +2140,7 @@
             // txtGota
             // 
             this.txtGota.Location = new System.Drawing.Point(352, 70);
+            this.txtGota.MaxLength = 300;
             this.txtGota.Name = "txtGota";
             this.txtGota.Size = new System.Drawing.Size(141, 20);
             this.txtGota.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2077,6 +2150,7 @@
             // txtAtipia
             // 
             this.txtAtipia.Location = new System.Drawing.Point(352, 43);
+            this.txtAtipia.MaxLength = 300;
             this.txtAtipia.Name = "txtAtipia";
             this.txtAtipia.Size = new System.Drawing.Size(141, 20);
             this.txtAtipia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2086,6 +2160,7 @@
             // txtTuberculosis
             // 
             this.txtTuberculosis.Location = new System.Drawing.Point(352, 17);
+            this.txtTuberculosis.MaxLength = 300;
             this.txtTuberculosis.Name = "txtTuberculosis";
             this.txtTuberculosis.Size = new System.Drawing.Size(141, 20);
             this.txtTuberculosis.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2095,6 +2170,7 @@
             // txtAlergias
             // 
             this.txtAlergias.Location = new System.Drawing.Point(100, 174);
+            this.txtAlergias.MaxLength = 300;
             this.txtAlergias.Name = "txtAlergias";
             this.txtAlergias.Size = new System.Drawing.Size(141, 20);
             this.txtAlergias.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2104,6 +2180,7 @@
             // txtPsicopatia
             // 
             this.txtPsicopatia.Location = new System.Drawing.Point(100, 148);
+            this.txtPsicopatia.MaxLength = 300;
             this.txtPsicopatia.Name = "txtPsicopatia";
             this.txtPsicopatia.Size = new System.Drawing.Size(141, 20);
             this.txtPsicopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2113,6 +2190,7 @@
             // txtAsma
             // 
             this.txtAsma.Location = new System.Drawing.Point(100, 121);
+            this.txtAsma.MaxLength = 300;
             this.txtAsma.Name = "txtAsma";
             this.txtAsma.Size = new System.Drawing.Size(141, 20);
             this.txtAsma.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2122,6 +2200,7 @@
             // txtDislipidemia
             // 
             this.txtDislipidemia.Location = new System.Drawing.Point(100, 96);
+            this.txtDislipidemia.MaxLength = 300;
             this.txtDislipidemia.Name = "txtDislipidemia";
             this.txtDislipidemia.Size = new System.Drawing.Size(141, 20);
             this.txtDislipidemia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2131,6 +2210,7 @@
             // txtCoronariopatia
             // 
             this.txtCoronariopatia.Location = new System.Drawing.Point(100, 69);
+            this.txtCoronariopatia.MaxLength = 300;
             this.txtCoronariopatia.Name = "txtCoronariopatia";
             this.txtCoronariopatia.Size = new System.Drawing.Size(141, 20);
             this.txtCoronariopatia.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2140,6 +2220,7 @@
             // txtHipertensionArterial
             // 
             this.txtHipertensionArterial.Location = new System.Drawing.Point(100, 43);
+            this.txtHipertensionArterial.MaxLength = 300;
             this.txtHipertensionArterial.Name = "txtHipertensionArterial";
             this.txtHipertensionArterial.Size = new System.Drawing.Size(141, 20);
             this.txtHipertensionArterial.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2149,6 +2230,7 @@
             // txtDiabetes
             // 
             this.txtDiabetes.Location = new System.Drawing.Point(100, 17);
+            this.txtDiabetes.MaxLength = 300;
             this.txtDiabetes.Name = "txtDiabetes";
             this.txtDiabetes.Size = new System.Drawing.Size(141, 20);
             this.txtDiabetes.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -2162,6 +2244,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtOtrosExamenes.BackColor = System.Drawing.Color.White;
             this.rtxtOtrosExamenes.Location = new System.Drawing.Point(6, 232);
+            this.rtxtOtrosExamenes.MaxLength = 4000;
             this.rtxtOtrosExamenes.Name = "rtxtOtrosExamenes";
             this.rtxtOtrosExamenes.Size = new System.Drawing.Size(765, 169);
             this.rtxtOtrosExamenes.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -2235,6 +2318,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtDiagnosticoActual.BackColor = System.Drawing.Color.White;
             this.rtxtDiagnosticoActual.Location = new System.Drawing.Point(13, 56);
+            this.rtxtDiagnosticoActual.MaxLength = 4000;
             this.rtxtDiagnosticoActual.Name = "rtxtDiagnosticoActual";
             this.rtxtDiagnosticoActual.Size = new System.Drawing.Size(652, 133);
             this.rtxtDiagnosticoActual.Solo_Lectura = SistemaCentroSalud.Controles.cuRichTextBox.SoloLectura.falso;
@@ -2247,7 +2331,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDiagnostico.BackColor = System.Drawing.Color.LightYellow;
+            this.txtDiagnostico.BackColor = System.Drawing.Color.White;
             this.txtDiagnostico.Location = new System.Drawing.Point(82, 12);
             this.txtDiagnostico.MaxLength = 400;
             this.txtDiagnostico.Name = "txtDiagnostico";
@@ -2267,6 +2351,7 @@
             this.Name = "frmHistorialClinica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historia Clínica";
+            this.Load += new System.EventHandler(this.frmHistorialClinica_Load);
             this.tbcHistoriaClinica.ResumeLayout(false);
             this.tbpBuscar.ResumeLayout(false);
             this.tbpBuscar.PerformLayout();
@@ -2360,7 +2445,7 @@
         private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.ComboBox cboReligion;
         private System.Windows.Forms.Label lblReligion;
-        private System.Windows.Forms.ComboBox cboRaza;
+        private System.Windows.Forms.ComboBox cboEtnia;
         private System.Windows.Forms.Label lblEtnia;
         private System.Windows.Forms.ComboBox cboOcupacion;
         private System.Windows.Forms.Label lblOcupacion;
@@ -2395,7 +2480,7 @@
         private System.Windows.Forms.GroupBox gbxOtrosDatos;
         private System.Windows.Forms.GroupBox gbxSignosVitales;
         private SistemaCentroSalud.Controles.cuTextBox txtFrecuenciaCardiaca;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFrecuenciaCardiaca;
         private SistemaCentroSalud.Controles.cuTextBox txtTemperatura;
         private System.Windows.Forms.Label lblTemperatura;
         private SistemaCentroSalud.Controles.cuTextBox txtPresionArterial;
@@ -2480,17 +2565,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
         private System.Windows.Forms.DataGridView dgvHistoriasClinicas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResponsable;
+        private System.Windows.Forms.ComboBox cboIdioma;
+        private System.Windows.Forms.Label lblIdioma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdHistoriaClinica;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroHistoriaClinica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colResponsable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGrupoSanguineo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFactorSanguineo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

@@ -220,7 +220,7 @@ namespace SistemaCentroSalud
 
         private void smnuHistoriaClinica_Click(object sender, EventArgs e)
         {
-            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1);
+            frmHistorialClinica ventanaHistoriaClinica = new frmHistorialClinica(true, 1, this);
             ventanaHistoriaClinica.MdiParent = this;
             ventanaHistoriaClinica.Show();
         }

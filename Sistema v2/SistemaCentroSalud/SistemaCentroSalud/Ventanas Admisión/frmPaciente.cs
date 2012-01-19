@@ -47,7 +47,7 @@ namespace SistemaCentroSalud
         {
             clsEtnia objEtnia = new clsEtnia();
 
-            DataTable dt = ctrEtnia.seleccionarEtnias(objEtnia);
+            DataTable dt = ctrEtnia.seleccionarEtniasCriterios(objEtnia);
 
             objEtnia.Nombre = "SELECCIONAR";
 
@@ -68,7 +68,7 @@ namespace SistemaCentroSalud
         {
             clsReligion objReligion = new clsReligion();
 
-            DataTable dt = ctrReligion.seleccionarReligiones(objReligion);
+            DataTable dt = ctrReligion.seleccionarReligionesCriterios(objReligion);
 
             objReligion.Nombre = "SELECCIONAR";
 
@@ -89,7 +89,7 @@ namespace SistemaCentroSalud
         {
             clsOcupacion objOcupacion = new clsOcupacion();
 
-            DataTable dt = ctrOcupacion.seleccionarOcupaciones(objOcupacion);
+            DataTable dt = ctrOcupacion.seleccionarOcupacionesCriterios(objOcupacion);
 
             objOcupacion.Nombre = "SELECCIONAR";
 
@@ -110,7 +110,7 @@ namespace SistemaCentroSalud
         {
             clsIdioma objIdioma = new clsIdioma();
 
-            DataTable dt = ctrIdioma.seleccionarIdiomas(objIdioma);
+            DataTable dt = ctrIdioma.seleccionarIdiomasCriterios(objIdioma);
 
             objIdioma.Nombre = "SELECCIONAR";
 
@@ -131,7 +131,7 @@ namespace SistemaCentroSalud
         {
             clsTipoDocumento objTipoDocumento = new clsTipoDocumento();
 
-            DataTable dt = ctrTipoDocumento.seleccionarTiposDocumento(objTipoDocumento);
+            DataTable dt = ctrTipoDocumento.seleccionarTiposDocumentosCriterios(objTipoDocumento);
 
             objTipoDocumento.Nombre = "SELECCIONAR";
 
@@ -155,7 +155,7 @@ namespace SistemaCentroSalud
         {
             clsPais objPais = new clsPais();
 
-            DataTable dt = ctrPais.seleccionarPaises(objPais);
+            DataTable dt = ctrPais.seleccionarPaisesCriterios(objPais);
 
             objPais.Nombre = "SELECCIONAR";
 

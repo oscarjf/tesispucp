@@ -847,10 +847,10 @@
             this.cboEstadoCivil.FormattingEnabled = true;
             this.cboEstadoCivil.Items.AddRange(new object[] {
             "SELECCIONAR",
-            "SOLTERO",
-            "CASADO",
-            "VIUDO",
-            "DIVORCIADO"});
+            "SOLTERO(A)",
+            "CASADO(A)",
+            "VIUDO(A)",
+            "DIVORCIADO(A)"});
             this.cboEstadoCivil.Location = new System.Drawing.Point(272, 114);
             this.cboEstadoCivil.Name = "cboEstadoCivil";
             this.cboEstadoCivil.Size = new System.Drawing.Size(122, 21);

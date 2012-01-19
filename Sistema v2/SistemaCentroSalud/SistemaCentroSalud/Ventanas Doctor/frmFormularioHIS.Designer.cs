@@ -35,6 +35,9 @@
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.gbxDatosFormulario = new System.Windows.Forms.GroupBox();
+            this.cboFinanciadorSalud = new System.Windows.Forms.ComboBox();
+            this.lblFinanciadorSalud = new System.Windows.Forms.Label();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.gbxServicio = new System.Windows.Forms.GroupBox();
             this.rbtnServicioR = new System.Windows.Forms.RadioButton();
             this.rbtnServicioC = new System.Windows.Forms.RadioButton();
@@ -59,10 +62,7 @@
             this.lblNumeroHistoriaClinica = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnImportar = new System.Windows.Forms.Button();
             this.ttpInformacion = new System.Windows.Forms.ToolTip(this.components);
-            this.cboFinanciadorSalud = new System.Windows.Forms.ComboBox();
-            this.lblFinanciadorSalud = new System.Windows.Forms.Label();
             this.gbxDatosFormulario.SuspendLayout();
             this.gbxServicio.SuspendLayout();
             this.gbxEstablecimiento.SuspendLayout();
@@ -74,7 +74,7 @@
             this.btnPrimero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrimero.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimero.Image")));
-            this.btnPrimero.Location = new System.Drawing.Point(251, 381);
+            this.btnPrimero.Location = new System.Drawing.Point(251, 328);
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(37, 35);
             this.btnPrimero.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.btnAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
-            this.btnAnterior.Location = new System.Drawing.Point(294, 381);
+            this.btnAnterior.Location = new System.Drawing.Point(294, 328);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(37, 35);
             this.btnAnterior.TabIndex = 1;
@@ -96,7 +96,7 @@
             this.btnUltimo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
-            this.btnUltimo.Location = new System.Drawing.Point(380, 381);
+            this.btnUltimo.Location = new System.Drawing.Point(380, 328);
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(37, 35);
             this.btnUltimo.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
-            this.btnSiguiente.Location = new System.Drawing.Point(337, 381);
+            this.btnSiguiente.Location = new System.Drawing.Point(337, 328);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(37, 35);
             this.btnSiguiente.TabIndex = 3;
@@ -120,7 +120,6 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxDatosFormulario.Controls.Add(this.cboFinanciadorSalud);
             this.gbxDatosFormulario.Controls.Add(this.lblFinanciadorSalud);
-            this.gbxDatosFormulario.Controls.Add(this.btnImportar);
             this.gbxDatosFormulario.Controls.Add(this.gbxServicio);
             this.gbxDatosFormulario.Controls.Add(this.gbxEstablecimiento);
             this.gbxDatosFormulario.Controls.Add(this.gbxTipoDiagnostico);
@@ -136,10 +135,41 @@
             this.gbxDatosFormulario.Controls.Add(this.lblNumeroHistoriaClinica);
             this.gbxDatosFormulario.Location = new System.Drawing.Point(12, 12);
             this.gbxDatosFormulario.Name = "gbxDatosFormulario";
-            this.gbxDatosFormulario.Size = new System.Drawing.Size(699, 363);
+            this.gbxDatosFormulario.Size = new System.Drawing.Size(699, 310);
             this.gbxDatosFormulario.TabIndex = 4;
             this.gbxDatosFormulario.TabStop = false;
             this.gbxDatosFormulario.Text = "Datos Formulario";
+            // 
+            // cboFinanciadorSalud
+            // 
+            this.cboFinanciadorSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFinanciadorSalud.FormattingEnabled = true;
+            this.cboFinanciadorSalud.Location = new System.Drawing.Point(158, 170);
+            this.cboFinanciadorSalud.Name = "cboFinanciadorSalud";
+            this.cboFinanciadorSalud.Size = new System.Drawing.Size(161, 21);
+            this.cboFinanciadorSalud.TabIndex = 41;
+            // 
+            // lblFinanciadorSalud
+            // 
+            this.lblFinanciadorSalud.AutoSize = true;
+            this.lblFinanciadorSalud.Location = new System.Drawing.Point(16, 173);
+            this.lblFinanciadorSalud.Name = "lblFinanciadorSalud";
+            this.lblFinanciadorSalud.Size = new System.Drawing.Size(110, 13);
+            this.lblFinanciadorSalud.TabIndex = 40;
+            this.lblFinanciadorSalud.Text = "Financiador de Salud:";
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
+            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportar.Location = new System.Drawing.Point(19, 334);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(75, 23);
+            this.btnImportar.TabIndex = 37;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImportar.UseVisualStyleBackColor = true;
             // 
             // gbxServicio
             // 
@@ -378,7 +408,7 @@
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(636, 387);
+            this.btnGuardar.Location = new System.Drawing.Point(636, 334);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 35;
@@ -391,7 +421,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(520, 387);
+            this.btnCancelar.Location = new System.Drawing.Point(520, 334);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 36;
@@ -399,43 +429,14 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // btnImportar
-            // 
-            this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
-            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(18, 317);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(75, 23);
-            this.btnImportar.TabIndex = 37;
-            this.btnImportar.Text = "Importar";
-            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImportar.UseVisualStyleBackColor = true;
-            // 
-            // cboFinanciadorSalud
-            // 
-            this.cboFinanciadorSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFinanciadorSalud.FormattingEnabled = true;
-            this.cboFinanciadorSalud.Location = new System.Drawing.Point(158, 170);
-            this.cboFinanciadorSalud.Name = "cboFinanciadorSalud";
-            this.cboFinanciadorSalud.Size = new System.Drawing.Size(161, 21);
-            this.cboFinanciadorSalud.TabIndex = 41;
-            // 
-            // lblFinanciadorSalud
-            // 
-            this.lblFinanciadorSalud.AutoSize = true;
-            this.lblFinanciadorSalud.Location = new System.Drawing.Point(16, 173);
-            this.lblFinanciadorSalud.Name = "lblFinanciadorSalud";
-            this.lblFinanciadorSalud.Size = new System.Drawing.Size(110, 13);
-            this.lblFinanciadorSalud.TabIndex = 40;
-            this.lblFinanciadorSalud.Text = "Financiador de Salud:";
-            // 
             // frmFormularioHIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 428);
+            this.ClientSize = new System.Drawing.Size(723, 375);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.gbxDatosFormulario);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnUltimo);

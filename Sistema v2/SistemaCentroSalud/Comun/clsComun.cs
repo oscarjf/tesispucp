@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Modelo;
-using System.Xml.Serialization;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
+using Modelo;
 
 namespace Comun
 {
@@ -74,6 +73,25 @@ namespace Comun
             { 
                 return false; 
             }
+        }
+
+        /// <summary>
+        /// Calcula la edad
+        /// </summary>
+        /// <param name="fechaNacimiento"> Fecha de nacimiento </param>
+        /// <returns>int</returns>
+        public static int calcularEdad(DateTime fechaNacimiento)
+        {
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
+            
+            DateTime nacimientoAhora = fechaNacimiento.AddYears(edad);
+            
+            if (DateTime.Now.CompareTo(nacimientoAhora) < 0)
+            {
+                edad--;
+            }
+
+            return edad;
         }
 
         /// <summary>

@@ -57,6 +57,7 @@
     <Compile Include="ctrEspecialidad.cs" />
     <Compile Include="ctrEtnia.cs" />
     <Compile Include="ctrFinanciadorSalud.cs" />
+    <Compile Include="ctrHistoriaClinica.cs" />
     <Compile Include="ctrIdioma.cs" />
     <Compile Include="ctrLaboratorio.cs" />
     <Compile Include="ctrModoIngreso.cs" />

@@ -54,6 +54,7 @@
     <Compile Include="clsDetalleHorario.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsEnfermero.cs" />
+    <Compile Include="clsEpisodio.cs" />
     <Compile Include="clsEspecialidad.cs" />
     <Compile Include="clsEtnia.cs" />
     <Compile Include="clsFinanciadorSalud.cs" />

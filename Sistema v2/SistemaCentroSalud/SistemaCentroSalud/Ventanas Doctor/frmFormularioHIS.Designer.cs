@@ -61,6 +61,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.ttpInformacion = new System.Windows.Forms.ToolTip(this.components);
+            this.cboFinanciadorSalud = new System.Windows.Forms.ComboBox();
+            this.lblFinanciadorSalud = new System.Windows.Forms.Label();
             this.gbxDatosFormulario.SuspendLayout();
             this.gbxServicio.SuspendLayout();
             this.gbxEstablecimiento.SuspendLayout();
@@ -72,7 +74,7 @@
             this.btnPrimero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrimero.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimero.Image")));
-            this.btnPrimero.Location = new System.Drawing.Point(251, 323);
+            this.btnPrimero.Location = new System.Drawing.Point(251, 381);
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(37, 35);
             this.btnPrimero.TabIndex = 0;
@@ -83,7 +85,7 @@
             this.btnAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
-            this.btnAnterior.Location = new System.Drawing.Point(294, 323);
+            this.btnAnterior.Location = new System.Drawing.Point(294, 381);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(37, 35);
             this.btnAnterior.TabIndex = 1;
@@ -94,7 +96,7 @@
             this.btnUltimo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
-            this.btnUltimo.Location = new System.Drawing.Point(380, 323);
+            this.btnUltimo.Location = new System.Drawing.Point(380, 381);
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(37, 35);
             this.btnUltimo.TabIndex = 2;
@@ -105,7 +107,7 @@
             this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
-            this.btnSiguiente.Location = new System.Drawing.Point(337, 323);
+            this.btnSiguiente.Location = new System.Drawing.Point(337, 381);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(37, 35);
             this.btnSiguiente.TabIndex = 3;
@@ -116,6 +118,9 @@
             this.gbxDatosFormulario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxDatosFormulario.Controls.Add(this.cboFinanciadorSalud);
+            this.gbxDatosFormulario.Controls.Add(this.lblFinanciadorSalud);
+            this.gbxDatosFormulario.Controls.Add(this.btnImportar);
             this.gbxDatosFormulario.Controls.Add(this.gbxServicio);
             this.gbxDatosFormulario.Controls.Add(this.gbxEstablecimiento);
             this.gbxDatosFormulario.Controls.Add(this.gbxTipoDiagnostico);
@@ -131,7 +136,7 @@
             this.gbxDatosFormulario.Controls.Add(this.lblNumeroHistoriaClinica);
             this.gbxDatosFormulario.Location = new System.Drawing.Point(12, 12);
             this.gbxDatosFormulario.Name = "gbxDatosFormulario";
-            this.gbxDatosFormulario.Size = new System.Drawing.Size(699, 305);
+            this.gbxDatosFormulario.Size = new System.Drawing.Size(699, 363);
             this.gbxDatosFormulario.TabIndex = 4;
             this.gbxDatosFormulario.TabStop = false;
             this.gbxDatosFormulario.Text = "Datos Formulario";
@@ -141,7 +146,7 @@
             this.gbxServicio.Controls.Add(this.rbtnServicioR);
             this.gbxServicio.Controls.Add(this.rbtnServicioC);
             this.gbxServicio.Controls.Add(this.rbtnServicioN);
-            this.gbxServicio.Location = new System.Drawing.Point(459, 169);
+            this.gbxServicio.Location = new System.Drawing.Point(458, 202);
             this.gbxServicio.Name = "gbxServicio";
             this.gbxServicio.Size = new System.Drawing.Size(200, 100);
             this.gbxServicio.TabIndex = 12;
@@ -186,7 +191,7 @@
             this.gbxEstablecimiento.Controls.Add(this.rbtnEstablecimientoR);
             this.gbxEstablecimiento.Controls.Add(this.rbtnEstablecimientoC);
             this.gbxEstablecimiento.Controls.Add(this.rbtnEstablecimientoN);
-            this.gbxEstablecimiento.Location = new System.Drawing.Point(239, 169);
+            this.gbxEstablecimiento.Location = new System.Drawing.Point(238, 202);
             this.gbxEstablecimiento.Name = "gbxEstablecimiento";
             this.gbxEstablecimiento.Size = new System.Drawing.Size(200, 100);
             this.gbxEstablecimiento.TabIndex = 11;
@@ -231,7 +236,7 @@
             this.gbxTipoDiagnostico.Controls.Add(this.rbtnDiagnosticoR);
             this.gbxTipoDiagnostico.Controls.Add(this.rbtnDiagnosticoD);
             this.gbxTipoDiagnostico.Controls.Add(this.rbtnDiagnosticoP);
-            this.gbxTipoDiagnostico.Location = new System.Drawing.Point(19, 169);
+            this.gbxTipoDiagnostico.Location = new System.Drawing.Point(18, 202);
             this.gbxTipoDiagnostico.Name = "gbxTipoDiagnostico";
             this.gbxTipoDiagnostico.Size = new System.Drawing.Size(200, 100);
             this.gbxTipoDiagnostico.TabIndex = 10;
@@ -275,7 +280,7 @@
             // 
             this.txtDiagnostico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDiagnostico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDiagnostico.Location = new System.Drawing.Point(158, 129);
+            this.txtDiagnostico.Location = new System.Drawing.Point(158, 140);
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(425, 20);
             this.txtDiagnostico.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
@@ -290,14 +295,14 @@
             "SELECCIONAR",
             "MASCULINO",
             "FEMENINO"});
-            this.cboSexo.Location = new System.Drawing.Point(158, 102);
+            this.cboSexo.Location = new System.Drawing.Point(158, 108);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(118, 21);
             this.cboSexo.TabIndex = 8;
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(158, 76);
+            this.txtEdad.Location = new System.Drawing.Point(158, 80);
             this.txtEdad.MaxLength = 2;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(40, 20);
@@ -326,7 +331,7 @@
             // lblDiagnostico
             // 
             this.lblDiagnostico.AutoSize = true;
-            this.lblDiagnostico.Location = new System.Drawing.Point(16, 132);
+            this.lblDiagnostico.Location = new System.Drawing.Point(16, 143);
             this.lblDiagnostico.Name = "lblDiagnostico";
             this.lblDiagnostico.Size = new System.Drawing.Size(66, 13);
             this.lblDiagnostico.TabIndex = 4;
@@ -335,7 +340,7 @@
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(15, 105);
+            this.lblSexo.Location = new System.Drawing.Point(15, 111);
             this.lblSexo.Name = "lblSexo";
             this.lblSexo.Size = new System.Drawing.Size(34, 13);
             this.lblSexo.TabIndex = 3;
@@ -344,7 +349,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(15, 79);
+            this.lblEdad.Location = new System.Drawing.Point(15, 83);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(35, 13);
             this.lblEdad.TabIndex = 2;
@@ -373,7 +378,7 @@
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(636, 329);
+            this.btnGuardar.Location = new System.Drawing.Point(636, 387);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 35;
@@ -386,7 +391,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(520, 329);
+            this.btnCancelar.Location = new System.Drawing.Point(520, 387);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 36;
@@ -398,7 +403,7 @@
             // 
             this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
             this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(12, 329);
+            this.btnImportar.Location = new System.Drawing.Point(18, 317);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(75, 23);
             this.btnImportar.TabIndex = 37;
@@ -406,12 +411,29 @@
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImportar.UseVisualStyleBackColor = true;
             // 
+            // cboFinanciadorSalud
+            // 
+            this.cboFinanciadorSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFinanciadorSalud.FormattingEnabled = true;
+            this.cboFinanciadorSalud.Location = new System.Drawing.Point(158, 170);
+            this.cboFinanciadorSalud.Name = "cboFinanciadorSalud";
+            this.cboFinanciadorSalud.Size = new System.Drawing.Size(161, 21);
+            this.cboFinanciadorSalud.TabIndex = 41;
+            // 
+            // lblFinanciadorSalud
+            // 
+            this.lblFinanciadorSalud.AutoSize = true;
+            this.lblFinanciadorSalud.Location = new System.Drawing.Point(16, 173);
+            this.lblFinanciadorSalud.Name = "lblFinanciadorSalud";
+            this.lblFinanciadorSalud.Size = new System.Drawing.Size(110, 13);
+            this.lblFinanciadorSalud.TabIndex = 40;
+            this.lblFinanciadorSalud.Text = "Financiador de Salud:";
+            // 
             // frmFormularioHIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 370);
-            this.Controls.Add(this.btnImportar);
+            this.ClientSize = new System.Drawing.Size(723, 428);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gbxDatosFormulario);
@@ -470,5 +492,7 @@
         private System.Windows.Forms.RadioButton rbtnDiagnosticoD;
         private System.Windows.Forms.RadioButton rbtnDiagnosticoP;
         private System.Windows.Forms.ToolTip ttpInformacion;
+        private System.Windows.Forms.ComboBox cboFinanciadorSalud;
+        private System.Windows.Forms.Label lblFinanciadorSalud;
     }
 }

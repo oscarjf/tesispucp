@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="clsAdministrativo.cs" />
     <Compile Include="clsArea.cs" />
+    <Compile Include="clsAuditoria.cs" />
     <Compile Include="clsBaseDatos.cs" />
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsCPT.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="clsPais.cs" />
     <Compile Include="clsPerfil.cs" />
     <Compile Include="clsReligion.cs" />
+    <Compile Include="clsTablaAuditada.cs" />
     <Compile Include="clsTecnico.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="clsTriaje.cs" />

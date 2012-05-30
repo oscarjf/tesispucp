@@ -643,11 +643,12 @@
             this.smnuAuditoria.Name = "smnuAuditoria";
             this.smnuAuditoria.Size = new System.Drawing.Size(152, 24);
             this.smnuAuditoria.Text = "Auditoría";
+            this.smnuAuditoria.Click += new System.EventHandler(this.smnuAuditoria_Click);
             // 
             // tsspSeguridad
             // 
             this.tsspSeguridad.Name = "tsspSeguridad";
-            this.tsspSeguridad.Size = new System.Drawing.Size(141, 6);
+            this.tsspSeguridad.Size = new System.Drawing.Size(149, 6);
             // 
             // smnuRespaldar
             // 

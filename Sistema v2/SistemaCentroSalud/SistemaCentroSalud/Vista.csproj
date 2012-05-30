@@ -78,6 +78,12 @@
     <Compile Include="Controles\cuTextBox.Designer.cs">
       <DependentUpon>cuTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas Seguridad\frmAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas Seguridad\frmAuditoria.Designer.cs">
+      <DependentUpon>frmAuditoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas Admisión\frmTriaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Personal\frmTecnico.resx">
       <DependentUpon>frmTecnico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas Seguridad\frmAuditoria.resx">
+      <DependentUpon>frmAuditoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas Seguridad\frmPerfil.resx">
       <DependentUpon>frmPerfil.cs</DependentUpon>

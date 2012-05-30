@@ -391,6 +391,13 @@ namespace SistemaCentroSalud
             ventanaPerfil.Show();
         }
 
+        private void smnuAuditoria_Click(object sender, EventArgs e)
+        {
+            frmAuditoria ventanaAuditoria = new frmAuditoria(this);
+            ventanaAuditoria.MdiParent = this;
+            ventanaAuditoria.Show();
+        }
+
         private void smnuRespaldar_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfdRespaldar = new SaveFileDialog();

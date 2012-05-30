@@ -276,8 +276,6 @@ CREATE TABLE Antecedentes
 	DescripcionAtipia    varchar(300)  NULL ,
 	IndGota              char(1)  NULL ,
 	DescripcionGota      varchar(300)  NULL ,
-	IndAfeccionBroncopulmonar char(1)  NULL ,
-	DescripcionAfeccionBroncopulmonar varchar(300)  NULL ,
 	IndEndocrinopatia    char(1)  NULL ,
 	DescripcionEndocrinopatia varchar(300)  NULL ,
 	IndNefropatia        char(1)  NULL ,
@@ -300,7 +298,9 @@ CREATE TABLE Antecedentes
 	DescripcionFiebresProlongadas varchar(300)  NULL ,
 	IndColagenopatia     char(1)  NULL ,
 	DescripcionColagenopatia varchar(300)  NULL ,
-	Otros                varchar(4000)  NULL 
+	Otros                varchar(4000)  NULL ,
+	IndAfeccionBroncopulmonar char(1)  NULL ,
+	DescripcionAfeccionBroncopulmonar varchar(300)  NULL 
 )
 go
 
@@ -332,14 +332,14 @@ go
 
 CREATE TABLE Auditoria
 ( 
-	IdAuditoria          int IDENTITY ( 1,1 ) ,
+	IdAuditoria          bigint IDENTITY ( 1,1 ) ,
 	Tabla                varchar(100)  NOT NULL ,
 	Columna              varchar(100)  NOT NULL ,
 	AntiguoValor         varchar(100)  NOT NULL ,
 	NuevoValor           varchar(100)  NOT NULL ,
-	IdUsuario            varchar(100)  NOT NULL ,
+	IdUsuario            int  NOT NULL ,
 	Fecha                datetime  NOT NULL ,
-	Tipo                 varchar(6)  NOT NULL 
+	Tipo                 char(1)  NOT NULL 
 )
 go
 
@@ -371,11 +371,11 @@ CREATE TABLE Cita
 ( 
 	IdCita               char(18)  NOT NULL ,
 	IdPaciente           bigint  NOT NULL ,
-	IdDoctor             bigint  NOT NULL ,
 	Fecha                datetime  NOT NULL ,
 	Hora                 datetime  NOT NULL ,
 	FechaRegistro        datetime  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	IdDoctor             bigint  NOT NULL 
 )
 go
 
@@ -409,9 +409,9 @@ CREATE TABLE CPT
 ( 
 	IdCPT                int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(6)  NOT NULL ,
-	Nombre               varchar(100)  NOT NULL ,
 	Descripcion          varchar(300)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 
@@ -507,9 +507,9 @@ go
 
 CREATE TABLE DiagnosticosxEpisodio
 ( 
-	IdDiagnosticoEpisodio bigint IDENTITY ( 1,1 ) ,
 	IdDiagnostico        bigint  NOT NULL ,
-	IdEpisodio           bigint  NOT NULL 
+	IdEpisodio           bigint  NOT NULL ,
+	IdDiagnosticoEpisodio bigint IDENTITY ( 1,1 ) 
 )
 go
 
@@ -523,9 +523,9 @@ go
 
 CREATE TABLE DiagnosticosxFormularioHIS
 ( 
-	IdDiagnosticoFormularioHIS char(18)  NOT NULL ,
 	IdCie10              int  NULL ,
-	IdDetalleFormularioHIS bigint  NULL 
+	IdDetalleFormularioHIS bigint  NULL ,
+	IdDiagnosticoFormularioHIS char(18)  NOT NULL 
 )
 go
 
@@ -554,9 +554,9 @@ go
 
 CREATE TABLE Doctor
 ( 
-	IdDoctor             bigint  NOT NULL ,
 	CMP                  varchar(5)  NOT NULL ,
 	IndicadorHC          char(1)  NOT NULL ,
+	IdDoctor             bigint  NOT NULL ,
 	IdHorario            bigint  NULL ,
 	IdDisponibilidad     bigint  NULL 
 )
@@ -590,14 +590,14 @@ go
 
 CREATE TABLE Empleado
 ( 
-	IdEmpleado           bigint  NOT NULL ,
-	Foto                 varchar(2000)  NULL ,
 	Usuario              varchar(20)  NOT NULL ,
 	Contrasena           varchar(60)  NOT NULL ,
 	TipoEmpleado         varchar(14)  NULL ,
+	Estado               varchar(8)  NOT NULL ,
+	IdEmpleado           bigint  NOT NULL ,
 	IdArea               int  NULL ,
-	IdPerfil             int  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Foto                 varchar(2000)  NULL ,
+	IdPerfil             int  NULL 
 )
 go
 
@@ -651,9 +651,9 @@ CREATE TABLE Episodio
 	IdEnfermedad         bigint  NOT NULL ,
 	IdFuncionesBiologicas bigint  NOT NULL ,
 	FechaRegistro        datetime  NOT NULL ,
-	IdEmpleado           bigint  NOT NULL ,
 	IdModoIngreso        int  NULL ,
-	IdHistoriaClinica    bigint  NOT NULL 
+	IdHistoriaClinica    bigint  NOT NULL ,
+	IdEmpleado           bigint  NOT NULL 
 )
 go
 
@@ -670,8 +670,8 @@ CREATE TABLE Especialidad
 	IdEspecialidad       int IDENTITY ( 1,1 ) ,
 	Nombre               varchar(50)  NOT NULL ,
 	Descripcion          varchar(500)  NULL ,
-	IdArea               int  NOT NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	IdArea               int  NOT NULL 
 )
 go
 
@@ -704,8 +704,8 @@ CREATE TABLE Etnia
 	IdEtnia              int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(3)  NOT NULL ,
 	Nombre               varchar(100)  NOT NULL ,
-	Descripcion          varchar(500)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Descripcion          varchar(500)  NULL 
 )
 go
 
@@ -743,8 +743,8 @@ CREATE TABLE FinanciadorSalud
 	IdFinanciadorSalud   int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(2)  NOT NULL ,
 	Nombre               varchar(100)  NOT NULL ,
-	Descripcion          varchar(300)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Descripcion          varchar(300)  NULL 
 )
 go
 
@@ -764,8 +764,8 @@ CREATE TABLE FormularioHIS
 	Turno                char(1)  NULL ,
 	Fecha                datetime  NULL ,
 	Establecimiento      varchar(300)  NULL ,
-	IdUnidadProductoraServicio int  NULL ,
-	ResponsableAtencion  varchar(200)  NULL 
+	ResponsableAtencion  varchar(200)  NULL ,
+	IdUnidadProductoraServicio int  NULL 
 )
 go
 
@@ -800,9 +800,9 @@ CREATE TABLE HistoriaClinica
 	IdHistoriaClinica    bigint IDENTITY ( 1,1 ) ,
 	Numero               varchar(10)  NOT NULL ,
 	IdPaciente           bigint  NOT NULL ,
-	IdAntecedentes       bigint  NOT NULL ,
+	IdUsuarioCreacion    bigint  NOT NULL ,
 	FechaRegistro        datetime  NOT NULL ,
-	IdUsuarioCreacion    bigint  NOT NULL 
+	IdAntecedentes       bigint  NOT NULL 
 )
 go
 
@@ -850,9 +850,9 @@ CREATE TABLE Laboratorio
 ( 
 	IdLaboratorio        int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(3)  NOT NULL ,
-	Nombre               varchar(100)  NOT NULL ,
 	Descripcion          varchar(300)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 
@@ -884,8 +884,8 @@ go
 
 CREATE TABLE MenusxPerfil
 ( 
-	IdMenuPerfil         int IDENTITY ( 1,1 ) ,
 	IdPerfil             int  NOT NULL ,
+	IdMenuPerfil         int IDENTITY ( 1,1 ) ,
 	Menu                 varchar(50)  NOT NULL 
 )
 go
@@ -973,8 +973,8 @@ CREATE TABLE Pais
 ( 
 	IdPais               int IDENTITY ( 1,1 ) ,
 	Nombre               varchar(40)  NOT NULL ,
-	Descripcion          varchar(300)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Descripcion          varchar(300)  NULL 
 )
 go
 
@@ -1009,10 +1009,9 @@ CREATE TABLE Persona
 	Paterno              varchar(30)  NULL ,
 	Materno              varchar(30)  NULL ,
 	Nombres              varchar(30)  NULL ,
-	Sexo                 varchar(9)  NULL ,
 	FechaNacimiento      datetime  NULL ,
+	Sexo                 varchar(9)  NULL ,
 	IdTipoDocumento      int  NULL ,
-	NumeroDocumento      varchar(50)  NULL ,
 	EstadoCivil          varchar(10)  NULL ,
 	IdLugarNacimiento    int  NULL ,
 	IdDomicilio          int  NULL ,
@@ -1020,7 +1019,8 @@ CREATE TABLE Persona
 	Celular              varchar(12)  NULL ,
 	CorreoElectronico    varchar(100)  NULL ,
 	FechaRegistro        datetime  NULL ,
-	TipoPersona          varchar(8)  NOT NULL 
+	TipoPersona          varchar(8)  NOT NULL ,
+	NumeroDocumento      varchar(50)  NULL 
 )
 go
 
@@ -1053,10 +1053,10 @@ CREATE TABLE TablaAuditada
 ( 
 	IdTablaAuditada      int IDENTITY ( 1,1 ) ,
 	Tabla                varchar(100)  NOT NULL ,
-	IndAuditoria         char(1)  NOT NULL ,
 	Insertar             char(1)  NOT NULL ,
 	Actualizar           char(1)  NOT NULL ,
-	Eliminar             char(1)  NOT NULL 
+	Eliminar             char(1)  NOT NULL ,
+	IndAuditoria         char(1)  NOT NULL 
 )
 go
 
@@ -1122,9 +1122,9 @@ CREATE TABLE UnidadProductoraServicio
 ( 
 	IdUnidadProductoraServicio int IDENTITY ( 1,1 ) ,
 	Codigo               varchar(7)  NOT NULL ,
-	Nombre               varchar(100)  NOT NULL ,
 	Descripcion          varchar(300)  NULL ,
-	Estado               varchar(8)  NOT NULL 
+	Estado               varchar(8)  NOT NULL ,
+	Nombre               varchar(100)  NOT NULL 
 )
 go
 

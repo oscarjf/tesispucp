@@ -37,7 +37,6 @@
             this.gbxDatosFormulario = new System.Windows.Forms.GroupBox();
             this.cboFinanciadorSalud = new System.Windows.Forms.ComboBox();
             this.lblFinanciadorSalud = new System.Windows.Forms.Label();
-            this.btnImportar = new System.Windows.Forms.Button();
             this.gbxServicio = new System.Windows.Forms.GroupBox();
             this.rbtnServicioR = new System.Windows.Forms.RadioButton();
             this.rbtnServicioC = new System.Windows.Forms.RadioButton();
@@ -60,6 +59,7 @@
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblDistritoProcedencia = new System.Windows.Forms.Label();
             this.lblNumeroHistoriaClinica = new System.Windows.Forms.Label();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.ttpInformacion = new System.Windows.Forms.ToolTip(this.components);
@@ -157,19 +157,6 @@
             this.lblFinanciadorSalud.Size = new System.Drawing.Size(110, 13);
             this.lblFinanciadorSalud.TabIndex = 40;
             this.lblFinanciadorSalud.Text = "Financiador de Salud:";
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
-            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(19, 334);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(75, 23);
-            this.btnImportar.TabIndex = 37;
-            this.btnImportar.Text = "Importar";
-            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImportar.UseVisualStyleBackColor = true;
             // 
             // gbxServicio
             // 
@@ -402,6 +389,19 @@
             this.lblNumeroHistoriaClinica.Size = new System.Drawing.Size(136, 13);
             this.lblNumeroHistoriaClinica.TabIndex = 0;
             this.lblNumeroHistoriaClinica.Text = "Número de Historia Clínica:";
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
+            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportar.Location = new System.Drawing.Point(19, 334);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(75, 23);
+            this.btnImportar.TabIndex = 37;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImportar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfigurar));
             this.gbxSistema = new System.Windows.Forms.GroupBox();
+            this.txtContrasena = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtUsuario = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtBaseDatos = new SistemaCentroSalud.Controles.cuTextBox();
+            this.txtServidor = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblBaseDatos = new System.Windows.Forms.Label();
@@ -38,10 +42,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblContrasenaSeguridad = new System.Windows.Forms.Label();
             this.txtContrasenaSeguridad = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtContrasena = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtUsuario = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtBaseDatos = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtServidor = new SistemaCentroSalud.Controles.cuTextBox();
             this.gbxSistema.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,44 @@
             this.gbxSistema.TabIndex = 1;
             this.gbxSistema.TabStop = false;
             this.gbxSistema.Text = "Sistema";
+            // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Location = new System.Drawing.Point(120, 146);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
+            this.txtContrasena.Size = new System.Drawing.Size(153, 20);
+            this.txtContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtContrasena.TabIndex = 5;
+            this.txtContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(120, 106);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.PasswordChar = '*';
+            this.txtUsuario.Size = new System.Drawing.Size(153, 20);
+            this.txtUsuario.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtBaseDatos
+            // 
+            this.txtBaseDatos.Location = new System.Drawing.Point(120, 66);
+            this.txtBaseDatos.Name = "txtBaseDatos";
+            this.txtBaseDatos.Size = new System.Drawing.Size(153, 20);
+            this.txtBaseDatos.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtBaseDatos.TabIndex = 3;
+            this.txtBaseDatos.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
+            // 
+            // txtServidor
+            // 
+            this.txtServidor.Location = new System.Drawing.Point(120, 26);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(269, 20);
+            this.txtServidor.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtServidor.TabIndex = 2;
+            this.txtServidor.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // lblContrasena
             // 
@@ -144,44 +182,6 @@
             this.txtContrasenaSeguridad.TabIndex = 0;
             this.txtContrasenaSeguridad.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             this.txtContrasenaSeguridad.TextChanged += new System.EventHandler(this.txtContrasenaSeguridad_TextChanged);
-            // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Location = new System.Drawing.Point(120, 146);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(153, 20);
-            this.txtContrasena.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtContrasena.TabIndex = 5;
-            this.txtContrasena.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(120, 106);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.PasswordChar = '*';
-            this.txtUsuario.Size = new System.Drawing.Size(153, 20);
-            this.txtUsuario.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtUsuario.TabIndex = 4;
-            this.txtUsuario.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtBaseDatos
-            // 
-            this.txtBaseDatos.Location = new System.Drawing.Point(120, 66);
-            this.txtBaseDatos.Name = "txtBaseDatos";
-            this.txtBaseDatos.Size = new System.Drawing.Size(153, 20);
-            this.txtBaseDatos.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtBaseDatos.TabIndex = 3;
-            this.txtBaseDatos.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
-            // 
-            // txtServidor
-            // 
-            this.txtServidor.Location = new System.Drawing.Point(120, 26);
-            this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(269, 20);
-            this.txtServidor.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtServidor.TabIndex = 2;
-            this.txtServidor.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Mixto;
             // 
             // frmConfigurar
             // 

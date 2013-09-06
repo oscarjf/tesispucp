@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\cuComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\cuComboBox.Designer.cs">
+      <DependentUpon>cuComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\cuRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

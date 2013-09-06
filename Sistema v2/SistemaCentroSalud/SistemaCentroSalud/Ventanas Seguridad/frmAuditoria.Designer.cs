@@ -45,21 +45,12 @@
             this.txtAuditadaBuscar = new System.Windows.Forms.Label();
             this.cboTipoBuscar = new System.Windows.Forms.ComboBox();
             this.lblTipoBuscar = new System.Windows.Forms.Label();
+            this.txtTablaBuscar = new SistemaCentroSalud.Controles.cuTextBox();
             this.lblTablaBuscar = new System.Windows.Forms.Label();
             this.tbpDetalle = new System.Windows.Forms.TabPage();
             this.btnVolver = new System.Windows.Forms.Button();
             this.gbxInformacion = new System.Windows.Forms.GroupBox();
             this.dgvColumnas = new System.Windows.Forms.DataGridView();
-            this.gbxCriteriosDetalle = new System.Windows.Forms.GroupBox();
-            this.dtpFechaFinDetalle = new System.Windows.Forms.DateTimePicker();
-            this.cbxFechaFinDetalle = new System.Windows.Forms.CheckBox();
-            this.dtpFechaInicioDetalle = new System.Windows.Forms.DateTimePicker();
-            this.cbxFechaInicioDetalle = new System.Windows.Forms.CheckBox();
-            this.cboTipoDetalle = new System.Windows.Forms.ComboBox();
-            this.lblTipoDetalle = new System.Windows.Forms.Label();
-            this.lblUsuarioDetalle = new System.Windows.Forms.Label();
-            this.txtTablaBuscar = new SistemaCentroSalud.Controles.cuTextBox();
-            this.txtUsuarioDetalle = new SistemaCentroSalud.Controles.cuTextBox();
             this.colIdAuditoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +59,15 @@
             this.colColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAntiguoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNuevoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbxCriteriosDetalle = new System.Windows.Forms.GroupBox();
+            this.dtpFechaFinDetalle = new System.Windows.Forms.DateTimePicker();
+            this.cbxFechaFinDetalle = new System.Windows.Forms.CheckBox();
+            this.dtpFechaInicioDetalle = new System.Windows.Forms.DateTimePicker();
+            this.cbxFechaInicioDetalle = new System.Windows.Forms.CheckBox();
+            this.cboTipoDetalle = new System.Windows.Forms.ComboBox();
+            this.lblTipoDetalle = new System.Windows.Forms.Label();
+            this.txtUsuarioDetalle = new SistemaCentroSalud.Controles.cuTextBox();
+            this.lblUsuarioDetalle = new System.Windows.Forms.Label();
             this.tbcAuditoria.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablas)).BeginInit();
@@ -269,6 +269,18 @@
             this.lblTipoBuscar.TabIndex = 2;
             this.lblTipoBuscar.Text = "Tipo de Auditoría:";
             // 
+            // txtTablaBuscar
+            // 
+            this.txtTablaBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTablaBuscar.Location = new System.Drawing.Point(104, 22);
+            this.txtTablaBuscar.MaxLength = 50;
+            this.txtTablaBuscar.Name = "txtTablaBuscar";
+            this.txtTablaBuscar.Size = new System.Drawing.Size(192, 20);
+            this.txtTablaBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
+            this.txtTablaBuscar.TabIndex = 1;
+            this.txtTablaBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
+            this.txtTablaBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
+            // 
             // lblTablaBuscar
             // 
             this.lblTablaBuscar.AutoSize = true;
@@ -344,6 +356,69 @@
             this.dgvColumnas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvColumnas.Size = new System.Drawing.Size(686, 236);
             this.dgvColumnas.TabIndex = 2;
+            // 
+            // colIdAuditoria
+            // 
+            this.colIdAuditoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colIdAuditoria.HeaderText = "IdAuditoria";
+            this.colIdAuditoria.Name = "colIdAuditoria";
+            this.colIdAuditoria.ReadOnly = true;
+            this.colIdAuditoria.Visible = false;
+            // 
+            // colFecha
+            // 
+            this.colFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFecha.HeaderText = "Fecha";
+            this.colFecha.Name = "colFecha";
+            this.colFecha.ReadOnly = true;
+            // 
+            // colHora
+            // 
+            this.colHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHora.FillWeight = 70F;
+            this.colHora.HeaderText = "Hora";
+            this.colHora.Name = "colHora";
+            this.colHora.ReadOnly = true;
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUsuario.FillWeight = 280F;
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            // 
+            // colTipo
+            // 
+            this.colTipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTipo.FillWeight = 80F;
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            // 
+            // colColumna
+            // 
+            this.colColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colColumna.FillWeight = 150F;
+            this.colColumna.HeaderText = "Columna";
+            this.colColumna.Name = "colColumna";
+            this.colColumna.ReadOnly = true;
+            // 
+            // colAntiguoValor
+            // 
+            this.colAntiguoValor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAntiguoValor.FillWeight = 150F;
+            this.colAntiguoValor.HeaderText = "Antiguo Valor";
+            this.colAntiguoValor.Name = "colAntiguoValor";
+            this.colAntiguoValor.ReadOnly = true;
+            // 
+            // colNuevoValor
+            // 
+            this.colNuevoValor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNuevoValor.FillWeight = 150F;
+            this.colNuevoValor.HeaderText = "Nuevo Valor";
+            this.colNuevoValor.Name = "colNuevoValor";
+            this.colNuevoValor.ReadOnly = true;
             // 
             // gbxCriteriosDetalle
             // 
@@ -432,27 +507,6 @@
             this.lblTipoDetalle.TabIndex = 2;
             this.lblTipoDetalle.Text = "Tipo de Auditoría:";
             // 
-            // lblUsuarioDetalle
-            // 
-            this.lblUsuarioDetalle.AutoSize = true;
-            this.lblUsuarioDetalle.Location = new System.Drawing.Point(6, 25);
-            this.lblUsuarioDetalle.Name = "lblUsuarioDetalle";
-            this.lblUsuarioDetalle.Size = new System.Drawing.Size(46, 13);
-            this.lblUsuarioDetalle.TabIndex = 0;
-            this.lblUsuarioDetalle.Text = "Usuario:";
-            // 
-            // txtTablaBuscar
-            // 
-            this.txtTablaBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTablaBuscar.Location = new System.Drawing.Point(104, 22);
-            this.txtTablaBuscar.MaxLength = 50;
-            this.txtTablaBuscar.Name = "txtTablaBuscar";
-            this.txtTablaBuscar.Size = new System.Drawing.Size(192, 20);
-            this.txtTablaBuscar.Solo_Lectura = SistemaCentroSalud.Controles.cuTextBox.SoloLectura.falso;
-            this.txtTablaBuscar.TabIndex = 1;
-            this.txtTablaBuscar.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
-            this.txtTablaBuscar.TextChanged += new System.EventHandler(this.buscarCriterios);
-            // 
             // txtUsuarioDetalle
             // 
             this.txtUsuarioDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -465,68 +519,14 @@
             this.txtUsuarioDetalle.TipoCajaTexto = SistemaCentroSalud.Controles.cuTextBox.TipoTextBox.Letras;
             this.txtUsuarioDetalle.TextChanged += new System.EventHandler(this.seleccionarCriterios);
             // 
-            // colIdAuditoria
+            // lblUsuarioDetalle
             // 
-            this.colIdAuditoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colIdAuditoria.HeaderText = "IdAuditoria";
-            this.colIdAuditoria.Name = "colIdAuditoria";
-            this.colIdAuditoria.ReadOnly = true;
-            this.colIdAuditoria.Visible = false;
-            // 
-            // colFecha
-            // 
-            this.colFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.Name = "colFecha";
-            this.colFecha.ReadOnly = true;
-            // 
-            // colHora
-            // 
-            this.colHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHora.FillWeight = 70F;
-            this.colHora.HeaderText = "Hora";
-            this.colHora.Name = "colHora";
-            this.colHora.ReadOnly = true;
-            // 
-            // colUsuario
-            // 
-            this.colUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colUsuario.FillWeight = 280F;
-            this.colUsuario.HeaderText = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.ReadOnly = true;
-            // 
-            // colTipo
-            // 
-            this.colTipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTipo.FillWeight = 80F;
-            this.colTipo.HeaderText = "Tipo";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            // 
-            // colColumna
-            // 
-            this.colColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colColumna.FillWeight = 150F;
-            this.colColumna.HeaderText = "Columna";
-            this.colColumna.Name = "colColumna";
-            this.colColumna.ReadOnly = true;
-            // 
-            // colAntiguoValor
-            // 
-            this.colAntiguoValor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colAntiguoValor.FillWeight = 150F;
-            this.colAntiguoValor.HeaderText = "Antiguo Valor";
-            this.colAntiguoValor.Name = "colAntiguoValor";
-            this.colAntiguoValor.ReadOnly = true;
-            // 
-            // colNuevoValor
-            // 
-            this.colNuevoValor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNuevoValor.FillWeight = 150F;
-            this.colNuevoValor.HeaderText = "Nuevo Valor";
-            this.colNuevoValor.Name = "colNuevoValor";
-            this.colNuevoValor.ReadOnly = true;
+            this.lblUsuarioDetalle.AutoSize = true;
+            this.lblUsuarioDetalle.Location = new System.Drawing.Point(6, 25);
+            this.lblUsuarioDetalle.Name = "lblUsuarioDetalle";
+            this.lblUsuarioDetalle.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuarioDetalle.TabIndex = 0;
+            this.lblUsuarioDetalle.Text = "Usuario:";
             // 
             // frmAuditoria
             // 

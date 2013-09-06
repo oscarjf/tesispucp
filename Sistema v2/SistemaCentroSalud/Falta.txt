@@ -1,7 +1,7 @@
-- Cargar foto
 - Tomar foto
-
-Optimizar:
-
-- Un solo metodo para los txt y cbo Buscar
-
+- Citas
+- Historia Clinica
+- Formulari HIS
+- Disponibilidad
+- Horarios
+- Reportes

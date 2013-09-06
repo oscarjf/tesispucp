@@ -46,6 +46,13 @@ namespace Modelo
             get { return dtFechaNacimiento; }
             set { dtFechaNacimiento = value; }
         }
+        private int numEdad;
+
+        public int _NumEdad
+        {
+            get { return numEdad; }
+            set { numEdad = value; }
+        }
         private int numIdTipoDocumento;
 
         public int IdTipoDocumento
@@ -242,6 +249,13 @@ namespace Modelo
             get { return strFactorSanguineo; }
             set { strFactorSanguineo = value; }
         }
+        private int numIdHistoriaClinica;
+
+        public int _IdHistoriaClinica
+        {
+            get { return numIdHistoriaClinica; }
+            set { numIdHistoriaClinica = value; }
+        }
         private string strNumeroHistoriaClinica;
 
         public string NumeroHistoriaClinica
@@ -270,6 +284,7 @@ namespace Modelo
             Nombres = "";
             Sexo = "";
             FechaNacimiento = DateTime.Now;
+            _NumEdad = 0;
             IdTipoDocumento = 0;
             _TipoDocumento = "";
             NumeroDocumento = "";
@@ -296,6 +311,7 @@ namespace Modelo
             _Religion = "";
             GrupoSanguineo = "";
             FactorSanguineo = "";
+            _IdHistoriaClinica = 0;
             NumeroHistoriaClinica = "";
             IdEmpleado = 0;
         }

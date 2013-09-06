@@ -1,7 +1,15 @@
-- Tomar foto
-- Citas
-- Historia Clinica
-- Formulari HIS
-- Disponibilidad
-- Horarios
-- Reportes
+- Tomar foto [C]
+- Citas (Tercero y ultimo, en base a los horarios otro administrativo (ventanilla) genera las citas)
+- Historia Clinica [W]
+- Formulari HIS [W]
+- Disponibilidad (Primero, cada doctor ingresa su disponibilidad)
+- Horarios (Segundo, un administrativo en base a la disponibilidad de c/medico arma los horarios)
+- Reportes [C]
+
+
+
+REPORTES
+- Reporte de Enfermedades por Mes (En base al CIE10)
+- Reporte de Atenciones de Medico por Mes(En base al HIS)
+- Reporte de Registro de Pacientes por Mes
+- Buscar mas reportes

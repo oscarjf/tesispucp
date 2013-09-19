@@ -316,6 +316,7 @@ namespace Modelo
             CMP = "";
             IndicadorHC = "";
             ListaIdEspecialidades = "";
+            _Especialidades = new List<clsEspecialidad>();
             Estado = "ACTIVO";
         }
     }

@@ -270,6 +270,20 @@ namespace Modelo
             get { return numIdEmpleado; }
             set { numIdEmpleado = value; }
         }
+        private int numIdEpisodio;
+
+        public int IdEpisodio
+        {
+            get { return numIdEpisodio; }
+            set { numIdEpisodio = value; }
+        }
+        private int numIdModoIngreso;
+
+        public int IdModoIngreso
+        {
+            get { return numIdModoIngreso; }
+            set { numIdModoIngreso = value; }
+        }
         
         public override string ToString()
         {
@@ -314,6 +328,8 @@ namespace Modelo
             _IdHistoriaClinica = 0;
             NumeroHistoriaClinica = "";
             IdEmpleado = 0;
+            IdEpisodio = 0;
+            IdModoIngreso = 0;
         }
     }
 }

@@ -46,16 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAdministrativo.cs" />
+    <Compile Include="clsAntecedentes.cs" />
     <Compile Include="clsArea.cs" />
     <Compile Include="clsAuditoria.cs" />
     <Compile Include="clsBaseDatos.cs" />
     <Compile Include="clsConsultorio.cs" />
     <Compile Include="clsCPT.cs" />
+    <Compile Include="clsDetalleDiagnostico.cs" />
     <Compile Include="clsDetalleDisponibilidad.cs" />
     <Compile Include="clsDetalleHorario.cs" />
+    <Compile Include="clsDiagnostico.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsEnfermero.cs" />
-    <Compile Include="clsEpisodio.cs" />
+    <Compile Include="clsEpisodio.cs">
+    </Compile>
     <Compile Include="clsEspecialidad.cs" />
     <Compile Include="clsEtnia.cs" />
     <Compile Include="clsFinanciadorSalud.cs" />

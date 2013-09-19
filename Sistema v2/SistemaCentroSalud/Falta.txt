@@ -5,7 +5,8 @@
 - Disponibilidad (Primero, cada doctor ingresa su disponibilidad)
 - Horarios (Segundo, un administrativo en base a la disponibilidad de c/medico arma los horarios)
 - Reportes [C]
-
+- Modulo de visualizacion de citas y llamada por voz [W]
+- Se creo la funcion fn_QuitarTildes (Usar al momento de crear los nombres de Usuario)[W]
 
 
 REPORTES

@@ -200,6 +200,10 @@ namespace SistemaCentroSalud
 
                 dtMenus = dtAuxiliar;
                 strTipoEmpleado = "CONFIGURACIÓN INICIAL";
+
+                frmPrincipal ventanaPrincipal = new frmPrincipal(this);
+                ventanaPrincipal.Show();
+                this.Visible = false;
             }
             else
             {
@@ -214,6 +218,10 @@ namespace SistemaCentroSalud
 
                         dtMenus = ctrEmpleado.obtenerMenusPerfil(numIdEmpleado);
                         strTipoEmpleado = ctrEmpleado.obtenerTipoEmpleado(numIdEmpleado);
+
+                        frmPrincipal ventanaPrincipal = new frmPrincipal(this);
+                        ventanaPrincipal.Show();
+                        this.Visible = false;
                     }
                     else if (numId != -1)
                     {
@@ -227,10 +235,6 @@ namespace SistemaCentroSalud
                     }
                 }
             }
-            
-            frmPrincipal ventanaPrincipal = new frmPrincipal(this);
-            ventanaPrincipal.Show();
-            this.Visible = false;
 
             Cursor.Current = Cursors.Default;
         }
@@ -293,7 +297,7 @@ namespace SistemaCentroSalud
                     while (true)
                     {
                         Cursor.Current = Cursors.WaitCursor;
- 
+                        
                         if (clsComun.enviarCorreo(value, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
                         {
                             MessageBox.Show("Se enviaron sus datos a la dirección de correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

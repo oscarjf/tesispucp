@@ -669,7 +669,7 @@ namespace SistemaCentroSalud
 
         private void bbtnAuditoria_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-
+            smnuAuditoria_Click(sender, e);
         }
     }
 }

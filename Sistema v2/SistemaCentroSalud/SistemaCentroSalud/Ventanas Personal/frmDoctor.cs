@@ -739,7 +739,7 @@ namespace SistemaCentroSalud.Ventanas_Personal
                     objDoctor.Direccion = txtDireccion.Text;
                     objDoctor.CMP = txtCMP.Text;
                     objDoctor.IdArea = ((clsArea)cboArea.SelectedItem).IdArea;
-                    string strListaIdEspecialidades = strListaIdEspecialidades = ((clsEspecialidad)lbxEspecialidadesDoctor.Items[0]).IdEspecialidad + "";
+                    string strListaIdEspecialidades = ((clsEspecialidad)lbxEspecialidadesDoctor.Items[0]).IdEspecialidad + "";
 
                     for (int i = 1; i < lbxEspecialidadesDoctor.Items.Count; i++)
                     {

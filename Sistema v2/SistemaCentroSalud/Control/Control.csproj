@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ctrAdministrativo.cs" />
+    <Compile Include="ctrAntecedentes.cs" />
     <Compile Include="ctrArea.cs" />
     <Compile Include="ctrBaseDatos.cs" />
     <Compile Include="ctrConsultorio.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="ctrDoctor.cs" />
     <Compile Include="ctrEmpleado.cs" />
     <Compile Include="ctrEnfermero.cs" />
+    <Compile Include="ctrEpisodio.cs" />
     <Compile Include="ctrEspecialidad.cs" />
     <Compile Include="ctrEtnia.cs" />
     <Compile Include="ctrFinanciadorSalud.cs" />

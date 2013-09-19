@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Reflection;
 using Acceso;
 using Modelo;
+using System;
 
 namespace Control
 {
@@ -166,6 +167,32 @@ namespace Control
 
             objModoIngreso.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
             objModoIngreso.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
+
+            return objModoIngreso;
+        }
+
+        public static clsModoIngreso seleccionarModoIngreso(int numIdEpisodio)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdEpisodio";
+            sqlParametro.Value = numIdEpisodio;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_SelModoIngreso", lstParametrosSQL);
+
+            clsModoIngreso objModoIngreso = new clsModoIngreso();
+
+            if (dtResultado.Rows.Count > 0)
+            {
+                objModoIngreso.IdModoIngreso = Int32.Parse(dtResultado.Rows[0]["IdModoIngreso"].ToString());
+                objModoIngreso.Nombre = dtResultado.Rows[0]["Nombre"].ToString();
+                objModoIngreso.Descripcion = dtResultado.Rows[0]["Descripcion"].ToString();
+            }
 
             return objModoIngreso;
         }

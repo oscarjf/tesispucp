@@ -300,6 +300,44 @@ namespace Comun
         }
 
         /// <summary>
+        /// Convierte una lista a un archivo XML
+        /// </summary>
+        /// <param name="lstDetalleDisponibilidad"> Lista a ser convertida </param>
+        /// <returns>string</returns>
+        public static string Serializar(List<clsDetalleDiagnostico> lstDetalleDiagnostico)
+        {
+            string strXML = null;
+
+            MemoryStream ms = new MemoryStream();
+            XmlSerializer xs = new XmlSerializer(typeof(List<clsDetalleDiagnostico>));
+            XmlTextWriter xtw = new XmlTextWriter(ms, Encoding.Default);
+
+            XmlSerializerNamespaces xsn = new XmlSerializerNamespaces();
+            xsn.Add(String.Empty, String.Empty);
+
+            xs.Serialize(xtw, lstDetalleDiagnostico, xsn);
+            ms = (MemoryStream)xtw.BaseStream;
+
+            UTF8Encoding encoding = new UTF8Encoding();
+            strXML = encoding.GetString(ms.ToArray());
+
+            XmlDocument xmlDocumento = new XmlDocument();
+            xmlDocumento.LoadXml(strXML);
+
+            CambiarXmlEncoding(xmlDocumento, "UTF-16");
+            StringWriter sr = new StringWriter();
+            XmlTextWriter xmltr = new XmlTextWriter(sr);
+            xmlDocumento.WriteTo(xmltr);
+
+            strXML = sr.ToString();
+
+            sr.Close();
+            xmltr.Close();
+
+            return strXML;
+        }
+
+        /// <summary>
         /// Cambia el codificado de un archivo XML
         /// </summary>
         /// <param name="xmlDocumento"> Documento XML </param>

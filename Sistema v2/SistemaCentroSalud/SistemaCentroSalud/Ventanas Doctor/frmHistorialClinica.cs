@@ -21,6 +21,7 @@ namespace SistemaCentroSalud.Ventanas_Doctor
         private int numIdHistoriaClinica;
         private int numIdAntecedentes;
         private int numIdEpisodio;
+        private int numIdEnfermedad;
         private bool blnExiste = false;
         private clsEpisodio objEpisodio;
 
@@ -399,7 +400,8 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                 dgvEpisodios.Rows.Add(new String[] { dtEpisodios.Rows[i]["IdEpisodio"].ToString(),
                                                      ((DateTime)dtEpisodios.Rows[i]["FechaRegistro"]).ToShortDateString(),
                                                      ((DateTime)dtEpisodios.Rows[i]["FechaRegistro"]).ToShortTimeString(),
-                                                     strTitulo + dtEpisodios.Rows[i]["Responsable"].ToString() });
+                                                     strTitulo + dtEpisodios.Rows[i]["Responsable"].ToString(),
+                                                     dtEpisodios.Rows[i]["IdEnfermedad"].ToString()});
             }
 
             if (dtEpisodios.Rows.Count > 0)
@@ -768,7 +770,7 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                     rtxtSintomasEnfermedad.Text = objEpisodio.Sintomas;
                     rtxtRelatoCronologico.Text = objEpisodio.RelatoCronologico;
 
-                    //rtxtEctoscopiaAnterior.Text = FALTA
+                    rtxtEctoscopiaAnterior.Text = ctrEpisodio.seleccionarEctoscopia(objPaciente._IdHistoriaClinica);
                     rtxtEctoscopiaActual.Text = objEpisodio.Ectoscopia;
 
                     txtTemperatura.Text = objEpisodio.Temperatura;
@@ -1220,6 +1222,8 @@ namespace SistemaCentroSalud.Ventanas_Doctor
                 numIdAntecedentes = Int32.Parse(dgvHistoriasClinicas.Rows[dgvHistoriasClinicas.CurrentRow.Index].Cells[10].Value.ToString());
 
                 numIdEpisodio = Int32.Parse(dgvEpisodios.Rows[dgvEpisodios.CurrentRow.Index].Cells[0].Value.ToString());
+
+                numIdEnfermedad = Int32.Parse(dgvEpisodios.Rows[dgvEpisodios.CurrentRow.Index].Cells[4].Value.ToString());
 
                 clsPaciente objPaciente = new clsPaciente();
                 objPaciente.IdPaciente = numIdPaciente;

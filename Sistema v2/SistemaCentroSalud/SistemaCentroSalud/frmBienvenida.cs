@@ -198,6 +198,14 @@ namespace SistemaCentroSalud
                 drAuxiliar["Menu"] = "Unidad Productora de Servicios";
                 dtAuxiliar.Rows.Add(drAuxiliar);
 
+                drAuxiliar = dtAuxiliar.NewRow();
+                drAuxiliar["Menu"] = "Seguridad";
+                dtAuxiliar.Rows.Add(drAuxiliar);
+
+                drAuxiliar = dtAuxiliar.NewRow();
+                drAuxiliar["Menu"] = "Perfil";
+                dtAuxiliar.Rows.Add(drAuxiliar);
+
                 dtMenus = dtAuxiliar;
                 strTipoEmpleado = "CONFIGURACIÓN INICIAL";
 

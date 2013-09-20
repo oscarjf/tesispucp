@@ -285,5 +285,35 @@ namespace Control
 
             return lstParametrosSQL;
         }
+
+        public static string seleccionarEctoscopia(int numIdHistoriaClinica)
+        {
+            List<SqlParameter> lstParametrosSQL = new List<SqlParameter>();
+            SqlParameter sqlParametro;
+
+            sqlParametro = new SqlParameter();
+            sqlParametro.ParameterName = "@IdHistoriaClinica";
+            sqlParametro.Value = numIdHistoriaClinica;
+            sqlParametro.Direction = ParameterDirection.Input;
+
+            lstParametrosSQL.Add(sqlParametro);
+
+            DataTable dtResultado = clsGestorBD.ejecutarStoredProcedureDataTable("up_SelEctoscopia", lstParametrosSQL);
+            string strEctoscopias = "";
+
+            DateTime dtFecha;
+            for (int i = 0; i < dtResultado.Rows.Count; i++)
+            {
+                dtFecha = (DateTime)dtResultado.Rows[i]["FechaRegistro"];
+                strEctoscopias += dtFecha.ToShortDateString() + "\n";
+                if (i == dtResultado.Rows.Count - 1)
+                {
+                    break;
+                }
+                strEctoscopias += "==========" + "\n";
+            }
+            
+            return strEctoscopias;
+        }
     }
 }

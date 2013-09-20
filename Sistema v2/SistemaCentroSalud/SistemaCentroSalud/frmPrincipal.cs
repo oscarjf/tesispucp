@@ -225,6 +225,13 @@ namespace SistemaCentroSalud
             ventanaHistoriaClinica.Show();
         }
 
+        private void smnuFormularioHIS_Click(object sender, EventArgs e)
+        {
+            frmFormularioHIS ventanaFormularioHIS = new frmFormularioHIS();
+            ventanaFormularioHIS.MdiParent = this;
+            ventanaFormularioHIS.Show();
+        }
+
         private void smnuHorario_Click(object sender, EventArgs e)
         {
             if (objEmpleado is clsDoctor)
@@ -624,7 +631,7 @@ namespace SistemaCentroSalud
 
         private void bbtnFormularioHIS_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-
+            smnuFormularioHIS_Click(sender, e);
         }
 
         private void bbtnSalir_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)

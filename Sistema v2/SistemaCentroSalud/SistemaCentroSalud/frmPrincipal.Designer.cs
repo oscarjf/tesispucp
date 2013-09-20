@@ -291,6 +291,7 @@
             this.smnuFormularioHIS.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.smnuFormularioHIS.Size = new System.Drawing.Size(247, 24);
             this.smnuFormularioHIS.Text = "Formulario HIS";
+            this.smnuFormularioHIS.Click += new System.EventHandler(this.smnuFormularioHIS_Click);
             // 
             // tsspDisponibilidad
             // 

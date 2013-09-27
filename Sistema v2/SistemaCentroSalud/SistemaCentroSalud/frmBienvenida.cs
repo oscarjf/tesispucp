@@ -13,7 +13,7 @@ namespace SistemaCentroSalud
         private string strContrasena = "";
         private string strTipoEmpleado = "";
         private DataTable dtMenus;
-        
+
         public frmBienvenida()
         {
             InitializeComponent();
@@ -101,7 +101,7 @@ namespace SistemaCentroSalud
                 dtAuxiliar.Columns.Clear();
                 dtAuxiliar.Rows.Clear();
                 dtAuxiliar.Columns.Add(new DataColumn("Menu", typeof(string)));
-                
+
                 drAuxiliar = dtAuxiliar.NewRow();
                 drAuxiliar["Menu"] = "Personal";
                 dtAuxiliar.Rows.Add(drAuxiliar);
@@ -305,7 +305,7 @@ namespace SistemaCentroSalud
                     while (true)
                     {
                         Cursor.Current = Cursors.WaitCursor;
-                        
+
                         if (clsComun.enviarCorreo(value, strPaterno, strMaterno, strNombres, strUsuario, strContrasena))
                         {
                             MessageBox.Show("Se enviaron sus datos a la dirección de correo electrónico", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -316,7 +316,7 @@ namespace SistemaCentroSalud
                             if (MessageBox.Show("Ocurrió un error mientras se intentaba enviar sus datos a la dirección de correo electrónico", "Mensaje", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Cancel)
                             {
                                 break;
-                            }                       
+                            }
                         }
                     }
 
